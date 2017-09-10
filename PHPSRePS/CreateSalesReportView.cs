@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PHPSRePS
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
+namespace PHPSRePS {
+    public partial class CreateSalesReportView : Form {
+        public CreateSalesReportView() {
             InitializeComponent();
+        }
+
+        private void GenerateReport(DateTime fromTime, DateTime toTime, string format) {
+
         }
     }
 }
