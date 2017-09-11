@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PHPSRePS {
-    public partial class CreateSalesReportView : Form {
-        public CreateSalesReportView() {
+    public partial class CreateReportView : Form {
+        public CreateReportView() {
             InitializeComponent();
         }
 
-        private void GenerateReport(DateTime fromTime, DateTime toTime, string format) {
+        private void GenerateSalesReport(DateTime fromTime, DateTime toTime, string format) {
+
+        }
+
+        private void GeneratePredictionsReport(DateTime fromTime, DateTime toTime, string format) {
 
         }
     }

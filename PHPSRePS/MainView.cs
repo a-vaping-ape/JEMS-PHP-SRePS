@@ -32,7 +32,7 @@ namespace PHPSRePS {
          * navigate to the create sales report view
          */
         private void OpenCreateSalesReport(object sender, EventArgs e) {
-            new CreateSalesReportView().ShowDialog();
+            new CreateReportView().ShowDialog();
         }
     }
 }

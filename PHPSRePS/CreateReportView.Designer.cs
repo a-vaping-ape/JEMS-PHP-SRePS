@@ -1,6 +1,6 @@
 ﻿namespace PHPSRePS
 {
-    partial class CreateSalesReportView
+    partial class CreateReportView
     {
         /// <summary>
         /// Required designer variable.
