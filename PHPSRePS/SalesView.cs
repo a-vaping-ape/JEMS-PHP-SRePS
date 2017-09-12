@@ -14,8 +14,11 @@ namespace PHPSRePS {
             InitializeComponent();
         }
 
+        private void LoadSales() {
 
-        private void SelectSale() {
+        }
+
+        private void DisplayAllSales() {
 
         }
 
@@ -24,10 +27,6 @@ namespace PHPSRePS {
         }
 
         private void EditSale() {
-
-        }
-
-        private void ClearAllFields() {
 
         }
     }
