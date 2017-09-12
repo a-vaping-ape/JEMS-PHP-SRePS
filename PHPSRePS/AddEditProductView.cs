@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace PHPSRePS {
     public partial class AddEditProductView : Form {
-        int _productId;
+        // the product to be added or edited
         Product workingProduct = new Product();
 
+        // main constructor
         public AddEditProductView(int productId) {
             InitializeComponent();
 
