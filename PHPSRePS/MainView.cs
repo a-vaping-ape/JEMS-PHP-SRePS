@@ -10,29 +10,30 @@ using System.Windows.Forms;
 
 namespace PHPSRePS {
     public partial class MainView : Form {
+        // TODO sprint2: implement authorisation + levels of security
+
         public MainView() {
             InitializeComponent();
         }
 
-        /*
-         * navigate to the inventory view
-         */
+        // navigate to the inventory view
         private void OpenInventory(object sender, EventArgs e) {
             new InventoryView().ShowDialog();
         }
 
-        /*
-         * navigate to the sales view
-         */
+        // navigate to the sales view
         private void OpenSales(object sender, EventArgs e) {
             new SalesView().ShowDialog();
         }
 
-        /*
-         * navigate to the create sales report view
-         */
+        // navigate to the create sales report view
         private void OpenCreateSalesReport(object sender, EventArgs e) {
             new CreateReportView().ShowDialog();
+        }
+
+        // close the application
+        private void CloseApp(object sender, EventArgs e) {
+            Application.Exit();
         }
     }
 }
