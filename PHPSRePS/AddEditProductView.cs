@@ -11,14 +11,14 @@ using System.Windows.Forms;
 namespace PHPSRePS {
     public partial class AddEditProductView : Form {
         int _productId;
-        Product productToAddOrEdit = new Product();
+        Product workingProduct = new Product();
 
         public AddEditProductView(int productId) {
             InitializeComponent();
 
-            productToAddOrEdit.Id = productId;
+            workingProduct.Id = productId;
 
-            if (productToAddOrEdit.Id == 0) {
+            if (workingProduct.Id == 0) {
                 Add();
             } else {
                 Edit();
@@ -29,11 +29,11 @@ namespace PHPSRePS {
             // add code to connect to database here
 
             // populate with user input
-            productToAddOrEdit.Name = "";
-            productToAddOrEdit.Category = "";
-            productToAddOrEdit.Price = 0;
-            productToAddOrEdit.Stock = 0;
-            productToAddOrEdit.Discontinued = false;
+            workingProduct.Name = "";
+            workingProduct.Category = "";
+            workingProduct.Price = 0;
+            workingProduct.Stock = 0;
+            workingProduct.Discontinued = false;
 
             // add code to send data to database here
         }
@@ -42,11 +42,11 @@ namespace PHPSRePS {
             // add code to connect to database here
 
             // search database table for product with the supplied productId and populate object fields with the product's data
-            productToAddOrEdit.Name = "";
-            productToAddOrEdit.Category = "";
-            productToAddOrEdit.Price = 0;
-            productToAddOrEdit.Stock = 0;
-            productToAddOrEdit.Discontinued = false;
+            workingProduct.Name = "";
+            workingProduct.Category = "";
+            workingProduct.Price = 0;
+            workingProduct.Stock = 0;
+            workingProduct.Discontinued = false;
 
             // add code here to fill textfields with loaded data inside toAddEdit
         }
