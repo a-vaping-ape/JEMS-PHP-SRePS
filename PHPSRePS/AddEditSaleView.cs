@@ -10,8 +10,36 @@ using System.Windows.Forms;
 
 namespace PHPSRePS {
     public partial class AddEditSaleView : Form {
-        public AddEditSaleView() {
+        Sales workingSales = new workingSales();
+        
+        public AddEditSaleView(int SalesID) {
             InitializeComponent();
+            
+            workingSales.Id == SalesId;
+            
+            if(workingSales.Id == 0) {
+                Add();
+            }else {
+                Edit();
+            }
+          }
+        private void Add(){
+            workingSales.date="";
+            workingSales.employee="";
+        }
+        
+        private void Edit(){
+            workingSales.date="";
+            workingSales.employee=""; 
+        }
+        
+        private void Delete(){
+            workingSales.date= null;
+            workingSales.employee= null; 
+        }
+        
+        private void Clearfield(){
+            
         }
     }
 }
