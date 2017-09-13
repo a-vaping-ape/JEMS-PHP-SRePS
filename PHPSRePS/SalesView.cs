@@ -25,6 +25,7 @@ namespace PHPSRePS {
             myCommand.ExecuteNonQuery();  
             MySqlDataReader myDataReader = myCommand.ExecuteReader();  
             string XX = "";  
+            
             while (myDataReader.Read() == true)  
             {  
                 sales.id = 0;
@@ -33,7 +34,9 @@ namespace PHPSRePS {
                 
                 saleslist.add(product);
             }
-   
+            
+            myDataReader.Close();  
+            myConnection.Close();  
         }
 
         private void DisplayAllSales() {
