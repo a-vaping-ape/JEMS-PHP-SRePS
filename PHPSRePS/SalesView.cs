@@ -37,15 +37,18 @@ namespace PHPSRePS {
         }
 
         private void DisplayAllSales() {
-
+            foreach(Sales sales in saleslist){
+            }
         }
 
-        private void AddSale() {
-
+        private void AddSale(object sender, EventArgs e) {
+            int salesId = 0;
+            new AddEditSaleView(SalestId).ShowDialog();
         }
 
         private void EditSale() {
-
+            int salesId = 1;
+            new AddEditSaleView(SalestId).ShowDialog();
         }
     }
 }
