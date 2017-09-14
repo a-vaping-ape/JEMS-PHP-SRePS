@@ -67,7 +67,7 @@ namespace PHPSRePS {
             // add code to delete entry from the database here
         }
 
-        private void Clearfield() {
+        private void ClearFields() {
             // set each field in the UI to blank
         }
     }
