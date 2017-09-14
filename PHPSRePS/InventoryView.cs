@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace PHPSRePS {
     public partial class InventoryView : Form {
+        // store all products to be loaded in this list
         List<Product> productList = new List<Product>();
 
         public InventoryView() {

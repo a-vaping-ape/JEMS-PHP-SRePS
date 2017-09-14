@@ -10,36 +10,52 @@ using System.Windows.Forms;
 
 namespace PHPSRePS {
     public partial class AddEditSaleView : Form {
-        Sales workingSales = new workingSales();
+        // the sale to be added or edited
+        Sale workingSale = new Sale();
         
-        public AddEditSaleView(int SalesID) {
+        // main constructor
+        public AddEditSaleView(int saleID) {
             InitializeComponent();
+
+            workingSale.Id = saleID;
             
-            workingSales.Id == SalesId;
-            
-            if(workingSales.Id == 0) {
+            if (workingSale.Id == 0) {
                 Add();
-            }else {
+            } else {
                 Edit();
             }
-          }
-        private void Add(){
-            workingSales.date="";
-            workingSales.employee="";
         }
-        
+
+        private void Add() {
+            // add code to connect to database here
+
+            // populate with user input
+            workingSale.Date = null;
+            workingSale.Employee = null;
+
+            // add code to send data to database here as a new entry
+        }
+
         private void Edit(){
-            workingSales.date="";
-            workingSales.employee=""; 
+            // add code to connect to database here
+
+            // populate with user input
+            workingSale.Date = null;
+            workingSale.Employee = null;
+
+            // add code here to fill textfields with loaded data inside toAddEdit
+
+            // add code to update data in the database here
         }
-        
-        private void Delete(){
-            workingSales.date= null;
-            workingSales.employee= null; 
-        }
-        
-        private void Clearfield(){
+
+        private void Delete() {  // not a requirement but you can add this feature if you want
+            // add code to connect to database here
             
+            // add code to delete entry from the database here
+        }
+
+        private void Clearfield() {
+            // set each field in the UI to blank
         }
     }
 }

@@ -36,7 +36,7 @@ namespace PHPSRePS {
             workingProduct.Stock = 0;
             workingProduct.Discontinued = false;
 
-            // add code to send data to database here
+            // add code to send data to database here as a new entry
         }
 
         private void Edit() {
@@ -50,6 +50,14 @@ namespace PHPSRePS {
             workingProduct.Discontinued = false;
 
             // add code here to fill textfields with loaded data inside toAddEdit
+
+            // add code to update data in the database here
+        }
+
+        private void Delete() {  // not a requirement but you can add this feature if you want
+            // add code to connect to database here
+
+            // add code to delete entry from the database here
         }
 
         private void ClearFields() {

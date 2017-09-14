@@ -10,22 +10,22 @@ namespace PHPSRePS {
        private string _date;
        private string _employee;
        
-       public Sale(){
+       public Sale() {
        }
        
-       public int Id{
+       public int Id {
          get => _id;
-         get => _id = value;          
+         set => _id = value;          
        }
        
-       public string Date{
+       public string Date {
          get => _date;
-         get => _date = value;   
+         set => _date = value;   
        }
        
-       public string Employee{
+       public string Employee {
          get => _employee;
-         get => _employee = value;   
+         set => _employee = value;   
        }
     }
 }

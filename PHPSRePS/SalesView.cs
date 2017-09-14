@@ -10,48 +10,47 @@ using System.Windows.Forms;
 
 namespace PHPSRePS {
     public partial class SalesView : Form {
-        List<Sales> salesList = new List<Sales>();
+        // store all sales to be loaded in this list
+        List<Sale> saleList = new List<Sale>();
             
         public SalesView() {
             InitializeComponent();
             LoadSales();
         }
 
+        /* load data from database into saleList */
         private void LoadSales() {
-            string query = "select * from t_user";  
-            MySqlConnection myConnection = new MySqlConnection("server=XX;user id=XX;password=XX;database=XX");  
-            MySqlCommand myCommand = new MySqlCommand(query, myConnection);  
-            myConnection.Open();  
-            myCommand.ExecuteNonQuery();  
-            MySqlDataReader myDataReader = myCommand.ExecuteReader();  
-            string XX = "";  
-            
-            while (myDataReader.Read() == true)  
-            {  
-                sales.id = 0;
-                sales.date ="";
-                sales.employee ="";
-                
-                saleslist.add(product);
+            // add code to connect to database here
+
+            while (/* enter expression to read table here */ true) {
+                Sale sale = new Sale();
+
+                // populate with database info
+                sale.Id = 0;
+                sale.Date = null;
+                sale.Employee = null;
+
+                saleList.Add(sale);
             }
-            
-            myDataReader.Close();  
-            myConnection.Close();  
         }
 
+        /* display items in productList to the UI */
         private void DisplayAllSales() {
-            foreach(Sales sales in saleslist){
+            foreach (Sale sales in saleList) {
+                // do something
             }
         }
 
+        /* go to AddEditProductView to add a product */
         private void AddSale(object sender, EventArgs e) {
-            int salesId = 0;
-            new AddEditSaleView(SalestId).ShowDialog();
+            int saleId = 0;
+            new AddEditSaleView(saleId).ShowDialog();
         }
 
+        /* go to AddEditProductView to edit a product */
         private void EditSale() {
-            int salesId = 1;
-            new AddEditSaleView(SalestId).ShowDialog();
+            int saleId = 1;
+            new AddEditSaleView(saleId).ShowDialog();
         }
     }
 }
