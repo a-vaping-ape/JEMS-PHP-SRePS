@@ -51,6 +51,10 @@ namespace PHPSRePS {
         private void SaveEdits() {
             // add code to connect to database here
 
+            // populate with user input from UI
+            currentSale.Date = null;
+            currentSale.Employee = null;
+
             // add code to update data in the database here using data in currentSale
 
         }

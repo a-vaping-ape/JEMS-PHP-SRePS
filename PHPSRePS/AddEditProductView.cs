@@ -58,6 +58,13 @@ namespace PHPSRePS {
         private void SaveEdits() {
             // add code to connect to database here
 
+            // populate with user input from UI
+            currentProduct.Name = "";
+            currentProduct.Category = "";
+            currentProduct.Price = 0;
+            currentProduct.Stock = 0;
+            currentProduct.Discontinued = false;
+
             // add code to update data in the database here using data in currentProduct
 
         }
