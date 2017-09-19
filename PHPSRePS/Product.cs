@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PHPSRePS {
-    public class Product {
+    public class Product : HasSQLTable {
+        private const string _SQLTable = "products";
+        private  const string _SQLcols = _SQLTable+"(ProductID,ProductName,CategoryID,UnitPrice,UnitsInStock,Discontinued)";
+        private const string _values = 
+
         private int _id;
         private string _name;
         private string _category;
@@ -45,6 +49,30 @@ namespace PHPSRePS {
         public bool Discontinued {
             get => _discontinued;
             set => _discontinued = value;
+        }
+
+        //gets coulombs used by the mySQL table
+        private string GetSQLValues()
+        {
+            return Id.ToString() + "," + Name + "," + 
+                   Category + "," + Price.ToString()+"," + 
+                   Stock.ToString() + "," + Discontinued.ToString();
+        }
+
+        //returns a mySQL INSERT statement
+        override public string GetINSERT(){ 
+            return base.GetINSERT(_SQLcols, GetSQLValues());
+        }
+
+        //returns a mySQL DELETE statement
+        override public string GetDELETE(){
+            return base.GetDELETE("product", Id.ToString());
+        }
+
+        //returns a mySQL UPDATE statement
+        public override string GetUPDATE(string updateName, string updateValue)
+        {
+            return base.GetUPDATE(_SQLTable, updateName, updateValue,"ProductID", Id.ToString());
         }
     }
 }
