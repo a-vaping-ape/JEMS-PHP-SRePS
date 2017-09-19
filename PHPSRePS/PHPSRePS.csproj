@@ -56,6 +56,8 @@
     <Compile Include="AddEditSaleView.Designer.cs">
       <DependentUpon>AddEditSaleView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database.cs" />
+    <Compile Include="HasSQLTable.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="CreateReportView.cs">
       <SubType>Form</SubType>
