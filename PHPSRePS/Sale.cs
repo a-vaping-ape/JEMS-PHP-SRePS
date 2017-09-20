@@ -17,8 +17,19 @@ namespace PHPSRePS {
         public string Date { get => _date; set => _date = value; }
         public string Employee { get => _employee; set => _employee = value; }
 
-        public Sale() {
-       }
+        // constructor to init data
+        public Sale(int id, string date, string employee)
+        {
+            this.Id = id;
+            this.Date = date;
+            this.Employee = employee;
+        }
+
+        // empty constructor
+        public Sale()
+        {
+
+        }
 
         //gets coulombs used by the mySQL table
         private string GetSQLValues()

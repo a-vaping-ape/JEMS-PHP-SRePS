@@ -20,8 +20,20 @@ namespace PHPSRePS
         public string Category { get => _category; set => _category = value; }
         public float Price { get => _price; set => _price = value; }
         public int Stock { get => _stock; set => _stock = value; }
-        public bool Discontinued { get => _discontinued; set => _discontinued = value; }
+        public bool IsDiscontinued { get => _discontinued; set => _discontinued = value; }
 
+        // constructor to init data
+        public Product(int id, string name, string category, float price, int stock, bool discontinued)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.Category = category;
+            this.Price = price;
+            this.Stock = stock;
+            this.IsDiscontinued = discontinued;
+        }
+
+        // empty constructor
         public Product()
         {
 
@@ -32,7 +44,7 @@ namespace PHPSRePS
         {
             return Id.ToString() + "," + Name + "," + 
                    Category + "," + Price.ToString()+"," + 
-                   Stock.ToString() + "," + Discontinued.ToString();
+                   Stock.ToString() + "," + IsDiscontinued.ToString();
         }
 
         //returns a mySQL INSERT statement
@@ -66,7 +78,7 @@ namespace PHPSRePS
                 "CategoryID = '" + reader.GetInt32("CategoryID") + "'," +
                 "UnitPrice = '" + Price + "'," +
                 "UnitsInStock = '" + Stock + "'," +
-                "Discontinued = '" + (Discontinued ? 1 : 0) + "' " +
+                "Discontinued = '" + (IsDiscontinued ? 1 : 0) + "' " +
                 "WHERE ProductID = " + Id;
         }
     }

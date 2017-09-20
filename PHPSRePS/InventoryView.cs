@@ -30,17 +30,15 @@ namespace PHPSRePS
 
             while (reader.Read())
             {
-                Product product = new Product();
-
                 // populate with database info
-                product.Id = Int32.Parse(reader["ProductID"].ToString());
-                product.Name = reader["ProductName"].ToString();
-                product.Category = reader["CategoryID"].ToString();
-                product.Price = Int32.Parse(reader["UnitPrice"].ToString());
-                product.Stock = Int32.Parse(reader["UnitsInStock"].ToString());
-                product.Discontinued = reader["Discontinued"].ToString() == "1";
+                int id = Int32.Parse(reader["ProductID"].ToString());
+                string name = reader["ProductName"].ToString();
+                string category = reader["CategoryID"].ToString();
+                float price = Int32.Parse(reader["UnitPrice"].ToString());
+                int stock = Int32.Parse(reader["UnitsInStock"].ToString());
+                bool discontinued = reader["Discontinued"].ToString() == "1";
 
-                productList.Add(product);
+                productList.Add(new Product(id, name, category, price, stock, discontinued));
             }
         }
 
@@ -63,7 +61,7 @@ namespace PHPSRePS
         // go to AddEditProductView to edit a product
         private void EditProduct()
         {
-            int productId = 1;
+            int productId = 1;  // get currently selected productId
             //  int productId = Convert.ToInt32(listView1.FocusedItem.Text);
             new AddEditProductView(productId).ShowDialog();
         }

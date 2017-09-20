@@ -29,14 +29,12 @@ namespace PHPSRePS
 
             while (reader.Read())
             {
-                Sale sale = new Sale();
-
                 // populate with database info
-                sale.Id = Int32.Parse(reader["SalesID"].ToString());
-                sale.Date = reader["SalesDate"].ToString();
-                sale.Employee = reader["EmployeeID"].ToString();
+                int id = Int32.Parse(reader["SalesID"].ToString());
+                string date = reader["SalesDate"].ToString();
+                string employee = reader["EmployeeID"].ToString();
 
-                saleList.Add(sale);
+                saleList.Add(new Sale(id, date, employee));
             }
         }
 
@@ -59,7 +57,7 @@ namespace PHPSRePS
         // go to AddEditProductView to edit a product
         private void EditSale()
         {
-            int saleId = 1;
+            int saleId = 1;  // get currently selected saleId
             new AddEditSaleView(saleId).ShowDialog();
         }
     }

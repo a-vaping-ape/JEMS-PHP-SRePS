@@ -41,7 +41,7 @@ namespace PHPSRePS
             currentProduct.Category = "";
             currentProduct.Price = 0;
             currentProduct.Stock = 0;
-            currentProduct.Discontinued = false;
+            currentProduct.IsDiscontinued = false;
 
             // save to db
             switch (action)
@@ -69,7 +69,7 @@ namespace PHPSRePS
             currentProduct.Category = "";
             currentProduct.Price = 0;
             currentProduct.Stock = 0;
-            currentProduct.Discontinued = false;
+            currentProduct.IsDiscontinued = false;
 
             // add code here to fill textfields in the UI with loaded data inside currentProduct (update entry with the ID of currentProduct.Id)
 
