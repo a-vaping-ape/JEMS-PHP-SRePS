@@ -12,23 +12,12 @@ namespace PHPSRePS {
        private int _id;
        private string _date;
        private string _employee;
-       
-       public Sale() {
-       }
-       
-       public int Id {
-         get => _id;
-         set => _id = value;          
-       }
-       
-       public string Date {
-         get => _date;
-         set => _date = value;   
-       }
-       
-       public string Employee {
-         get => _employee;
-         set => _employee = value;   
+
+        public int Id { get => _id; set => _id = value; }
+        public string Date { get => _date; set => _date = value; }
+        public string Employee { get => _employee; set => _employee = value; }
+
+        public Sale() {
        }
 
         //gets coulombs used by the mySQL table
@@ -50,9 +39,18 @@ namespace PHPSRePS {
         }
 
         //returns a mySQL UPDATE statement
-        public override string GetUPDATE(string updateName, string updateValue)
+        //public override string GetUPDATE(string updateName, string updateValue)
+        //{
+        //    return base.GetUPDATE(_SQLTable, updateName, updateValue, "SalesID", Id.ToString());
+        //}
+
+        public override string GetUPDATE()
         {
-            return base.GetUPDATE(_SQLTable, updateName, updateValue, "SalesID", Id.ToString());
+            return
+                "UPDATE product" +
+                "SET SalesDate = '" + Date + "'," +
+                "EmployeeID = '" + 0 + "'," +
+                "WHERE SalesID = " + Id;
         }
     }
 }

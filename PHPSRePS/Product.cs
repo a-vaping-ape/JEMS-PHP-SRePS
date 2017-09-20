@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
 
 namespace PHPSRePS
 {
@@ -19,17 +15,17 @@ namespace PHPSRePS
         private int _stock;
         private bool _discontinued;
 
-        public Product()
-        {
-
-        }
-
         public int Id { get => _id; set => _id = value; }
         public string Name { get => _name; set => _name = value; }
         public string Category { get => _category; set => _category = value; }
         public float Price { get => _price; set => _price = value; }
         public int Stock { get => _stock; set => _stock = value; }
         public bool Discontinued { get => _discontinued; set => _discontinued = value; }
+
+        public Product()
+        {
+
+        }
 
         //gets coulombs used by the mySQL table
         private string GetSQLValues()
@@ -40,19 +36,38 @@ namespace PHPSRePS
         }
 
         //returns a mySQL INSERT statement
-        override public string GetINSERT(){ 
+        override public string GetINSERT()
+        { 
             return base.GetINSERT(_SQLcols, GetSQLValues());
         }
 
         //returns a mySQL DELETE statement
-        override public string GetDELETE(){
+        override public string GetDELETE()
+        {
             return base.GetDELETE("product", Id.ToString());
         }
 
         //returns a mySQL UPDATE statement
-        public override string GetUPDATE(string updateName, string updateValue)
+        //public override string GetUPDATE(string updateName, string updateValue)
+        //{
+        //    return base.GetUPDATE(_SQLTable, updateName, updateValue,"ProductID", Id.ToString());
+        //}
+
+        public override string GetUPDATE()
         {
-            return base.GetUPDATE(_SQLTable, updateName, updateValue,"ProductID", Id.ToString());
+            Database database = new Database("", "", "", "");
+            string query = "SELECT CategoryID FROM categories WHERE CategoryName = " + Category;
+            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
+            var reader = cmd.ExecuteReader();
+
+            return 
+                "UPDATE product" +
+                "SET ProductName = '" + Name + "'," +
+                "CategoryID = '" + reader.GetInt32("CategoryID") + "'," +
+                "UnitPrice = '" + Price + "'," +
+                "UnitsInStock = '" + Stock + "'," +
+                "Discontinued = '" + (Discontinued ? 1 : 0) + "' " +
+                "WHERE ProductID = " + Id;
         }
     }
 }

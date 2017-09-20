@@ -33,9 +33,8 @@ namespace PHPSRePS
         // store information in local object and save to db
         public void StoreInformation(Action action)
         {
-            string query = database.generateQuery("All Products");
             database.OpenConnection();
-            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
+            string query = "";
 
             // populate with user input from UI
             currentProduct.Name = "";
@@ -48,12 +47,14 @@ namespace PHPSRePS
             switch (action)
             {
                 case Action.Add: // save the info provided by the user in the fields into the database as a new entry
-                    // add code to send data to database here as a new entry using data in currentProduct
+                    query = currentProduct.GetINSERT();
                     break;
                 case Action.Edit: // update the info provided by the user in the fields into the database
-                    // add code to update data in the database here using data in currentProduct
+                    query = currentProduct.GetUPDATE();
                     break;
             }
+
+            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
         }
 
         // pre-populate the fields using data from the database associated with the selected productID

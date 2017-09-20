@@ -15,6 +15,7 @@ namespace PHPSRePS
                 "INSERT INTO " + cols +
                 "VALUES(" +values+ ");";       
         }
+
         //overloading used by child classes
         virtual public string GetINSERT()
         {
@@ -41,6 +42,12 @@ namespace PHPSRePS
                 "UPDATE " + table +
                 "SET " + updateName + "='" + updateName + "'" +
                 "WHERE " + colName + "='" + ID + "';";
+        }
+
+        //overloading used by child classes
+        virtual public string GetUPDATE()
+        {
+            return "";
         }
 
         //returns a mySQL UPDATE statement
