@@ -1,57 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
-namespace PHPSRePS {
-    public partial class InventoryView : Form {
-        // store all products to be loaded in this list
+namespace PHPSRePS
+{
+    public partial class InventoryView : Form
+    {
+        // all products
         List<Product> productList = new List<Product>();
 
-        public InventoryView() {
+        // database
+        Database database = new Database("", "", "", "");
+
+        // main constructor
+        public InventoryView()
+        {
             InitializeComponent();
             LoadProducts();
         }
 
-        /* load data from database into productList */
-        private void LoadProducts() {
-            // add code to connect to database here
-             
-            while (/* enter expression to read table here */ true) {
+        // load data from database
+        private void LoadProducts()
+        {
+            database.OpenConnection();
+            string query = database.generateQuery("All Products");
+            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
                 Product product = new Product();
 
                 // populate with database info
-                product.Id = 0;
-                product.Name = "";
-                product.Category = "";
-                product.Price = 0;
-                product.Stock = 0;
-                product.Discontinued = false;
+                product.Id = Int32.Parse(reader["ProductID"].ToString());
+                product.Name = reader["ProductName"].ToString();
+                product.Category = reader["CategoryID"].ToString();
+                product.Price = Int32.Parse(reader["UnitPrice"].ToString());
+                product.Stock = Int32.Parse(reader["UnitsInStock"].ToString());
+                product.Discontinued = reader["Discontinued"].ToString() == "1";
 
                 productList.Add(product);
             }
         }
 
-        /* display items in productList to the UI */
-        private void DisplayAllProducts() {
-            foreach (Product product in productList) {
+        // display products to the UI
+        private void DisplayAllProducts()
+        {
+            foreach (Product product in productList)
+            {
                 // do something
             }
         }
 
-        /* go to AddEditProductView to add a product */
-        private void AddProduct(object sender, EventArgs e) {
+        // go to AddEditProductView to add a product
+        private void AddProduct(object sender, EventArgs e)
+        {
             int productId = 0;
             new AddEditProductView(productId).ShowDialog();
         }
 
-        /* go to AddEditProductView to edit a product */
-        private void EditProduct() {
+        // go to AddEditProductView to edit a product
+        private void EditProduct()
+        {
             int productId = 1;
             //  int productId = Convert.ToInt32(listView1.FocusedItem.Text);
             new AddEditProductView(productId).ShowDialog();

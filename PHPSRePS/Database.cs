@@ -32,9 +32,11 @@ namespace PHPSRePS
 
         //overloading for debugging purposes
         public Database()
-        {       
-           
+        {
+
         }
+
+        public MySqlConnection Connection { get => connection; set => connection = value; }
 
         public void OpenConnection()
         {
@@ -108,7 +110,7 @@ namespace PHPSRePS
                 case "All Item Sales":
                     return "SELECT * FROM item sales";
 
-                case "All product":
+                case "All Products":
                     return "SELECT * FROM product";
 
                 case "All Sales":

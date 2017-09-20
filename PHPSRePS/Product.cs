@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PHPSRePS {
-    public class Product : HasSQLTable {
+namespace PHPSRePS
+{
+    public class Product : HasSQLTable
+    {
         private const string _SQLTable = "products";
         private  const string _SQLcols = _SQLTable+"(ProductID,ProductName,CategoryID,UnitPrice,UnitsInStock,Discontinued)";
-        private const string _values = 
+        // private const string _values = 
 
         private int _id;
         private string _name;
@@ -17,39 +19,17 @@ namespace PHPSRePS {
         private int _stock;
         private bool _discontinued;
 
-        public Product() {
+        public Product()
+        {
 
         }
-        
-        public int Id {
-            get => _id;
-            set => _id = value;
-        }
 
-        public string Name {
-            get => _name;
-            set => _name = value;
-        }
-
-        public string Category {
-            get => _category;
-            set => _category = value;
-        }
-
-        public float Price {
-            get => _price;
-            set => _price = value;
-        }
-
-        public int Stock {
-            get => _stock;
-            set => _stock = value;
-        }
-
-        public bool Discontinued {
-            get => _discontinued;
-            set => _discontinued = value;
-        }
+        public int Id { get => _id; set => _id = value; }
+        public string Name { get => _name; set => _name = value; }
+        public string Category { get => _category; set => _category = value; }
+        public float Price { get => _price; set => _price = value; }
+        public int Stock { get => _stock; set => _stock = value; }
+        public bool Discontinued { get => _discontinued; set => _discontinued = value; }
 
         //gets coulombs used by the mySQL table
         private string GetSQLValues()

@@ -1,32 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
-namespace PHPSRePS {
-    public partial class AddEditProductView : Form {
+namespace PHPSRePS
+{
+    public partial class AddEditProductView : Form
+    {
         // the product to be added or edited
         Product currentProduct = new Product();
 
+        // database
+        Database database = new Database("", "", "", "");
+
         // main constructor
-        public AddEditProductView(int productId) {
+        public AddEditProductView(int productId)
+        {
             InitializeComponent();
 
             currentProduct.Id = productId;
 
-            if (currentProduct.Id != 0) {
+            if (currentProduct.Id != 0)
+            {
                 PopulateFields();
             }
         }
 
-        // save the info provided by the user in the fields into the database as a new entry
-        private void SaveNewEntry() {
-            // add code to connect to database here
+        public enum Action
+        {
+            Add,
+            Edit
+        };
+        
+        // store information in local object and save to db
+        public void StoreInformation(Action action)
+        {
+            string query = database.generateQuery("All Products");
+            database.OpenConnection();
+            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
 
             // populate with user input from UI
             currentProduct.Name = "";
@@ -35,13 +44,24 @@ namespace PHPSRePS {
             currentProduct.Stock = 0;
             currentProduct.Discontinued = false;
 
-            // add code to send data to database here as a new entry using data in currentProduct
-
+            // save to db
+            switch (action)
+            {
+                case Action.Add: // save the info provided by the user in the fields into the database as a new entry
+                    // add code to send data to database here as a new entry using data in currentProduct
+                    break;
+                case Action.Edit: // update the info provided by the user in the fields into the database
+                    // add code to update data in the database here using data in currentProduct
+                    break;
+            }
         }
 
         // pre-populate the fields using data from the database associated with the selected productID
-        private void PopulateFields() {
-            // add code to connect to database here
+        public void PopulateFields()
+        {
+            database.OpenConnection();
+            string query = database.generateQuery("All Products"); // hmmmmm
+            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
 
             // search database table for product with the supplied productId and populate object fields with the product's data
             currentProduct.Name = "";
@@ -54,30 +74,8 @@ namespace PHPSRePS {
 
         }
 
-        // update the info provided by the user in the fields into the database
-        private void SaveEdits() {
-            // add code to connect to database here
-
-            // populate with user input from UI
-            currentProduct.Name = "";
-            currentProduct.Category = "";
-            currentProduct.Price = 0;
-            currentProduct.Stock = 0;
-            currentProduct.Discontinued = false;
-
-            // add code to update data in the database here using data in currentProduct
-
-        }
-
-        // delete the current product from the database
-        // not a requirement but you can add this feature if you want
-        private void Delete() {  
-            // add code to connect to database here
-
-            // add code to delete entry from the database here
-        }
-
-        private void ClearFields() {
+        public void ClearFields()
+        {
             // set each field in the UI to blank
         }
     }

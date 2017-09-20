@@ -1,54 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
-namespace PHPSRePS {
-    public partial class SalesView : Form {
-        // store all sales to be loaded in this list
+namespace PHPSRePS
+{
+    public partial class SalesView : Form
+    {
+        // all sales
         List<Sale> saleList = new List<Sale>();
-            
-        public SalesView() {
+
+        // database
+        Database database = new Database("", "", "", "");
+
+        public SalesView()
+        {
             InitializeComponent();
             LoadSales();
         }
 
         /* load data from database into saleList */
-        private void LoadSales() {
-            // add code to connect to database here
+        private void LoadSales()
+        {
+            string query = database.generateQuery("All Sales");
+            database.OpenConnection();
+            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
+            var reader = cmd.ExecuteReader();
 
-            while (/* enter expression to read table here */ true) {
+            while (reader.Read())
+            {
                 Sale sale = new Sale();
 
                 // populate with database info
-                sale.Id = 0;
-                sale.Date = null;
-                sale.Employee = null;
+                sale.Id = Int32.Parse(reader["SalesID"].ToString());
+                sale.Date = reader["SalesDate"].ToString();
+                sale.Employee = reader["EmployeeID"].ToString();
 
                 saleList.Add(sale);
             }
         }
 
-        /* display items in productList to the UI */
-        private void DisplayAllSales() {
-            foreach (Sale sales in saleList) {
+        // display items in productList to the UI
+        private void DisplayAllSales()
+        {
+            foreach (Sale sales in saleList)
+            {
                 // do something
             }
         }
 
-        /* go to AddEditProductView to add a product */
-        private void AddSale(object sender, EventArgs e) {
+        // go to AddEditProductView to add a product
+        private void AddSale(object sender, EventArgs e)
+        {
             int saleId = 0;
             new AddEditSaleView(saleId).ShowDialog();
         }
 
-        /* go to AddEditProductView to edit a product */
-        private void EditSale() {
+        // go to AddEditProductView to edit a product
+        private void EditSale()
+        {
             int saleId = 1;
             new AddEditSaleView(saleId).ShowDialog();
         }
