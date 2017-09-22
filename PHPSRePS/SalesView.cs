@@ -22,7 +22,7 @@ namespace PHPSRePS
         /* load data from database into saleList */
         private void LoadSales()
         {
-            string query = database.generateQuery("All Sales");
+            /*string query = database.generateQuery("All Sales");
             database.OpenConnection();
             MySqlCommand cmd = new MySqlCommand(query, database.Connection);
             var reader = cmd.ExecuteReader();
@@ -35,7 +35,7 @@ namespace PHPSRePS
                 string employee = reader["EmployeeID"].ToString();
 
                 saleList.Add(new Sale(id, date, employee));
-            }
+            }*/
         }
 
         // display items in productList to the UI

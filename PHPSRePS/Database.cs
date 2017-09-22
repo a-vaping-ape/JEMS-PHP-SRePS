@@ -40,9 +40,9 @@ namespace PHPSRePS
 
         public void OpenConnection()
         {
-            string dbConnectionString = string.Format("server={0};uid={1};pwd={2};database={3};", server, username, password, databaseName);
+            /*string dbConnectionString = string.Format("server={0};uid={1};pwd={2};database={3};", server, username, password, databaseName);
             connection = new MySqlConnection(dbConnectionString);
-            connection.Open();
+            connection.Open();*/
         }
 
         //used for reading from the database

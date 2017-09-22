@@ -85,6 +85,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Sale.cs" />
     <Compile Include="SalesView.cs">
       <SubType>Form</SubType>
@@ -95,15 +100,14 @@
     <EmbeddedResource Include="InventoryView.resx">
       <DependentUpon>InventoryView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -117,6 +121,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Sidebar\Sales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Sidebar\Inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Sidebar\Reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Sidebar\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Home View\Switch User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Home View\Power Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Home View\Power Icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Home View\Power Icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Home View\Power Icon3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Home View\Switch User1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Home View\Search Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
