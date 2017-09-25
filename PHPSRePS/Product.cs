@@ -15,7 +15,7 @@ namespace PHPSRePS
         private int _stock;
         private bool _discontinued;
 
-        public int Id { get => _id; set => _id = value; }
+        public int ID { get => _id; set => _id = value; }
         public string Name { get => _name; set => _name = value; }
         public string Category { get => _category; set => _category = value; }
         public float Price { get => _price; set => _price = value; }
@@ -25,7 +25,7 @@ namespace PHPSRePS
         // constructor to init data
         public Product(int id, string name, string category, float price, int stock, bool discontinued)
         {
-            this.Id = id;
+            this.ID = id;
             this.Name = name;
             this.Category = category;
             this.Price = price;
@@ -42,7 +42,7 @@ namespace PHPSRePS
         //gets coulombs used by the mySQL table
         private string GetSQLValues()
         {
-            return Id.ToString() + "," + Name + "," + 
+            return ID.ToString() + "," + Name + "," + 
                    Category + "," + Price.ToString()+"," + 
                    Stock.ToString() + "," + IsDiscontinued.ToString();
         }
@@ -56,7 +56,7 @@ namespace PHPSRePS
         //returns a mySQL DELETE statement
         override public string GetDELETE()
         {
-            return base.GetDELETE("product", Id.ToString());
+            return base.GetDELETE("product", ID.ToString());
         }
 
         //returns a mySQL UPDATE statement
@@ -79,7 +79,7 @@ namespace PHPSRePS
                 "UnitPrice = '" + Price + "'," +
                 "UnitsInStock = '" + Stock + "'," +
                 "Discontinued = '" + (IsDiscontinued ? 1 : 0) + "' " +
-                "WHERE ProductID = " + Id;
+                "WHERE ProductID = " + ID;
         }
     }
 }

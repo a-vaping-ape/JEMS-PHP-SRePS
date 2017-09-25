@@ -8,16 +8,42 @@ namespace PHPSRePS
     public partial class SalesView : Form
     {
         // all sales
-        List<Sale> saleList = new List<Sale>();
+        private List<Sale> saleList = new List<Sale>();
 
         // database
         Database database = new Database("", "", "", "");
 
+        // main constructor
         public SalesView()
         {
             InitializeComponent();
             LoadSales();
         }
+
+        #region form methods
+        // display items in productList to the UI
+        private void formDisplaySales()
+        {
+            foreach (Sale sales in saleList)
+            {
+                // do something
+            }
+        }
+
+        // go to AddEditProductView to add a product
+        private void formAddSale(object sender, EventArgs e)
+        {
+            int saleId = 0;
+            new AddEditSaleView(saleId).ShowDialog();
+        }
+
+        // go to AddEditProductView to edit a product
+        private void formEditSale()
+        {
+            int saleId = 1;  // get currently selected saleId
+            new AddEditSaleView(saleId).ShowDialog();
+        }
+        #endregion
 
         /* load data from database into saleList */
         private void LoadSales()
@@ -36,29 +62,6 @@ namespace PHPSRePS
 
                 saleList.Add(new Sale(id, date, employee));
             }
-        }
-
-        // display items in productList to the UI
-        private void DisplayAllSales()
-        {
-            foreach (Sale sales in saleList)
-            {
-                // do something
-            }
-        }
-
-        // go to AddEditProductView to add a product
-        private void AddSale(object sender, EventArgs e)
-        {
-            int saleId = 0;
-            new AddEditSaleView(saleId).ShowDialog();
-        }
-
-        // go to AddEditProductView to edit a product
-        private void EditSale()
-        {
-            int saleId = 1;  // get currently selected saleId
-            new AddEditSaleView(saleId).ShowDialog();
         }
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PHPSRePS", "PHPSRePS\PHPSRePS.csproj", "{44E08467-1455-4D5A-9579-F6CBC9080B79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PHPSRePSTests", "PHPSRePS Test\PHPSRePSTests.csproj", "{1554BF02-0A90-4264-BDF8-6BB72244125A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{44E08467-1455-4D5A-9579-F6CBC9080B79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44E08467-1455-4D5A-9579-F6CBC9080B79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44E08467-1455-4D5A-9579-F6CBC9080B79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1554BF02-0A90-4264-BDF8-6BB72244125A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1554BF02-0A90-4264-BDF8-6BB72244125A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1554BF02-0A90-4264-BDF8-6BB72244125A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1554BF02-0A90-4264-BDF8-6BB72244125A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

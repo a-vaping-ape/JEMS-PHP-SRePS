@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace PHPSRePS
 {
     public partial class InventoryView : Form
     {
         // all products
-        List<Product> productList = new List<Product>();
+        private List<Product> productList = new List<Product>();
 
         // database
         Database database = new Database("", "", "", "");
@@ -19,6 +22,32 @@ namespace PHPSRePS
             InitializeComponent();
             LoadProducts();
         }
+
+        #region form methods
+        // display products to the UI
+        private void formDisplayProducts()
+        {
+            foreach (Product product in productList)
+            {
+                // do something
+            }
+        }
+
+        // go to AddEditProductView to add a product
+        private void formAddProduct(object sender, EventArgs e)
+        {
+            int productId = 0;
+            new AddEditProductView(productId).ShowDialog();
+        }
+
+        // go to AddEditProductView to edit a product
+        private void formEditProduct()
+        {
+            int productId = 1;  // get currently selected productId
+            //  int productId = Convert.ToInt32(listView1.FocusedItem.Text);
+            new AddEditProductView(productId).ShowDialog();
+        }
+        #endregion
 
         // load data from database
         private void LoadProducts()
@@ -40,30 +69,6 @@ namespace PHPSRePS
 
                 productList.Add(new Product(id, name, category, price, stock, discontinued));
             }
-        }
-
-        // display products to the UI
-        private void DisplayAllProducts()
-        {
-            foreach (Product product in productList)
-            {
-                // do something
-            }
-        }
-
-        // go to AddEditProductView to add a product
-        private void AddProduct(object sender, EventArgs e)
-        {
-            int productId = 0;
-            new AddEditProductView(productId).ShowDialog();
-        }
-
-        // go to AddEditProductView to edit a product
-        private void EditProduct()
-        {
-            int productId = 1;  // get currently selected productId
-            //  int productId = Convert.ToInt32(listView1.FocusedItem.Text);
-            new AddEditProductView(productId).ShowDialog();
         }
     }
 }
