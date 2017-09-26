@@ -10,7 +10,7 @@ namespace PHPSRePS
     {
         // fields
         private int _id;
-        private DateTime _date;
+        private string _date;
         private string _employee;
         private List<ItemSale> _itemSaleList = new List<ItemSale>();
 
@@ -19,12 +19,12 @@ namespace PHPSRePS
         private const string _SQLcols = _SQLTable + "(SalesID,SalesDate,EmployeeID)";
 
         public int ID { get => _id; set => _id = value; }
-        public DateTime Date { get => _date; set => _date = value; }
+        public string Date { get => _date; set => _date = value; }
         public string Employee { get => _employee; set => _employee = value; }
         public List<ItemSale> ItemSaleList { get => _itemSaleList; set => _itemSaleList = value; }
 
         // constructor to init data
-        public Sale(int id, DateTime date, string employee)
+        public Sale(int id, string date, string employee)
         {
             this.ID = id;
             this.Date = date;
