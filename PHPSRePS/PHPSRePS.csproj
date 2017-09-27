@@ -141,18 +141,6 @@
     <None Include="Properties\GUI Resources\Home View\Power Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\GUI Resources\Home View\Power Icon1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\GUI Resources\Home View\Power Icon2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\GUI Resources\Home View\Power Icon3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\GUI Resources\Home View\Switch User1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\GUI Resources\Home View\Search Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
