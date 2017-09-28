@@ -9,7 +9,7 @@ namespace PHPSRePS
         Product currentProduct = new Product();
 
         // database
-        Database database = new Database("", "", "", "");
+        Database database = new Database();
 
         // main constructor
         public AddEditProductView(int productId)

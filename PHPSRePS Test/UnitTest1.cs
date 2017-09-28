@@ -8,20 +8,22 @@ namespace PHPSRePS_Test
     [TestClass]
     public class UnitTest1
     {
-        Database database;
+        Database db;
         Product product1, product2, product3;
         Sale sale1, sale2, sale3;
-
-        // db info
-        private string server = "110.22.43.149";
-        private string databaseName = "hawthornpharmacy";
-        private string adminUser = "admin";
-        private string adminPass = "dp22017";
 
         [SetUp]
         public void Init()
         {
-            database = new Database(server, adminUser, adminPass, databaseName);
+            db = new Database();
+        }
+
+        [TestMethod]
+        public void TestDBConnection()
+        {
+            db = new Database();
+            string output = db.TestConnection();
+            NUnit.Framework.Assert.AreEqual("1", output);
         }
 
         [TestMethod]

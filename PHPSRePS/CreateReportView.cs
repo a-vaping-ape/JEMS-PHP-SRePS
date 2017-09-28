@@ -10,7 +10,7 @@ using System.IO;
 namespace PHPSRePS {
     public partial class CreateReportView : Form {
         // database
-        Database database = new Database("", "", "", "");
+        Database database = new Database();
 
         public CreateReportView() {
             InitializeComponent();

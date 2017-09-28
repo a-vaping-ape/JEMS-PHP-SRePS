@@ -11,38 +11,24 @@ namespace PHPSRePS
 
    public class Database
     {
-        //CONSTS
-        private string server = "sql12.freemysqlhosting.net";
-        private string databaseName = "sql12196182";
-
-        //changes depending on user
-        private string username = "sql12196182";
-        private string password = "nZdkdnzrck";
-
         MySqlConnection connection;
-
-        //use this in solution
-        public Database(string svr, string usr, string pwd, string db )
-        {
-            server = svr;
-            username = usr;
-            password = pwd;
-            databaseName = db;
-        }
-
-        //overloading for debugging purposes
+        
         public Database()
         {
-
         }
 
         public MySqlConnection Connection { get => connection; set => connection = value; }
 
         public void OpenConnection()
         {
-            /*string dbConnectionString = string.Format("server={0};uid={1};pwd={2};database={3};", server, username, password, databaseName);
+            string server = "sql12.freemysqlhosting.net";
+            string databaseName = "sql12196182";    
+            string username = "sql12196182";
+            string password = "nZdkdnzrck";
+
+            string dbConnectionString = string.Format("server={0};uid={1};pwd={2};database={3};", server, username, password, databaseName);
             connection = new MySqlConnection(dbConnectionString);
-            connection.Open();*/
+            connection.Open();
         }
 
         public void CloseConnection()
@@ -65,8 +51,26 @@ namespace PHPSRePS
                 var someValue = reader[1];
                 var someValue2 = reader["CategoryID"];
                 Console.Write(someValue + "-" + someValue2 + "\n");
+
             }
             connection.Close();
+        }
+
+        public string TestConnection()
+        {
+            string key = "SELECT * FROM Categories";
+            OpenConnection();
+
+            MySqlCommand cmd = new MySqlCommand(key, connection);
+            var reader = cmd.ExecuteReader();
+
+            //waiting for the GUI implementation
+            while (reader.Read())
+            {
+                return reader["CategoryID"].ToString();
+            }
+            connection.Close();
+            return "Error in connection";
         }
 
         //GUI will generate query fron form

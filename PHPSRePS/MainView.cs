@@ -15,7 +15,7 @@ namespace PHPSRePS {
         // TODO sprint2: implement authorisation + levels of security
 
         // database
-        Database database = new Database("110.22.43.149", "admin", "dp22017", "hawthornpharmacy");
+        Database database = new Database();
 
         // all products
         private List<Product> productList = new List<Product>();

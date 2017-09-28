@@ -67,7 +67,7 @@ namespace PHPSRePS
 
         public override string GetUPDATE()
         {
-            Database database = new Database("", "", "", "");
+            Database database = new Database();
             string query = "SELECT CategoryID FROM categories WHERE CategoryName = " + Category;
             MySqlCommand cmd = new MySqlCommand(query, database.Connection);
             var reader = cmd.ExecuteReader();

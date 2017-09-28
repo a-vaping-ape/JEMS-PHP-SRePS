@@ -13,7 +13,7 @@ namespace PHPSRePS {
         private List<Product> productList = new List<Product>();
 
         // database
-        Database database = new Database("", "", "", "");
+        Database database = new Database();
 
         // main constructor
         public AddEditSaleView(int saleID) {
