@@ -146,10 +146,11 @@ namespace PHPSRePS {
 
         private void searchABtn_Click(object sender, EventArgs e)
         {
-
+            getAllProducts("A");
         }
 
         private void searchBBtn_Click(object sender, EventArgs e) {
+            getAllProducts("B");
         }
         // INVENTORY PANEL
         // go to AddEditProductView to add a product
@@ -192,7 +193,7 @@ namespace PHPSRePS {
 
         private void searchCBtn_Click(object sender, EventArgs e)
         {
-
+            getAllProducts("C");
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -341,9 +342,8 @@ namespace PHPSRePS {
         }
         #endregion
 
-        private void getAllProducts()
+        private void getAllProducts(string input)
         {
-            string input = salesSearchBox.Text.ToString();
             BindingSource source = database.getProducts(input);
 
             if (source != null)
@@ -351,6 +351,20 @@ namespace PHPSRePS {
                 salesDataList.DataSource = source;
                 salesDataList.ForeColor = Color.Black;
             }
+        }
+
+        private void getAllProducts()
+        {
+            getAllProducts(salesSearchBox.Text.ToString());
+
+          /*  string input = salesSearchBox.Text.ToString();
+            BindingSource source = database.getProducts(input);
+
+            if (source != null)
+            {
+                salesDataList.DataSource = source;
+                salesDataList.ForeColor = Color.Black;
+            }*/
         }
 
         private void salesSearchButton_Click(object sender, EventArgs e)
@@ -374,6 +388,121 @@ namespace PHPSRePS {
             {
                 getAllProducts();
             }
+        }
+
+        private void searchDBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("D");
+        }
+
+        private void searchEBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("E");
+        }
+
+        private void searchFBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("F");
+        }
+
+        private void searchGBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("G");
+        }
+
+        private void searchHBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("H");
+        }
+
+        private void searchIBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("I");
+        }
+
+        private void searchJBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("J");
+        }
+
+        private void searchKBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("K");
+        }
+
+        private void searchLBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("L");
+        }
+
+        private void searchMBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("M");
+        }
+
+        private void searchNBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("N");
+        }
+
+        private void searchOBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("O");
+        }
+
+        private void searchPBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("P");
+        }
+
+        private void searchQBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("Q");
+        }
+
+        private void searchRBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("R");
+        }
+
+        private void searchSBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("S");
+        }
+
+        private void searchTBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("T");
+        }
+
+        private void searchUBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("U");
+        }
+
+        private void searchVBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("V");
+        }
+
+        private void searchWBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("W");
+        }
+
+        private void searchXBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("X");
+        }
+
+        private void searchYBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("Y");
+        }
+
+        private void searchZBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("Z");
         }
     }
 }

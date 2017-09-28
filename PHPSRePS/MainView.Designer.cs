@@ -417,6 +417,7 @@
             this.searchZBtn.Text = "Z";
             this.searchZBtn.UseCompatibleTextRendering = true;
             this.searchZBtn.UseVisualStyleBackColor = false;
+            this.searchZBtn.Click += new System.EventHandler(this.searchZBtn_Click);
             // 
             // searchYBtn
             // 
@@ -434,6 +435,7 @@
             this.searchYBtn.Text = "Y";
             this.searchYBtn.UseCompatibleTextRendering = true;
             this.searchYBtn.UseVisualStyleBackColor = false;
+            this.searchYBtn.Click += new System.EventHandler(this.searchYBtn_Click);
             // 
             // searchXBtn
             // 
@@ -451,6 +453,7 @@
             this.searchXBtn.Text = "X";
             this.searchXBtn.UseCompatibleTextRendering = true;
             this.searchXBtn.UseVisualStyleBackColor = false;
+            this.searchXBtn.Click += new System.EventHandler(this.searchXBtn_Click);
             // 
             // searchWBtn
             // 
@@ -468,6 +471,7 @@
             this.searchWBtn.Text = "W";
             this.searchWBtn.UseCompatibleTextRendering = true;
             this.searchWBtn.UseVisualStyleBackColor = false;
+            this.searchWBtn.Click += new System.EventHandler(this.searchWBtn_Click);
             // 
             // searchVBtn
             // 
@@ -485,6 +489,7 @@
             this.searchVBtn.Text = "V";
             this.searchVBtn.UseCompatibleTextRendering = true;
             this.searchVBtn.UseVisualStyleBackColor = false;
+            this.searchVBtn.Click += new System.EventHandler(this.searchVBtn_Click);
             // 
             // searchUBtn
             // 
@@ -502,6 +507,7 @@
             this.searchUBtn.Text = "U";
             this.searchUBtn.UseCompatibleTextRendering = true;
             this.searchUBtn.UseVisualStyleBackColor = false;
+            this.searchUBtn.Click += new System.EventHandler(this.searchUBtn_Click);
             // 
             // searchTBtn
             // 
@@ -519,6 +525,7 @@
             this.searchTBtn.Text = "T";
             this.searchTBtn.UseCompatibleTextRendering = true;
             this.searchTBtn.UseVisualStyleBackColor = false;
+            this.searchTBtn.Click += new System.EventHandler(this.searchTBtn_Click);
             // 
             // searchSBtn
             // 
@@ -536,6 +543,7 @@
             this.searchSBtn.Text = "S";
             this.searchSBtn.UseCompatibleTextRendering = true;
             this.searchSBtn.UseVisualStyleBackColor = false;
+            this.searchSBtn.Click += new System.EventHandler(this.searchSBtn_Click);
             // 
             // searchRBtn
             // 
@@ -553,6 +561,7 @@
             this.searchRBtn.Text = "R";
             this.searchRBtn.UseCompatibleTextRendering = true;
             this.searchRBtn.UseVisualStyleBackColor = false;
+            this.searchRBtn.Click += new System.EventHandler(this.searchRBtn_Click);
             // 
             // searchQBtn
             // 
@@ -570,6 +579,7 @@
             this.searchQBtn.Text = "Q";
             this.searchQBtn.UseCompatibleTextRendering = true;
             this.searchQBtn.UseVisualStyleBackColor = false;
+            this.searchQBtn.Click += new System.EventHandler(this.searchQBtn_Click);
             // 
             // searchPBtn
             // 
@@ -587,6 +597,7 @@
             this.searchPBtn.Text = "P";
             this.searchPBtn.UseCompatibleTextRendering = true;
             this.searchPBtn.UseVisualStyleBackColor = false;
+            this.searchPBtn.Click += new System.EventHandler(this.searchPBtn_Click);
             // 
             // searchOBtn
             // 
@@ -604,6 +615,7 @@
             this.searchOBtn.Text = "O";
             this.searchOBtn.UseCompatibleTextRendering = true;
             this.searchOBtn.UseVisualStyleBackColor = false;
+            this.searchOBtn.Click += new System.EventHandler(this.searchOBtn_Click);
             // 
             // searchNBtn
             // 
@@ -621,6 +633,7 @@
             this.searchNBtn.Text = "N";
             this.searchNBtn.UseCompatibleTextRendering = true;
             this.searchNBtn.UseVisualStyleBackColor = false;
+            this.searchNBtn.Click += new System.EventHandler(this.searchNBtn_Click);
             // 
             // searchMBtn
             // 
@@ -638,6 +651,7 @@
             this.searchMBtn.Text = "M";
             this.searchMBtn.UseCompatibleTextRendering = true;
             this.searchMBtn.UseVisualStyleBackColor = false;
+            this.searchMBtn.Click += new System.EventHandler(this.searchMBtn_Click);
             // 
             // searchLBtn
             // 
@@ -655,6 +669,7 @@
             this.searchLBtn.Text = "L";
             this.searchLBtn.UseCompatibleTextRendering = true;
             this.searchLBtn.UseVisualStyleBackColor = false;
+            this.searchLBtn.Click += new System.EventHandler(this.searchLBtn_Click);
             // 
             // searchKBtn
             // 
@@ -672,6 +687,7 @@
             this.searchKBtn.Text = "K";
             this.searchKBtn.UseCompatibleTextRendering = true;
             this.searchKBtn.UseVisualStyleBackColor = false;
+            this.searchKBtn.Click += new System.EventHandler(this.searchKBtn_Click);
             // 
             // searchJBtn
             // 
@@ -689,6 +705,7 @@
             this.searchJBtn.Text = "J";
             this.searchJBtn.UseCompatibleTextRendering = true;
             this.searchJBtn.UseVisualStyleBackColor = false;
+            this.searchJBtn.Click += new System.EventHandler(this.searchJBtn_Click);
             // 
             // searchIBtn
             // 
@@ -706,6 +723,7 @@
             this.searchIBtn.Text = "I";
             this.searchIBtn.UseCompatibleTextRendering = true;
             this.searchIBtn.UseVisualStyleBackColor = false;
+            this.searchIBtn.Click += new System.EventHandler(this.searchIBtn_Click);
             // 
             // searchHBtn
             // 
@@ -723,6 +741,7 @@
             this.searchHBtn.Text = "H";
             this.searchHBtn.UseCompatibleTextRendering = true;
             this.searchHBtn.UseVisualStyleBackColor = false;
+            this.searchHBtn.Click += new System.EventHandler(this.searchHBtn_Click);
             // 
             // searchGBtn
             // 
@@ -740,6 +759,7 @@
             this.searchGBtn.Text = "G";
             this.searchGBtn.UseCompatibleTextRendering = true;
             this.searchGBtn.UseVisualStyleBackColor = false;
+            this.searchGBtn.Click += new System.EventHandler(this.searchGBtn_Click);
             // 
             // searchFBtn
             // 
@@ -757,6 +777,7 @@
             this.searchFBtn.Text = "F";
             this.searchFBtn.UseCompatibleTextRendering = true;
             this.searchFBtn.UseVisualStyleBackColor = false;
+            this.searchFBtn.Click += new System.EventHandler(this.searchFBtn_Click);
             // 
             // searchEBtn
             // 
@@ -774,6 +795,7 @@
             this.searchEBtn.Text = "E";
             this.searchEBtn.UseCompatibleTextRendering = true;
             this.searchEBtn.UseVisualStyleBackColor = false;
+            this.searchEBtn.Click += new System.EventHandler(this.searchEBtn_Click);
             // 
             // searchDBtn
             // 
@@ -791,6 +813,7 @@
             this.searchDBtn.Text = "D";
             this.searchDBtn.UseCompatibleTextRendering = true;
             this.searchDBtn.UseVisualStyleBackColor = false;
+            this.searchDBtn.Click += new System.EventHandler(this.searchDBtn_Click);
             // 
             // searchCBtn
             // 
@@ -1053,7 +1076,7 @@
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            
+            //this.Name = "MainView";
             this.Text = " ";
             this.sidebar.ResumeLayout(false);
             this.tabView.ResumeLayout(false);
