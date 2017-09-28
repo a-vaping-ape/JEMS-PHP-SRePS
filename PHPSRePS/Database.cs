@@ -12,12 +12,12 @@ namespace PHPSRePS
    public class Database
     {
         //CONSTS
-        private string server = "110.22.43.149";
-        private string databaseName = "hawthornpharmacy";
+        private string server = "sql12.freemysqlhosting.net";
+        private string databaseName = "sql12196182";
 
         //changes depending on user
-        private string username = "admin";
-        private string password = "dp22017";
+        private string username = "sql12196182";
+        private string password = "nZdkdnzrck";
 
         MySqlConnection connection;
 
