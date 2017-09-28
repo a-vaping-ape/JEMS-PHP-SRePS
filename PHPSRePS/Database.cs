@@ -45,6 +45,11 @@ namespace PHPSRePS
             connection.Open();*/
         }
 
+        public void CloseConnection()
+        {
+            connection.Close();
+        }
+
         //used for reading from the database
         //waiting for GUI implementation to be finished
         public void ReadDatabase(string key)
@@ -116,6 +121,21 @@ namespace PHPSRePS
                 case "All Sales":
                     return "SELECT * FROM sales";
 
+                default:
+                    return "";
+            }
+        }
+
+        public String generateSalesReportQuery(String key)
+        {
+            if (key.Contains('#'))
+                return key.TrimStart('#');
+
+            //predefined SQL statements
+            switch (key)
+            {
+                case "GROUPBY_PRODUCT":
+                    return "SELECT ";
                 default:
                     return "";
             }

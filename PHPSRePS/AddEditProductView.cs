@@ -16,9 +16,9 @@ namespace PHPSRePS
         {
             InitializeComponent();
 
-            currentProduct.Id = productId;
+            currentProduct.ID = productId;
 
-            if (currentProduct.Id != 0)
+            if (currentProduct.ID != 0)
             {
                 PopulateFields();
             }

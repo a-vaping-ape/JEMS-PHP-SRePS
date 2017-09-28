@@ -22,12 +22,12 @@ namespace PHPSRePS_Test
         public void Init()
         {
             database = new Database(server, adminUser, adminPass, databaseName);
-            product1 = new Product(0,);
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void AddProductTest()
         {
+
         }
     }
 }
