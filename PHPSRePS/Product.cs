@@ -59,12 +59,6 @@ namespace PHPSRePS
             return base.GetDELETE("product", ID.ToString());
         }
 
-        //returns a mySQL UPDATE statement
-        //public override string GetUPDATE(string updateName, string updateValue)
-        //{
-        //    return base.GetUPDATE(_SQLTable, updateName, updateValue,"ProductID", Id.ToString());
-        //}
-
         public override string GetUPDATE()
         {
             Database database = new Database();

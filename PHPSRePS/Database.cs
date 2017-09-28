@@ -1,4 +1,5 @@
 using System;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace PHPSRePS
 
         public MySqlConnection Connection { get => connection; set => connection = value; }
 
+        //add this to anymehtods working with the database
         public void OpenConnection()
         {
             string server = "sql12.freemysqlhosting.net";
@@ -34,6 +36,41 @@ namespace PHPSRePS
         public void CloseConnection()
         {
             connection.Close();
+        }
+
+        public BindingSource getProducts(string input)
+        {
+            OpenConnection();
+            //SELECT* FROM Product WHERE ProductName LIKE"+input+";"
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
+            string queiry;
+
+            if (input != "")
+                queiry = "SELECT * FROM Product WHERE ProductName LIKE '" + input + "%';";
+            else
+                queiry = "SELECT * FROM Product";
+
+            BindingSource bSource = null;
+
+            try
+            {
+                MyDA.SelectCommand = new MySqlCommand(queiry, connection);
+
+                DataTable table = new DataTable();
+                MyDA.Fill(table);
+
+                bSource = new BindingSource();
+                bSource.DataSource = table;
+            }
+            catch
+            {
+                Console.WriteLine("Smoething ducked up");
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return bSource;
         }
 
         //used for reading from the database

@@ -141,7 +141,7 @@ namespace PHPSRePS {
 
         private void salesSearchBox_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void searchABtn_Click(object sender, EventArgs e)
@@ -340,5 +340,40 @@ namespace PHPSRePS {
             }
         }
         #endregion
+
+        private void getAllProducts()
+        {
+            string input = salesSearchBox.Text.ToString();
+            BindingSource source = database.getProducts(input);
+
+            if (source != null)
+            {
+                salesDataList.DataSource = source;
+                salesDataList.ForeColor = Color.Black;
+            }
+        }
+
+        private void salesSearchButton_Click(object sender, EventArgs e)
+        {
+            getAllProducts();
+        }
+
+        private void salesDataList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void salesSearchBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            salesSearchBox.Text = "";
+        }
+
+        private void salesSearchBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                getAllProducts();
+            }
+        }
     }
 }
