@@ -28,10 +28,6 @@ namespace PHPSRePS {
             saleList.Clear();
         }
 
-<<<<<<< HEAD
-=======
-        // constructor
->>>>>>> e904e98dc786439bb678b11e6437d12887a0ce99
         public MainView() {
             InitializeComponent();
             salesTab.FlatAppearance.BorderSize = 0;
@@ -62,7 +58,7 @@ namespace PHPSRePS {
 
         // MAIN PANEL
         // navigate to the inventory view
-<<<<<<< HEAD
+
         private void OpenInventory(object sender, EventArgs e) {
             tabView.SelectTab("inventPage");
             updateTabButtons();
@@ -70,41 +66,21 @@ namespace PHPSRePS {
             ClearData();
             //LoadProducts();
             //DisplayProducts();
-=======
-        private void OpenInventory(object sender, EventArgs e)
-        {
-            // add code here to hide current panel, show inventory panel
-
-            ClearData();
-            LoadProducts();
-            DisplayProducts();
->>>>>>> e904e98dc786439bb678b11e6437d12887a0ce99
         }
 
         // MAIN PANEL
         // navigate to the sales view
-<<<<<<< HEAD
         private void OpenSales(object sender, EventArgs e) {
-            tabView.SelectTab("salesPage");
-            updateTabButtons();
+                tabView.SelectTab("salesPage");
+                updateTabButtons();
 
-            ClearData();
-            //LoadSales();
-            //DisplaySales();
-=======
-        private void OpenSales(object sender, EventArgs e)
-        {
-            // add code here to hide current panel, show sales panel
-
-            ClearData();
-            LoadSales();
-            DisplaySales();
->>>>>>> e904e98dc786439bb678b11e6437d12887a0ce99
-        }
+                ClearData();
+                //LoadSales();
+                //DisplaySales();
+            }
 
         // MAIN PANEL
         // navigate to the create sales report view
-<<<<<<< HEAD
         private void OpenReports(object sender, EventArgs e) {
             tabView.SelectTab("reportsPage");
             updateTabButtons();
@@ -116,23 +92,20 @@ namespace PHPSRePS {
         {
             tabView.SelectTab("homePage");
             updateTabButtons();
-=======
+        }
         private void OpenCreateSalesReport(object sender, EventArgs e)
         {
             // add code here to hide current panel, show report panel
 
->>>>>>> e904e98dc786439bb678b11e6437d12887a0ce99
             ClearData();
         }
 
-        // MAIN PANEL
         // close the application
         private void CloseApp(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-<<<<<<< HEAD
         private void updateTabButtons()
         {
             string tabName = tabView.SelectedTab.Name;
@@ -176,8 +149,8 @@ namespace PHPSRePS {
 
         }
 
-        private void searchBBtn_Click(object sender, EventArgs e)
-=======
+        private void searchBBtn_Click(object sender, EventArgs e) {
+        }
         // INVENTORY PANEL
         // go to AddEditProductView to add a product
         private void AddProduct(object sender, EventArgs e)
@@ -213,12 +186,10 @@ namespace PHPSRePS {
 
         // SALES REPORTS PANEL
         private void DisplaySalesReport(object sender, EventArgs e)
->>>>>>> e904e98dc786439bb678b11e6437d12887a0ce99
         {
 
         }
 
-<<<<<<< HEAD
         private void searchCBtn_Click(object sender, EventArgs e)
         {
 
@@ -249,7 +220,7 @@ namespace PHPSRePS {
         {
 
         }
-=======
+
         // SALES FORECAST PANEL
         private void DisplaySalesForecast(object sender, EventArgs e)
         {
@@ -369,6 +340,5 @@ namespace PHPSRePS {
             }
         }
         #endregion
->>>>>>> e904e98dc786439bb678b11e6437d12887a0ce99
     }
 }

@@ -113,7 +113,7 @@ namespace PHPSRePS {
 
             database.OpenConnection();
 
-            currentSale.Date = DateTime.Today;
+            //currentSale.Date = DateTime.Today;
             currentSale.Employee = "";
 
             // save to db
