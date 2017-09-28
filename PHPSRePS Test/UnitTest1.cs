@@ -27,6 +27,14 @@ namespace PHPSRePS_Test
         }
 
         [TestMethod]
+        public void TestDBConnection()
+        {
+            db = new Database();
+            string output = db.TestConnection();
+            NUnit.Framework.Assert.AreEqual("1", output);
+        }
+
+        [TestMethod]
         public void AddProductTest()
         {
 
