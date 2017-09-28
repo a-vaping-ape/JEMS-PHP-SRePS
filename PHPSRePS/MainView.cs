@@ -12,6 +12,20 @@ namespace PHPSRePS {
     public partial class MainView : Form {
         // TODO sprint2: implement authorisation + levels of security
 
+        // database
+        Database database = new Database("110.22.43.149", "admin", "dp22017", "hawthornpharmacy");
+
+        // all products
+        private List<Product> productList = new List<Product>();
+        private List<Sale> saleList = new List<Sale>();
+
+        // clear all data
+        private void ClearData()
+        {
+            productList.Clear();
+            saleList.Clear();
+        }
+
         public MainView() {
             InitializeComponent();
             salesTab.FlatAppearance.BorderSize = 0;
@@ -32,24 +46,35 @@ namespace PHPSRePS {
         private void OpenInventory(object sender, EventArgs e) {
             tabView.SelectTab("inventPage");
             updateTabButtons();
+
+            ClearData();
+            //LoadProducts();
+            //DisplayProducts();
         }
 
         // navigate to the sales view
         private void OpenSales(object sender, EventArgs e) {
             tabView.SelectTab("salesPage");
             updateTabButtons();
+
+            ClearData();
+            //LoadSales();
+            //DisplaySales();
         }
 
         // navigate to the create sales report view
         private void OpenReports(object sender, EventArgs e) {
             tabView.SelectTab("reportsPage");
             updateTabButtons();
+
+            ClearData();
         }
 
         private void OpenHome(object sender, EventArgs e)
         {
             tabView.SelectTab("homePage");
             updateTabButtons();
+            ClearData();
         }
 
         // close the application
@@ -90,11 +115,6 @@ namespace PHPSRePS {
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void salesSearchBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -105,42 +125,38 @@ namespace PHPSRePS {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void searchBBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void searchCBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            //productList.Clear();
+            //saleList.Clear();
+        }
+
+        private void payBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void addNewProduct_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click_1(object sender, EventArgs e)
+        private void addExistingProduct_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
+        private void inventDataList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

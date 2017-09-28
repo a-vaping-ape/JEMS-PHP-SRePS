@@ -78,12 +78,20 @@
             this.salesDataList = new System.Windows.Forms.DataGridView();
             this.salesSearchBox = new System.Windows.Forms.TextBox();
             this.inventPage = new System.Windows.Forms.TabPage();
+            this.inventAddExisting = new System.Windows.Forms.Button();
+            this.inventAddNew = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.InventDescription = new System.Windows.Forms.Label();
             this.inventDataList = new System.Windows.Forms.DataGridView();
             this.inventSearchBar = new System.Windows.Forms.TextBox();
             this.reportsPage = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salesPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -287,7 +295,7 @@
             this.salesPayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.salesPayButton.Font = new System.Drawing.Font("Segoe UI Symbol", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesPayButton.ForeColor = System.Drawing.Color.Black;
-            this.salesPayButton.Location = new System.Drawing.Point(1570, 979);
+            this.salesPayButton.Location = new System.Drawing.Point(1629, 979);
             this.salesPayButton.Margin = new System.Windows.Forms.Padding(0);
             this.salesPayButton.Name = "salesPayButton";
             this.salesPayButton.Size = new System.Drawing.Size(133, 55);
@@ -295,7 +303,7 @@
             this.salesPayButton.Text = "Pay";
             this.salesPayButton.UseCompatibleTextRendering = true;
             this.salesPayButton.UseVisualStyleBackColor = false;
-            this.salesPayButton.Click += new System.EventHandler(this.button3_Click);
+            this.salesPayButton.Click += new System.EventHandler(this.payBtn_Click);
             // 
             // cancelButton
             // 
@@ -313,7 +321,7 @@
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseCompatibleTextRendering = true;
             this.cancelButton.UseVisualStyleBackColor = false;
-            this.cancelButton.Click += new System.EventHandler(this.button2_Click);
+            this.cancelButton.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // salesTotalNum
             // 
@@ -326,7 +334,6 @@
             this.salesTotalNum.Size = new System.Drawing.Size(134, 37);
             this.salesTotalNum.TabIndex = 35;
             this.salesTotalNum.Text = "$000.00";
-            this.salesTotalNum.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // salesTotal
             // 
@@ -339,7 +346,6 @@
             this.salesTotal.Size = new System.Drawing.Size(276, 37);
             this.salesTotal.TabIndex = 34;
             this.salesTotal.Text = "Transaction Total:";
-            this.salesTotal.Click += new System.EventHandler(this.label2_Click);
             // 
             // salesLine
             // 
@@ -793,7 +799,7 @@
             this.searchCBtn.Text = "C";
             this.searchCBtn.UseCompatibleTextRendering = true;
             this.searchCBtn.UseVisualStyleBackColor = false;
-            this.searchCBtn.Click += new System.EventHandler(this.button1_Click_1);
+            this.searchCBtn.Click += new System.EventHandler(this.searchCBtn_Click);
             // 
             // searchBBtn
             // 
@@ -811,7 +817,7 @@
             this.searchBBtn.Text = "B";
             this.searchBBtn.UseCompatibleTextRendering = true;
             this.searchBBtn.UseVisualStyleBackColor = false;
-            this.searchBBtn.Click += new System.EventHandler(this.button1_Click);
+            this.searchBBtn.Click += new System.EventHandler(this.searchBBtn_Click);
             // 
             // searchABtn
             // 
@@ -838,7 +844,6 @@
             this.horizontalLine.Name = "horizontalLine";
             this.horizontalLine.Size = new System.Drawing.Size(1069, 2);
             this.horizontalLine.TabIndex = 2;
-            this.horizontalLine.Click += new System.EventHandler(this.label1_Click);
             // 
             // salesDataList
             // 
@@ -861,9 +866,10 @@
             // 
             // inventPage
             // 
-            this.inventPage.Controls.Add(this.button1);
+            this.inventPage.Controls.Add(this.inventAddExisting);
+            this.inventPage.Controls.Add(this.inventAddNew);
             this.inventPage.Controls.Add(this.listBox1);
-            this.inventPage.Controls.Add(this.label1);
+            this.inventPage.Controls.Add(this.InventDescription);
             this.inventPage.Controls.Add(this.inventDataList);
             this.inventPage.Controls.Add(this.inventSearchBar);
             this.inventPage.Location = new System.Drawing.Point(4, 5);
@@ -874,6 +880,42 @@
             this.inventPage.Text = "Inventory";
             this.inventPage.UseVisualStyleBackColor = true;
             // 
+            // inventAddExisting
+            // 
+            this.inventAddExisting.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.inventAddExisting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.inventAddExisting.FlatAppearance.BorderSize = 0;
+            this.inventAddExisting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventAddExisting.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventAddExisting.ForeColor = System.Drawing.Color.Transparent;
+            this.inventAddExisting.Location = new System.Drawing.Point(156, 898);
+            this.inventAddExisting.Margin = new System.Windows.Forms.Padding(0);
+            this.inventAddExisting.Name = "inventAddExisting";
+            this.inventAddExisting.Size = new System.Drawing.Size(120, 93);
+            this.inventAddExisting.TabIndex = 35;
+            this.inventAddExisting.Text = "Add Exisiting product";
+            this.inventAddExisting.UseCompatibleTextRendering = true;
+            this.inventAddExisting.UseVisualStyleBackColor = false;
+            this.inventAddExisting.Click += new System.EventHandler(this.addExistingProduct_Click);
+            // 
+            // inventAddNew
+            // 
+            this.inventAddNew.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.inventAddNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.inventAddNew.FlatAppearance.BorderSize = 0;
+            this.inventAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventAddNew.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventAddNew.ForeColor = System.Drawing.Color.Transparent;
+            this.inventAddNew.Location = new System.Drawing.Point(18, 898);
+            this.inventAddNew.Margin = new System.Windows.Forms.Padding(0);
+            this.inventAddNew.Name = "inventAddNew";
+            this.inventAddNew.Size = new System.Drawing.Size(120, 93);
+            this.inventAddNew.TabIndex = 34;
+            this.inventAddNew.Text = "Add new product";
+            this.inventAddNew.UseCompatibleTextRendering = true;
+            this.inventAddNew.UseVisualStyleBackColor = false;
+            this.inventAddNew.Click += new System.EventHandler(this.addNewProduct_Click);
+            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -882,25 +924,34 @@
             this.listBox1.Size = new System.Drawing.Size(607, 927);
             this.listBox1.TabIndex = 33;
             // 
-            // label1
+            // InventDescription
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(1157, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(216, 42);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Description";
+            this.InventDescription.AutoSize = true;
+            this.InventDescription.BackColor = System.Drawing.Color.Transparent;
+            this.InventDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InventDescription.ForeColor = System.Drawing.Color.Black;
+            this.InventDescription.Location = new System.Drawing.Point(1157, 27);
+            this.InventDescription.Name = "InventDescription";
+            this.InventDescription.Size = new System.Drawing.Size(216, 42);
+            this.InventDescription.TabIndex = 32;
+            this.InventDescription.Text = "Description";
             // 
             // inventDataList
             // 
             this.inventDataList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.inventDataList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productID,
+            this.Name,
+            this.Category,
+            this.Quantity,
+            this.costPrice,
+            this.salesPrice,
+            this.Edit});
             this.inventDataList.Location = new System.Drawing.Point(18, 74);
             this.inventDataList.Name = "inventDataList";
-            this.inventDataList.Size = new System.Drawing.Size(1111, 803);
+            this.inventDataList.Size = new System.Drawing.Size(1111, 805);
             this.inventDataList.TabIndex = 2;
+            this.inventDataList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventDataList_CellContentClick);
             // 
             // inventSearchBar
             // 
@@ -921,23 +972,53 @@
             this.reportsPage.Text = "Reports";
             this.reportsPage.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // productID
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(18, 898);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 70);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Add new product";
-            this.button1.UseCompatibleTextRendering = true;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            this.productID.HeaderText = "ID";
+            this.productID.Name = "productID";
+            this.productID.ReadOnly = true;
+            this.productID.Width = 70;
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.MinimumWidth = 150;
+            this.Name.Name = "Name";
+            this.Name.ReadOnly = true;
+            this.Name.Width = 400;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.HeaderText = "Qty. in Stock";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            this.Quantity.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Quantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // costPrice
+            // 
+            this.costPrice.HeaderText = "Cost Price";
+            this.costPrice.Name = "costPrice";
+            this.costPrice.ReadOnly = true;
+            // 
+            // salesPrice
+            // 
+            this.salesPrice.HeaderText = "Sales Price";
+            this.salesPrice.Name = "salesPrice";
+            this.salesPrice.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "";
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Width = 80;
             // 
             // MainView
             // 
@@ -948,7 +1029,7 @@
             this.Controls.Add(this.sidebar);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MainView";
+           // this.Name = "MainView";
             this.Text = " ";
             this.sidebar.ResumeLayout(false);
             this.tabView.ResumeLayout(false);
@@ -1017,9 +1098,17 @@
         private System.Windows.Forms.Button salesPayButton;
         private System.Windows.Forms.TextBox inventSearchBar;
         private System.Windows.Forms.DataGridView inventDataList;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label InventDescription;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button inventAddNew;
+        private System.Windows.Forms.Button inventAddExisting;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salesPrice;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit;
     }
 }
 
