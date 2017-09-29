@@ -44,8 +44,6 @@ namespace PHPSRePS {
             powerButton.Click += new EventHandler(this.CloseApp);
         }
 
-
-
         #region button click methods
         // MAIN PANEL
         // navigate to the main view
@@ -228,9 +226,7 @@ namespace PHPSRePS {
 
         }
         #endregion
-
-
-
+        
         #region inventory screen methods
         // display products to the UI
         private void DisplayProducts()
@@ -266,8 +262,6 @@ namespace PHPSRePS {
         }
         #endregion
 
-
-
         #region sales screen methods
         // display items in productList to the UI
         private void DisplaySales()
@@ -299,8 +293,6 @@ namespace PHPSRePS {
             database.CloseConnection();
         }
         #endregion
-
-
 
         #region reports screen methods
         private void LoadSalesReport(DateTime startDate, DateTime endDate)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq;
 using System.Data;
@@ -68,6 +69,42 @@ namespace PHPSRePS
                 CloseConnection();
             }
             return bSource;
+        }
+
+        public string generateReportQuery(string groupBy, DateTime startDate, DateTime endDate)
+        {
+            string startDateString = startDate.Year + "-" + startDate.Month + "-" + startDate.Day + "-";
+            string endDateString = endDate.Year + "-" + endDate.Month + "-" + endDate.Day + "-";
+
+            string quadrupleJoin = 
+                "INNER JOIN ItemSales ON Sales.SalesID = ItemSales.SalesID "
+                + "INNER JOIN Employee ON Sales.EmployeeID = Employee.EmployeeID "
+                + "INNER JOIN Product ON Product.ProductID = ItemSales.ProductID "
+                + "INNER JOIN Categories ON Product.CategoryID = Categories.CategoryID ";
+
+            switch (groupBy)
+            {
+                case "product":
+                    return
+                        "SELECT Product.ProductName AS Product, Categories.CategoryName AS Category, Product.UnitPrice AS 'Unit Price', COUNT(Sales.SalesID) AS 'Quantity Sold', COUNT(Sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM Sales " 
+                        + quadrupleJoin
+                        + String.Format("WHERE Sales.SalesDate >= {0} AND Sales.SalesDate <= {1}", startDateString, endDateString)
+                        + "GROUP BY ProductName ORDER BY COUNT(Sales.SalesID)*Product.UnitPrice DESC; ";
+                case "employee":
+                    return
+                        "SELECT Employee.FirstName AS Name, COUNT(Sales.SalesID) AS 'No. of Sales', COUNT(Sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM Sales "
+                        + quadrupleJoin
+                        + String.Format("WHERE Sales.SalesDate >= {0} AND Sales.SalesDate <= {1}", startDateString, endDateString)
+                        + "GROUP BY Employee.FirstName ORDER BY COUNT(Sales.SalesID)*Product.UnitPrice DESC;";
+                case "category":
+                    return
+                        "SELECT Categories.CategoryName, COUNT(Sales.SalesID) AS 'No. of Sales', COUNT(Sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM Sales "
+                        + quadrupleJoin
+                        + String.Format("WHERE Sales.SalesDate >= {0} AND Sales.SalesDate <= {1}", startDateString, endDateString)
+                        + "GROUP BY Employee.FirstName ORDER BY COUNT(Sales.SalesID)*Product.UnitPrice DESC;";
+                default:
+                    return "";
+            }
         }
 
         //used for reading from the database
@@ -159,21 +196,6 @@ namespace PHPSRePS
                 case "All Sales":
                     return "SELECT * FROM sales";
 
-                default:
-                    return "";
-            }
-        }
-
-        public String generateSalesReportQuery(String key)
-        {
-            if (key.Contains('#'))
-                return key.TrimStart('#');
-
-            //predefined SQL statements
-            switch (key)
-            {
-                case "GROUPBY_PRODUCT":
-                    return "SELECT ";
                 default:
                     return "";
             }
