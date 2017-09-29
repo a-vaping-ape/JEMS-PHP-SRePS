@@ -52,14 +52,17 @@ namespace PHPSRePS
         {
             StartDate = startDate;
             EndDate = endDate;
-
-            LoadReport("product", startDate, endDate);
-            LoadReport("employee", startDate, endDate);
-            LoadReport("category", startDate, endDate);
         }
 
         // load data from the database into local lists
-        private void LoadReport(string groupBy, DateTime startDate, DateTime endDate)
+        public void LoadAllReports(DateTime startDate, DateTime endDate)
+        {
+            PopulateReportList("product", startDate, endDate);
+            PopulateReportList("employee", startDate, endDate);
+            PopulateReportList("category", startDate, endDate);
+        }
+
+        private void PopulateReportList(string groupBy, DateTime startDate, DateTime endDate)
         {
             database.OpenConnection();
 

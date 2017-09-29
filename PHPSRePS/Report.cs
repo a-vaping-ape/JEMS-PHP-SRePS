@@ -14,5 +14,7 @@ namespace PHPSRePS
 
         }
 
+        public abstract void ExportToCSV();
+
     }
 }
