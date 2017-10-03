@@ -69,12 +69,6 @@
     <Compile Include="HasSQLTable.cs" />
     <Compile Include="ItemSale.cs" />
     <Compile Include="Product.cs" />
-    <Compile Include="CreateReportView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateReportView.Designer.cs">
-      <DependentUpon>CreateReportView.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainView.cs">
       <SubType>Form</SubType>
     </Compile>

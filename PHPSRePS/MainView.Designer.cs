@@ -92,6 +92,10 @@
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.inventSearchBar = new System.Windows.Forms.TextBox();
             this.reportsPage = new System.Windows.Forms.TabPage();
+            this.salesAddBtn = new System.Windows.Forms.Button();
+            this.reportSendReportBtn = new System.Windows.Forms.Button();
+            this.reportTestBtn = new System.Windows.Forms.Button();
+            this.reportTestBtn2 = new System.Windows.Forms.Button();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -99,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.salesDataList)).BeginInit();
             this.inventPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).BeginInit();
+            this.reportsPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar
@@ -242,6 +247,7 @@
             // 
             // salesPage
             // 
+            this.salesPage.Controls.Add(this.salesAddBtn);
             this.salesPage.Controls.Add(this.salesPayButton);
             this.salesPage.Controls.Add(this.cancelButton);
             this.salesPage.Controls.Add(this.salesTotalNum);
@@ -401,7 +407,7 @@
             this.searchZBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchZBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchZBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchZBtn.Location = new System.Drawing.Point(811, 966);
+            this.searchZBtn.Location = new System.Drawing.Point(728, 957);
             this.searchZBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchZBtn.Name = "searchZBtn";
             this.searchZBtn.Size = new System.Drawing.Size(70, 70);
@@ -419,7 +425,7 @@
             this.searchYBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchYBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchYBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchYBtn.Location = new System.Drawing.Point(713, 966);
+            this.searchYBtn.Location = new System.Drawing.Point(630, 957);
             this.searchYBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchYBtn.Name = "searchYBtn";
             this.searchYBtn.Size = new System.Drawing.Size(70, 70);
@@ -437,7 +443,7 @@
             this.searchXBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchXBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchXBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchXBtn.Location = new System.Drawing.Point(614, 966);
+            this.searchXBtn.Location = new System.Drawing.Point(531, 957);
             this.searchXBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchXBtn.Name = "searchXBtn";
             this.searchXBtn.Size = new System.Drawing.Size(70, 70);
@@ -455,7 +461,7 @@
             this.searchWBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchWBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchWBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchWBtn.Location = new System.Drawing.Point(515, 966);
+            this.searchWBtn.Location = new System.Drawing.Point(432, 957);
             this.searchWBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchWBtn.Name = "searchWBtn";
             this.searchWBtn.Size = new System.Drawing.Size(70, 70);
@@ -473,7 +479,7 @@
             this.searchVBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchVBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchVBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchVBtn.Location = new System.Drawing.Point(418, 966);
+            this.searchVBtn.Location = new System.Drawing.Point(335, 957);
             this.searchVBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchVBtn.Name = "searchVBtn";
             this.searchVBtn.Size = new System.Drawing.Size(70, 70);
@@ -491,7 +497,7 @@
             this.searchUBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchUBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchUBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchUBtn.Location = new System.Drawing.Point(320, 966);
+            this.searchUBtn.Location = new System.Drawing.Point(237, 957);
             this.searchUBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchUBtn.Name = "searchUBtn";
             this.searchUBtn.Size = new System.Drawing.Size(70, 70);
@@ -509,7 +515,7 @@
             this.searchTBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchTBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchTBtn.Location = new System.Drawing.Point(221, 966);
+            this.searchTBtn.Location = new System.Drawing.Point(138, 957);
             this.searchTBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchTBtn.Name = "searchTBtn";
             this.searchTBtn.Size = new System.Drawing.Size(70, 70);
@@ -527,7 +533,7 @@
             this.searchSBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchSBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchSBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchSBtn.Location = new System.Drawing.Point(120, 966);
+            this.searchSBtn.Location = new System.Drawing.Point(37, 957);
             this.searchSBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchSBtn.Name = "searchSBtn";
             this.searchSBtn.Size = new System.Drawing.Size(70, 70);
@@ -545,7 +551,7 @@
             this.searchRBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchRBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchRBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchRBtn.Location = new System.Drawing.Point(910, 870);
+            this.searchRBtn.Location = new System.Drawing.Point(827, 861);
             this.searchRBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchRBtn.Name = "searchRBtn";
             this.searchRBtn.Size = new System.Drawing.Size(70, 70);
@@ -563,7 +569,7 @@
             this.searchQBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchQBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchQBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchQBtn.Location = new System.Drawing.Point(811, 870);
+            this.searchQBtn.Location = new System.Drawing.Point(728, 861);
             this.searchQBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchQBtn.Name = "searchQBtn";
             this.searchQBtn.Size = new System.Drawing.Size(70, 70);
@@ -581,7 +587,7 @@
             this.searchPBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchPBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchPBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchPBtn.Location = new System.Drawing.Point(713, 870);
+            this.searchPBtn.Location = new System.Drawing.Point(630, 861);
             this.searchPBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchPBtn.Name = "searchPBtn";
             this.searchPBtn.Size = new System.Drawing.Size(70, 70);
@@ -599,7 +605,7 @@
             this.searchOBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchOBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchOBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchOBtn.Location = new System.Drawing.Point(614, 870);
+            this.searchOBtn.Location = new System.Drawing.Point(531, 861);
             this.searchOBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchOBtn.Name = "searchOBtn";
             this.searchOBtn.Size = new System.Drawing.Size(70, 70);
@@ -617,7 +623,7 @@
             this.searchNBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchNBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchNBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchNBtn.Location = new System.Drawing.Point(515, 870);
+            this.searchNBtn.Location = new System.Drawing.Point(432, 861);
             this.searchNBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchNBtn.Name = "searchNBtn";
             this.searchNBtn.Size = new System.Drawing.Size(70, 70);
@@ -635,7 +641,7 @@
             this.searchMBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchMBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchMBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchMBtn.Location = new System.Drawing.Point(418, 870);
+            this.searchMBtn.Location = new System.Drawing.Point(335, 861);
             this.searchMBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchMBtn.Name = "searchMBtn";
             this.searchMBtn.Size = new System.Drawing.Size(70, 70);
@@ -653,7 +659,7 @@
             this.searchLBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchLBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchLBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchLBtn.Location = new System.Drawing.Point(320, 870);
+            this.searchLBtn.Location = new System.Drawing.Point(237, 861);
             this.searchLBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchLBtn.Name = "searchLBtn";
             this.searchLBtn.Size = new System.Drawing.Size(70, 70);
@@ -671,7 +677,7 @@
             this.searchKBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchKBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchKBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchKBtn.Location = new System.Drawing.Point(221, 870);
+            this.searchKBtn.Location = new System.Drawing.Point(138, 861);
             this.searchKBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchKBtn.Name = "searchKBtn";
             this.searchKBtn.Size = new System.Drawing.Size(70, 70);
@@ -689,7 +695,7 @@
             this.searchJBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchJBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchJBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchJBtn.Location = new System.Drawing.Point(120, 870);
+            this.searchJBtn.Location = new System.Drawing.Point(37, 861);
             this.searchJBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchJBtn.Name = "searchJBtn";
             this.searchJBtn.Size = new System.Drawing.Size(70, 70);
@@ -707,7 +713,7 @@
             this.searchIBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchIBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchIBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchIBtn.Location = new System.Drawing.Point(910, 774);
+            this.searchIBtn.Location = new System.Drawing.Point(827, 765);
             this.searchIBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchIBtn.Name = "searchIBtn";
             this.searchIBtn.Size = new System.Drawing.Size(70, 70);
@@ -725,7 +731,7 @@
             this.searchHBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchHBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchHBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchHBtn.Location = new System.Drawing.Point(811, 774);
+            this.searchHBtn.Location = new System.Drawing.Point(728, 765);
             this.searchHBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchHBtn.Name = "searchHBtn";
             this.searchHBtn.Size = new System.Drawing.Size(70, 70);
@@ -743,7 +749,7 @@
             this.searchGBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchGBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchGBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchGBtn.Location = new System.Drawing.Point(713, 774);
+            this.searchGBtn.Location = new System.Drawing.Point(630, 765);
             this.searchGBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchGBtn.Name = "searchGBtn";
             this.searchGBtn.Size = new System.Drawing.Size(70, 70);
@@ -761,7 +767,7 @@
             this.searchFBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchFBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchFBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchFBtn.Location = new System.Drawing.Point(614, 774);
+            this.searchFBtn.Location = new System.Drawing.Point(531, 765);
             this.searchFBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchFBtn.Name = "searchFBtn";
             this.searchFBtn.Size = new System.Drawing.Size(70, 70);
@@ -779,7 +785,7 @@
             this.searchEBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchEBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchEBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchEBtn.Location = new System.Drawing.Point(515, 774);
+            this.searchEBtn.Location = new System.Drawing.Point(432, 765);
             this.searchEBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchEBtn.Name = "searchEBtn";
             this.searchEBtn.Size = new System.Drawing.Size(70, 70);
@@ -797,7 +803,7 @@
             this.searchDBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchDBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchDBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchDBtn.Location = new System.Drawing.Point(418, 774);
+            this.searchDBtn.Location = new System.Drawing.Point(335, 765);
             this.searchDBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchDBtn.Name = "searchDBtn";
             this.searchDBtn.Size = new System.Drawing.Size(70, 70);
@@ -815,7 +821,7 @@
             this.searchCBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchCBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchCBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchCBtn.Location = new System.Drawing.Point(320, 774);
+            this.searchCBtn.Location = new System.Drawing.Point(237, 765);
             this.searchCBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchCBtn.Name = "searchCBtn";
             this.searchCBtn.Size = new System.Drawing.Size(70, 70);
@@ -833,7 +839,7 @@
             this.searchBBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchBBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchBBtn.Location = new System.Drawing.Point(221, 774);
+            this.searchBBtn.Location = new System.Drawing.Point(138, 765);
             this.searchBBtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchBBtn.Name = "searchBBtn";
             this.searchBBtn.Size = new System.Drawing.Size(70, 70);
@@ -851,7 +857,7 @@
             this.searchABtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchABtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchABtn.ForeColor = System.Drawing.Color.Transparent;
-            this.searchABtn.Location = new System.Drawing.Point(120, 774);
+            this.searchABtn.Location = new System.Drawing.Point(37, 765);
             this.searchABtn.Margin = new System.Windows.Forms.Padding(0);
             this.searchABtn.Name = "searchABtn";
             this.searchABtn.Size = new System.Drawing.Size(70, 70);
@@ -902,7 +908,7 @@
             this.inventPage.Controls.Add(this.inventSearchBar);
             this.inventPage.Location = new System.Drawing.Point(4, 5);
             this.inventPage.Name = "inventPage";
-            this.inventPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.inventPage.Padding = new System.Windows.Forms.Padding(3);
             this.inventPage.Size = new System.Drawing.Size(1797, 1070);
             this.inventPage.TabIndex = 1;
             this.inventPage.Text = "Inventory";
@@ -1041,12 +1047,85 @@
             // 
             // reportsPage
             // 
+            this.reportsPage.Controls.Add(this.reportTestBtn2);
+            this.reportsPage.Controls.Add(this.reportTestBtn);
+            this.reportsPage.Controls.Add(this.reportSendReportBtn);
             this.reportsPage.Location = new System.Drawing.Point(4, 5);
             this.reportsPage.Name = "reportsPage";
             this.reportsPage.Size = new System.Drawing.Size(1797, 1070);
             this.reportsPage.TabIndex = 2;
             this.reportsPage.Text = "Reports";
             this.reportsPage.UseVisualStyleBackColor = true;
+            // 
+            // salesAddBtn
+            // 
+            this.salesAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.salesAddBtn.BackColor = System.Drawing.Color.Coral;
+            this.salesAddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.salesAddBtn.FlatAppearance.BorderSize = 0;
+            this.salesAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.salesAddBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesAddBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.salesAddBtn.Location = new System.Drawing.Point(963, 765);
+            this.salesAddBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.salesAddBtn.Name = "salesAddBtn";
+            this.salesAddBtn.Size = new System.Drawing.Size(112, 70);
+            this.salesAddBtn.TabIndex = 38;
+            this.salesAddBtn.Text = "Add item to Transaction";
+            this.salesAddBtn.UseCompatibleTextRendering = true;
+            this.salesAddBtn.UseVisualStyleBackColor = false;
+            this.salesAddBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // reportSendReportBtn
+            // 
+            this.reportSendReportBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.reportSendReportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.reportSendReportBtn.FlatAppearance.BorderSize = 0;
+            this.reportSendReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportSendReportBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportSendReportBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.reportSendReportBtn.Location = new System.Drawing.Point(49, 30);
+            this.reportSendReportBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.reportSendReportBtn.Name = "reportSendReportBtn";
+            this.reportSendReportBtn.Size = new System.Drawing.Size(134, 70);
+            this.reportSendReportBtn.TabIndex = 13;
+            this.reportSendReportBtn.Text = "Send Report";
+            this.reportSendReportBtn.UseCompatibleTextRendering = true;
+            this.reportSendReportBtn.UseVisualStyleBackColor = false;
+            // 
+            // reportTestBtn
+            // 
+            this.reportTestBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.reportTestBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.reportTestBtn.FlatAppearance.BorderSize = 0;
+            this.reportTestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportTestBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportTestBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.reportTestBtn.Location = new System.Drawing.Point(49, 127);
+            this.reportTestBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.reportTestBtn.Name = "reportTestBtn";
+            this.reportTestBtn.Size = new System.Drawing.Size(134, 70);
+            this.reportTestBtn.TabIndex = 14;
+            this.reportTestBtn.Text = "Test button 1";
+            this.reportTestBtn.UseCompatibleTextRendering = true;
+            this.reportTestBtn.UseVisualStyleBackColor = false;
+            // 
+            // reportTestBtn2
+            // 
+            this.reportTestBtn2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.reportTestBtn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.reportTestBtn2.FlatAppearance.BorderSize = 0;
+            this.reportTestBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportTestBtn2.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportTestBtn2.ForeColor = System.Drawing.Color.Transparent;
+            this.reportTestBtn2.Location = new System.Drawing.Point(49, 224);
+            this.reportTestBtn2.Margin = new System.Windows.Forms.Padding(0);
+            this.reportTestBtn2.Name = "reportTestBtn2";
+            this.reportTestBtn2.Size = new System.Drawing.Size(134, 70);
+            this.reportTestBtn2.TabIndex = 15;
+            this.reportTestBtn2.Text = "Test button 2";
+            this.reportTestBtn2.UseCompatibleTextRendering = true;
+            this.reportTestBtn2.UseVisualStyleBackColor = false;
             // 
             // MainView
             // 
@@ -1057,7 +1136,7 @@
             this.Controls.Add(this.sidebar);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            //this.Name = "MainView";
+            this.Name = "MainView";
             this.Text = " ";
             this.sidebar.ResumeLayout(false);
             this.tabView.ResumeLayout(false);
@@ -1068,6 +1147,7 @@
             this.inventPage.ResumeLayout(false);
             this.inventPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).EndInit();
+            this.reportsPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1137,6 +1217,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn costPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn salesPrice;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
+        private System.Windows.Forms.Button salesAddBtn;
+        private System.Windows.Forms.Button reportTestBtn2;
+        private System.Windows.Forms.Button reportTestBtn;
+        private System.Windows.Forms.Button reportSendReportBtn;
     }
 }
 
