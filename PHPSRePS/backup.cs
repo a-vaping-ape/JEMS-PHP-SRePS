@@ -1,3 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using System.Linq;
+using System.Data;
+using MySql.Data.MySqlClient;
+
         private void btnBak_Click(object sender, EventArgs e) //backup
         {
             string saveAway = this.tbxBakLoad.Text.ToString().Trim();
