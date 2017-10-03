@@ -5,6 +5,9 @@ using System.Linq;
 using System.Data;
 using MySql.Data.MySqlClient;
 
+namespace backup
+{
+
         private void btnBak_Click(object sender, EventArgs e) //backup
         {
             string saveAway = this.tbxBakLoad.Text.ToString().Trim();
@@ -66,3 +69,4 @@ using MySql.Data.MySqlClient;
                 conn.Dispose();
             }
         }
+}
