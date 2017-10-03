@@ -40,6 +40,7 @@
             this.powerButton = new System.Windows.Forms.Button();
             this.userButton = new System.Windows.Forms.Button();
             this.salesPage = new System.Windows.Forms.TabPage();
+            this.salesAddBtn = new System.Windows.Forms.Button();
             this.salesPayButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.salesTotalNum = new System.Windows.Forms.Label();
@@ -92,10 +93,9 @@
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.inventSearchBar = new System.Windows.Forms.TextBox();
             this.reportsPage = new System.Windows.Forms.TabPage();
-            this.salesAddBtn = new System.Windows.Forms.Button();
-            this.reportSendReportBtn = new System.Windows.Forms.Button();
-            this.reportTestBtn = new System.Windows.Forms.Button();
             this.reportTestBtn2 = new System.Windows.Forms.Button();
+            this.reportTestBtn = new System.Windows.Forms.Button();
+            this.reportSendReportBtn = new System.Windows.Forms.Button();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -292,6 +292,25 @@
             this.salesPage.TabIndex = 0;
             this.salesPage.Text = "tabPage1";
             this.salesPage.UseVisualStyleBackColor = true;
+            // 
+            // salesAddBtn
+            // 
+            this.salesAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.salesAddBtn.BackColor = System.Drawing.Color.Coral;
+            this.salesAddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.salesAddBtn.FlatAppearance.BorderSize = 0;
+            this.salesAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.salesAddBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesAddBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.salesAddBtn.Location = new System.Drawing.Point(963, 765);
+            this.salesAddBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.salesAddBtn.Name = "salesAddBtn";
+            this.salesAddBtn.Size = new System.Drawing.Size(112, 70);
+            this.salesAddBtn.TabIndex = 38;
+            this.salesAddBtn.Text = "Add item to Transaction";
+            this.salesAddBtn.UseCompatibleTextRendering = true;
+            this.salesAddBtn.UseVisualStyleBackColor = false;
+            this.salesAddBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // salesPayButton
             // 
@@ -877,10 +896,12 @@
             // 
             // salesDataList
             // 
+            this.salesDataList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.salesDataList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.salesDataList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.salesDataList.Location = new System.Drawing.Point(37, 89);
             this.salesDataList.Name = "salesDataList";
+            this.salesDataList.ReadOnly = true;
             this.salesDataList.Size = new System.Drawing.Size(1038, 649);
             this.salesDataList.TabIndex = 1;
             this.salesDataList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.salesDataList_CellContentClick);
@@ -972,6 +993,7 @@
             // 
             // inventDataList
             // 
+            this.inventDataList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.inventDataList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inventDataList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productID,
@@ -992,7 +1014,6 @@
             this.productID.HeaderText = "ID";
             this.productID.Name = "productID";
             this.productID.ReadOnly = true;
-            this.productID.Width = 70;
             // 
             // Name
             // 
@@ -1000,7 +1021,6 @@
             this.Name.MinimumWidth = 150;
             this.Name.Name = "Name";
             this.Name.ReadOnly = true;
-            this.Name.Width = 400;
             // 
             // Category
             // 
@@ -1033,7 +1053,6 @@
             this.Edit.HeaderText = "";
             this.Edit.Name = "Edit";
             this.Edit.ReadOnly = true;
-            this.Edit.Width = 80;
             // 
             // inventSearchBar
             // 
@@ -1057,41 +1076,22 @@
             this.reportsPage.Text = "Reports";
             this.reportsPage.UseVisualStyleBackColor = true;
             // 
-            // salesAddBtn
+            // reportTestBtn2
             // 
-            this.salesAddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.salesAddBtn.BackColor = System.Drawing.Color.Coral;
-            this.salesAddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.salesAddBtn.FlatAppearance.BorderSize = 0;
-            this.salesAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.salesAddBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesAddBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.salesAddBtn.Location = new System.Drawing.Point(963, 765);
-            this.salesAddBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.salesAddBtn.Name = "salesAddBtn";
-            this.salesAddBtn.Size = new System.Drawing.Size(112, 70);
-            this.salesAddBtn.TabIndex = 38;
-            this.salesAddBtn.Text = "Add item to Transaction";
-            this.salesAddBtn.UseCompatibleTextRendering = true;
-            this.salesAddBtn.UseVisualStyleBackColor = false;
-            this.salesAddBtn.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // reportSendReportBtn
-            // 
-            this.reportSendReportBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.reportSendReportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.reportSendReportBtn.FlatAppearance.BorderSize = 0;
-            this.reportSendReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportSendReportBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportSendReportBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.reportSendReportBtn.Location = new System.Drawing.Point(49, 30);
-            this.reportSendReportBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.reportSendReportBtn.Name = "reportSendReportBtn";
-            this.reportSendReportBtn.Size = new System.Drawing.Size(134, 70);
-            this.reportSendReportBtn.TabIndex = 13;
-            this.reportSendReportBtn.Text = "Send Report";
-            this.reportSendReportBtn.UseCompatibleTextRendering = true;
-            this.reportSendReportBtn.UseVisualStyleBackColor = false;
+            this.reportTestBtn2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.reportTestBtn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.reportTestBtn2.FlatAppearance.BorderSize = 0;
+            this.reportTestBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportTestBtn2.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportTestBtn2.ForeColor = System.Drawing.Color.Transparent;
+            this.reportTestBtn2.Location = new System.Drawing.Point(49, 224);
+            this.reportTestBtn2.Margin = new System.Windows.Forms.Padding(0);
+            this.reportTestBtn2.Name = "reportTestBtn2";
+            this.reportTestBtn2.Size = new System.Drawing.Size(134, 70);
+            this.reportTestBtn2.TabIndex = 15;
+            this.reportTestBtn2.Text = "Test button 2";
+            this.reportTestBtn2.UseCompatibleTextRendering = true;
+            this.reportTestBtn2.UseVisualStyleBackColor = false;
             // 
             // reportTestBtn
             // 
@@ -1110,22 +1110,22 @@
             this.reportTestBtn.UseCompatibleTextRendering = true;
             this.reportTestBtn.UseVisualStyleBackColor = false;
             // 
-            // reportTestBtn2
+            // reportSendReportBtn
             // 
-            this.reportTestBtn2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.reportTestBtn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.reportTestBtn2.FlatAppearance.BorderSize = 0;
-            this.reportTestBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportTestBtn2.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportTestBtn2.ForeColor = System.Drawing.Color.Transparent;
-            this.reportTestBtn2.Location = new System.Drawing.Point(49, 224);
-            this.reportTestBtn2.Margin = new System.Windows.Forms.Padding(0);
-            this.reportTestBtn2.Name = "reportTestBtn2";
-            this.reportTestBtn2.Size = new System.Drawing.Size(134, 70);
-            this.reportTestBtn2.TabIndex = 15;
-            this.reportTestBtn2.Text = "Test button 2";
-            this.reportTestBtn2.UseCompatibleTextRendering = true;
-            this.reportTestBtn2.UseVisualStyleBackColor = false;
+            this.reportSendReportBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.reportSendReportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.reportSendReportBtn.FlatAppearance.BorderSize = 0;
+            this.reportSendReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportSendReportBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportSendReportBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.reportSendReportBtn.Location = new System.Drawing.Point(49, 30);
+            this.reportSendReportBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.reportSendReportBtn.Name = "reportSendReportBtn";
+            this.reportSendReportBtn.Size = new System.Drawing.Size(134, 70);
+            this.reportSendReportBtn.TabIndex = 13;
+            this.reportSendReportBtn.Text = "Send Report";
+            this.reportSendReportBtn.UseCompatibleTextRendering = true;
+            this.reportSendReportBtn.UseVisualStyleBackColor = false;
             // 
             // MainView
             // 
