@@ -35,9 +35,14 @@ namespace PHPSRePS_Test
         }
 
         [TestMethod]
-        public void AddProductTest()
+        public void INSERTSaleInDB()
         {
+            db = new Database();
+            sale1 = new Sale();
 
+            bool pass = db.RunVoidQuery(sale1.GetINSERT());
+            
+            NUnit.Framework.Assert.AreEqual(true, pass);
         }
     }
 }

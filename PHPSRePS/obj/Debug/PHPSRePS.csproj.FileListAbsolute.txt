@@ -1,0 +1,19 @@
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.Properties.Resources.resources
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.csproj.GenerateResource.Cache
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.csproj.CoreCompileInputs.cache
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.InventoryView.resources
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\obj\Debug\PHPSRePS.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\obj\Debug\PHPSRePS.Properties.Resources.resources
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\obj\Debug\PHPSRePS.csproj.GenerateResource.Cache
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\obj\Debug\PHPSRePS.MainView.resources
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\bin\Debug\PHPSRePS.exe.config
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\bin\Debug\PHPSRePS.exe
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\bin\Debug\PHPSRePS.pdb
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\bin\Debug\MySql.Data.dll
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\bin\Debug\nunit.framework.dll
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\bin\Debug\ObjectListView.dll
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\bin\Debug\nunit.framework.xml
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\bin\Debug\ObjectListView.xml
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\obj\Debug\PHPSRePS.exe
+C:\Users\Michael\Google Drive\Swinburne\SWE30010 Development Project 2\JEMS-PHP-SRePS (1)\PHPSRePS\obj\Debug\PHPSRePS.pdb

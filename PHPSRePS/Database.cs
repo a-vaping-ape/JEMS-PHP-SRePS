@@ -35,7 +35,75 @@ namespace PHPSRePS
         {
             connection.Close();
         }
+        
+        //used to runqueires that do not return tables
+        public bool RunVoidQuery(string query)
+        {
+            bool result = true;
+            OpenConnection();
+            MySqlDataAdapter MyDA = new MySqlDataAdapter();
 
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read()){}
+            connection.Close();
+
+            return result;
+        }
+
+        public void CreateSaleItems(List<Product> productList)
+        {
+            List<Product> checkedProducts = new List<Product>();
+            List<ItemSale> Items = new List<ItemSale>();
+            Sale sale = new Sale();
+
+            bool duplicate;
+
+            //add sales and get the latest ID number
+            RunVoidQuery(sale.GetINSERT());
+            int ID = ReadOneValue(sale.SelectThisObject(), "SalesID");
+            sale.ID = ID;
+
+            //works out the quantity for each product
+
+            foreach (Product tempPro in productList)
+            {
+                duplicate = false;
+
+                foreach (Product p in checkedProducts)
+                {
+                    if (tempPro.ID == p.ID)
+                    {
+                        duplicate = true;
+                        break;
+                    }
+                }
+
+                if (duplicate)
+                    continue;
+
+                //Product tempPro = productList[i];
+                int qty = 0;
+
+                foreach (Product pro in productList)
+                {
+                    if (tempPro.ID == pro.ID)
+                        qty++;
+                }
+
+                ItemSale Item = new ItemSale(sale.ID, tempPro.ID,qty);
+                Items.Add(Item);
+
+                checkedProducts.Add(tempPro);
+            }
+      
+            //Insert all item sales
+            foreach (ItemSale i in Items)
+                RunVoidQuery(i.GetINSERT());
+        }
+
+        //gets a data source for the grid used on the sales page
         public BindingSource getProducts(string input)
         {
             OpenConnection();
@@ -43,10 +111,15 @@ namespace PHPSRePS
             MySqlDataAdapter MyDA = new MySqlDataAdapter();
             string queiry;
 
-            if (input != "")
-                queiry = "SELECT * FROM Product WHERE ProductName LIKE '" + input + "%';";
+            if ( (input != "") && (input != "Search product name here"))
+                queiry = "SELECT ProductID, ProductName, Categories.CategoryName, UnitPrice, UnitsInStock, Discontinued " +
+                    "FROM Product " +
+                    "INNER JOIN Categories ON Product.CategoryID = Categories.CategoryID " +
+                    "WHERE ProductName LIKE '" + input + "%';"; 
             else
-                queiry = "SELECT * FROM Product";
+                queiry = "SELECT ProductID, ProductName, Categories.CategoryName, UnitPrice, UnitsInStock, Discontinued " +
+                    "FROM Product " +
+                    "INNER JOIN Categories ON Product.CategoryID = Categories.CategoryID;";
 
             BindingSource bSource = null;
 
@@ -109,22 +182,23 @@ namespace PHPSRePS
 
         //used for reading from the database
         //waiting for GUI implementation to be finished
-        public void ReadDatabase(string key)
+        public int ReadOneValue(string query, string Value)
         {
+            int someValue = -1;
             OpenConnection();
 
-            MySqlCommand cmd = new MySqlCommand(generateQuery(key), connection);
+            MySqlCommand cmd = new MySqlCommand(query, connection);
             var reader = cmd.ExecuteReader();
 
             //waiting for the GUI implementation
             while (reader.Read())
             {
-                var someValue = reader[1];
-                var someValue2 = reader["CategoryID"];
-                Console.Write(someValue + "-" + someValue2 + "\n");
-
+                someValue = (int)reader[Value];
+                //Console.Write(someValue + "\n");
             }
             connection.Close();
+
+            return someValue;
         }
 
         public string TestConnection()
@@ -195,6 +269,10 @@ namespace PHPSRePS
 
                 case "All Sales":
                     return "SELECT * FROM sales";
+
+                case "":
+                    return "SELECT * FROM sales";
+
 
                 default:
                     return "";

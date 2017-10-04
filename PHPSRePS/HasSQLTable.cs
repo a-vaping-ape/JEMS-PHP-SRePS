@@ -13,7 +13,7 @@ namespace PHPSRePS
         {
             return 
                 "INSERT INTO " + cols +
-                "VALUES(" +values+ ");";       
+                " VALUES(" +values+ ");";       
         }
 
         //overloading used by child classes
@@ -27,7 +27,7 @@ namespace PHPSRePS
         {
             return
                 "DELETE FROM " + table +
-                "WHERE ProductID='" + ID + "';";
+                " WHERE ProductID='" + ID + "';";
         }
 
         virtual public string GetDELETE()
@@ -40,8 +40,8 @@ namespace PHPSRePS
         {
             return
                 "UPDATE " + table +
-                "SET " + updateName + "='" + updateName + "'" +
-                "WHERE " + colName + "='" + ID + "';";
+                " SET " + updateName + "='" + updateName + "'" +
+                " WHERE " + colName + "='" + ID + "';";
         }
 
         //overloading used by child classes

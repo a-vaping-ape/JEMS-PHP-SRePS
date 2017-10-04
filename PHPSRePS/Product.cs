@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace PHPSRePS
 {
@@ -39,12 +40,32 @@ namespace PHPSRePS
 
         }
 
+
         //gets coulombs used by the mySQL table
         private string GetSQLValues()
         {
             return ID.ToString() + "," + Name + "," + 
                    Category + "," + Price.ToString()+"," + 
                    Stock.ToString() + "," + IsDiscontinued.ToString();
+        }
+
+        //returns a row that can be used for display purposes
+        public DataGridViewRow GetDataGridRow(DataGridView grid)
+        {
+            if ((grid.Rows.Count - 1) > -1)
+            {
+                DataGridViewRow row = (DataGridViewRow)grid.Rows[grid.Rows.Count - 1].Clone();
+                row.Cells[0].Value = ID;
+                row.Cells[1].Value = Name;
+                row.Cells[2].Value = Category;
+                row.Cells[3].Value = Price;
+                row.Cells[4].Value = Stock;
+                row.Cells[5].Value = IsDiscontinued;
+
+                return row;
+            }
+
+            return null;
         }
 
         //returns a mySQL INSERT statement

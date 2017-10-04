@@ -26,6 +26,8 @@ namespace PHPSRePS {
         {
             productList.Clear();
             saleList.Clear();
+
+            
         }
 
         public MainView() {
@@ -142,14 +144,7 @@ namespace PHPSRePS {
             
         }
 
-        private void searchABtn_Click(object sender, EventArgs e)
-        {
-            getAllProducts("A");
-        }
-
-        private void searchBBtn_Click(object sender, EventArgs e) {
-            getAllProducts("B");
-        }
+       
         // INVENTORY PANEL
         // go to AddEditProductView to add a product
         private void AddProduct(object sender, EventArgs e)
@@ -196,13 +191,19 @@ namespace PHPSRePS {
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-            //productList.Clear();
-            //saleList.Clear();
+            salesTranList.DataSource = null;
+            salesTranList.Rows.Clear();
+            salesTranList.Refresh();
         }
 
+        //creates a new items sales record on the DB
         private void payBtn_Click(object sender, EventArgs e)
         {
-
+            database.CreateSaleItems(productList);
+            salesTranList.DataSource = null;
+            salesTranList.Rows.Clear();
+            salesTranList.Refresh();
+            MessageBox.Show("Your Transation Has Been Saved");
         }
 
         private void addNewProduct_Click(object sender, EventArgs e)
@@ -340,6 +341,7 @@ namespace PHPSRePS {
 
             if (source != null)
             {
+
                 salesDataList.DataSource = source;
                 salesDataList.ForeColor = Color.Black;
             }
@@ -348,17 +350,9 @@ namespace PHPSRePS {
         private void getAllProducts()
         {
             getAllProducts(salesSearchBox.Text.ToString());
-
-          /*  string input = salesSearchBox.Text.ToString();
-            BindingSource source = database.getProducts(input);
-
-            if (source != null)
-            {
-                salesDataList.DataSource = source;
-                salesDataList.ForeColor = Color.Black;
-            }*/
         }
 
+        //search
         private void salesSearchButton_Click(object sender, EventArgs e)
         {
             getAllProducts();
@@ -366,20 +360,35 @@ namespace PHPSRePS {
 
         private void salesDataList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
+        //clears the seasrch field
         private void salesSearchBox_MouseClick(object sender, MouseEventArgs e)
         {
             salesSearchBox.Text = "";
         }
 
+        //event handler for the enter key on the sales page
         private void salesSearchBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
                 getAllProducts();
             }
+        }
+
+
+        #region Button event handlers
+        //On screen keyboard events
+        private void searchABtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("A");
+        }
+
+        private void searchBBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("B");
         }
 
         private void searchDBtn_Click(object sender, EventArgs e)
@@ -496,9 +505,60 @@ namespace PHPSRePS {
         {
             getAllProducts("Z");
         }
+#endregion
 
+        //add entry on sales page
         private void button1_Click(object sender, EventArgs e)
         {
+            Product addedProduct = new Product();
+            if (salesDataList.SelectedCells.Count > 0)
+            {
+                int rowCount = 0;
+                Int32.TryParse(salesDataList.SelectedCells[0].RowIndex.ToString(), out rowCount);
+                int i = salesTranList.Columns.Count;
+
+                //creates the appropriate columns in the reciept tables
+                if (salesTranList.Columns.Count < 1)
+                {
+                    foreach (DataGridViewColumn c in salesDataList.Columns)
+                    {
+                        salesTranList.Columns.Add(c.Clone() as DataGridViewColumn);
+                    }
+
+                    salesTranList.ForeColor = Color.Black;
+                }
+
+                //create a product to be added to a sales 
+                addedProduct.ID = (int)salesDataList.Rows[rowCount].Cells[0].Value;
+                addedProduct.Name = (string)salesDataList.Rows[rowCount].Cells[1].Value;
+                addedProduct.Category = (string)salesDataList.Rows[rowCount].Cells[2].Value;
+                addedProduct.Price = (float)salesDataList.Rows[rowCount].Cells[3].Value;
+                addedProduct.Stock = (int)salesDataList.Rows[rowCount].Cells[4].Value;
+                addedProduct.IsDiscontinued = (bool)salesDataList.Rows[rowCount].Cells[5].Value;
+
+                productList.Add(addedProduct);
+                salesTranList.Rows.Add(addedProduct.GetDataGridRow(salesTranList));
+
+                //update total cost field
+                float total = 0;
+                foreach (Product product in productList)
+                    total += product.Price;
+
+                if (total.ToString().Contains('.'))
+                    salesTotalNum.Text = "$" + total.ToString();
+                else
+                    salesTotalNum.Text = "$" + total.ToString() + ".00";
+
+
+            }
+        }
+
+        private void salesDataList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+          
+
 
         }
     }

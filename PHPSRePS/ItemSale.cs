@@ -14,7 +14,7 @@ namespace PHPSRePS
         private int _quantity;
 
         // mysql query constants
-        private const string _SQLTable = "itemsales";
+        private const string _SQLTable = "ItemSales";
         private const string _SQLcols = _SQLTable + "(SalesID,ProductID,Quantity)";
 
         // constructor to init data
@@ -40,7 +40,7 @@ namespace PHPSRePS
         // gets columns used by the mySQL table
         private string GetSQLValues()
         {
-            return SaleID.ToString() + "," + ProductID.ToString() + "," + Quantity;
+            return "'" + SaleID.ToString() + "','" + ProductID.ToString() + "','" + Quantity + "'";
         }
 
         // returns a mySQL INSERT statement
