@@ -21,7 +21,7 @@ namespace PHPSRePS {
         private List<Product> productList = new List<Product>();
         private List<Sale> saleList = new List<Sale>();
 
-<<<<<<< HEAD
+
         // clear all data
         private void ClearData()
         {
@@ -31,8 +31,6 @@ namespace PHPSRePS {
             
         }
 
-=======
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
         public MainView() {
             InitializeComponent();
             salesTab.FlatAppearance.BorderSize = 0;
@@ -49,7 +47,7 @@ namespace PHPSRePS {
             powerButton.Click += new EventHandler(this.CloseApp);
         }
 
-        #region button click methods
+
         // Tab Buttons
         private void OpenMain(object sender, EventArgs e)
         {
@@ -125,27 +123,16 @@ namespace PHPSRePS {
         private void OpenCreateSalesReport(object sender, EventArgs e)
         {
             // add code here to hide current panel, show report panel
-
             ClearData();
         }
 
-<<<<<<< HEAD
-       
-=======
-        // clear all data
-        private void ClearData()
-        {
-            productList.Clear();
-            saleList.Clear();
-        }
 
         // close the application
         private void CloseApp(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
+        
         // INVENTORY PANEL
         // go to AddEditProductView to add a product
         private void AddProduct(object sender, EventArgs e)
@@ -215,7 +202,7 @@ namespace PHPSRePS {
         {
 
         }
-        #endregion
+        
         
         #region inventory screen methods
         // display products to the UI
@@ -287,7 +274,7 @@ namespace PHPSRePS {
 
         #endregion
 
-        #region sales screen methods
+       
 
         // display items in productList to the UI
         private void DisplaySales()
@@ -317,11 +304,6 @@ namespace PHPSRePS {
             }
 
             database.CloseConnection();
-        }
-
-        private void salesSearchButton_Click(object sender, EventArgs e)
-        {
-            getAllProducts();
         }
 
         private void salesDataList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -357,48 +339,21 @@ namespace PHPSRePS {
         private void getAllProducts()
         {
             getAllProducts(salesSearchBox.Text.ToString());
-<<<<<<< HEAD
         }
 
         //search
         private void salesSearchButton_Click(object sender, EventArgs e)
         {
             getAllProducts();
-=======
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
+
         }
 
-        #region Search alphabet buttons
-        private void searchABtn_Click(object sender, EventArgs e)
-        {
-<<<<<<< HEAD
-            
-        }
+     
 
-        //clears the seasrch field
-        private void salesSearchBox_MouseClick(object sender, MouseEventArgs e)
-=======
-            getAllProducts("A");
-        }
-
-        private void searchBBtn_Click(object sender, EventArgs e)
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
-        {
-            getAllProducts("B");
-        }
-
-<<<<<<< HEAD
-        //event handler for the enter key on the sales page
-        private void salesSearchBox_KeyPress(object sender, KeyPressEventArgs e)
-=======
-        private void searchCBtn_Click(object sender, EventArgs e)
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
-        {
-            getAllProducts("C");
-        }
+       
 
 
-        #region Button event handlers
+       #region Button event handlers
         //On screen keyboard events
         private void searchABtn_Click(object sender, EventArgs e)
         {
@@ -409,6 +364,12 @@ namespace PHPSRePS {
         {
             getAllProducts("B");
         }
+
+        private void searchCBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts("C");
+        }
+
 
         private void searchDBtn_Click(object sender, EventArgs e)
         {
@@ -524,11 +485,72 @@ namespace PHPSRePS {
         {
             getAllProducts("Z");
         }
-<<<<<<< HEAD
+
+
 #endregion
 
         //add entry on sales page
         private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void salesDataList_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+         
+
+        
+
+        #region reports screen methods
+        private void LoadSalesReport(DateTime startDate, DateTime endDate)
+        {
+            string query = "";
+            database.OpenConnection();
+            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+
+            }
+            database.CloseConnection();
+        }
+
+        private void ExportSalesReport(string format)
+        {
+
+            string query = "";
+            database.OpenConnection();
+            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
+            var reader = cmd.ExecuteReader();
+
+            switch (format)
+            {
+                case ("csv"):
+                    StringBuilder csvContent = new StringBuilder();
+                    String csvPath = "C:\\salesreport.csv";
+
+
+
+                    File.AppendAllText(csvPath, csvContent.ToString());
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+
+        #endregion
+
+        private void salesTab_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void salesAddBtn_Click(object sender, EventArgs e)
         {
             Product addedProduct = new Product();
             if (salesDataList.SelectedCells.Count > 0)
@@ -572,61 +594,5 @@ namespace PHPSRePS {
 
             }
         }
-
-        private void salesDataList_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-
-          
-
-=======
-        #endregion
-
-        #endregion
-
-        #region reports screen methods
-        private void LoadSalesReport(DateTime startDate, DateTime endDate)
-        {
-            string query = "";
-            database.OpenConnection();
-            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
-            var reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-
-            }
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
-
-            database.CloseConnection();
-        }
-
-        private void ExportSalesReport(string format)
-        {
-
-            string query = "";
-            database.OpenConnection();
-            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
-            var reader = cmd.ExecuteReader();
-
-            switch (format)
-            {
-                case ("csv"):
-                    StringBuilder csvContent = new StringBuilder();
-                    String csvPath = "C:\\salesreport.csv";
-
-
-
-                    File.AppendAllText(csvPath, csvContent.ToString());
-                    break;
-                default:
-                    break;
-            }
-        }
-
-
-
-        #endregion
-
     }
 }

@@ -83,6 +83,7 @@ namespace PHPSRePS
             this.salesDataList = new System.Windows.Forms.DataGridView();
             this.salesSearchBox = new System.Windows.Forms.TextBox();
             this.inventPage = new System.Windows.Forms.TabPage();
+            this.inventEditBtn = new System.Windows.Forms.Button();
             this.inventSearchBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.inventAddNew = new System.Windows.Forms.Button();
@@ -93,7 +94,6 @@ namespace PHPSRePS
             this.reportTestBtn2 = new System.Windows.Forms.Button();
             this.reportTestBtn = new System.Windows.Forms.Button();
             this.reportSendReportBtn = new System.Windows.Forms.Button();
-            this.inventEditBtn = new System.Windows.Forms.Button();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -185,6 +185,7 @@ namespace PHPSRePS
             this.salesTab.Size = new System.Drawing.Size(172, 177);
             this.salesTab.TabIndex = 0;
             this.salesTab.UseVisualStyleBackColor = false;
+            this.salesTab.Click += new System.EventHandler(this.salesTab_Click);
             // 
             // tabView
             // 
@@ -326,6 +327,7 @@ namespace PHPSRePS
             this.salesAddBtn.Text = "Add item to Transaction";
             this.salesAddBtn.UseCompatibleTextRendering = true;
             this.salesAddBtn.UseVisualStyleBackColor = false;
+            this.salesAddBtn.Click += new System.EventHandler(this.salesAddBtn_Click);
             // 
             // salesPayButton
             // 
@@ -429,18 +431,13 @@ namespace PHPSRePS
             this.salesSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.salesSearchButton.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesSearchButton.ForeColor = System.Drawing.Color.Transparent;
-<<<<<<< HEAD
-            this.salesSearchButton.Location = new System.Drawing.Point(1444, 42);
-=======
-            this.salesSearchButton.Location = new System.Drawing.Point(963, 21);
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
+            this.salesSearchButton.Location = new System.Drawing.Point(1444, 37);
             this.salesSearchButton.Margin = new System.Windows.Forms.Padding(0);
             this.salesSearchButton.Name = "salesSearchButton";
             this.salesSearchButton.Size = new System.Drawing.Size(57, 58);
             this.salesSearchButton.TabIndex = 30;
             this.salesSearchButton.UseCompatibleTextRendering = true;
             this.salesSearchButton.UseVisualStyleBackColor = false;
-            this.salesSearchButton.Click += new System.EventHandler(this.salesSearchButton_Click);
             // 
             // searchZBtn
             // 
@@ -937,12 +934,8 @@ namespace PHPSRePS
             // 
             this.salesSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesSearchBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
-<<<<<<< HEAD
             this.salesSearchBox.Location = new System.Drawing.Point(180, 42);
             this.salesSearchBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-=======
-            this.salesSearchBox.Location = new System.Drawing.Point(120, 21);
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
             this.salesSearchBox.Name = "salesSearchBox";
             this.salesSearchBox.Size = new System.Drawing.Size(1258, 53);
             this.salesSearchBox.TabIndex = 0;
@@ -968,25 +961,23 @@ namespace PHPSRePS
             this.inventPage.Text = "Inventory";
             this.inventPage.UseVisualStyleBackColor = true;
             // 
-<<<<<<< HEAD
-            // inventAddExisting
+            // inventEditBtn
             // 
-            this.inventAddExisting.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.inventAddExisting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.inventAddExisting.FlatAppearance.BorderSize = 0;
-            this.inventAddExisting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventAddExisting.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventAddExisting.ForeColor = System.Drawing.Color.Transparent;
-            this.inventAddExisting.Location = new System.Drawing.Point(234, 1382);
-            this.inventAddExisting.Margin = new System.Windows.Forms.Padding(0);
-            this.inventAddExisting.Name = "inventAddExisting";
-            this.inventAddExisting.Size = new System.Drawing.Size(180, 143);
-            this.inventAddExisting.TabIndex = 35;
-            this.inventAddExisting.Text = "Add Exisiting product";
-            this.inventAddExisting.UseCompatibleTextRendering = true;
-            this.inventAddExisting.UseVisualStyleBackColor = false;
-            this.inventAddExisting.Click += new System.EventHandler(this.addExistingProduct_Click);
-=======
+            this.inventEditBtn.BackColor = System.Drawing.Color.DarkOrange;
+            this.inventEditBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.inventEditBtn.FlatAppearance.BorderSize = 0;
+            this.inventEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventEditBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventEditBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventEditBtn.Location = new System.Drawing.Point(1411, 948);
+            this.inventEditBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.inventEditBtn.Name = "inventEditBtn";
+            this.inventEditBtn.Size = new System.Drawing.Size(120, 93);
+            this.inventEditBtn.TabIndex = 38;
+            this.inventEditBtn.Text = "Edit Item";
+            this.inventEditBtn.UseCompatibleTextRendering = true;
+            this.inventEditBtn.UseVisualStyleBackColor = false;
+            // 
             // inventSearchBtn
             // 
             this.inventSearchBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1012,7 +1003,6 @@ namespace PHPSRePS
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(606, 849);
             this.dataGridView1.TabIndex = 36;
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
             // 
             // inventAddNew
             // 
@@ -1022,11 +1012,7 @@ namespace PHPSRePS
             this.inventAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.inventAddNew.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inventAddNew.ForeColor = System.Drawing.Color.Transparent;
-<<<<<<< HEAD
-            this.inventAddNew.Location = new System.Drawing.Point(27, 1382);
-=======
             this.inventAddNew.Location = new System.Drawing.Point(18, 948);
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
             this.inventAddNew.Margin = new System.Windows.Forms.Padding(0);
             this.inventAddNew.Name = "inventAddNew";
             this.inventAddNew.Size = new System.Drawing.Size(180, 143);
@@ -1036,31 +1022,14 @@ namespace PHPSRePS
             this.inventAddNew.UseVisualStyleBackColor = false;
             this.inventAddNew.Click += new System.EventHandler(this.addNewProduct_Click);
             // 
-<<<<<<< HEAD
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(1746, 114);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(908, 1424);
-            this.listBox1.TabIndex = 33;
-            // 
-=======
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
             // InventDescription
             // 
             this.InventDescription.AutoSize = true;
             this.InventDescription.BackColor = System.Drawing.Color.Transparent;
             this.InventDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InventDescription.ForeColor = System.Drawing.Color.Black;
-<<<<<<< HEAD
-            this.InventDescription.Location = new System.Drawing.Point(1736, 42);
-            this.InventDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-=======
             this.InventDescription.Location = new System.Drawing.Point(1162, 16);
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
+            this.InventDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.InventDescription.Name = "InventDescription";
             this.InventDescription.Size = new System.Drawing.Size(320, 64);
             this.InventDescription.TabIndex = 32;
@@ -1069,25 +1038,10 @@ namespace PHPSRePS
             // inventDataList
             // 
             this.inventDataList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.inventDataList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-<<<<<<< HEAD
-            this.inventDataList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productID,
-            this.Name,
-            this.Category,
-            this.Quantity,
-            this.costPrice,
-            this.salesPrice,
-            this.Edit});
-            this.inventDataList.Location = new System.Drawing.Point(27, 114);
+            this.inventDataList.Location = new System.Drawing.Point(18, 74);
             this.inventDataList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.inventDataList.Name = "inventDataList";
-            this.inventDataList.Size = new System.Drawing.Size(1666, 1238);
-=======
-            this.inventDataList.Location = new System.Drawing.Point(18, 74);
-            this.inventDataList.Name = "inventDataList";
             this.inventDataList.Size = new System.Drawing.Size(1111, 849);
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
             this.inventDataList.TabIndex = 2;
             this.inventDataList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventDataList_CellContentClick);
             // 
@@ -1095,16 +1049,10 @@ namespace PHPSRePS
             // 
             this.inventSearchBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inventSearchBar.ForeColor = System.Drawing.SystemColors.WindowFrame;
-<<<<<<< HEAD
-            this.inventSearchBar.Location = new System.Drawing.Point(258, 42);
+            this.inventSearchBar.Location = new System.Drawing.Point(172, 16);
             this.inventSearchBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.inventSearchBar.Name = "inventSearchBar";
-            this.inventSearchBar.Size = new System.Drawing.Size(1258, 53);
-=======
-            this.inventSearchBar.Location = new System.Drawing.Point(172, 16);
-            this.inventSearchBar.Name = "inventSearchBar";
-            this.inventSearchBar.Size = new System.Drawing.Size(764, 38);
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
+            this.inventSearchBar.Size = new System.Drawing.Size(764, 53);
             this.inventSearchBar.TabIndex = 1;
             this.inventSearchBar.Text = "Search product name here";
             this.inventSearchBar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.inventSearchBar_Click);
@@ -1174,23 +1122,6 @@ namespace PHPSRePS
             this.reportSendReportBtn.UseCompatibleTextRendering = true;
             this.reportSendReportBtn.UseVisualStyleBackColor = false;
             // 
-            // inventEditBtn
-            // 
-            this.inventEditBtn.BackColor = System.Drawing.Color.DarkOrange;
-            this.inventEditBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.inventEditBtn.FlatAppearance.BorderSize = 0;
-            this.inventEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventEditBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventEditBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.inventEditBtn.Location = new System.Drawing.Point(1411, 948);
-            this.inventEditBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.inventEditBtn.Name = "inventEditBtn";
-            this.inventEditBtn.Size = new System.Drawing.Size(120, 93);
-            this.inventEditBtn.TabIndex = 38;
-            this.inventEditBtn.Text = "Edit Item";
-            this.inventEditBtn.UseCompatibleTextRendering = true;
-            this.inventEditBtn.UseVisualStyleBackColor = false;
-            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1201,7 +1132,7 @@ namespace PHPSRePS
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-           // this.Name = "MainView";
+            this.Name = "MainView";
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.sidebar.ResumeLayout(false);
@@ -1281,14 +1212,14 @@ namespace PHPSRePS
         private System.Windows.Forms.Button reportTestBtn2;
         private System.Windows.Forms.Button reportTestBtn;
         private System.Windows.Forms.Button reportSendReportBtn;
-<<<<<<< HEAD
+
         private System.Windows.Forms.DataGridView salesTranList;
         private System.Windows.Forms.ListView salesTransList;
-=======
+
         private System.Windows.Forms.DataGridView dataGridView1;
         private Button inventSearchBtn;
         private Button inventEditBtn;
->>>>>>> ab4d856cce20a9f857255dd1f214e0bb2bd5a3e5
+
     }
 }
 
