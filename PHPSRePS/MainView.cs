@@ -33,6 +33,19 @@ namespace PHPSRePS {
 
         public MainView() {
             InitializeComponent();
+            #region inventory description lsit rows
+            this.inventDescriptList.Rows.Add();
+            this.inventDescriptList.Rows.Add();
+            this.inventDescriptList.Rows.Add();
+            this.inventDescriptList.Rows.Add();
+            this.inventDescriptList.Rows.Add();
+            this.inventDescriptList.Rows[0].HeaderCell.Value = "Product ID";
+            this.inventDescriptList.Rows[1].HeaderCell.Value = "Product Name";
+            this.inventDescriptList.Rows[2].HeaderCell.Value = "Category Name";
+            this.inventDescriptList.Rows[3].HeaderCell.Value = "Unit Price";
+            this.inventDescriptList.Rows[4].HeaderCell.Value = "Sales Price";
+            this.inventDescriptList.Rows[5].HeaderCell.Value = "Discontinued";
+            #endregion
             salesTab.FlatAppearance.BorderSize = 0;
             inventTab.FlatAppearance.BorderSize = 0;
             reportsTab.FlatAppearance.BorderSize = 0;
@@ -188,11 +201,6 @@ namespace PHPSRePS {
         }
 
         private void addExistingProduct_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void inventDataList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -553,10 +561,15 @@ namespace PHPSRePS {
         private void salesAddBtn_Click(object sender, EventArgs e)
         {
             Product addedProduct = new Product();
+
+            //a select coutn is greater then 0 fetch the first one
             if (salesDataList.SelectedCells.Count > 0)
             {
+                //the selected row
                 int rowCount = 0;
                 Int32.TryParse(salesDataList.SelectedCells[0].RowIndex.ToString(), out rowCount);
+
+                //checks is translist has been added to before
                 int i = salesTranList.Columns.Count;
 
                 //creates the appropriate columns in the reciept tables
@@ -566,7 +579,6 @@ namespace PHPSRePS {
                     {
                         salesTranList.Columns.Add(c.Clone() as DataGridViewColumn);
                     }
-
                     salesTranList.ForeColor = Color.Black;
                 }
 
@@ -579,6 +591,8 @@ namespace PHPSRePS {
                 addedProduct.IsDiscontinued = (bool)salesDataList.Rows[rowCount].Cells[5].Value;
 
                 productList.Add(addedProduct);
+
+                //adds rows to trans
                 salesTranList.Rows.Add(addedProduct.GetDataGridRow(salesTranList));
 
                 //update total cost field
@@ -593,6 +607,54 @@ namespace PHPSRePS {
 
 
             }
+        }
+
+        private void inventDescriptionUpdater()
+        {
+            int selectedRow = 0;
+            try
+            {
+                Int32.TryParse(inventDataList.SelectedCells[0].RowIndex.ToString(), out selectedRow);
+            }
+            catch(Exception e)
+            {
+
+            }
+            Product selectedProduct = new Product();
+            try
+            {
+                
+                selectedProduct.ID = (int)inventDataList.Rows[selectedRow].Cells[0].Value;
+                selectedProduct.Name = (string)inventDataList.Rows[selectedRow].Cells[1].Value;
+                selectedProduct.Category = (string)inventDataList.Rows[selectedRow].Cells[2].Value;
+                selectedProduct.Price = (float)inventDataList.Rows[selectedRow].Cells[3].Value;
+                selectedProduct.Stock = (int)inventDataList.Rows[selectedRow].Cells[4].Value;
+                selectedProduct.IsDiscontinued = (bool)inventDataList.Rows[selectedRow].Cells[5].Value;
+                
+
+            }
+            catch(Exception e)
+            {
+            
+            }
+                
+
+
+        }
+
+        private void inventSearchBar_Click(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void inventDataList_SelectionChanged(object sender, EventArgs e)
+        {
+            inventDescriptionUpdater();
+        }
+
+        private void userButton_Click(object sender, EventArgs e)
+        {
+            tabView.SelectTab("userPage");
         }
     }
 }
