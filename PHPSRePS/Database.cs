@@ -92,6 +92,10 @@ namespace PHPSRePS
                         qty++;
                 }
 
+                int remainingStock = tempPro.Stock - qty;
+
+                RunVoidQuery(tempPro.GetUPDATE("Product", "UnitsInStock",remainingStock.ToString(), "ProductID", tempPro.ID.ToString()));
+
                 ItemSale Item = new ItemSale(sale.ID, tempPro.ID,qty);
                 Items.Add(Item);
 

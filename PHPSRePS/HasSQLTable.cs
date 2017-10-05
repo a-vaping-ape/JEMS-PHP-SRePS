@@ -40,7 +40,7 @@ namespace PHPSRePS
         {
             return
                 "UPDATE " + table +
-                " SET " + updateName + "='" + updateName + "'" +
+                " SET " + updateName + "='" + updateValue + "'" +
                 " WHERE " + colName + "='" + ID + "';";
         }
 

@@ -80,21 +80,9 @@ namespace PHPSRePS
             return base.GetDELETE("product", ID.ToString());
         }
 
-        public override string GetUPDATE()
+        public override string GetUPDATE(string table, string updateName, string updateValue, string colName, string ID)
         {
-            Database database = new Database();
-            string query = "SELECT CategoryID FROM categories WHERE CategoryName = " + Category;
-            MySqlCommand cmd = new MySqlCommand(query, database.Connection);
-            var reader = cmd.ExecuteReader();
-
-            return 
-                "UPDATE product" +
-                "SET ProductName = '" + Name + "'," +
-                "CategoryID = '" + reader.GetInt32("CategoryID") + "'," +
-                "UnitPrice = '" + Price + "'," +
-                "UnitsInStock = '" + Stock + "'," +
-                "Discontinued = '" + (IsDiscontinued ? 1 : 0) + "' " +
-                "WHERE ProductID = " + ID;
+            return base.GetUPDATE(table, updateName, updateValue, colName, ID);
         }
     }
 }

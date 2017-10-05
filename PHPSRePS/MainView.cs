@@ -180,6 +180,8 @@ namespace PHPSRePS {
             salesTranList.Rows.Clear();
             salesTranList.Refresh();
             MessageBox.Show("Your Transation Has Been Saved");
+
+            getAllProducts(salesSearchBox.Text.ToString());
         }
 
         private void addNewProduct_Click(object sender, EventArgs e)
@@ -564,7 +566,7 @@ namespace PHPSRePS {
                 {
                     foreach (DataGridViewColumn c in salesDataList.Columns)
                     {
-                        salesTranList.Columns.Add(c.Clone() as DataGridViewColumn);
+                        salesTranList.Columns.Add(c.Clone() as DataGridViewColumn);  
                     }
 
                     salesTranList.ForeColor = Color.Black;
