@@ -9,6 +9,12 @@ namespace PHPSRePS
 {
     public abstract class Report
     {
+        private DateTime _startDate;
+        private DateTime _endDate;
+
+        public DateTime StartDate { get => _startDate; set => _startDate = value; }
+        public DateTime EndDate { get => _endDate; set => _endDate = value; }
+
         public Report()
         {
 

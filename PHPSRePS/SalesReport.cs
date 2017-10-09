@@ -37,14 +37,10 @@ namespace PHPSRePS
         private List<ProductReport> _productReportList = new List<ProductReport>();
         private List<EmployeeReport> _employeeReportList = new List<EmployeeReport>();
         private List<CategoryReport> _categoryReportList = new List<CategoryReport>();
-        private DateTime _startDate;
-        private DateTime _endDate;
 
         private List<ProductReport> ProductSalesReport { get => _productReportList; set => _productReportList = value; }
         private List<EmployeeReport> EmployeeSalesReport { get => _employeeReportList; set => _employeeReportList = value; }
         private List<CategoryReport> CategorySalesReport { get => _categoryReportList; set => _categoryReportList = value; }
-        public DateTime StartDate { get => _startDate; set => _startDate = value; }
-        public DateTime EndDate { get => _endDate; set => _endDate = value; }
 
         Database database = new Database();
 
@@ -55,18 +51,18 @@ namespace PHPSRePS
         }
 
         // load data from the database into local lists
-        public void LoadAllReports(DateTime startDate, DateTime endDate)
+        public void LoadReport(DateTime startDate, DateTime endDate)
         {
             PopulateReportList("product", startDate, endDate);
             PopulateReportList("employee", startDate, endDate);
             PopulateReportList("category", startDate, endDate);
         }
 
-        private void PopulateReportList(string groupBy, DateTime startDate, DateTime endDate)
+        public void PopulateReportList(string groupBy, DateTime startDate, DateTime endDate)
         {
             database.OpenConnection();
 
-            string query = database.generateReportQuery(groupBy, startDate, endDate);
+            string query = database.generateSalesReportQuery(groupBy, startDate, endDate);
             MySqlCommand cmd = new MySqlCommand(query, database.Connection);
             var reader = cmd.ExecuteReader();
 
@@ -105,7 +101,7 @@ namespace PHPSRePS
             database.CloseConnection();
         }
 
-        // export data to 3 separate files for product sales, employee sales and category sales ()
+        // export data to 3 separate csv files for product sales, employee sales and category sales
         public override void ExportToCSV()
         {
             StringBuilder productSalesCSVData = new StringBuilder();
