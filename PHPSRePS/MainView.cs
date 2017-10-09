@@ -563,6 +563,7 @@ namespace PHPSRePS {
         private void salesAddBtn_Click(object sender, EventArgs e)
         {
             Product addedProduct = new Product();
+            float total = 0;
 
             //a select coutn is greater then 0 fetch the first one
             if (salesDataList.SelectedCells.Count > 0)
@@ -584,33 +585,11 @@ namespace PHPSRePS {
                     salesTranList.ForeColor = Color.Black;
                 }
 
-<<<<<<< HEAD
-                //create a product to be added to a sales 
-                addedProduct.ID = (int)salesDataList.Rows[rowCount].Cells[0].Value;
-                addedProduct.Name = (string)salesDataList.Rows[rowCount].Cells[1].Value;
-                addedProduct.Category = (string)salesDataList.Rows[rowCount].Cells[2].Value;
-                addedProduct.Price = (float)salesDataList.Rows[rowCount].Cells[3].Value;
-                addedProduct.Stock = (int)salesDataList.Rows[rowCount].Cells[4].Value;
-                addedProduct.IsDiscontinued = (bool)salesDataList.Rows[rowCount].Cells[5].Value;
-
-                productList.Add(addedProduct);
-
-                //adds rows to trans
-                salesTranList.Rows.Add(addedProduct.GetDataGridRow(salesTranList));
-
-                //update total cost field
-                float total = 0;
-                foreach (Product product in productList)
-                    total += product.Price;
-
-                if (total.ToString().Contains('.'))
-                    salesTotalNum.Text = "$" + total.ToString();
-=======
                 if ((int)salesDataList.Rows[rowCount].Cells[4].Value < 1)
                 {
                     MessageBox.Show("There is not stock left on this product. Got to the inventory to order more stocks");
                 }
->>>>>>> c441c9fb191f89f488c8146d6ace91cc93c6f7ff
+
                 else
                 {
                     //create a product to be added to a sales 
@@ -625,7 +604,7 @@ namespace PHPSRePS {
                     salesTranList.Rows.Add(addedProduct.GetDataGridRow(salesTranList));
 
                     //update total cost field
-                    float total = 0;
+                    total = 0;
                     foreach (Product product in productList)
                         total += product.Price;
 
