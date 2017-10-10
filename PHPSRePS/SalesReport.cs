@@ -11,7 +11,7 @@ namespace PHPSRePS
 {
     public class SalesReport : Report
     {
-        struct ProductReport
+        public struct ProductReport
         {
             public string productName;
             public string categoryName;
@@ -20,14 +20,14 @@ namespace PHPSRePS
             public float totalRevenue;
         };
 
-        struct EmployeeReport
+        public struct EmployeeReport
         {
             public string employeeName;
             public int salesCount;
             public float totalRevenue;
         };
 
-        struct CategoryReport
+        public struct CategoryReport
         {
             public string categoryName;
             public int salesCount;
