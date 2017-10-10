@@ -38,9 +38,10 @@ namespace PHPSRePS
         private List<EmployeeReport> _employeeReportList = new List<EmployeeReport>();
         private List<CategoryReport> _categoryReportList = new List<CategoryReport>();
 
-        private List<ProductReport> ProductSalesReport { get => _productReportList; set => _productReportList = value; }
-        private List<EmployeeReport> EmployeeSalesReport { get => _employeeReportList; set => _employeeReportList = value; }
-        private List<CategoryReport> CategorySalesReport { get => _categoryReportList; set => _categoryReportList = value; }
+        // OUTPUT DATA SET
+        public List<ProductReport> ProductSalesReport { get => _productReportList; set => _productReportList = value; }
+        public List<EmployeeReport> EmployeeSalesReport { get => _employeeReportList; set => _employeeReportList = value; }
+        public List<CategoryReport> CategorySalesReport { get => _categoryReportList; set => _categoryReportList = value; }
 
         Database database = new Database();
 
