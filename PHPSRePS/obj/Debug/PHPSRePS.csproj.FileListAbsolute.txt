@@ -60,3 +60,18 @@ C:\Users\Michael\Desktop\New folder (2)\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\nunit.
 C:\Users\Michael\Desktop\New folder (2)\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\ObjectListView.dll
 C:\Users\Michael\Desktop\New folder (2)\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\nunit.framework.xml
 C:\Users\Michael\Desktop\New folder (2)\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\ObjectListView.xml
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\PHPSRePS.exe.config
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\PHPSRePS.exe
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\PHPSRePS.pdb
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\MySql.Data.dll
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\nunit.framework.dll
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\ObjectListView.dll
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\nunit.framework.xml
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\bin\Debug\ObjectListView.xml
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.csprojResolveAssemblyReference.cache
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.MainView.resources
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.Properties.Resources.resources
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.csproj.GenerateResource.Cache
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.csproj.CoreCompileInputs.cache
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.exe
+C:\Users\Michael\Desktop\DP2\JEMS-PHP-SRePS\PHPSRePS\obj\Debug\PHPSRePS.pdb

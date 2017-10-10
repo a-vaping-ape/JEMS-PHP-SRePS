@@ -32,8 +32,8 @@ namespace PHPSRePS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.sidebar = new System.Windows.Forms.Panel();
             this.homeTab = new System.Windows.Forms.Button();
             this.reportsTab = new System.Windows.Forms.Button();
@@ -85,6 +85,16 @@ namespace PHPSRePS
             this.salesDataList = new System.Windows.Forms.DataGridView();
             this.salesSearchBox = new System.Windows.Forms.TextBox();
             this.inventPage = new System.Windows.Forms.TabPage();
+            this.inventAddForm = new System.Windows.Forms.Panel();
+            this.inventPriceLabel = new System.Windows.Forms.Label();
+            this.inventPriceTxtbox = new System.Windows.Forms.TextBox();
+            this.inventQtyLabel = new System.Windows.Forms.Label();
+            this.inventQtyTxtbox = new System.Windows.Forms.TextBox();
+            this.inventCateLabel = new System.Windows.Forms.Label();
+            this.inventNameLabel = new System.Windows.Forms.Label();
+            this.inventFormLabel = new System.Windows.Forms.Label();
+            this.inventNameTxtbox = new System.Windows.Forms.TextBox();
+            this.inventCancelBtn = new System.Windows.Forms.Button();
             this.inventEditBtn = new System.Windows.Forms.Button();
             this.inventSearchBtn = new System.Windows.Forms.Button();
             this.inventDescriptList = new System.Windows.Forms.DataGridView();
@@ -106,12 +116,13 @@ namespace PHPSRePS
             this.panel2 = new System.Windows.Forms.Panel();
             this.userLoginBtn = new System.Windows.Forms.Button();
             this.profilePage = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.profileLogout = new System.Windows.Forms.Button();
-            this.profileName = new System.Windows.Forms.Label();
-            this.profileID = new System.Windows.Forms.Label();
             this.profileHireDate = new System.Windows.Forms.Label();
+            this.profileID = new System.Windows.Forms.Label();
+            this.profileName = new System.Windows.Forms.Label();
+            this.profileLogout = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -119,6 +130,7 @@ namespace PHPSRePS
             ((System.ComponentModel.ISupportInitialize)(this.salesTranList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesDataList)).BeginInit();
             this.inventPage.SuspendLayout();
+            this.inventAddForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventDescriptList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).BeginInit();
             this.reportsPage.SuspendLayout();
@@ -958,6 +970,8 @@ namespace PHPSRePS
             // 
             // inventPage
             // 
+            this.inventPage.Controls.Add(this.inventAddForm);
+            this.inventPage.Controls.Add(this.inventCancelBtn);
             this.inventPage.Controls.Add(this.inventEditBtn);
             this.inventPage.Controls.Add(this.inventSearchBtn);
             this.inventPage.Controls.Add(this.inventDescriptList);
@@ -972,6 +986,124 @@ namespace PHPSRePS
             this.inventPage.TabIndex = 1;
             this.inventPage.Text = "Inventory";
             this.inventPage.UseVisualStyleBackColor = true;
+            // 
+            // inventAddForm
+            // 
+            this.inventAddForm.BackColor = System.Drawing.Color.HotPink;
+            this.inventAddForm.Controls.Add(this.comboBox1);
+            this.inventAddForm.Controls.Add(this.inventPriceLabel);
+            this.inventAddForm.Controls.Add(this.inventPriceTxtbox);
+            this.inventAddForm.Controls.Add(this.inventQtyLabel);
+            this.inventAddForm.Controls.Add(this.inventQtyTxtbox);
+            this.inventAddForm.Controls.Add(this.inventCateLabel);
+            this.inventAddForm.Controls.Add(this.inventNameLabel);
+            this.inventAddForm.Controls.Add(this.inventFormLabel);
+            this.inventAddForm.Controls.Add(this.inventNameTxtbox);
+            this.inventAddForm.Enabled = false;
+            this.inventAddForm.Location = new System.Drawing.Point(33, 69);
+            this.inventAddForm.Name = "inventAddForm";
+            this.inventAddForm.Size = new System.Drawing.Size(1183, 966);
+            this.inventAddForm.TabIndex = 40;
+            this.inventAddForm.Visible = false;
+            // 
+            // inventPriceLabel
+            // 
+            this.inventPriceLabel.AutoSize = true;
+            this.inventPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventPriceLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventPriceLabel.Location = new System.Drawing.Point(60, 289);
+            this.inventPriceLabel.Name = "inventPriceLabel";
+            this.inventPriceLabel.Size = new System.Drawing.Size(257, 29);
+            this.inventPriceLabel.TabIndex = 8;
+            this.inventPriceLabel.Text = "Sales Price per Item:";
+            // 
+            // inventPriceTxtbox
+            // 
+            this.inventPriceTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventPriceTxtbox.Location = new System.Drawing.Point(323, 292);
+            this.inventPriceTxtbox.Name = "inventPriceTxtbox";
+            this.inventPriceTxtbox.Size = new System.Drawing.Size(609, 26);
+            this.inventPriceTxtbox.TabIndex = 7;
+            // 
+            // inventQtyLabel
+            // 
+            this.inventQtyLabel.AutoSize = true;
+            this.inventQtyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventQtyLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventQtyLabel.Location = new System.Drawing.Point(60, 240);
+            this.inventQtyLabel.Name = "inventQtyLabel";
+            this.inventQtyLabel.Size = new System.Drawing.Size(215, 29);
+            this.inventQtyLabel.TabIndex = 6;
+            this.inventQtyLabel.Text = "Quantity In Stock:";
+            // 
+            // inventQtyTxtbox
+            // 
+            this.inventQtyTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventQtyTxtbox.Location = new System.Drawing.Point(281, 243);
+            this.inventQtyTxtbox.Name = "inventQtyTxtbox";
+            this.inventQtyTxtbox.Size = new System.Drawing.Size(609, 26);
+            this.inventQtyTxtbox.TabIndex = 5;
+            // 
+            // inventCateLabel
+            // 
+            this.inventCateLabel.AutoSize = true;
+            this.inventCateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventCateLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventCateLabel.Location = new System.Drawing.Point(60, 194);
+            this.inventCateLabel.Name = "inventCateLabel";
+            this.inventCateLabel.Size = new System.Drawing.Size(222, 29);
+            this.inventCateLabel.TabIndex = 4;
+            this.inventCateLabel.Text = "Product Category:";
+            // 
+            // inventNameLabel
+            // 
+            this.inventNameLabel.AutoSize = true;
+            this.inventNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventNameLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventNameLabel.Location = new System.Drawing.Point(60, 151);
+            this.inventNameLabel.Name = "inventNameLabel";
+            this.inventNameLabel.Size = new System.Drawing.Size(186, 29);
+            this.inventNameLabel.TabIndex = 2;
+            this.inventNameLabel.Text = "Product Name:";
+            // 
+            // inventFormLabel
+            // 
+            this.inventFormLabel.AutoSize = true;
+            this.inventFormLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventFormLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventFormLabel.Location = new System.Drawing.Point(46, 40);
+            this.inventFormLabel.Name = "inventFormLabel";
+            this.inventFormLabel.Size = new System.Drawing.Size(302, 37);
+            this.inventFormLabel.TabIndex = 1;
+            this.inventFormLabel.Text = "New Product Form";
+            // 
+            // inventNameTxtbox
+            // 
+            this.inventNameTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventNameTxtbox.Location = new System.Drawing.Point(281, 154);
+            this.inventNameTxtbox.Name = "inventNameTxtbox";
+            this.inventNameTxtbox.Size = new System.Drawing.Size(609, 26);
+            this.inventNameTxtbox.TabIndex = 0;
+            // 
+            // inventCancelBtn
+            // 
+            this.inventCancelBtn.BackColor = System.Drawing.Color.OrangeRed;
+            this.inventCancelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.inventCancelBtn.Enabled = false;
+            this.inventCancelBtn.FlatAppearance.BorderSize = 0;
+            this.inventCancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventCancelBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventCancelBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventCancelBtn.Location = new System.Drawing.Point(1260, 959);
+            this.inventCancelBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.inventCancelBtn.Name = "inventCancelBtn";
+            this.inventCancelBtn.Size = new System.Drawing.Size(120, 93);
+            this.inventCancelBtn.TabIndex = 39;
+            this.inventCancelBtn.Text = "Cancel Changes";
+            this.inventCancelBtn.UseCompatibleTextRendering = true;
+            this.inventCancelBtn.UseVisualStyleBackColor = false;
+            this.inventCancelBtn.Visible = false;
+            this.inventCancelBtn.Click += new System.EventHandler(this.inventCancelBtn_Click);
             // 
             // inventEditBtn
             // 
@@ -989,6 +1121,7 @@ namespace PHPSRePS
             this.inventEditBtn.Text = "Edit Item";
             this.inventEditBtn.UseCompatibleTextRendering = true;
             this.inventEditBtn.UseVisualStyleBackColor = false;
+            this.inventEditBtn.Click += new System.EventHandler(this.inventEditBtn_Click);
             // 
             // inventSearchBtn
             // 
@@ -1010,8 +1143,8 @@ namespace PHPSRePS
             // 
             // inventDescriptList
             // 
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.inventDescriptList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.inventDescriptList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.inventDescriptList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.inventDescriptList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inventDescriptList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1019,14 +1152,15 @@ namespace PHPSRePS
             this.inventDescriptList.Location = new System.Drawing.Point(1260, 69);
             this.inventDescriptList.Margin = new System.Windows.Forms.Padding(2);
             this.inventDescriptList.Name = "inventDescriptList";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventDescriptList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.inventDescriptList.ReadOnly = true;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventDescriptList.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.inventDescriptList.RowHeadersWidth = 200;
             this.inventDescriptList.Size = new System.Drawing.Size(489, 864);
             this.inventDescriptList.TabIndex = 36;
@@ -1053,7 +1187,7 @@ namespace PHPSRePS
             this.inventAddNew.Text = "Add new product";
             this.inventAddNew.UseCompatibleTextRendering = true;
             this.inventAddNew.UseVisualStyleBackColor = false;
-            this.inventAddNew.Click += new System.EventHandler(this.addNewProduct_Click);
+            this.inventAddNew.Click += new System.EventHandler(this.inventAddNew_Click);
             // 
             // InventDescription
             // 
@@ -1249,19 +1383,6 @@ namespace PHPSRePS
             this.profilePage.Text = "profileName";
             this.profilePage.UseVisualStyleBackColor = true;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(200, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(310, 63);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "User Profile";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -1276,16 +1397,25 @@ namespace PHPSRePS
             this.panel3.Size = new System.Drawing.Size(685, 630);
             this.panel3.TabIndex = 12;
             // 
-            // profileLogout
+            // profileHireDate
             // 
-            this.profileLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.profileLogout.Location = new System.Drawing.Point(211, 393);
-            this.profileLogout.Name = "profileLogout";
-            this.profileLogout.Size = new System.Drawing.Size(253, 44);
-            this.profileLogout.TabIndex = 5;
-            this.profileLogout.Text = "Log Out";
-            this.profileLogout.UseVisualStyleBackColor = false;
-            this.profileLogout.Click += new System.EventHandler(this.profileLogout_Click);
+            this.profileHireDate.AutoSize = true;
+            this.profileHireDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileHireDate.ForeColor = System.Drawing.Color.Black;
+            this.profileHireDate.Location = new System.Drawing.Point(205, 238);
+            this.profileHireDate.Name = "profileHireDate";
+            this.profileHireDate.Size = new System.Drawing.Size(86, 31);
+            this.profileHireDate.TabIndex = 12;
+            this.profileHireDate.Text = "label7";
+            // 
+            // profileID
+            // 
+            this.profileID.AutoSize = true;
+            this.profileID.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileID.Location = new System.Drawing.Point(205, 116);
+            this.profileID.Name = "profileID";
+            this.profileID.Size = new System.Drawing.Size(0, 31);
+            this.profileID.TabIndex = 11;
             // 
             // profileName
             // 
@@ -1298,25 +1428,45 @@ namespace PHPSRePS
             this.profileName.TabIndex = 9;
             this.profileName.Text = "label7";
             // 
-            // profileID
+            // profileLogout
             // 
-            this.profileID.AutoSize = true;
-            this.profileID.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileID.Location = new System.Drawing.Point(205, 116);
-            this.profileID.Name = "profileID";
-            this.profileID.Size = new System.Drawing.Size(0, 31);
-            this.profileID.TabIndex = 11;
+            this.profileLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.profileLogout.Location = new System.Drawing.Point(211, 393);
+            this.profileLogout.Name = "profileLogout";
+            this.profileLogout.Size = new System.Drawing.Size(253, 44);
+            this.profileLogout.TabIndex = 5;
+            this.profileLogout.Text = "Log Out";
+            this.profileLogout.UseVisualStyleBackColor = false;
+            this.profileLogout.Click += new System.EventHandler(this.profileLogout_Click);
             // 
-            // profileHireDate
+            // label6
             // 
-            this.profileHireDate.AutoSize = true;
-            this.profileHireDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.profileHireDate.ForeColor = System.Drawing.Color.Black;
-            this.profileHireDate.Location = new System.Drawing.Point(205, 238);
-            this.profileHireDate.Name = "profileHireDate";
-            this.profileHireDate.Size = new System.Drawing.Size(86, 31);
-            this.profileHireDate.TabIndex = 12;
-            this.profileHireDate.Text = "label7";
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(200, 4);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(310, 63);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "User Profile";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "AntiSeptics",
+            "Supplements",
+            "Laxatives",
+            "Painkillers",
+            "Entheogen",
+            "Other"});
+            this.comboBox1.Location = new System.Drawing.Point(287, 203);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(602, 21);
+            this.comboBox1.TabIndex = 9;
             // 
             // MainView
             // 
@@ -1339,6 +1489,8 @@ namespace PHPSRePS
             ((System.ComponentModel.ISupportInitialize)(this.salesDataList)).EndInit();
             this.inventPage.ResumeLayout(false);
             this.inventPage.PerformLayout();
+            this.inventAddForm.ResumeLayout(false);
+            this.inventAddForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventDescriptList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).EndInit();
             this.reportsPage.ResumeLayout(false);
@@ -1436,6 +1588,17 @@ namespace PHPSRePS
         private Label profileHireDate;
         private Label profileID;
         private Label profileName;
+        private Button inventCancelBtn;
+        private Panel inventAddForm;
+        private Label inventFormLabel;
+        private TextBox inventNameTxtbox;
+        private Label inventNameLabel;
+        private Label inventPriceLabel;
+        private TextBox inventPriceTxtbox;
+        private Label inventQtyLabel;
+        private TextBox inventQtyTxtbox;
+        private Label inventCateLabel;
+        private ComboBox comboBox1;
     }
 }
 

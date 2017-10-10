@@ -204,10 +204,7 @@ namespace PHPSRePS {
             getAllProducts(salesSearchBox.Text.ToString());
         }
 
-        private void addNewProduct_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void addExistingProduct_Click(object sender, EventArgs e)
         {
@@ -289,9 +286,56 @@ namespace PHPSRePS {
             inventGetAllProducts();
         }
 
+        private void inventEditBtn_Click(object sender, EventArgs e)
+        {
+            if (inventDescriptList.ReadOnly)
+            {
+                inventDescriptList.ReadOnly = false;
+                inventEditBtn.BackColor = Color.MediumSpringGreen;
+                inventPage.BackColor = Color.Coral;
+                inventEditBtn.Text = "SAVE CHANGES";
+                InventDescription.Text = "EDITING MODE";
+                inventCancelBtn.Enabled = true;
+                inventCancelBtn.Visible = true;
+                inventEditBtn.Location = new Point(1629, 959);
+
+
+            }
+            else
+            {
+
+                inventReturnToReading();
+            }
+        }
+
+        private void inventCancelBtn_Click(object sender, EventArgs e)
+        {
+            inventDescriptionUpdater();
+            inventReturnToReading();
+        }
+
+        private void inventReturnToReading()
+        {
+            inventDescriptList.ReadOnly = true;
+            inventEditBtn.BackColor = Color.DarkOrange;
+            inventPage.BackColor = Color.White;
+            inventEditBtn.Text = "Edit Values";
+            InventDescription.Text = "Description";
+            inventCancelBtn.Enabled = false;
+            inventCancelBtn.Visible = false;
+            inventEditBtn.Location = new Point(1440, 959);
+        }
+
+        private void inventAddNew_Click(object sender, EventArgs e)
+        {
+            inventDataList.Visible = false;
+            inventDataList.Enabled = false;
+            inventAddForm.Visible = true;
+            inventAddForm.Enabled = true;
+        }
         #endregion
 
-       
+
 
         // display items in productList to the UI
         private void DisplaySales()
@@ -365,9 +409,6 @@ namespace PHPSRePS {
 
         }
 
-     
-
-       
 
 
        #region Button event handlers
@@ -519,7 +560,6 @@ namespace PHPSRePS {
          
 
         
-
         #region reports screen methods
         private void LoadSalesReport(DateTime startDate, DateTime endDate)
         {
@@ -650,8 +690,13 @@ namespace PHPSRePS {
                 selectedProduct.Price = (float)inventDataList.Rows[selectedRow].Cells[3].Value;
                 selectedProduct.Stock = (int)inventDataList.Rows[selectedRow].Cells[4].Value;
                 selectedProduct.IsDiscontinued = (bool)inventDataList.Rows[selectedRow].Cells[5].Value;
-                
-
+                inventDescriptList.ForeColor = Color.Black;
+                inventDescriptList.Rows[0].Cells[0].Value = selectedProduct.ID;
+                inventDescriptList.Rows[1].Cells[0].Value = selectedProduct.Name;
+                inventDescriptList.Rows[2].Cells[0].Value = selectedProduct.Category;
+                inventDescriptList.Rows[3].Cells[0].Value = selectedProduct.Price;
+                inventDescriptList.Rows[4].Cells[0].Value = selectedProduct.Stock;
+                inventDescriptList.Rows[5].Cells[0].Value = selectedProduct.IsDiscontinued;
             }
             catch(Exception e)
             {
@@ -725,5 +770,7 @@ namespace PHPSRePS {
             updateTabButtons();
             MessageBox.Show("You Have Been Signed Out");
         }
+
+
     }
 }
