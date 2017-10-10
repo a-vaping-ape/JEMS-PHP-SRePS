@@ -43,7 +43,11 @@ namespace PHPSRePS
         private List<SalesForecast> _salesForecastList = new List<SalesForecast>();
 
         private List<SalesHistory> SalesHistoryReport { get => _salesHistoryList; set => _salesHistoryList = value; }
-        private List<SalesForecast> SalesForecastReport { get => _salesForecastList; set => _salesForecastList = value; }
+        
+        // OUTPUT DATA SET
+        // GET ALL DATA FROM HERE
+        // REFER TO SalesForecast STRUCT FOR FORMAT
+        public List<SalesForecast> SalesForecastReport { get => _salesForecastList; set => _salesForecastList = value; }
 
 
         public ForecastReport(DateTime startDate, DateTime endDate)
@@ -52,6 +56,7 @@ namespace PHPSRePS
             EndDate = endDate;
         }
 
+        // CALL THIS ONLY
         // load data from the database into local lists
         public void LoadReport(string itemName, string groupBy, DateTime startDate, DateTime endDate)
         {
