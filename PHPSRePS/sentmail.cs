@@ -11,7 +11,7 @@ using System.Net.Security;
 using System.IO;
 using System.Net.Mime;
 
-namespace SmtpTest
+namespace sentmail
 {
     public partial class Form1 : Form
     {
@@ -27,7 +27,7 @@ namespace SmtpTest
                 MailMessage mailmessage = new MailMessage("", "", "this is a test", "yes!test!");
                 //from email，to email
                 mailmessage.Priority = MailPriority.Normal; 
-                SmtpClient smtpClient = new SmtpClient("xx", 25); //smtp address and port number
+                SmtpClient smtpClient = new SmtpClient("178191x@student.swin.edu.au", 25); //smtp address and port number
                 smtpClient.Credentials = new NetworkCredential("xx", "xx");//smtp id and password
                 smtpClient.EnableSsl = true; //use ssl
                 //add attach
