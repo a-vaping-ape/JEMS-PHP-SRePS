@@ -5,7 +5,7 @@ namespace PHPSRePS
 {
     public class Product : HasSQLTable
     {
-        private const string _SQLTable = "products";
+        private const string _SQLTable = "Product";
         private  const string _SQLcols = _SQLTable+"(ProductID,ProductName,CategoryID,UnitPrice,UnitsInStock,Discontinued)";
         // private const string _values = 
 
@@ -85,7 +85,7 @@ namespace PHPSRePS
                 discon = 0;
             return
                 "UPDATE " + _SQLTable +
-                " SET ProductName ='" + Name + "', UnitPrice = '" + Price + "', UnitsInStock = '" + Stock + "', IsDiscontinued = '" + discon.ToString() +
+                " SET ProductName ='" + Name + "', UnitPrice = '" + Price + "', UnitsInStock = '" + Stock + "', Discontinued = '" + discon.ToString() + "'" +
                 " WHERE ProductID ='" + ID + "';";
 
         }

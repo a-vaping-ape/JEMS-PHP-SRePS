@@ -35,6 +35,33 @@ namespace PHPSRePS_Test
         }
 
         [TestMethod]
+        public void ProductUpdate()
+        {
+            db = new Database();
+
+            product1 = new Product();
+
+            product1.ID = 1;
+            product1.Name = "test";
+            product1.Price = (float)9.8;
+            product1.Stock = 10;
+            product1.IsDiscontinued = false;
+
+            string query = product1.GetUPDATE();
+
+           // NUnit.Framework.Assert.AreEqual("UPDATE Products SET ProductName ='test', UnitPrice = '9.8', U" +
+             //   "nitsInStock = '10',IsDiscontinued = '0' WHERE Product='1';", query);
+
+
+            db.RunVoidQuery(query);
+
+            
+
+
+
+        }
+
+        [TestMethod]
         public void INSERTSaleInDB()
         {
             db = new Database();
