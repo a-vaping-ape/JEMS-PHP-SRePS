@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using PHPSRePS;
+using System.Collections.Generic;
+
 
 namespace PHPSRePS_Test
 {
@@ -70,6 +72,21 @@ namespace PHPSRePS_Test
             bool pass = db.RunVoidQuery(sale1.GetINSERT());
             
             NUnit.Framework.Assert.AreEqual(true, pass);
+        }
+
+        [TestMethod]
+        public void CategoryNames()
+        {
+            db = new Database();
+   
+
+            List<String> result = db.GetCategoires();
+
+            NUnit.Framework.Assert.AreEqual(6, result.Count);
+
+           // bool pass = db.RunVoidQuery(sale1.GetINSERT());
+
+            //NUnit.Framework.Assert.AreEqual(true, pass);
         }
     }
 }
