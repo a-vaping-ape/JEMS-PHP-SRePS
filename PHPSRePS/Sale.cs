@@ -39,7 +39,7 @@ namespace PHPSRePS
         {
             this.Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             //hard coded for now as this has not been implemented in the GUI
-            this.EmployeeID = 1;
+            //this.EmployeeID = 1;
 
         }
 

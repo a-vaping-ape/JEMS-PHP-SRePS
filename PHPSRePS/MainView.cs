@@ -15,7 +15,9 @@ namespace PHPSRePS {
         // TODO sprint2: implement authorisation + levels of security
 
         // database
-        Database database = new Database();
+        private Database database = new Database();
+        private Employee currentEmployee = null;
+
 
         // all products
         private List<Product> productList = new List<Product>();
@@ -27,8 +29,6 @@ namespace PHPSRePS {
         {
             productList.Clear();
             saleList.Clear();
-
-            
         }
 
         public MainView() {
@@ -188,11 +188,18 @@ namespace PHPSRePS {
         //creates a new items sales record on the DB
         private void payBtn_Click(object sender, EventArgs e)
         {
-            database.CreateSaleItems(productList);
-            salesTranList.DataSource = null;
-            salesTranList.Rows.Clear();
-            salesTranList.Refresh();
-            MessageBox.Show("Your Transation Has Been Saved");
+            if (currentEmployee != null)
+            {
+                database.CreateSaleItems(productList, currentEmployee.EmployeeID);
+                salesTranList.DataSource = null;
+                salesTranList.Rows.Clear();
+                salesTranList.Refresh();
+                MessageBox.Show("Your Transation Has Been Saved");
+            }
+            else
+            {
+                MessageBox.Show("Please Login To Process A Order");
+            }
 
             getAllProducts(salesSearchBox.Text.ToString());
         }
@@ -565,54 +572,60 @@ namespace PHPSRePS {
             Product addedProduct = new Product();
             float total = 0;
 
-            //a select coutn is greater then 0 fetch the first one
-            if (salesDataList.SelectedCells.Count > 0)
-            {
-                //the selected row
-                int rowCount = 0;
-                Int32.TryParse(salesDataList.SelectedCells[0].RowIndex.ToString(), out rowCount);
-
-                //checks is translist has been added to before
-                int i = salesTranList.Columns.Count;
-
-                //creates the appropriate columns in the reciept tables
-                if (salesTranList.Columns.Count < 1)
+            if (currentEmployee != null) {
+                //a select coutn is greater then 0 fetch the first one
+                if (salesDataList.SelectedCells.Count > 0)
                 {
-                    foreach (DataGridViewColumn c in salesDataList.Columns)
+                    //the selected row
+                    int rowCount = 0;
+                    Int32.TryParse(salesDataList.SelectedCells[0].RowIndex.ToString(), out rowCount);
+
+                    //checks is translist has been added to before
+                    int i = salesTranList.Columns.Count;
+
+                    //creates the appropriate columns in the reciept tables
+                    if (salesTranList.Columns.Count < 1)
                     {
-                        salesTranList.Columns.Add(c.Clone() as DataGridViewColumn);  
+                        foreach (DataGridViewColumn c in salesDataList.Columns)
+                        {
+                            salesTranList.Columns.Add(c.Clone() as DataGridViewColumn);
+                        }
+                        salesTranList.ForeColor = Color.Black;
                     }
-                    salesTranList.ForeColor = Color.Black;
-                }
 
-                if ((int)salesDataList.Rows[rowCount].Cells[4].Value < 1)
-                {
-                    MessageBox.Show("There is not stock left on this product. Got to the inventory to order more stocks");
-                }
+                    if ((int)salesDataList.Rows[rowCount].Cells[4].Value < 1)
+                    {
+                        MessageBox.Show("There is not stock left on this product. Got to the inventory to order more stocks");
+                    }
 
-                else
-                {
-                    //create a product to be added to a sales 
-                    addedProduct.ID = (int)salesDataList.Rows[rowCount].Cells[0].Value;
-                    addedProduct.Name = (string)salesDataList.Rows[rowCount].Cells[1].Value;
-                    addedProduct.Category = (string)salesDataList.Rows[rowCount].Cells[2].Value;
-                    addedProduct.Price = (float)salesDataList.Rows[rowCount].Cells[3].Value;
-                    addedProduct.Stock = (int)salesDataList.Rows[rowCount].Cells[4].Value;
-                    addedProduct.IsDiscontinued = (bool)salesDataList.Rows[rowCount].Cells[5].Value;
-
-                    productList.Add(addedProduct);
-                    salesTranList.Rows.Add(addedProduct.GetDataGridRow(salesTranList));
-
-                    //update total cost field
-                    total = 0;
-                    foreach (Product product in productList)
-                        total += product.Price;
-
-                    if (total.ToString().Contains('.'))
-                        salesTotalNum.Text = "$" + total.ToString();
                     else
-                        salesTotalNum.Text = "$" + total.ToString() + ".00";
+                    {
+                        //create a product to be added to a sales 
+                        addedProduct.ID = (int)salesDataList.Rows[rowCount].Cells[0].Value;
+                        addedProduct.Name = (string)salesDataList.Rows[rowCount].Cells[1].Value;
+                        addedProduct.Category = (string)salesDataList.Rows[rowCount].Cells[2].Value;
+                        addedProduct.Price = (float)salesDataList.Rows[rowCount].Cells[3].Value;
+                        addedProduct.Stock = (int)salesDataList.Rows[rowCount].Cells[4].Value;
+                        addedProduct.IsDiscontinued = (bool)salesDataList.Rows[rowCount].Cells[5].Value;
+
+                        productList.Add(addedProduct);
+                        salesTranList.Rows.Add(addedProduct.GetDataGridRow(salesTranList));
+
+                        //update total cost field
+                        total = 0;
+                        foreach (Product product in productList)
+                            total += product.Price;
+
+                        if (total.ToString().Contains('.'))
+                            salesTotalNum.Text = "$" + total.ToString();
+                        else
+                            salesTotalNum.Text = "$" + total.ToString() + ".00";
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please Login To Be Able To Checkout Items");
             }
         }
 
@@ -661,7 +674,56 @@ namespace PHPSRePS {
 
         private void userButton_Click(object sender, EventArgs e)
         {
-            tabView.SelectTab("userPage");
+            if (currentEmployee == null)
+            {
+                tabView.SelectTab("userPage");
+            }
+            else
+            {
+                tabView.SelectTab("profilePage");
+
+                profileName.Text = currentEmployee.FirstName + " " + currentEmployee.LastName;
+                profileHireDate.Text = currentEmployee.HireDate;
+
+            }
+        }
+
+        //attempts to loging 
+        private void userLoginBtn_Click(object sender, EventArgs e)
+        {
+            string userName = userUsrField.Text;
+            string password = userPassField.Text;
+
+            currentEmployee = database.attemptUserLogin(userName, password);
+
+            if (currentEmployee != null)
+            {
+                MessageBox.Show("Welcome "+userName);
+                tabView.SelectTab("homePage");
+                userUsrField.Text = "";
+                userPassField.Text = "";
+                updateTabButtons();
+            }
+            else
+            {
+                MessageBox.Show("Login Failed Please Try Again");
+            }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profileLogout_Click(object sender, EventArgs e)
+        {
+            currentEmployee = null;
+            tabView.SelectTab("homePage");
+
+            profileName.Text = "";
+            profileHireDate.Text = "";
+            updateTabButtons();
+            MessageBox.Show("You Have Been Signed Out");
         }
     }
 }

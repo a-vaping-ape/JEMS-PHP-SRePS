@@ -32,8 +32,8 @@ namespace PHPSRePS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.sidebar = new System.Windows.Forms.Panel();
             this.homeTab = new System.Windows.Forms.Button();
             this.reportsTab = new System.Windows.Forms.Button();
@@ -98,6 +98,20 @@ namespace PHPSRePS
             this.reportTestBtn = new System.Windows.Forms.Button();
             this.reportSendReportBtn = new System.Windows.Forms.Button();
             this.userPage = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.userPassField = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.userUsrField = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.userLoginBtn = new System.Windows.Forms.Button();
+            this.profilePage = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.profileLogout = new System.Windows.Forms.Button();
+            this.profileName = new System.Windows.Forms.Label();
+            this.profileID = new System.Windows.Forms.Label();
+            this.profileHireDate = new System.Windows.Forms.Label();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -108,6 +122,10 @@ namespace PHPSRePS
             ((System.ComponentModel.ISupportInitialize)(this.inventDescriptList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).BeginInit();
             this.reportsPage.SuspendLayout();
+            this.userPage.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.profilePage.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar
@@ -197,6 +215,7 @@ namespace PHPSRePS
             this.tabView.Controls.Add(this.inventPage);
             this.tabView.Controls.Add(this.reportsPage);
             this.tabView.Controls.Add(this.userPage);
+            this.tabView.Controls.Add(this.profilePage);
             this.tabView.ItemSize = new System.Drawing.Size(0, 1);
             this.tabView.Location = new System.Drawing.Point(115, 1);
             this.tabView.Margin = new System.Windows.Forms.Padding(0);
@@ -991,8 +1010,8 @@ namespace PHPSRePS
             // 
             // inventDescriptList
             // 
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.inventDescriptList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.inventDescriptList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.inventDescriptList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.inventDescriptList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inventDescriptList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1000,14 +1019,14 @@ namespace PHPSRePS
             this.inventDescriptList.Location = new System.Drawing.Point(1260, 69);
             this.inventDescriptList.Margin = new System.Windows.Forms.Padding(2);
             this.inventDescriptList.Name = "inventDescriptList";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventDescriptList.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventDescriptList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.inventDescriptList.RowHeadersWidth = 200;
             this.inventDescriptList.Size = new System.Drawing.Size(489, 864);
             this.inventDescriptList.TabIndex = 36;
@@ -1135,6 +1154,12 @@ namespace PHPSRePS
             // 
             // userPage
             // 
+            this.userPage.Controls.Add(this.label3);
+            this.userPage.Controls.Add(this.userPassField);
+            this.userPage.Controls.Add(this.label2);
+            this.userPage.Controls.Add(this.label1);
+            this.userPage.Controls.Add(this.userUsrField);
+            this.userPage.Controls.Add(this.panel2);
             this.userPage.Location = new System.Drawing.Point(4, 5);
             this.userPage.Name = "userPage";
             this.userPage.Padding = new System.Windows.Forms.Padding(3);
@@ -1142,6 +1167,156 @@ namespace PHPSRePS
             this.userPage.TabIndex = 4;
             this.userPage.Text = "userPage";
             this.userPage.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(620, 385);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 31);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Password";
+            // 
+            // userPassField
+            // 
+            this.userPassField.Location = new System.Drawing.Point(626, 419);
+            this.userPassField.Name = "userPassField";
+            this.userPassField.Size = new System.Drawing.Size(327, 20);
+            this.userPassField.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(620, 286);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(151, 31);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "User Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(451, 131);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(664, 63);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Please Enter Login Details";
+            // 
+            // userUsrField
+            // 
+            this.userUsrField.Location = new System.Drawing.Point(626, 320);
+            this.userUsrField.Name = "userUsrField";
+            this.userUsrField.Size = new System.Drawing.Size(327, 20);
+            this.userUsrField.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.userLoginBtn);
+            this.panel2.ForeColor = System.Drawing.Color.White;
+            this.panel2.Location = new System.Drawing.Point(440, 131);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(685, 630);
+            this.panel2.TabIndex = 6;
+            // 
+            // userLoginBtn
+            // 
+            this.userLoginBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.userLoginBtn.Location = new System.Drawing.Point(211, 393);
+            this.userLoginBtn.Name = "userLoginBtn";
+            this.userLoginBtn.Size = new System.Drawing.Size(253, 44);
+            this.userLoginBtn.TabIndex = 5;
+            this.userLoginBtn.Text = "Login";
+            this.userLoginBtn.UseVisualStyleBackColor = false;
+            this.userLoginBtn.Click += new System.EventHandler(this.userLoginBtn_Click);
+            // 
+            // profilePage
+            // 
+            this.profilePage.Controls.Add(this.panel3);
+            this.profilePage.Location = new System.Drawing.Point(4, 5);
+            this.profilePage.Name = "profilePage";
+            this.profilePage.Size = new System.Drawing.Size(1797, 1070);
+            this.profilePage.TabIndex = 5;
+            this.profilePage.Text = "profileName";
+            this.profilePage.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(200, 4);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(310, 63);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "User Profile";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel3.Controls.Add(this.profileHireDate);
+            this.panel3.Controls.Add(this.profileID);
+            this.panel3.Controls.Add(this.profileName);
+            this.panel3.Controls.Add(this.profileLogout);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.ForeColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(556, 220);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(685, 630);
+            this.panel3.TabIndex = 12;
+            // 
+            // profileLogout
+            // 
+            this.profileLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.profileLogout.Location = new System.Drawing.Point(211, 393);
+            this.profileLogout.Name = "profileLogout";
+            this.profileLogout.Size = new System.Drawing.Size(253, 44);
+            this.profileLogout.TabIndex = 5;
+            this.profileLogout.Text = "Log Out";
+            this.profileLogout.UseVisualStyleBackColor = false;
+            this.profileLogout.Click += new System.EventHandler(this.profileLogout_Click);
+            // 
+            // profileName
+            // 
+            this.profileName.AutoSize = true;
+            this.profileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileName.ForeColor = System.Drawing.Color.Black;
+            this.profileName.Location = new System.Drawing.Point(205, 178);
+            this.profileName.Name = "profileName";
+            this.profileName.Size = new System.Drawing.Size(86, 31);
+            this.profileName.TabIndex = 9;
+            this.profileName.Text = "label7";
+            // 
+            // profileID
+            // 
+            this.profileID.AutoSize = true;
+            this.profileID.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileID.Location = new System.Drawing.Point(205, 116);
+            this.profileID.Name = "profileID";
+            this.profileID.Size = new System.Drawing.Size(0, 31);
+            this.profileID.TabIndex = 11;
+            // 
+            // profileHireDate
+            // 
+            this.profileHireDate.AutoSize = true;
+            this.profileHireDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileHireDate.ForeColor = System.Drawing.Color.Black;
+            this.profileHireDate.Location = new System.Drawing.Point(205, 238);
+            this.profileHireDate.Name = "profileHireDate";
+            this.profileHireDate.Size = new System.Drawing.Size(86, 31);
+            this.profileHireDate.TabIndex = 12;
+            this.profileHireDate.Text = "label7";
             // 
             // MainView
             // 
@@ -1167,6 +1342,12 @@ namespace PHPSRePS
             ((System.ComponentModel.ISupportInitialize)(this.inventDescriptList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).EndInit();
             this.reportsPage.ResumeLayout(false);
+            this.userPage.ResumeLayout(false);
+            this.userPage.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.profilePage.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1241,6 +1422,20 @@ namespace PHPSRePS
         private Button inventEditBtn;
         private DataGridViewTextBoxColumn descriptText;
         private TabPage userPage;
+        private Label label1;
+        private TextBox userUsrField;
+        private Label label2;
+        private Label label3;
+        private TextBox userPassField;
+        private Button userLoginBtn;
+        private Panel panel2;
+        private TabPage profilePage;
+        private Label label6;
+        private Panel panel3;
+        private Button profileLogout;
+        private Label profileHireDate;
+        private Label profileID;
+        private Label profileName;
     }
 }
 

@@ -52,11 +52,46 @@ namespace PHPSRePS
             return result;
         }
 
-        public void CreateSaleItems(List<Product> productList)
+        public Employee attemptUserLogin(string usr, string pwd)
+        {
+            string userName = "";
+            string password = "";
+
+
+            Employee foundEmp = null;
+
+            OpenConnection();
+
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM `Employee` WHERE Username = '" + usr +"' AND Password = '" + pwd + "'", connection);
+            var reader = cmd.ExecuteReader();
+
+            //waiting for the GUI implementation
+            while (reader.Read())
+            {
+                userName = (string)reader["Username"];
+                password = (string)reader["Password"];
+
+                if ((userName == usr) && (password == pwd))
+                {
+                    DateTime date = (DateTime)reader["HireDate"];
+
+                    foundEmp = new Employee((int)reader["EmployeeID"], (string)reader["FirstName"], (string)reader["LastName"],
+                        (bool)reader["IsManager"], date.ToString(), (bool)reader["Employed"]);
+                }
+
+            }
+            connection.Close();
+
+            return foundEmp;
+        }
+
+        public void CreateSaleItems(List<Product> productList, int EmpID)
         {
             List<Product> checkedProducts = new List<Product>();
             List<ItemSale> Items = new List<ItemSale>();
             Sale sale = new Sale();
+
+            sale.EmployeeID = EmpID;
 
             bool duplicate;
 
@@ -64,6 +99,7 @@ namespace PHPSRePS
             RunVoidQuery(sale.GetINSERT());
             int ID = ReadOneValue(sale.SelectThisObject(), "SalesID");
             sale.ID = ID;
+            sale.EmployeeID = EmpID;
 
             //works out the quantity for each product
 
@@ -217,7 +253,7 @@ namespace PHPSRePS
             while (reader.Read())
             {
                 someValue = (int)reader[Value];
-                //Console.Write(someValue + "\n");
+
             }
             connection.Close();
 

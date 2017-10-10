@@ -66,6 +66,7 @@
       <DependentUpon>AddEditSaleView.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="HasSQLTable.cs" />
     <Compile Include="ItemSale.cs" />
     <Compile Include="Product.cs" />
