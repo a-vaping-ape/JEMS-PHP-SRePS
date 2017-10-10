@@ -38,9 +38,12 @@ namespace PHPSRePS
         private List<EmployeeReport> _employeeReportList = new List<EmployeeReport>();
         private List<CategoryReport> _categoryReportList = new List<CategoryReport>();
 
-        private List<ProductReport> ProductSalesReport { get => _productReportList; set => _productReportList = value; }
-        private List<EmployeeReport> EmployeeSalesReport { get => _employeeReportList; set => _employeeReportList = value; }
-        private List<CategoryReport> CategorySalesReport { get => _categoryReportList; set => _categoryReportList = value; }
+        // OUTPUT DATA SET
+        // GET ALL DATA FROM HERE
+        // REFER TO ProductReport, EmployeeReport, CategoryReport STRUCTS FOR FORMAT
+        public List<ProductReport> ProductSalesReport { get => _productReportList; set => _productReportList = value; }
+        public List<EmployeeReport> EmployeeSalesReport { get => _employeeReportList; set => _employeeReportList = value; }
+        public List<CategoryReport> CategorySalesReport { get => _categoryReportList; set => _categoryReportList = value; }
 
         Database database = new Database();
 
@@ -50,6 +53,7 @@ namespace PHPSRePS
             EndDate = endDate;
         }
 
+        // CALL THIS ONLY
         // load data from the database into local lists
         public void LoadReport(DateTime startDate, DateTime endDate)
         {
