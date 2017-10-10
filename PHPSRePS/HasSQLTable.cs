@@ -48,6 +48,7 @@ namespace PHPSRePS
         virtual public string GetUPDATE()
         {
             return "";
+                
         }
 
         //returns a mySQL UPDATE statement

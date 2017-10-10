@@ -44,7 +44,7 @@ namespace PHPSRePS
         //gets coulombs used by the mySQL table
         private string GetSQLValues()
         {
-            return ID.ToString() + "," + Name + "," + 
+            return "NULL," + Name + "," + 
                    Category + "," + Price.ToString()+"," + 
                    Stock.ToString() + "," + IsDiscontinued.ToString();
         }
@@ -72,6 +72,22 @@ namespace PHPSRePS
         override public string GetINSERT()
         { 
             return base.GetINSERT(_SQLcols, GetSQLValues());
+        }
+
+
+        override public string GetUPDATE()
+        {
+            int discon;
+
+            if (IsDiscontinued)
+                discon = 1;
+            else
+                discon = 0;
+            return
+                "UPDATE " + _SQLTable +
+                " SET ProductName ='" + Name + "', UnitPrice = '" + Price + "', UnitsInStock = '" + Stock + "', IsDiscontinued = '" + discon.ToString() +
+                " WHERE ProductID ='" + ID + "';";
+
         }
 
         //returns a mySQL DELETE statement
