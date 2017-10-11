@@ -51,9 +51,12 @@ namespace PHPSRePS
             else
                 discon = 0;
 
-            return "'NULL','" + Name + "','" + 
-                   Category + "','" + Price.ToString()+"','" + 
-                   Stock.ToString() + "','" + IsDiscontinued.ToString()+"'";
+            Database db = new Database();
+
+            int cat = db.GetCategoires(_category);
+
+            return "'NULL','" + Name + "','"+cat+"','" + Price.ToString()+"','" + 
+                   Stock.ToString() + "','" + discon.ToString()+"'";
         }
 
         //returns a row that can be used for display purposes

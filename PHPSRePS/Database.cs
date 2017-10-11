@@ -75,6 +75,25 @@ namespace PHPSRePS
             return result;
         }
 
+        public int  GetCategoires(string name)
+        {
+            //List<String> result = new List<String>();
+            int result = 0;
+
+            OpenConnection();
+
+            MySqlCommand cmd = new MySqlCommand("SELECT CategoryID FROM categories WHERE CategoryName = '"+name+"'", connection);
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                // result.Add((string)reader["CategoryID"]);
+                result = (int)reader["CategoryID"];
+            }
+            connection.Close();
+
+            return result;
+        }
 
         public List<String> GetCategoires()
         {

@@ -90,13 +90,44 @@ namespace PHPSRePS
             this.salesSearchBox = new System.Windows.Forms.TextBox();
             this.salesSearchButton = new System.Windows.Forms.Button();
             this.inventPage = new System.Windows.Forms.TabPage();
+            this.inventAddForm = new System.Windows.Forms.Panel();
+            this.inventAddCancelBtn = new System.Windows.Forms.Button();
+            this.inventAddContinPanel = new System.Windows.Forms.Panel();
+            this.inventAddContinBtn = new System.Windows.Forms.Button();
+            this.inventAddContLabel = new System.Windows.Forms.Label();
+            this.inventPriceTxtbox = new System.Windows.Forms.NumericUpDown();
+            this.inventQtyTxtbox = new System.Windows.Forms.NumericUpDown();
+            this.inventAddAddBtn = new System.Windows.Forms.Button();
+            this.inventAddCateBox = new System.Windows.Forms.ComboBox();
+            this.inventPriceLabel = new System.Windows.Forms.Label();
+            this.inventQtyLabel = new System.Windows.Forms.Label();
+            this.inventCateLabel = new System.Windows.Forms.Label();
+            this.inventNameLabel = new System.Windows.Forms.Label();
+            this.inventFormLabel = new System.Windows.Forms.Label();
+            this.inventNameTxtbox = new System.Windows.Forms.TextBox();
             this.inventCancelBtn = new System.Windows.Forms.Button();
             this.inventEditBtn = new System.Windows.Forms.Button();
+            this.inventSearchBtn = new System.Windows.Forms.Button();
             this.inventAddNew = new System.Windows.Forms.Button();
             this.InventDescription = new System.Windows.Forms.Label();
             this.inventDataList = new System.Windows.Forms.DataGridView();
             this.inventSearchBar = new System.Windows.Forms.TextBox();
-            this.inventSearchBtn = new System.Windows.Forms.Button();
+            this.inventDescPanel = new System.Windows.Forms.Panel();
+            this.inventDescConfirmPanel = new System.Windows.Forms.Panel();
+            this.inventDescConfirmBtn = new System.Windows.Forms.Button();
+            this.inventDescConfirmLabel = new System.Windows.Forms.Label();
+            this.inventDescPriceTextbox = new System.Windows.Forms.NumericUpDown();
+            this.inventDescCheckbox = new System.Windows.Forms.CheckBox();
+            this.inventDescCheckLabel = new System.Windows.Forms.Label();
+            this.inventDescIDTxtbox = new System.Windows.Forms.NumericUpDown();
+            this.inventDescIDLabel = new System.Windows.Forms.Label();
+            this.inventDescQTYTxtbox = new System.Windows.Forms.NumericUpDown();
+            this.inventDescCateBox = new System.Windows.Forms.ComboBox();
+            this.inventDescPriceLabel = new System.Windows.Forms.Label();
+            this.inventDescQTYLabel = new System.Windows.Forms.Label();
+            this.inventDescCateLabel = new System.Windows.Forms.Label();
+            this.inventDescNameLabel = new System.Windows.Forms.Label();
+            this.inventDescNameTxtbox = new System.Windows.Forms.TextBox();
             this.reportsPage = new System.Windows.Forms.TabPage();
             this.reportEndTitle = new System.Windows.Forms.Label();
             this.reportEndDate = new System.Windows.Forms.DateTimePicker();
@@ -124,17 +155,17 @@ namespace PHPSRePS
             this.profileLogout = new System.Windows.Forms.Button();
             this.profileTitle = new System.Windows.Forms.Label();
             this.forecastPage = new System.Windows.Forms.TabPage();
-            this.forecastProductBtn = new System.Windows.Forms.Button();
+            this.forecastChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.forecastDropDown = new System.Windows.Forms.ComboBox();
             this.forcastMenuPanel = new System.Windows.Forms.Panel();
             this.forecastCategoriesBtn = new System.Windows.Forms.Button();
-            this.forecastDropDown = new System.Windows.Forms.ComboBox();
-            this.forecastDropdownTitle = new System.Windows.Forms.Label();
+            this.forecastProductBtn = new System.Windows.Forms.Button();
             this.forcasrSettingPanel = new System.Windows.Forms.Panel();
             this.forecastEndDate = new System.Windows.Forms.Label();
+            this.forecastDropdownTitle = new System.Windows.Forms.Label();
             this.forecastEndDate2 = new System.Windows.Forms.DateTimePicker();
-            this.forecastStartTitle = new System.Windows.Forms.Label();
             this.forecastStartDate = new System.Windows.Forms.DateTimePicker();
-            this.forecastChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.forecastStartTitle = new System.Windows.Forms.Label();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -142,7 +173,16 @@ namespace PHPSRePS
             ((System.ComponentModel.ISupportInitialize)(this.salesTranList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesDataList)).BeginInit();
             this.inventPage.SuspendLayout();
+            this.inventAddForm.SuspendLayout();
+            this.inventAddContinPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventPriceTxtbox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventQtyTxtbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).BeginInit();
+            this.inventDescPanel.SuspendLayout();
+            this.inventDescConfirmPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventDescPriceTextbox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventDescIDTxtbox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventDescQTYTxtbox)).BeginInit();
             this.reportsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportsGrid)).BeginInit();
@@ -152,9 +192,9 @@ namespace PHPSRePS
             this.profilePage.SuspendLayout();
             this.profilePanel.SuspendLayout();
             this.forecastPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.forecastChart)).BeginInit();
             this.forcastMenuPanel.SuspendLayout();
             this.forcasrSettingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.forecastChart)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar
@@ -1007,13 +1047,15 @@ namespace PHPSRePS
             // 
             // inventPage
             // 
+            this.inventPage.Controls.Add(this.inventAddForm);
             this.inventPage.Controls.Add(this.inventCancelBtn);
             this.inventPage.Controls.Add(this.inventEditBtn);
+            this.inventPage.Controls.Add(this.inventSearchBtn);
             this.inventPage.Controls.Add(this.inventAddNew);
             this.inventPage.Controls.Add(this.InventDescription);
             this.inventPage.Controls.Add(this.inventDataList);
             this.inventPage.Controls.Add(this.inventSearchBar);
-            this.inventPage.Controls.Add(this.inventSearchBtn);
+            this.inventPage.Controls.Add(this.inventDescPanel);
             this.inventPage.Location = new System.Drawing.Point(4, 5);
             this.inventPage.Name = "inventPage";
             this.inventPage.Padding = new System.Windows.Forms.Padding(3);
@@ -1021,6 +1063,201 @@ namespace PHPSRePS
             this.inventPage.TabIndex = 1;
             this.inventPage.Text = "Inventory";
             this.inventPage.UseVisualStyleBackColor = true;
+            // 
+            // inventAddForm
+            // 
+            this.inventAddForm.BackColor = System.Drawing.Color.White;
+            this.inventAddForm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inventAddForm.Controls.Add(this.inventAddCancelBtn);
+            this.inventAddForm.Controls.Add(this.inventAddContinPanel);
+            this.inventAddForm.Controls.Add(this.inventPriceTxtbox);
+            this.inventAddForm.Controls.Add(this.inventQtyTxtbox);
+            this.inventAddForm.Controls.Add(this.inventAddAddBtn);
+            this.inventAddForm.Controls.Add(this.inventAddCateBox);
+            this.inventAddForm.Controls.Add(this.inventPriceLabel);
+            this.inventAddForm.Controls.Add(this.inventQtyLabel);
+            this.inventAddForm.Controls.Add(this.inventCateLabel);
+            this.inventAddForm.Controls.Add(this.inventNameLabel);
+            this.inventAddForm.Controls.Add(this.inventFormLabel);
+            this.inventAddForm.Controls.Add(this.inventNameTxtbox);
+            this.inventAddForm.Enabled = false;
+            this.inventAddForm.Location = new System.Drawing.Point(390, 224);
+            this.inventAddForm.Name = "inventAddForm";
+            this.inventAddForm.Size = new System.Drawing.Size(566, 585);
+            this.inventAddForm.TabIndex = 40;
+            this.inventAddForm.Visible = false;
+            // 
+            // inventAddCancelBtn
+            // 
+            this.inventAddCancelBtn.BackColor = System.Drawing.Color.OrangeRed;
+            this.inventAddCancelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.inventAddCancelBtn.FlatAppearance.BorderSize = 0;
+            this.inventAddCancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventAddCancelBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventAddCancelBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventAddCancelBtn.Location = new System.Drawing.Point(48, 483);
+            this.inventAddCancelBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.inventAddCancelBtn.Name = "inventAddCancelBtn";
+            this.inventAddCancelBtn.Size = new System.Drawing.Size(120, 71);
+            this.inventAddCancelBtn.TabIndex = 45;
+            this.inventAddCancelBtn.Text = "Cancel";
+            this.inventAddCancelBtn.UseCompatibleTextRendering = true;
+            this.inventAddCancelBtn.UseVisualStyleBackColor = false;
+            this.inventAddCancelBtn.Click += new System.EventHandler(this.inventAddCancelBtn_Click);
+            // 
+            // inventAddContinPanel
+            // 
+            this.inventAddContinPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inventAddContinPanel.Controls.Add(this.inventAddContinBtn);
+            this.inventAddContinPanel.Controls.Add(this.inventAddContLabel);
+            this.inventAddContinPanel.Enabled = false;
+            this.inventAddContinPanel.Location = new System.Drawing.Point(122, 167);
+            this.inventAddContinPanel.Name = "inventAddContinPanel";
+            this.inventAddContinPanel.Size = new System.Drawing.Size(344, 236);
+            this.inventAddContinPanel.TabIndex = 44;
+            this.inventAddContinPanel.Visible = false;
+            // 
+            // inventAddContinBtn
+            // 
+            this.inventAddContinBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.inventAddContinBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.inventAddContinBtn.FlatAppearance.BorderSize = 0;
+            this.inventAddContinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventAddContinBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventAddContinBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventAddContinBtn.Location = new System.Drawing.Point(111, 105);
+            this.inventAddContinBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.inventAddContinBtn.Name = "inventAddContinBtn";
+            this.inventAddContinBtn.Size = new System.Drawing.Size(120, 71);
+            this.inventAddContinBtn.TabIndex = 45;
+            this.inventAddContinBtn.Text = "Continue";
+            this.inventAddContinBtn.UseCompatibleTextRendering = true;
+            this.inventAddContinBtn.UseVisualStyleBackColor = false;
+            this.inventAddContinBtn.Click += new System.EventHandler(this.inventAddContinBtn_Click);
+            // 
+            // inventAddContLabel
+            // 
+            this.inventAddContLabel.AutoSize = true;
+            this.inventAddContLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventAddContLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventAddContLabel.Location = new System.Drawing.Point(53, 50);
+            this.inventAddContLabel.Name = "inventAddContLabel";
+            this.inventAddContLabel.Size = new System.Drawing.Size(249, 37);
+            this.inventAddContLabel.TabIndex = 45;
+            this.inventAddContLabel.Text = "Product added!";
+            // 
+            // inventPriceTxtbox
+            // 
+            this.inventPriceTxtbox.DecimalPlaces = 2;
+            this.inventPriceTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventPriceTxtbox.Location = new System.Drawing.Point(81, 393);
+            this.inventPriceTxtbox.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.inventPriceTxtbox.Name = "inventPriceTxtbox";
+            this.inventPriceTxtbox.Size = new System.Drawing.Size(412, 31);
+            this.inventPriceTxtbox.TabIndex = 43;
+            // 
+            // inventQtyTxtbox
+            // 
+            this.inventQtyTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventQtyTxtbox.Location = new System.Drawing.Point(81, 312);
+            this.inventQtyTxtbox.Name = "inventQtyTxtbox";
+            this.inventQtyTxtbox.Size = new System.Drawing.Size(412, 31);
+            this.inventQtyTxtbox.TabIndex = 42;
+            // 
+            // inventAddAddBtn
+            // 
+            this.inventAddAddBtn.BackColor = System.Drawing.Color.LimeGreen;
+            this.inventAddAddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.inventAddAddBtn.FlatAppearance.BorderSize = 0;
+            this.inventAddAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventAddAddBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventAddAddBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventAddAddBtn.Location = new System.Drawing.Point(405, 483);
+            this.inventAddAddBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.inventAddAddBtn.Name = "inventAddAddBtn";
+            this.inventAddAddBtn.Size = new System.Drawing.Size(120, 71);
+            this.inventAddAddBtn.TabIndex = 41;
+            this.inventAddAddBtn.Text = "Add Product";
+            this.inventAddAddBtn.UseCompatibleTextRendering = true;
+            this.inventAddAddBtn.UseVisualStyleBackColor = false;
+            this.inventAddAddBtn.Click += new System.EventHandler(this.inventAddAddBtn_Click);
+            // 
+            // inventAddCateBox
+            // 
+            this.inventAddCateBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.inventAddCateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventAddCateBox.FormattingEnabled = true;
+            this.inventAddCateBox.Location = new System.Drawing.Point(81, 235);
+            this.inventAddCateBox.Name = "inventAddCateBox";
+            this.inventAddCateBox.Size = new System.Drawing.Size(412, 33);
+            this.inventAddCateBox.TabIndex = 9;
+            // 
+            // inventPriceLabel
+            // 
+            this.inventPriceLabel.AutoSize = true;
+            this.inventPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventPriceLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventPriceLabel.Location = new System.Drawing.Point(76, 361);
+            this.inventPriceLabel.Name = "inventPriceLabel";
+            this.inventPriceLabel.Size = new System.Drawing.Size(257, 29);
+            this.inventPriceLabel.TabIndex = 8;
+            this.inventPriceLabel.Text = "Sales Price per Item:";
+            // 
+            // inventQtyLabel
+            // 
+            this.inventQtyLabel.AutoSize = true;
+            this.inventQtyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventQtyLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventQtyLabel.Location = new System.Drawing.Point(76, 280);
+            this.inventQtyLabel.Name = "inventQtyLabel";
+            this.inventQtyLabel.Size = new System.Drawing.Size(215, 29);
+            this.inventQtyLabel.TabIndex = 6;
+            this.inventQtyLabel.Text = "Quantity In Stock:";
+            // 
+            // inventCateLabel
+            // 
+            this.inventCateLabel.AutoSize = true;
+            this.inventCateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventCateLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventCateLabel.Location = new System.Drawing.Point(76, 203);
+            this.inventCateLabel.Name = "inventCateLabel";
+            this.inventCateLabel.Size = new System.Drawing.Size(222, 29);
+            this.inventCateLabel.TabIndex = 4;
+            this.inventCateLabel.Text = "Product Category:";
+            // 
+            // inventNameLabel
+            // 
+            this.inventNameLabel.AutoSize = true;
+            this.inventNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventNameLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventNameLabel.Location = new System.Drawing.Point(76, 126);
+            this.inventNameLabel.Name = "inventNameLabel";
+            this.inventNameLabel.Size = new System.Drawing.Size(186, 29);
+            this.inventNameLabel.TabIndex = 2;
+            this.inventNameLabel.Text = "Product Name:";
+            // 
+            // inventFormLabel
+            // 
+            this.inventFormLabel.AutoSize = true;
+            this.inventFormLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventFormLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventFormLabel.Location = new System.Drawing.Point(31, 56);
+            this.inventFormLabel.Name = "inventFormLabel";
+            this.inventFormLabel.Size = new System.Drawing.Size(302, 37);
+            this.inventFormLabel.TabIndex = 1;
+            this.inventFormLabel.Text = "New Product Form";
+            // 
+            // inventNameTxtbox
+            // 
+            this.inventNameTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventNameTxtbox.Location = new System.Drawing.Point(81, 155);
+            this.inventNameTxtbox.Name = "inventNameTxtbox";
+            this.inventNameTxtbox.Size = new System.Drawing.Size(412, 35);
+            this.inventNameTxtbox.TabIndex = 0;
             // 
             // inventCancelBtn
             // 
@@ -1060,6 +1297,24 @@ namespace PHPSRePS
             this.inventEditBtn.UseVisualStyleBackColor = false;
             this.inventEditBtn.Click += new System.EventHandler(this.inventEditBtn_Click);
             // 
+            // inventSearchBtn
+            // 
+            this.inventSearchBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.inventSearchBtn.BackgroundImage = global::PHPSRePS.Properties.Resources.Search_Icon;
+            this.inventSearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.inventSearchBtn.FlatAppearance.BorderSize = 0;
+            this.inventSearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventSearchBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventSearchBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventSearchBtn.Location = new System.Drawing.Point(989, 17);
+            this.inventSearchBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.inventSearchBtn.Name = "inventSearchBtn";
+            this.inventSearchBtn.Size = new System.Drawing.Size(39, 38);
+            this.inventSearchBtn.TabIndex = 37;
+            this.inventSearchBtn.UseCompatibleTextRendering = true;
+            this.inventSearchBtn.UseVisualStyleBackColor = false;
+            this.inventSearchBtn.Click += new System.EventHandler(this.inventSearchBtn_Click);
+            // 
             // inventAddNew
             // 
             this.inventAddNew.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1093,7 +1348,7 @@ namespace PHPSRePS
             // inventDataList
             // 
             this.inventDataList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.inventDataList.Location = new System.Drawing.Point(33, 69);
+            this.inventDataList.Location = new System.Drawing.Point(36, 72);
             this.inventDataList.Name = "inventDataList";
             this.inventDataList.ReadOnly = true;
             this.inventDataList.Size = new System.Drawing.Size(1183, 864);
@@ -1112,23 +1367,201 @@ namespace PHPSRePS
             this.inventSearchBar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.inventSearchBar_Click);
             this.inventSearchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inventSearchBar_KeyPress);
             // 
-            // inventSearchBtn
+            // inventDescPanel
             // 
-            this.inventSearchBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.inventSearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("inventSearchBtn.BackgroundImage")));
-            this.inventSearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.inventSearchBtn.FlatAppearance.BorderSize = 0;
-            this.inventSearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventSearchBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventSearchBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.inventSearchBtn.Location = new System.Drawing.Point(989, 17);
-            this.inventSearchBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.inventSearchBtn.Name = "inventSearchBtn";
-            this.inventSearchBtn.Size = new System.Drawing.Size(39, 38);
-            this.inventSearchBtn.TabIndex = 37;
-            this.inventSearchBtn.UseCompatibleTextRendering = true;
-            this.inventSearchBtn.UseVisualStyleBackColor = false;
-            this.inventSearchBtn.Click += new System.EventHandler(this.inventSearchBtn_Click);
+            this.inventDescPanel.BackColor = System.Drawing.Color.White;
+            this.inventDescPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inventDescPanel.Controls.Add(this.inventDescConfirmPanel);
+            this.inventDescPanel.Controls.Add(this.inventDescPriceTextbox);
+            this.inventDescPanel.Controls.Add(this.inventDescCheckbox);
+            this.inventDescPanel.Controls.Add(this.inventDescCheckLabel);
+            this.inventDescPanel.Controls.Add(this.inventDescIDTxtbox);
+            this.inventDescPanel.Controls.Add(this.inventDescIDLabel);
+            this.inventDescPanel.Controls.Add(this.inventDescQTYTxtbox);
+            this.inventDescPanel.Controls.Add(this.inventDescCateBox);
+            this.inventDescPanel.Controls.Add(this.inventDescPriceLabel);
+            this.inventDescPanel.Controls.Add(this.inventDescQTYLabel);
+            this.inventDescPanel.Controls.Add(this.inventDescCateLabel);
+            this.inventDescPanel.Controls.Add(this.inventDescNameLabel);
+            this.inventDescPanel.Controls.Add(this.inventDescNameTxtbox);
+            this.inventDescPanel.Enabled = false;
+            this.inventDescPanel.Location = new System.Drawing.Point(1260, 72);
+            this.inventDescPanel.Name = "inventDescPanel";
+            this.inventDescPanel.Size = new System.Drawing.Size(508, 864);
+            this.inventDescPanel.TabIndex = 44;
+            // 
+            // inventDescConfirmPanel
+            // 
+            this.inventDescConfirmPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.inventDescConfirmPanel.Controls.Add(this.inventDescConfirmBtn);
+            this.inventDescConfirmPanel.Controls.Add(this.inventDescConfirmLabel);
+            this.inventDescConfirmPanel.Enabled = false;
+            this.inventDescConfirmPanel.Location = new System.Drawing.Point(81, 313);
+            this.inventDescConfirmPanel.Name = "inventDescConfirmPanel";
+            this.inventDescConfirmPanel.Size = new System.Drawing.Size(344, 236);
+            this.inventDescConfirmPanel.TabIndex = 48;
+            this.inventDescConfirmPanel.Visible = false;
+            // 
+            // inventDescConfirmBtn
+            // 
+            this.inventDescConfirmBtn.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.inventDescConfirmBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.inventDescConfirmBtn.FlatAppearance.BorderSize = 0;
+            this.inventDescConfirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventDescConfirmBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescConfirmBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventDescConfirmBtn.Location = new System.Drawing.Point(111, 105);
+            this.inventDescConfirmBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.inventDescConfirmBtn.Name = "inventDescConfirmBtn";
+            this.inventDescConfirmBtn.Size = new System.Drawing.Size(120, 71);
+            this.inventDescConfirmBtn.TabIndex = 45;
+            this.inventDescConfirmBtn.Text = "Continue";
+            this.inventDescConfirmBtn.UseCompatibleTextRendering = true;
+            this.inventDescConfirmBtn.UseVisualStyleBackColor = false;
+            this.inventDescConfirmBtn.Click += new System.EventHandler(this.inventDescConfirmBtn_Click);
+            // 
+            // inventDescConfirmLabel
+            // 
+            this.inventDescConfirmLabel.AutoSize = true;
+            this.inventDescConfirmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescConfirmLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventDescConfirmLabel.Location = new System.Drawing.Point(33, 44);
+            this.inventDescConfirmLabel.Name = "inventDescConfirmLabel";
+            this.inventDescConfirmLabel.Size = new System.Drawing.Size(283, 37);
+            this.inventDescConfirmLabel.TabIndex = 45;
+            this.inventDescConfirmLabel.Text = "Product Updated!";
+            // 
+            // inventDescPriceTextbox
+            // 
+            this.inventDescPriceTextbox.DecimalPlaces = 2;
+            this.inventDescPriceTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescPriceTextbox.Location = new System.Drawing.Point(53, 388);
+            this.inventDescPriceTextbox.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.inventDescPriceTextbox.Name = "inventDescPriceTextbox";
+            this.inventDescPriceTextbox.Size = new System.Drawing.Size(412, 31);
+            this.inventDescPriceTextbox.TabIndex = 49;
+            // 
+            // inventDescCheckbox
+            // 
+            this.inventDescCheckbox.AutoSize = true;
+            this.inventDescCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescCheckbox.ForeColor = System.Drawing.Color.Black;
+            this.inventDescCheckbox.Location = new System.Drawing.Point(151, 495);
+            this.inventDescCheckbox.Name = "inventDescCheckbox";
+            this.inventDescCheckbox.Size = new System.Drawing.Size(184, 33);
+            this.inventDescCheckbox.TabIndex = 47;
+            this.inventDescCheckbox.Text = "Discontinued?";
+            this.inventDescCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // inventDescCheckLabel
+            // 
+            this.inventDescCheckLabel.AutoSize = true;
+            this.inventDescCheckLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescCheckLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventDescCheckLabel.Location = new System.Drawing.Point(48, 463);
+            this.inventDescCheckLabel.Name = "inventDescCheckLabel";
+            this.inventDescCheckLabel.Size = new System.Drawing.Size(242, 29);
+            this.inventDescCheckLabel.TabIndex = 46;
+            this.inventDescCheckLabel.Text = "Product Avaliability:";
+            // 
+            // inventDescIDTxtbox
+            // 
+            this.inventDescIDTxtbox.Enabled = false;
+            this.inventDescIDTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescIDTxtbox.Location = new System.Drawing.Point(196, 37);
+            this.inventDescIDTxtbox.Name = "inventDescIDTxtbox";
+            this.inventDescIDTxtbox.Size = new System.Drawing.Size(44, 31);
+            this.inventDescIDTxtbox.TabIndex = 45;
+            // 
+            // inventDescIDLabel
+            // 
+            this.inventDescIDLabel.AutoSize = true;
+            this.inventDescIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescIDLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventDescIDLabel.Location = new System.Drawing.Point(48, 37);
+            this.inventDescIDLabel.Name = "inventDescIDLabel";
+            this.inventDescIDLabel.Size = new System.Drawing.Size(142, 29);
+            this.inventDescIDLabel.TabIndex = 44;
+            this.inventDescIDLabel.Text = "Product ID:";
+            // 
+            // inventDescQTYTxtbox
+            // 
+            this.inventDescQTYTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescQTYTxtbox.Location = new System.Drawing.Point(53, 309);
+            this.inventDescQTYTxtbox.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.inventDescQTYTxtbox.Name = "inventDescQTYTxtbox";
+            this.inventDescQTYTxtbox.Size = new System.Drawing.Size(412, 31);
+            this.inventDescQTYTxtbox.TabIndex = 42;
+            // 
+            // inventDescCateBox
+            // 
+            this.inventDescCateBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.inventDescCateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescCateBox.FormattingEnabled = true;
+            this.inventDescCateBox.Location = new System.Drawing.Point(53, 232);
+            this.inventDescCateBox.Name = "inventDescCateBox";
+            this.inventDescCateBox.Size = new System.Drawing.Size(412, 33);
+            this.inventDescCateBox.TabIndex = 9;
+            // 
+            // inventDescPriceLabel
+            // 
+            this.inventDescPriceLabel.AutoSize = true;
+            this.inventDescPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescPriceLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventDescPriceLabel.Location = new System.Drawing.Point(48, 358);
+            this.inventDescPriceLabel.Name = "inventDescPriceLabel";
+            this.inventDescPriceLabel.Size = new System.Drawing.Size(257, 29);
+            this.inventDescPriceLabel.TabIndex = 8;
+            this.inventDescPriceLabel.Text = "Sales Price per Item:";
+            // 
+            // inventDescQTYLabel
+            // 
+            this.inventDescQTYLabel.AutoSize = true;
+            this.inventDescQTYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescQTYLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventDescQTYLabel.Location = new System.Drawing.Point(48, 277);
+            this.inventDescQTYLabel.Name = "inventDescQTYLabel";
+            this.inventDescQTYLabel.Size = new System.Drawing.Size(215, 29);
+            this.inventDescQTYLabel.TabIndex = 6;
+            this.inventDescQTYLabel.Text = "Quantity In Stock:";
+            // 
+            // inventDescCateLabel
+            // 
+            this.inventDescCateLabel.AutoSize = true;
+            this.inventDescCateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescCateLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventDescCateLabel.Location = new System.Drawing.Point(48, 200);
+            this.inventDescCateLabel.Name = "inventDescCateLabel";
+            this.inventDescCateLabel.Size = new System.Drawing.Size(222, 29);
+            this.inventDescCateLabel.TabIndex = 4;
+            this.inventDescCateLabel.Text = "Product Category:";
+            // 
+            // inventDescNameLabel
+            // 
+            this.inventDescNameLabel.AutoSize = true;
+            this.inventDescNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescNameLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventDescNameLabel.Location = new System.Drawing.Point(48, 123);
+            this.inventDescNameLabel.Name = "inventDescNameLabel";
+            this.inventDescNameLabel.Size = new System.Drawing.Size(186, 29);
+            this.inventDescNameLabel.TabIndex = 2;
+            this.inventDescNameLabel.Text = "Product Name:";
+            // 
+            // inventDescNameTxtbox
+            // 
+            this.inventDescNameTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescNameTxtbox.Location = new System.Drawing.Point(53, 152);
+            this.inventDescNameTxtbox.Name = "inventDescNameTxtbox";
+            this.inventDescNameTxtbox.Size = new System.Drawing.Size(412, 35);
+            this.inventDescNameTxtbox.TabIndex = 0;
             // 
             // reportsPage
             // 
@@ -1456,22 +1889,29 @@ namespace PHPSRePS
             this.forecastPage.Text = "forecastPage";
             this.forecastPage.UseVisualStyleBackColor = true;
             // 
-            // forecastProductBtn
+            // forecastChart
             // 
-            this.forecastProductBtn.BackColor = System.Drawing.Color.SteelBlue;
-            this.forecastProductBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.forecastProductBtn.FlatAppearance.BorderSize = 0;
-            this.forecastProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.forecastProductBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forecastProductBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.forecastProductBtn.Location = new System.Drawing.Point(124, 20);
-            this.forecastProductBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.forecastProductBtn.Name = "forecastProductBtn";
-            this.forecastProductBtn.Size = new System.Drawing.Size(208, 73);
-            this.forecastProductBtn.TabIndex = 4;
-            this.forecastProductBtn.Text = "Products";
-            this.forecastProductBtn.UseVisualStyleBackColor = false;
-            this.forecastProductBtn.Click += new System.EventHandler(this.forecastProductBtn_Click);
+            chartArea2.Name = "ChartArea1";
+            this.forecastChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.forecastChart.Legends.Add(legend2);
+            this.forecastChart.Location = new System.Drawing.Point(392, 436);
+            this.forecastChart.Name = "forecastChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.forecastChart.Series.Add(series2);
+            this.forecastChart.Size = new System.Drawing.Size(897, 400);
+            this.forecastChart.TabIndex = 20;
+            this.forecastChart.Text = "chart1";
+            // 
+            // forecastDropDown
+            // 
+            this.forecastDropDown.FormattingEnabled = true;
+            this.forecastDropDown.Location = new System.Drawing.Point(604, 203);
+            this.forecastDropDown.Name = "forecastDropDown";
+            this.forecastDropDown.Size = new System.Drawing.Size(434, 21);
+            this.forecastDropDown.TabIndex = 19;
             // 
             // forcastMenuPanel
             // 
@@ -1500,24 +1940,22 @@ namespace PHPSRePS
             this.forecastCategoriesBtn.UseVisualStyleBackColor = false;
             this.forecastCategoriesBtn.Click += new System.EventHandler(this.forecastCategoriesBtn_Click);
             // 
-            // forecastDropDown
+            // forecastProductBtn
             // 
-            this.forecastDropDown.FormattingEnabled = true;
-            this.forecastDropDown.Location = new System.Drawing.Point(604, 203);
-            this.forecastDropDown.Name = "forecastDropDown";
-            this.forecastDropDown.Size = new System.Drawing.Size(434, 21);
-            this.forecastDropDown.TabIndex = 19;
-            // 
-            // forecastDropdownTitle
-            // 
-            this.forecastDropdownTitle.AutoSize = true;
-            this.forecastDropdownTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forecastDropdownTitle.ForeColor = System.Drawing.Color.Black;
-            this.forecastDropdownTitle.Location = new System.Drawing.Point(206, 50);
-            this.forecastDropdownTitle.Name = "forecastDropdownTitle";
-            this.forecastDropdownTitle.Size = new System.Drawing.Size(216, 31);
-            this.forecastDropdownTitle.TabIndex = 20;
-            this.forecastDropdownTitle.Text = "Select A Product";
+            this.forecastProductBtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.forecastProductBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.forecastProductBtn.FlatAppearance.BorderSize = 0;
+            this.forecastProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.forecastProductBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forecastProductBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.forecastProductBtn.Location = new System.Drawing.Point(124, 20);
+            this.forecastProductBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.forecastProductBtn.Name = "forecastProductBtn";
+            this.forecastProductBtn.Size = new System.Drawing.Size(208, 73);
+            this.forecastProductBtn.TabIndex = 4;
+            this.forecastProductBtn.Text = "Products";
+            this.forecastProductBtn.UseVisualStyleBackColor = false;
+            this.forecastProductBtn.Click += new System.EventHandler(this.forecastProductBtn_Click);
             // 
             // forcasrSettingPanel
             // 
@@ -1544,12 +1982,30 @@ namespace PHPSRePS
             this.forecastEndDate.TabIndex = 28;
             this.forecastEndDate.Text = "End Date";
             // 
+            // forecastDropdownTitle
+            // 
+            this.forecastDropdownTitle.AutoSize = true;
+            this.forecastDropdownTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forecastDropdownTitle.ForeColor = System.Drawing.Color.Black;
+            this.forecastDropdownTitle.Location = new System.Drawing.Point(206, 50);
+            this.forecastDropdownTitle.Name = "forecastDropdownTitle";
+            this.forecastDropdownTitle.Size = new System.Drawing.Size(216, 31);
+            this.forecastDropdownTitle.TabIndex = 20;
+            this.forecastDropdownTitle.Text = "Select A Product";
+            // 
             // forecastEndDate2
             // 
             this.forecastEndDate2.Location = new System.Drawing.Point(455, 180);
             this.forecastEndDate2.Name = "forecastEndDate2";
             this.forecastEndDate2.Size = new System.Drawing.Size(191, 20);
             this.forecastEndDate2.TabIndex = 27;
+            // 
+            // forecastStartDate
+            // 
+            this.forecastStartDate.Location = new System.Drawing.Point(212, 180);
+            this.forecastStartDate.Name = "forecastStartDate";
+            this.forecastStartDate.Size = new System.Drawing.Size(191, 20);
+            this.forecastStartDate.TabIndex = 25;
             // 
             // forecastStartTitle
             // 
@@ -1562,29 +2018,6 @@ namespace PHPSRePS
             this.forecastStartTitle.Size = new System.Drawing.Size(108, 25);
             this.forecastStartTitle.TabIndex = 26;
             this.forecastStartTitle.Text = "Start Date";
-            // 
-            // forecastStartDate
-            // 
-            this.forecastStartDate.Location = new System.Drawing.Point(212, 180);
-            this.forecastStartDate.Name = "forecastStartDate";
-            this.forecastStartDate.Size = new System.Drawing.Size(191, 20);
-            this.forecastStartDate.TabIndex = 25;
-            // 
-            // forecastChart
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.forecastChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.forecastChart.Legends.Add(legend2);
-            this.forecastChart.Location = new System.Drawing.Point(392, 436);
-            this.forecastChart.Name = "forecastChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.forecastChart.Series.Add(series2);
-            this.forecastChart.Size = new System.Drawing.Size(897, 400);
-            this.forecastChart.TabIndex = 20;
-            this.forecastChart.Text = "chart1";
             // 
             // MainView
             // 
@@ -1607,7 +2040,20 @@ namespace PHPSRePS
             ((System.ComponentModel.ISupportInitialize)(this.salesDataList)).EndInit();
             this.inventPage.ResumeLayout(false);
             this.inventPage.PerformLayout();
+            this.inventAddForm.ResumeLayout(false);
+            this.inventAddForm.PerformLayout();
+            this.inventAddContinPanel.ResumeLayout(false);
+            this.inventAddContinPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventPriceTxtbox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventQtyTxtbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).EndInit();
+            this.inventDescPanel.ResumeLayout(false);
+            this.inventDescPanel.PerformLayout();
+            this.inventDescConfirmPanel.ResumeLayout(false);
+            this.inventDescConfirmPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inventDescPriceTextbox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventDescIDTxtbox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventDescQTYTxtbox)).EndInit();
             this.reportsPage.ResumeLayout(false);
             this.reportsPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportChart)).EndInit();
@@ -1620,10 +2066,10 @@ namespace PHPSRePS
             this.profilePanel.ResumeLayout(false);
             this.profilePanel.PerformLayout();
             this.forecastPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.forecastChart)).EndInit();
             this.forcastMenuPanel.ResumeLayout(false);
             this.forcasrSettingPanel.ResumeLayout(false);
             this.forcasrSettingPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.forecastChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1641,6 +2087,28 @@ namespace PHPSRePS
         private System.Windows.Forms.TabControl tabView;
         private System.Windows.Forms.TabPage salesPage;
         private System.Windows.Forms.TabPage inventPage;
+        private Panel inventDescPanel;
+        private Panel inventDescConfirmPanel;
+        private Button inventDescConfirmBtn;
+        private Label inventDescConfirmLabel;
+        private CheckBox inventDescCheckbox;
+        private Label inventDescCheckLabel;
+        private NumericUpDown inventDescIDTxtbox;
+        private Label inventDescIDLabel;
+        private NumericUpDown inventDescQTYTxtbox;
+        private ComboBox inventDescCateBox;
+        private Label inventDescPriceLabel;
+        private Label inventDescQTYLabel;
+        private Label inventDescCateLabel;
+        private Label inventDescNameLabel;
+        private TextBox inventDescNameTxtbox;
+        private Panel inventAddForm;
+        private Panel inventAddContinPanel;
+        private Button inventAddContinBtn;
+        private Label inventAddContLabel;
+        private NumericUpDown inventPriceTxtbox;
+        private NumericUpDown inventQtyTxtbox;
+        private Button inventAddAddBtn;
         private System.Windows.Forms.TabPage reportsPage;
         private System.Windows.Forms.TabPage homePage;
         private System.Windows.Forms.Button userButton;
@@ -1730,6 +2198,15 @@ namespace PHPSRePS
         private DateTimePicker forecastStartDate;
         private Label forecastStartTitle;
         private System.Windows.Forms.DataVisualization.Charting.Chart forecastChart;
+        private ComboBox inventAddCateBox;
+        private Label inventPriceLabel;
+        private Label inventQtyLabel;
+        private Label inventCateLabel;
+        private Label inventNameLabel;
+        private Label inventFormLabel;
+        private TextBox inventNameTxtbox;
+        private NumericUpDown inventDescPriceTextbox;
+        private Button inventAddCancelBtn;
     }
 }
 
