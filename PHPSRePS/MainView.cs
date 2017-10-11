@@ -321,12 +321,17 @@ namespace PHPSRePS {
                 updatedProduct.ID = (int)inventDescIDTxtbox.Value;
                 updatedProduct.Name = inventDescNameTxtbox.Text;
                 updatedProduct.Category = inventDescCateBox.Text;
-                //updatedProduct.Price = (float)inventDescPriceTxtbox.Value;
+                updatedProduct.Price = (float)inventDescPriceTextbox.Value;
                 updatedProduct.Stock = (int)inventDescQTYTxtbox.Value;
                 updatedProduct.IsDiscontinued = inventDescCheckbox.Checked;
                 database.RunVoidQuery(updatedProduct.GetUPDATE());
 
                 inventEditBtn.Enabled = false;
+                inventCancelBtn.Enabled = false;
+                sidebar.Enabled = false;
+                inventAddNew.Enabled = false;
+                inventSearchBtn.Enabled = false;
+                inventSearchBar.Enabled = false;
                 inventDescConfirmPanel.Enabled = true;
                 inventDescConfirmPanel.Visible = true;
             }
@@ -356,6 +361,8 @@ namespace PHPSRePS {
             inventEditBtn.Enabled = true;
             inventDescConfirmPanel.Visible = false;
             inventDescConfirmPanel.Enabled = false;
+            inventSearchBar.Enabled = true;
+            inventSearchBtn.Enabled = true;
             sidebar.Enabled = true;
             inventGetAllProducts();
         }
