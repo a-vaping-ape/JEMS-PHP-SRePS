@@ -1,4 +1,15 @@
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using System.IO;
+using System.Diagnostics;
+using System.Configuration;
+
+using MDRClient.DataAccess;
 
         private void btnBak_Click(object sender, EventArgs e) //backup
         {
