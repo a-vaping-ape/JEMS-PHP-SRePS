@@ -44,9 +44,16 @@ namespace PHPSRePS
         //gets coulombs used by the mySQL table
         private string GetSQLValues()
         {
-            return "NULL," + Name + "," + 
-                   Category + "," + Price.ToString()+"," + 
-                   Stock.ToString() + "," + IsDiscontinued.ToString();
+            int discon;
+
+            if (IsDiscontinued)
+                discon = 1;
+            else
+                discon = 0;
+
+            return "'NULL','" + Name + "','" + 
+                   Category + "','" + Price.ToString()+"','" + 
+                   Stock.ToString() + "','" + IsDiscontinued.ToString()+"'";
         }
 
         //returns a row that can be used for display purposes
@@ -83,6 +90,7 @@ namespace PHPSRePS
                 discon = 1;
             else
                 discon = 0;
+
             return
                 "UPDATE " + _SQLTable +
                 " SET ProductName ='" + Name + "', UnitPrice = '" + Price + "', UnitsInStock = '" + Stock + "', Discontinued = '" + discon.ToString() + "'" +

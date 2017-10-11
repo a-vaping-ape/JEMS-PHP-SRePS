@@ -9,15 +9,27 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PHPSRePS {
+
+    public struct RevenueFormat
+    {
+        public string Title;
+        public float Cost;
+    };
+
     public partial class MainView : Form {
+
+  
+
         // TODO sprint2: implement authorisation + levels of security
 
         // database
         private Database database = new Database();
         private Employee currentEmployee = null;
-
+        private ForecastReport forecast;
+        private SalesReport report;
 
         // all products
         private List<Product> productList = new List<Product>();
@@ -298,8 +310,6 @@ namespace PHPSRePS {
                 inventCancelBtn.Enabled = true;
                 inventCancelBtn.Visible = true;
                 inventEditBtn.Location = new Point(1629, 959);
-
-
             }
             else
             {
@@ -760,6 +770,7 @@ namespace PHPSRePS {
 
         }
 
+        //log out button
         private void profileLogout_Click(object sender, EventArgs e)
         {
             currentEmployee = null;
@@ -771,6 +782,141 @@ namespace PHPSRePS {
             MessageBox.Show("You Have Been Signed Out");
         }
 
+   
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GenerateLineChart()
+        {
+            reportChart.Series.Clear();
+            reportChart.Titles.Clear();
+            List<SalesForecast> data = null;
+            reportChart.Titles.Add("Sales Forecast");
+
+            reportChart.Name = "LineChartArea";
+
+            data = forecast.SalesForecastReport;
+
+
+            Series series = new Series
+            {
+                Name = "series1",
+                IsVisibleInLegend = true,
+                Color = System.Drawing.Color.Green,
+                ChartType = SeriesChartType.Line
+            };
+            int i = 0;
+            foreach (SalesForecast item in data)
+            {
+                series.Points.Add(item.quantity);
+                var temp = series.Points[i];
+                temp.AxisLabel = item.quantity.ToString();
+                temp.LegendText = item.date.ToString();
+                i++;
+            }
+
+            reportChart.Series.Add(series);
+
+        }
+
+            private void GeneratePieChart(string groupBy)
+        {
+            reportChart.Series.Clear();
+            reportChart.Titles.Clear();
+            List<RevenueFormat> data = null;
+
+            reportChart.Name = "PieChartArea";
+
+            if (groupBy == "products")  {
+                reportChart.Titles.Add("Products By Revenue");
+                data = report.GetRevenues("products");
+            }
+            else if (groupBy == "employee") 
+            {
+                reportChart.Titles.Add("Employee By Revenue");
+                data = report.GetRevenues("employee");
+            }
+            else if (groupBy == "category")
+            {
+                reportChart.Titles.Add("Categories By Revenue");
+                data = report.GetRevenues("category");
+            }
+
+
+            Series series = new Series
+            {
+                Name = "series1",
+                IsVisibleInLegend = true,
+                Color = System.Drawing.Color.Green,
+                ChartType = SeriesChartType.Pie
+            };
+
+            int i = 0;
+            foreach (RevenueFormat item in data)
+            {
+                series.Points.Add(item.Cost);
+                var temp = series.Points[i];
+                temp.AxisLabel = item.Cost.ToString();
+                temp.LegendText = item.Title.ToString();
+                i++;
+            }
+            
+            reportChart.Series.Add(series);
+        }
+
+        private void PopulateReportTable(string input)
+        {
+            DateTime startDate = reportStartDate.Value.Date;
+            DateTime endDate = reportEndDate.Value.Date;
+
+            forecast = new ForecastReport(startDate, endDate);
+            report = new SalesReport(startDate, endDate);
+
+          //  forecast.LoadReport( .LoadReport(startDate, endDate);
+            report.LoadReport(startDate, endDate);
+
+            reportsGrid.DataSource = report.GetSource(input);
+   
+            reportsGrid.ForeColor = Color.Black;
+
+            
+            
+
+            
+
+
+        }
+
+        private void reportsProducts_Click(object sender, EventArgs e)
+        {
+            PopulateReportTable("products");
+            //GeneratePieChart("products");
+            GenerateLineChart();
+        }
+
+        private void reportsPage_Click(object sender, EventArgs e)
+        {
+            PopulateReportTable("products");
+        }
+
+        private void reportEmployee_Click(object sender, EventArgs e)
+        {
+            PopulateReportTable("employee");
+            GeneratePieChart("employee");
+        }
+
+        private void reportCategories_Click(object sender, EventArgs e)
+        {
+            PopulateReportTable("category");
+            GeneratePieChart("category");
+        }
     }
 }

@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.IO.Compression;
 using MySql.Data.MySqlClient;
+using System.Data;
+
 
 namespace PHPSRePS
 {
     public class SalesReport : Report
     {
-        struct ProductReport
+        public struct ProductReport
         {
             public string productName;
             public string categoryName;
@@ -20,19 +19,20 @@ namespace PHPSRePS
             public float totalRevenue;
         };
 
-        struct EmployeeReport
+        public struct EmployeeReport
         {
             public string employeeName;
             public int salesCount;
             public float totalRevenue;
         };
 
-        struct CategoryReport
+        public struct CategoryReport
         {
             public string categoryName;
             public int salesCount;
             public float totalRevenue;
         };
+
 
         private List<ProductReport> _productReportList = new List<ProductReport>();
         private List<EmployeeReport> _employeeReportList = new List<EmployeeReport>();
@@ -45,7 +45,130 @@ namespace PHPSRePS
         public List<EmployeeReport> EmployeeSalesReport { get => _employeeReportList; set => _employeeReportList = value; }
         public List<CategoryReport> CategorySalesReport { get => _categoryReportList; set => _categoryReportList = value; }
 
+        public List<RevenueFormat> GetRevenues(string groupBy)
+        {
+            List<RevenueFormat> result = new List<RevenueFormat>();
+            RevenueFormat format;
+
+            if ((groupBy == "products") && (_categoryReportList.Count > 0))
+            {
+                foreach (ProductReport report in _productReportList)
+                {
+                    format = new RevenueFormat();
+                    format.Title = report.productName;
+                    format.Cost = report.totalRevenue;
+                    result.Add(format);
+                }
+            }
+            else if ((groupBy == "employee") && (_employeeReportList.Count > 0))
+            {
+                foreach (EmployeeReport report in _employeeReportList)
+                {
+                    format = new RevenueFormat();
+                    format.Title = report.employeeName;
+                    format.Cost = report.totalRevenue;
+                    result.Add(format);
+                }
+            }
+            else if ((groupBy == "category") && (_productReportList.Count > 0))
+            {
+                foreach (CategoryReport report in _categoryReportList)
+                {
+                    format = new RevenueFormat();
+                    format.Title = report.categoryName;
+                    format.Cost = report.totalRevenue;
+                    result.Add(format);
+                }
+            }
+
+            return result;
+        }
+
+        private DataTable ConvertListToDataTable(List<string[]> list)
+        {
+            // New table.
+            DataTable table = new DataTable();
+
+            // Get max columns.
+            int columns = 0;
+            foreach (var array in list)
+            {
+                if (array.Length > columns)
+                {
+                    columns = array.Length;
+                }
+            }
+
+            // Add columns.
+            for (int i = 0; i < columns; i++)
+            {
+                table.Columns.Add();
+            }
+
+            // Add rows.
+            foreach (var array in list)
+            {
+                table.Rows.Add(array);
+            }
+
+            return table;
+        }
+
+        public DataTable GetSource(string groupBy)
+        {
+            List<string[]> rows = new List<string[]>();
+            DataTable table = new DataTable();
+
+            if ((groupBy == "products") && (_categoryReportList.Count > 0)) {
+
+                foreach (ProductReport entry in _productReportList)
+                {
+                    string[] row = { entry.productName, entry.categoryName, entry.unitPrice.ToString(), entry.quantitySold.ToString(), entry.totalRevenue.ToString() };
+                    rows.Add(row);
+                }
+
+                table = ConvertListToDataTable(rows);
+                table.Columns["Column1"].ColumnName = "Product";
+                table.Columns["Column2"].ColumnName = "Category";
+                table.Columns["Column3"].ColumnName = "Unit Price";
+                table.Columns["Column4"].ColumnName = "Quantity";
+                table.Columns["Column5"].ColumnName = "Total Revenue";
+            }
+            else if ((groupBy == "employee") && (_employeeReportList.Count > 0))
+            {
+
+                foreach (EmployeeReport entry in _employeeReportList)
+                {
+                    string[] row = { entry.employeeName, entry.salesCount.ToString(), entry.totalRevenue.ToString() };
+                    rows.Add(row);
+                }
+
+                table = ConvertListToDataTable(rows);
+                table.Columns["Column1"].ColumnName = "Employee";
+                table.Columns["Column2"].ColumnName = "No. of sales";
+                table.Columns["Column3"].ColumnName = "Total Revenue";
+            }
+            else if ((groupBy == "category") && (_productReportList.Count > 0))
+            {
+                foreach (CategoryReport entry in _categoryReportList)
+                {
+                    string[] row = { entry.categoryName,entry.salesCount.ToString(),entry.totalRevenue.ToString()};
+                    rows.Add(row);
+                }
+
+                table = ConvertListToDataTable(rows);
+                table.Columns["Column1"].ColumnName = "Category";
+                table.Columns["Column2"].ColumnName = "No. of sales";
+                table.Columns["Column3"].ColumnName = "Total Revenue";
+            }
+
+            return table;
+        }
+
+
         Database database = new Database();
+
+        
 
         public SalesReport(DateTime startDate, DateTime endDate)
         {
@@ -76,18 +199,18 @@ namespace PHPSRePS
                 {
                     case "product":
                         ProductReport productReport;
-                        productReport.productName = reader.GetString("Product");
-                        productReport.categoryName = reader.GetString("Category");
-                        productReport.unitPrice = reader.GetFloat("Unit Price");
-                        productReport.quantitySold = reader.GetInt32("Quantity Sold");
-                        productReport.totalRevenue = reader.GetFloat("Total Revenue");
+                        productReport.productName = (string)reader.GetString("Product");
+                        productReport.categoryName = (string)reader.GetString("Category");
+                        productReport.unitPrice = (float)reader.GetFloat("Unit Price");
+                        productReport.quantitySold = (int)reader.GetInt32("Quantity Sold");
+                        productReport.totalRevenue = (float)reader.GetFloat("Total Revenue");
                         ProductSalesReport.Add(productReport);
                         break;
                     case "employee":
                         EmployeeReport employeeReport;
-                        employeeReport.employeeName = reader.GetString("Employee");
-                        employeeReport.salesCount = reader.GetInt32("No. of Sales");
-                        employeeReport.totalRevenue = reader.GetFloat("Total Revenue");
+                        employeeReport.employeeName = (string)reader.GetString("Employee");
+                        employeeReport.salesCount = (int)reader.GetInt32("No. of Sales");
+                        employeeReport.totalRevenue = (float)reader.GetFloat("Total Revenue");
                         EmployeeSalesReport.Add(employeeReport);
                         break;
                     case "category":

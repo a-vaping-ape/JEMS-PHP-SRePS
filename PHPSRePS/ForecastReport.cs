@@ -9,26 +9,28 @@ using MySql.Data.MySqlClient;
 
 namespace PHPSRePS
 {
+
+    public struct SalesForecast
+    {
+        public DateTime date;
+        public int quantity;
+    }
+
     // NOTE this is the forecast report for only ONE individual product OR a category of products, specify which one with the groupBy constructor param
     public class ForecastReport : Report
     {
-        struct SalesHistory
+        public struct SalesHistory
         {
             public DateTime date;
             public int quantity;
         }
 
-        struct SalesPerDay
+        public struct SalesPerDay
         {
             public int day;
             public int quantity;
         }
 
-        struct SalesForecast
-        {
-            public DateTime date;
-            public int quantity;
-        }
 
         // y = mx + c where m = gradient, c = yInt
         struct Line

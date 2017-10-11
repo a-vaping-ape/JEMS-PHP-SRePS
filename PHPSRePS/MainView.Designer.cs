@@ -32,8 +32,11 @@ namespace PHPSRePS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.sidebar = new System.Windows.Forms.Panel();
             this.homeTab = new System.Windows.Forms.Button();
             this.reportsTab = new System.Windows.Forms.Button();
@@ -86,6 +89,7 @@ namespace PHPSRePS
             this.salesSearchBox = new System.Windows.Forms.TextBox();
             this.inventPage = new System.Windows.Forms.TabPage();
             this.inventAddForm = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.inventPriceLabel = new System.Windows.Forms.Label();
             this.inventPriceTxtbox = new System.Windows.Forms.TextBox();
             this.inventQtyLabel = new System.Windows.Forms.Label();
@@ -104,9 +108,16 @@ namespace PHPSRePS
             this.inventDataList = new System.Windows.Forms.DataGridView();
             this.inventSearchBar = new System.Windows.Forms.TextBox();
             this.reportsPage = new System.Windows.Forms.TabPage();
-            this.reportTestBtn2 = new System.Windows.Forms.Button();
-            this.reportTestBtn = new System.Windows.Forms.Button();
-            this.reportSendReportBtn = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.reportEndDate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.reportStartDate = new System.Windows.Forms.DateTimePicker();
+            this.reportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.reportsGrid = new System.Windows.Forms.DataGridView();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.reportCategories = new System.Windows.Forms.Button();
+            this.reportsProducts = new System.Windows.Forms.Button();
+            this.reportEmployee = new System.Windows.Forms.Button();
             this.userPage = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.userPassField = new System.Windows.Forms.TextBox();
@@ -122,7 +133,6 @@ namespace PHPSRePS
             this.profileName = new System.Windows.Forms.Label();
             this.profileLogout = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -134,6 +144,9 @@ namespace PHPSRePS
             ((System.ComponentModel.ISupportInitialize)(this.inventDescriptList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).BeginInit();
             this.reportsPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reportChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportsGrid)).BeginInit();
+            this.panel4.SuspendLayout();
             this.userPage.SuspendLayout();
             this.panel2.SuspendLayout();
             this.profilePage.SuspendLayout();
@@ -1006,6 +1019,22 @@ namespace PHPSRePS
             this.inventAddForm.TabIndex = 40;
             this.inventAddForm.Visible = false;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "AntiSeptics",
+            "Supplements",
+            "Laxatives",
+            "Painkillers",
+            "Entheogen",
+            "Other"});
+            this.comboBox1.Location = new System.Drawing.Point(287, 203);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(602, 21);
+            this.comboBox1.TabIndex = 9;
+            // 
             // inventPriceLabel
             // 
             this.inventPriceLabel.AutoSize = true;
@@ -1143,8 +1172,8 @@ namespace PHPSRePS
             // 
             // inventDescriptList
             // 
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.inventDescriptList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.inventDescriptList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.inventDescriptList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.inventDescriptList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inventDescriptList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1153,14 +1182,14 @@ namespace PHPSRePS
             this.inventDescriptList.Margin = new System.Windows.Forms.Padding(2);
             this.inventDescriptList.Name = "inventDescriptList";
             this.inventDescriptList.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventDescriptList.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventDescriptList.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.inventDescriptList.RowHeadersWidth = 200;
             this.inventDescriptList.Size = new System.Drawing.Size(489, 864);
             this.inventDescriptList.TabIndex = 36;
@@ -1225,66 +1254,150 @@ namespace PHPSRePS
             // 
             // reportsPage
             // 
-            this.reportsPage.Controls.Add(this.reportTestBtn2);
-            this.reportsPage.Controls.Add(this.reportTestBtn);
-            this.reportsPage.Controls.Add(this.reportSendReportBtn);
+            this.reportsPage.Controls.Add(this.label5);
+            this.reportsPage.Controls.Add(this.reportEndDate);
+            this.reportsPage.Controls.Add(this.label4);
+            this.reportsPage.Controls.Add(this.reportStartDate);
+            this.reportsPage.Controls.Add(this.reportChart);
+            this.reportsPage.Controls.Add(this.reportsGrid);
+            this.reportsPage.Controls.Add(this.panel4);
             this.reportsPage.Location = new System.Drawing.Point(4, 5);
             this.reportsPage.Name = "reportsPage";
             this.reportsPage.Size = new System.Drawing.Size(1797, 1070);
             this.reportsPage.TabIndex = 2;
             this.reportsPage.Text = "Reports";
             this.reportsPage.UseVisualStyleBackColor = true;
+            this.reportsPage.Click += new System.EventHandler(this.reportsPage_Click);
             // 
-            // reportTestBtn2
+            // label5
             // 
-            this.reportTestBtn2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.reportTestBtn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.reportTestBtn2.FlatAppearance.BorderSize = 0;
-            this.reportTestBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportTestBtn2.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportTestBtn2.ForeColor = System.Drawing.Color.Transparent;
-            this.reportTestBtn2.Location = new System.Drawing.Point(49, 224);
-            this.reportTestBtn2.Margin = new System.Windows.Forms.Padding(0);
-            this.reportTestBtn2.Name = "reportTestBtn2";
-            this.reportTestBtn2.Size = new System.Drawing.Size(134, 70);
-            this.reportTestBtn2.TabIndex = 15;
-            this.reportTestBtn2.Text = "Test button 2";
-            this.reportTestBtn2.UseCompatibleTextRendering = true;
-            this.reportTestBtn2.UseVisualStyleBackColor = false;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(972, 136);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 25);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "End Date";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // reportTestBtn
+            // reportEndDate
             // 
-            this.reportTestBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.reportTestBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.reportTestBtn.FlatAppearance.BorderSize = 0;
-            this.reportTestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportTestBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportTestBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.reportTestBtn.Location = new System.Drawing.Point(49, 127);
-            this.reportTestBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.reportTestBtn.Name = "reportTestBtn";
-            this.reportTestBtn.Size = new System.Drawing.Size(134, 70);
-            this.reportTestBtn.TabIndex = 14;
-            this.reportTestBtn.Text = "Test button 1";
-            this.reportTestBtn.UseCompatibleTextRendering = true;
-            this.reportTestBtn.UseVisualStyleBackColor = false;
+            this.reportEndDate.Location = new System.Drawing.Point(926, 173);
+            this.reportEndDate.Name = "reportEndDate";
+            this.reportEndDate.Size = new System.Drawing.Size(191, 20);
+            this.reportEndDate.TabIndex = 23;
             // 
-            // reportSendReportBtn
+            // label4
             // 
-            this.reportSendReportBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.reportSendReportBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.reportSendReportBtn.FlatAppearance.BorderSize = 0;
-            this.reportSendReportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reportSendReportBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportSendReportBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.reportSendReportBtn.Location = new System.Drawing.Point(49, 30);
-            this.reportSendReportBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.reportSendReportBtn.Name = "reportSendReportBtn";
-            this.reportSendReportBtn.Size = new System.Drawing.Size(134, 70);
-            this.reportSendReportBtn.TabIndex = 13;
-            this.reportSendReportBtn.Text = "Send Report";
-            this.reportSendReportBtn.UseCompatibleTextRendering = true;
-            this.reportSendReportBtn.UseVisualStyleBackColor = false;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(559, 136);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 25);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Start Date";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // reportStartDate
+            // 
+            this.reportStartDate.Location = new System.Drawing.Point(528, 173);
+            this.reportStartDate.Name = "reportStartDate";
+            this.reportStartDate.Size = new System.Drawing.Size(191, 20);
+            this.reportStartDate.TabIndex = 20;
+            // 
+            // reportChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.reportChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.reportChart.Legends.Add(legend1);
+            this.reportChart.Location = new System.Drawing.Point(306, 212);
+            this.reportChart.Name = "reportChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.reportChart.Series.Add(series1);
+            this.reportChart.Size = new System.Drawing.Size(1073, 400);
+            this.reportChart.TabIndex = 19;
+            this.reportChart.Text = "chart1";
+            // 
+            // reportsGrid
+            // 
+            this.reportsGrid.AllowUserToAddRows = false;
+            this.reportsGrid.AllowUserToDeleteRows = false;
+            this.reportsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.reportsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reportsGrid.Location = new System.Drawing.Point(306, 644);
+            this.reportsGrid.Name = "reportsGrid";
+            this.reportsGrid.ReadOnly = true;
+            this.reportsGrid.Size = new System.Drawing.Size(1073, 418);
+            this.reportsGrid.TabIndex = 18;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel4.Controls.Add(this.reportCategories);
+            this.panel4.Controls.Add(this.reportsProducts);
+            this.panel4.Controls.Add(this.reportEmployee);
+            this.panel4.Location = new System.Drawing.Point(306, 6);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1073, 118);
+            this.panel4.TabIndex = 17;
+            // 
+            // reportCategories
+            // 
+            this.reportCategories.BackColor = System.Drawing.Color.SteelBlue;
+            this.reportCategories.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.reportCategories.FlatAppearance.BorderSize = 0;
+            this.reportCategories.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportCategories.ForeColor = System.Drawing.Color.Transparent;
+            this.reportCategories.Location = new System.Drawing.Point(778, 20);
+            this.reportCategories.Margin = new System.Windows.Forms.Padding(0);
+            this.reportCategories.Name = "reportCategories";
+            this.reportCategories.Size = new System.Drawing.Size(208, 73);
+            this.reportCategories.TabIndex = 6;
+            this.reportCategories.Text = "Categories";
+            this.reportCategories.UseVisualStyleBackColor = false;
+            this.reportCategories.Click += new System.EventHandler(this.reportCategories_Click);
+            // 
+            // reportsProducts
+            // 
+            this.reportsProducts.BackColor = System.Drawing.Color.SteelBlue;
+            this.reportsProducts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.reportsProducts.FlatAppearance.BorderSize = 0;
+            this.reportsProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportsProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportsProducts.ForeColor = System.Drawing.Color.Transparent;
+            this.reportsProducts.Location = new System.Drawing.Point(69, 20);
+            this.reportsProducts.Margin = new System.Windows.Forms.Padding(0);
+            this.reportsProducts.Name = "reportsProducts";
+            this.reportsProducts.Size = new System.Drawing.Size(208, 73);
+            this.reportsProducts.TabIndex = 4;
+            this.reportsProducts.Text = "Products";
+            this.reportsProducts.UseVisualStyleBackColor = false;
+            this.reportsProducts.Click += new System.EventHandler(this.reportsProducts_Click);
+            // 
+            // reportEmployee
+            // 
+            this.reportEmployee.BackColor = System.Drawing.Color.SteelBlue;
+            this.reportEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.reportEmployee.FlatAppearance.BorderSize = 0;
+            this.reportEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportEmployee.ForeColor = System.Drawing.Color.Transparent;
+            this.reportEmployee.Location = new System.Drawing.Point(401, 20);
+            this.reportEmployee.Margin = new System.Windows.Forms.Padding(0);
+            this.reportEmployee.Name = "reportEmployee";
+            this.reportEmployee.Size = new System.Drawing.Size(208, 73);
+            this.reportEmployee.TabIndex = 5;
+            this.reportEmployee.Text = "Employees";
+            this.reportEmployee.UseVisualStyleBackColor = false;
+            this.reportEmployee.Click += new System.EventHandler(this.reportEmployee_Click);
             // 
             // userPage
             // 
@@ -1452,22 +1565,6 @@ namespace PHPSRePS
             this.label6.Text = "User Profile";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "AntiSeptics",
-            "Supplements",
-            "Laxatives",
-            "Painkillers",
-            "Entheogen",
-            "Other"});
-            this.comboBox1.Location = new System.Drawing.Point(287, 203);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(602, 21);
-            this.comboBox1.TabIndex = 9;
-            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1494,6 +1591,10 @@ namespace PHPSRePS
             ((System.ComponentModel.ISupportInitialize)(this.inventDescriptList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).EndInit();
             this.reportsPage.ResumeLayout(false);
+            this.reportsPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reportChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reportsGrid)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.userPage.ResumeLayout(false);
             this.userPage.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1562,9 +1663,6 @@ namespace PHPSRePS
         private System.Windows.Forms.Label InventDescription;
         private System.Windows.Forms.Button inventAddNew;
         private System.Windows.Forms.Button salesAddBtn;
-        private System.Windows.Forms.Button reportTestBtn2;
-        private System.Windows.Forms.Button reportTestBtn;
-        private System.Windows.Forms.Button reportSendReportBtn;
 
         private System.Windows.Forms.DataGridView salesTranList;
         private System.Windows.Forms.ListView salesTransList;
@@ -1599,6 +1697,16 @@ namespace PHPSRePS
         private TextBox inventQtyTxtbox;
         private Label inventCateLabel;
         private ComboBox comboBox1;
+        private Button reportsProducts;
+        private Button reportCategories;
+        private Button reportEmployee;
+        private Panel panel4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart reportChart;
+        private DataGridView reportsGrid;
+        private Label label4;
+        private DateTimePicker reportStartDate;
+        private Label label5;
+        private DateTimePicker reportEndDate;
     }
 }
 

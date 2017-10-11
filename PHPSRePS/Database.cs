@@ -204,9 +204,8 @@ namespace PHPSRePS
 
         public string generateSalesReportQuery(string groupBy, DateTime startDate, DateTime endDate)
         {
-            string startDateString = startDate.Year + "-" + startDate.Month + "-" + startDate.Day + "-";
-            string endDateString = endDate.Year + "-" + endDate.Month + "-" + endDate.Day + "-";
-
+            string startDateString = startDate.Year + "-" + startDate.Month + "-" + startDate.Day + " " + startDate.Hour + ":" + startDate.Minute + ":" + startDate.Second;
+            string endDateString = endDate.Year + "-" + endDate.Month + "-" + endDate.Day + " " + 23+ ":" + 59 + ":" + 59;
             string quadrupleJoin =
                 "Sales INNER JOIN ItemSales ON Sales.SalesID = ItemSales.SalesID "
                 + "INNER JOIN Employee ON Sales.EmployeeID = Employee.EmployeeID "
@@ -225,13 +224,13 @@ namespace PHPSRePS
                         + "GROUP BY ProductName ORDER BY COUNT(Sales.SalesID)*Product.UnitPrice DESC; ";
                 case "employee":
                     return
-                        "SELECT Employee.FirstName AS Name, COUNT(Sales.SalesID) AS 'No. of Sales', COUNT(Sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM "
+                        "SELECT Employee.FirstName AS Employee, COUNT(Sales.SalesID) AS 'No. of Sales', COUNT(Sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM "
                         + quadrupleJoin
                         + timeFrameLimit
                         + "GROUP BY Employee.FirstName ORDER BY COUNT(Sales.SalesID)*Product.UnitPrice DESC;";
                 case "category":
                     return
-                        "SELECT Categories.CategoryName, COUNT(Sales.SalesID) AS 'No. of Sales', COUNT(Sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM "
+                        "SELECT Categories.CategoryName as 'Category', COUNT(Sales.SalesID) AS 'No. of Sales', COUNT(Sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM "
                         + quadrupleJoin
                         + timeFrameLimit
                         + "GROUP BY Categories.CategoryName ORDER BY COUNT(Sales.SalesID)*Product.UnitPrice DESC;";

@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +68,7 @@
     </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="ForecastReport.cs" />
     <Compile Include="HasSQLTable.cs" />
     <Compile Include="ItemSale.cs" />
     <Compile Include="Product.cs" />
@@ -83,7 +85,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Report.cs" />
     <Compile Include="Sale.cs" />
+    <Compile Include="SalesReport.cs" />
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
