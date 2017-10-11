@@ -2,9 +2,10 @@ using System;
 using System.Windows.Forms;
 using System.Net.Mail;
 
-namespace sentmail
+namespace  PHPSRePS 
 {
-    public partial class Form1 : Form
+
+    public partial class sentmail : sentmail
     {
         public Form1()
         {
