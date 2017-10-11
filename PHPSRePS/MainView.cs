@@ -218,9 +218,8 @@ namespace PHPSRePS {
         {
 
         }
-        
-        
-        #region inventory screen methods
+
+
         // display products to the UI
         private void DisplayProducts()
         {
@@ -254,6 +253,7 @@ namespace PHPSRePS {
             database.CloseConnection();
         }
 
+        #region Inventory Screen Functions
         private void inventGetAllProducts(string input)
         {
             BindingSource source = database.getProducts(input);
@@ -263,6 +263,8 @@ namespace PHPSRePS {
                 inventDataList.DataSource = source;
                 inventDataList.ForeColor = Color.Black;
             }
+
+            inventUpdateDropboxes();
         }
 
         private void inventGetAllProducts()
@@ -270,6 +272,7 @@ namespace PHPSRePS {
             inventGetAllProducts(inventSearchBar.Text.ToString());
         }
 
+        #region SearchBar Methods
         private void inventSearchBar_Click(object sender, EventArgs e)
         {
             inventSearchBar.Text = "";
@@ -288,33 +291,173 @@ namespace PHPSRePS {
             inventGetAllProducts();
         }
 
+        private void inventSearchBar_Click(object sender, MouseEventArgs e)
+        {
+            inventSearchBar.Text = "";
+        }
+        #endregion
+
+        private void inventDataList_SelectionChanged(object sender, EventArgs e)
+        {
+            inventDescriptionUpdater();
+        }
+
         private void inventEditBtn_Click(object sender, EventArgs e)
         {
-            
+            if (!inventDescPanel.Enabled)
+            {
+                inventDescPanel.Enabled = true;
+                inventEditBtn.BackColor = Color.MediumSpringGreen;
+                inventPage.BackColor = Color.Coral;
+                inventEditBtn.Text = "SAVE CHANGES";
+                InventDescription.Text = "EDITING MODE";
+                inventCancelBtn.Enabled = true;
+                inventCancelBtn.Visible = true;
+                inventEditBtn.Location = new Point(1629, 959);
+            }
+            else
+            {
+                Product updatedProduct = new Product();
+                updatedProduct.ID = (int)inventDescIDTxtbox.Value;
+                updatedProduct.Name = inventDescNameTxtbox.Text;
+                updatedProduct.Category = inventDescCateBox.Text;
+                //updatedProduct.Price = (float)inventDescPriceTxtbox.Value;
+                updatedProduct.Stock = (int)inventDescQTYTxtbox.Value;
+                updatedProduct.IsDiscontinued = inventDescCheckbox.Checked;
+                database.RunVoidQuery(updatedProduct.GetUPDATE());
+
+                inventEditBtn.Enabled = false;
+                inventDescConfirmPanel.Enabled = true;
+                inventDescConfirmPanel.Visible = true;
+            }
         }
 
         private void inventCancelBtn_Click(object sender, EventArgs e)
         {
             inventDescriptionUpdater();
-            inventReturnToReading();
+            inventReturnToReadOnly();
         }
 
-        private void inventReturnToReading()
+        private void inventReturnToReadOnly()
         {
-            //inventDescriptList.ReadOnly = true;
+            inventDescPanel.Enabled = false;
             inventEditBtn.BackColor = Color.DarkOrange;
-            inventPage.BackColor = Color.White;
             inventEditBtn.Text = "Edit Values";
+            inventEditBtn.Location = new Point(1440, 959);
+            inventPage.BackColor = Color.White;
             InventDescription.Text = "Description";
             inventCancelBtn.Enabled = false;
             inventCancelBtn.Visible = false;
-            inventEditBtn.Location = new Point(1440, 959);
+            inventAddContinPanel.Visible = false;
+            inventAddContinPanel.Enabled = true;
+            inventAddForm.Visible = false;
+            inventAddForm.Enabled = false;
+            inventDataList.Enabled = true;
+            inventEditBtn.Enabled = true;
+            inventDescConfirmPanel.Visible = false;
+            inventDescConfirmPanel.Enabled = false;
+            sidebar.Enabled = true;
+            inventGetAllProducts();
+        }
+
+        private void inventDescriptionUpdater()
+        {
+            int selectedRow = 0;
+            try
+            {
+                Int32.TryParse(inventDataList.SelectedCells[0].RowIndex.ToString(), out selectedRow);
+            }
+            catch (Exception e)
+            {
+
+            }
+            try
+            {
+
+                inventDescIDTxtbox.Value = (int)inventDataList.Rows[selectedRow].Cells[0].Value;
+                inventDescNameTxtbox.Text = (string)inventDataList.Rows[selectedRow].Cells[1].Value;
+                inventDescCateBox.Text = (string)inventDataList.Rows[selectedRow].Cells[2].Value;
+                inventDescPriceTextbox.Text = inventDataList.Rows[selectedRow].Cells[3].Value.ToString();
+                inventDescQTYTxtbox.Value = (int)inventDataList.Rows[selectedRow].Cells[4].Value;
+                inventDescCheckbox.Checked = (bool)inventDataList.Rows[selectedRow].Cells[5].Value;
+
+            }
+            catch (Exception e)
+            {
+
+            }
+
+
+
+        }
+
+        private void inventUpdateDropboxes()
+        {
+            foreach (string str in database.GetCategoires())
+            {
+                if (!inventAddCateBox.Items.Contains(str))
+                {
+                    inventAddCateBox.Items.Add(str);
+                }
+                if (!inventDescCateBox.Items.Contains(str))
+                {
+                    inventDescCateBox.Items.Add(str);
+                }
+            }
         }
 
         private void inventAddNew_Click(object sender, EventArgs e)
         {
-            
+            //Disables all buttons in the background
+            sidebar.Enabled = false;
+            inventDataList.Enabled = false;
+            inventDescPriceTextbox.Enabled = false;
+            inventAddForm.Visible = true;
+            inventAddForm.Enabled = true;
         }
+
+        private void inventAddAddBtn_Click(object sender, EventArgs e)
+        {
+            Product newProduct = new Product();
+            newProduct.Name = inventNameTxtbox.Text;
+            newProduct.Category = inventAddCateBox.Text;
+            newProduct.Stock = (int)inventQtyTxtbox.Value;
+            newProduct.Price = (float)inventPriceTxtbox.Value;
+            newProduct.IsDiscontinued = false;
+
+            database.RunVoidQuery(newProduct.GetINSERT());
+            inventAddAddBtn.Enabled = false;
+           // inventAddCancelBtn.Enabled = false;
+            inventAddContinPanel.Enabled = true;
+            inventAddContinPanel.Visible = true;
+        }
+
+        private void inventAddContinBtn_Click(object sender, EventArgs e)
+        {
+            inventGetAllProducts();
+            inventReturnToReadOnly();
+            inventAddAddBtn.Enabled = true;
+            //inventAddCancelBtn.Enabled = true;
+        }
+        private void inventAddCancelBtn_Click(object sender, EventArgs e)
+        {
+            inventResetTextboxes();
+            inventReturnToReadOnly();
+        }
+
+        private void inventResetTextboxes()
+        {
+            inventNameTxtbox.Text = "";
+            inventAddCateBox.Text = "";
+            inventPriceTxtbox.Value = 0;
+            inventQtyTxtbox.Value = 0;
+        }
+
+        private void inventDescConfirmBtn_Click(object sender, EventArgs e)
+        {
+            inventReturnToReadOnly();
+        }
+
         #endregion
 
 
@@ -651,46 +794,7 @@ namespace PHPSRePS {
             }
         }
 
-        private void inventDescriptionUpdater()
-        {
-            int selectedRow = 0;
-            try
-            {
-                Int32.TryParse(inventDataList.SelectedCells[0].RowIndex.ToString(), out selectedRow);
-            }
-            catch(Exception e)
-            {
-
-            }
-            Product selectedProduct = new Product();
-            try
-            {   
-                selectedProduct.ID = (int)inventDataList.Rows[selectedRow].Cells[0].Value;
-                selectedProduct.Name = (string)inventDataList.Rows[selectedRow].Cells[1].Value;
-                selectedProduct.Category = (string)inventDataList.Rows[selectedRow].Cells[2].Value;
-                selectedProduct.Price = (float)inventDataList.Rows[selectedRow].Cells[3].Value;
-                selectedProduct.Stock = (int)inventDataList.Rows[selectedRow].Cells[4].Value;
-                selectedProduct.IsDiscontinued = (bool)inventDataList.Rows[selectedRow].Cells[5].Value;
-                
-            }
-            catch(Exception e)
-            {
-            
-            }
-                
-
-
-        }
-
-        private void inventSearchBar_Click(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void inventDataList_SelectionChanged(object sender, EventArgs e)
-        {
-            inventDescriptionUpdater();
-        }
+        
 
         private void userButton_Click(object sender, EventArgs e)
         {
@@ -935,6 +1039,7 @@ namespace PHPSRePS {
         {
             LoadForcast("categories");
         }
-       
+
+
     }
 }
