@@ -19,14 +19,14 @@ namespace sentmail
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
                 mail.From = new MailAddress("your_email_address@gmail.com");
                 mail.To.Add("to_address");
-                mail.Subject = "Test Mail - 1";
-                mail.Body = "mail with attachment";
+                mail.Subject = " report ";
+                mail.Body = " Report mail ";
 
                 System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment("your attachment file");
+                attachment = new System.Net.Mail.Attachment("report.scv");
                 mail.Attachments.Add(attachment);
 
-                SmtpServer.Port = 587;
+                SmtpServer.Port = 32;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("username", "password");
                 SmtpServer.EnableSsl = true;
 
