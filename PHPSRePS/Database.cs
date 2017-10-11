@@ -33,7 +33,14 @@ namespace PHPSRePS
 
             string dbConnectionString = string.Format("server={0};uid={1};pwd={2};database={3};", server, username, password, databaseName);
             connection = new MySqlConnection(dbConnectionString);
-            connection.Open();
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error Connecting To The Database");
+            }
         }
 
         public void CloseConnection()
@@ -123,6 +130,7 @@ namespace PHPSRePS
             OpenConnection();
 
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM `employee` WHERE Username = '" + usr +"' AND Password = '" + pwd + "'", connection);
+
             var reader = cmd.ExecuteReader();
 
             //waiting for the GUI implementation

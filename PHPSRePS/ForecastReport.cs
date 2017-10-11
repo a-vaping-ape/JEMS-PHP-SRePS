@@ -101,10 +101,10 @@ namespace PHPSRePS
             List<SalesPerDay> forecastData = new List<SalesPerDay>();
             Line regressionLine;
 
-            if (_salesHistoryList.Count > 0)
+            if (_salesHistoryList.Count > 1)
             {
                 int dayCounter = 0;
-                int forecastStartDay = (StartDate - SalesHistoryReport.First().date).Days;
+                int forecastStartDay = Math.Abs((StartDate - SalesHistoryReport.First().date).Days);
                 int totalDays = (EndDate - StartDate).Days;
                 int forecastEndDay = forecastStartDay + totalDays;
 
@@ -132,7 +132,7 @@ namespace PHPSRePS
                 for (int i = forecastStartDay; i < forecastEndDay; i++)
                 {
                     SalesForecast dailyForecast;
-                    dailyForecast.date = StartDate.AddDays(i);
+                    dailyForecast.date = StartDate.AddDays(i).Date;
                     dailyForecast.quantity = Convert.ToInt32(Math.Round(regressionLine.gradient * i + regressionLine.yInt, MidpointRounding.AwayFromZero));
                     SalesForecastReport.Add(dailyForecast);
                 }

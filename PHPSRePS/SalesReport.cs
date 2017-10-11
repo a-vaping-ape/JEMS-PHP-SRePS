@@ -235,14 +235,19 @@ namespace PHPSRePS
             StringBuilder employeeSalesCSVData = new StringBuilder();
             StringBuilder categorySalesCSVData = new StringBuilder();
 
+            //create reports
+
             String productSalesCSVPath = AppDomain.CurrentDomain.BaseDirectory + "\\reports\\product_sales_report" + StartDate.ToShortDateString() + "-" + EndDate.ToShortDateString() + ".csv";
             String employeeSalesCSVPath = AppDomain.CurrentDomain.BaseDirectory + "\\reports\\employee_sales_report" + StartDate.ToShortDateString() + "-" + EndDate.ToShortDateString() + ".csv";
             String categorySalesCSVPath = AppDomain.CurrentDomain.BaseDirectory + "\\reports\\category_sales_report" + StartDate.ToShortDateString() + "-" + EndDate.ToShortDateString() + ".csv";
 
+            System.IO.Directory.CreateDirectory(productSalesCSVPath);
+
+
             productSalesCSVData.AppendLine("'Product', 'Category', 'Unit Price', 'Quantity Sold', 'Total Revenue'");
             foreach (ProductReport productReport in ProductSalesReport)
             {
-                productSalesCSVData.AppendFormat("'{0}', '{1}', '{2}', '{3}', '{4}', '{5}'", productReport.productName, productReport.categoryName, productReport.unitPrice, productReport.quantitySold, productReport.totalRevenue);
+                 productSalesCSVData.AppendFormat("'{0}', '{1}', '{2}', '{3}', '{4}' ", productReport.productName, productReport.categoryName, productReport.unitPrice, productReport.quantitySold, productReport.totalRevenue);
                 productSalesCSVData.AppendLine();
             }
 

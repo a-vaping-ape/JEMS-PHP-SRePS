@@ -896,21 +896,25 @@ namespace PHPSRePS {
             reportChart.Series.Clear();
             reportChart.Titles.Clear();
             List<RevenueFormat> data = null;
+            string Title = "";
 
             reportChart.Name = "PieChartArea";
 
             if (groupBy == "products")  {
-                reportChart.Titles.Add("Products By Revenue");
+                Title = "Products";
+                
                 data = report.GetRevenues("products");
             }
             else if (groupBy == "employee") 
             {
-                reportChart.Titles.Add("Employee By Revenue");
+                Title = "Employees";
+                
                 data = report.GetRevenues("employee");
             }
             else if (groupBy == "category")
             {
-                reportChart.Titles.Add("Categories By Revenue");
+                Title = "Categories";
+               
                 data = report.GetRevenues("category");
             }
 
@@ -922,6 +926,14 @@ namespace PHPSRePS {
                 Color = System.Drawing.Color.Green,
                 ChartType = SeriesChartType.Pie
             };
+
+            reportChart.Titles.Add(new Title(
+               Title + " Report",
+               Docking.Top,
+               new Font("Trebuchet MS", 20F, System.Drawing.FontStyle.Bold),
+               Color.Black)
+            );
+
 
             int i = 0;
             foreach (RevenueFormat item in data)
@@ -983,18 +995,13 @@ namespace PHPSRePS {
             forecastChart.Series.Clear();
             forecastChart.Titles.Clear();
             List<SalesForecast> data = null;
-            forecastChart.Titles.Add("Sales Forecast");
-
-            //forecastChart.Name = "LineChartArea";
-
+            
             data = forecast.SalesForecastReport;
-         
-
 
             Series series = new Series
             {
                 Name = "series",
-                IsVisibleInLegend = true,
+                IsVisibleInLegend = false,
                 Color = System.Drawing.Color.DarkBlue,
                 ChartType = SeriesChartType.Spline
             };
@@ -1002,14 +1009,30 @@ namespace PHPSRePS {
             int i = 0;
             foreach (SalesForecast item in data)
             {
-                series.Points.AddXY(0, item.quantity);
-
-               // series.Points.Add(item.quantity);
-               // var temp = series.Points[i];
-                //temp.AxisLabel = item.quantity.ToString();
-                //temp.LegendText = item.date;
+                series.Points.AddXY(item.date, item.quantity);
                 i++;
             }
+
+
+            Font titleFont = new Font("Trebuchet MS", 15F, System.Drawing.FontStyle.Bold);
+            Font axisFont = new Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold);
+
+            forecastChart.Titles.Add(new Title(
+                "Sales Forecast",
+                Docking.Top,
+                new Font("Trebuchet MS", 20F, System.Drawing.FontStyle.Bold),
+                Color.Black)
+             );
+
+
+            forecastChart.ChartAreas[0].AxisX.Title = "Time In Days";
+            forecastChart.ChartAreas[0].AxisX.LabelStyle.Font = axisFont;
+            forecastChart.ChartAreas[0].AxisX.TitleFont = titleFont;
+
+            forecastChart.ChartAreas[0].AxisY.Title = "Quantity";
+            forecastChart.ChartAreas[0].AxisY.TextOrientation = TextOrientation.Rotated90;
+            forecastChart.ChartAreas[0].AxisY.LabelStyle.Font = axisFont;
+            forecastChart.ChartAreas[0].AxisY.TitleFont = titleFont;
 
             forecastChart.Series.Add(series);
             forecastChart.ChartAreas[0].AxisX.IsReversed = true;
@@ -1127,6 +1150,16 @@ namespace PHPSRePS {
         private void salesCancel_Click(object sender, EventArgs e)
         {
             salesOldOrderPanel.Visible = false;
+        }
+
+        private void reportCSVBtn_Click(object sender, EventArgs e)
+        {
+            report.ExportToCSV();
+        }
+
+        private void forecastCSVBtn_Click(object sender, EventArgs e)
+        {
+            forecast.ExportToCSV();
         }
     }
 }
