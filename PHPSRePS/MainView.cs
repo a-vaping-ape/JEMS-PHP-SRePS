@@ -46,17 +46,7 @@ namespace PHPSRePS {
         public MainView() {
             InitializeComponent();
             #region inventory description lsit rows
-            this.inventDescriptList.Rows.Add();
-            this.inventDescriptList.Rows.Add();
-            this.inventDescriptList.Rows.Add();
-            this.inventDescriptList.Rows.Add();
-            this.inventDescriptList.Rows.Add();
-            this.inventDescriptList.Rows[0].HeaderCell.Value = "Product ID";
-            this.inventDescriptList.Rows[1].HeaderCell.Value = "Product Name";
-            this.inventDescriptList.Rows[2].HeaderCell.Value = "Category Name";
-            this.inventDescriptList.Rows[3].HeaderCell.Value = "Unit Price";
-            this.inventDescriptList.Rows[4].HeaderCell.Value = "Sales Price";
-            this.inventDescriptList.Rows[5].HeaderCell.Value = "Discontinued";
+
             #endregion
             salesTab.FlatAppearance.BorderSize = 0;
             inventTab.FlatAppearance.BorderSize = 0;
@@ -300,22 +290,7 @@ namespace PHPSRePS {
 
         private void inventEditBtn_Click(object sender, EventArgs e)
         {
-            if (inventDescriptList.ReadOnly)
-            {
-                inventDescriptList.ReadOnly = false;
-                inventEditBtn.BackColor = Color.MediumSpringGreen;
-                inventPage.BackColor = Color.Coral;
-                inventEditBtn.Text = "SAVE CHANGES";
-                InventDescription.Text = "EDITING MODE";
-                inventCancelBtn.Enabled = true;
-                inventCancelBtn.Visible = true;
-                inventEditBtn.Location = new Point(1629, 959);
-            }
-            else
-            {
-
-                inventReturnToReading();
-            }
+            
         }
 
         private void inventCancelBtn_Click(object sender, EventArgs e)
@@ -326,7 +301,7 @@ namespace PHPSRePS {
 
         private void inventReturnToReading()
         {
-            inventDescriptList.ReadOnly = true;
+            //inventDescriptList.ReadOnly = true;
             inventEditBtn.BackColor = Color.DarkOrange;
             inventPage.BackColor = Color.White;
             inventEditBtn.Text = "Edit Values";
@@ -338,10 +313,7 @@ namespace PHPSRePS {
 
         private void inventAddNew_Click(object sender, EventArgs e)
         {
-            inventDataList.Visible = false;
-            inventDataList.Enabled = false;
-            inventAddForm.Visible = true;
-            inventAddForm.Enabled = true;
+            
         }
         #endregion
 
@@ -699,13 +671,7 @@ namespace PHPSRePS {
                 selectedProduct.Price = (float)inventDataList.Rows[selectedRow].Cells[3].Value;
                 selectedProduct.Stock = (int)inventDataList.Rows[selectedRow].Cells[4].Value;
                 selectedProduct.IsDiscontinued = (bool)inventDataList.Rows[selectedRow].Cells[5].Value;
-                inventDescriptList.ForeColor = Color.Black;
-                inventDescriptList.Rows[0].Cells[0].Value = selectedProduct.ID;
-                inventDescriptList.Rows[1].Cells[0].Value = selectedProduct.Name;
-                inventDescriptList.Rows[2].Cells[0].Value = selectedProduct.Category;
-                inventDescriptList.Rows[3].Cells[0].Value = selectedProduct.Price;
-                inventDescriptList.Rows[4].Cells[0].Value = selectedProduct.Stock;
-                inventDescriptList.Rows[5].Cells[0].Value = selectedProduct.IsDiscontinued;
+                
             }
             catch(Exception e)
             {
