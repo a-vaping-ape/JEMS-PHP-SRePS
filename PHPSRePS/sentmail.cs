@@ -5,7 +5,7 @@ using System.Net.Mail;
 namespace  PHPSRePS 
 {
 
-    public partial class sentmail : sentmail
+    public partial class sentmail : form
     {
         public sentmail()
         {
