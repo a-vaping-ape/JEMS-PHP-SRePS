@@ -5,7 +5,7 @@ namespace PHPSRePS
 {
     public class Product : HasSQLTable
     {
-        private const string _SQLTable = "Product";
+        private const string _SQLTable = "product";
         private  const string _SQLcols = _SQLTable+"(ProductID,ProductName,CategoryID,UnitPrice,UnitsInStock,Discontinued)";
         // private const string _values = 
 

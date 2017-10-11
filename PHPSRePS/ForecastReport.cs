@@ -85,10 +85,9 @@ namespace PHPSRePS
             {
                 SalesHistory salesHistory;
                 string dateString = reader.GetString("Date");
-                int year = Convert.ToInt32(dateString.Substring(0, 4));
-                int month = Convert.ToInt32(dateString.Substring(5, 2));
-                int day = Convert.ToInt32(dateString.Substring(8, 2));
-                salesHistory.date = new DateTime(year, month, day);
+
+                salesHistory.date = Convert.ToDateTime(dateString);
+
                 salesHistory.quantity = reader.GetInt32("Quantity");
                 SalesHistoryReport.Add(salesHistory);
             }
@@ -101,38 +100,42 @@ namespace PHPSRePS
             List<SalesPerDay> salesData = new List<SalesPerDay>();
             List<SalesPerDay> forecastData = new List<SalesPerDay>();
             Line regressionLine;
-            int dayCounter = 0;
-            int forecastStartDay = (StartDate - SalesHistoryReport.First().date).Days;
-            int totalDays = (EndDate - StartDate).Days;
-            int forecastEndDay = forecastStartDay + totalDays;
 
-            // populate sales list using day count instead of date (yyyy/mm/dd)
-            for (int i = 0; i < SalesHistoryReport.Count; i++)
+            if (_salesHistoryList.Count > 0)
             {
-                SalesPerDay dailySale;
+                int dayCounter = 0;
+                int forecastStartDay = (StartDate - SalesHistoryReport.First().date).Days;
+                int totalDays = (EndDate - StartDate).Days;
+                int forecastEndDay = forecastStartDay + totalDays;
 
-                if (i < 1)
+                // populate sales list using day count instead of date (yyyy/mm/dd)
+                for (int i = 0; i < SalesHistoryReport.Count; i++)
                 {
-                    dayCounter += 1;
+                    SalesPerDay dailySale;
+
+                    if (i < 1)
+                    {
+                        dayCounter += 1;
+                    }
+                    else
+                    {
+                        dayCounter += (SalesHistoryReport[i].date - SalesHistoryReport[i - 1].date).Days;
+                    }
+
+                    dailySale.day = dayCounter;
+                    dailySale.quantity = SalesHistoryReport[i].quantity;
+                    salesData.Add(dailySale);
                 }
-                else
+
+                regressionLine = GetRegressionLine(salesData);
+
+                for (int i = forecastStartDay; i < forecastEndDay; i++)
                 {
-                    dayCounter += (SalesHistoryReport[i].date - SalesHistoryReport[i - 1].date).Days;
+                    SalesForecast dailyForecast;
+                    dailyForecast.date = StartDate.AddDays(i);
+                    dailyForecast.quantity = Convert.ToInt32(Math.Round(regressionLine.gradient * i + regressionLine.yInt, MidpointRounding.AwayFromZero));
+                    SalesForecastReport.Add(dailyForecast);
                 }
-
-                dailySale.day = dayCounter;
-                dailySale.quantity = SalesHistoryReport[i].quantity;
-                salesData.Add(dailySale);
-            }
-
-            regressionLine = GetRegressionLine(salesData);
-
-            for (int i = forecastStartDay; i < forecastEndDay; i++)
-            {
-                SalesForecast dailyForecast;
-                dailyForecast.date = StartDate.AddDays(i);
-                dailyForecast.quantity = Convert.ToInt32(Math.Round(regressionLine.gradient * i + regressionLine.yInt, MidpointRounding.AwayFromZero));
-                SalesForecastReport.Add(dailyForecast);
             }
         }
 

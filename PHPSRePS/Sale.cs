@@ -16,7 +16,7 @@ namespace PHPSRePS
         private List<ItemSale> _itemSaleList = new List<ItemSale>();
 
         // mysql query constants
-        private const string _SQLTable = "Sales";
+        private const string _SQLTable = "sales";
         private const string _SQLcols = _SQLTable + "(SalesID, SalesDate,EmployeeID)";
 
         public int ID { get => _id; set => _id = value; }
@@ -45,7 +45,7 @@ namespace PHPSRePS
 
         public string SelectThisObject()
         {
-           return "SELECT SalesID FROM Sales " +
+           return "SELECT SalesID FROM sales " +
                 "WHERE SalesDate = '" + Date + 
                 "' AND " + " EmployeeID = '" + EmployeeID + "';";
         }

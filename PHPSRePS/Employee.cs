@@ -8,7 +8,7 @@ namespace PHPSRePS
 {
     public class Employee : HasSQLTable
     {
-        private const string _SQLTable = "Employee";
+        private const string _SQLTable = "employee";
         private const string _SQLcols = _SQLTable + "(EmployeeID,FirstName,LastName,IsManager,HireDate,Employed,Username,Password)";
 
         private int _employeeID;

@@ -21,10 +21,15 @@ namespace PHPSRePS
         //add this to anymehtods working with the database
         public void OpenConnection()
         {
-            string server = "sql12.freemysqlhosting.net";
-            string databaseName = "sql12196182";    
-            string username = "sql12196182";
-            string password = "nZdkdnzrck";
+          //  string server = "sql12.freemysqlhosting.net";
+            //string databaseName = "sql12196182";    
+            //string username = "sql12196182";
+            //string password = "nZdkdnzrck";
+
+            string server = "localhost";
+            string databaseName = "php_hawthorn";
+            string username = "root";
+            string password = "";
 
             string dbConnectionString = string.Format("server={0};uid={1};pwd={2};database={3};", server, username, password, databaseName);
             connection = new MySqlConnection(dbConnectionString);
@@ -58,7 +63,7 @@ namespace PHPSRePS
 
             OpenConnection();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT ProductName FROM Product", connection);
+            MySqlCommand cmd = new MySqlCommand("SELECT ProductName FROM product", connection);
             var reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -77,7 +82,7 @@ namespace PHPSRePS
 
             OpenConnection();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT CategoryName FROM Categories", connection);
+            MySqlCommand cmd = new MySqlCommand("SELECT CategoryName FROM categories", connection);
             var reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -99,7 +104,7 @@ namespace PHPSRePS
 
             OpenConnection();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM `Employee` WHERE Username = '" + usr +"' AND Password = '" + pwd + "'", connection);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM `employee` WHERE Username = '" + usr +"' AND Password = '" + pwd + "'", connection);
             var reader = cmd.ExecuteReader();
 
             //waiting for the GUI implementation
@@ -167,7 +172,7 @@ namespace PHPSRePS
 
                 int remainingStock = tempPro.Stock - qty;
 
-                RunVoidQuery(tempPro.GetUPDATE("Product", "UnitsInStock",remainingStock.ToString(), "ProductID", tempPro.ID.ToString()));
+                RunVoidQuery(tempPro.GetUPDATE("product", "UnitsInStock",remainingStock.ToString(), "ProductID", tempPro.ID.ToString()));
 
                 ItemSale Item = new ItemSale(sale.ID, tempPro.ID,qty);
                 Items.Add(Item);
@@ -189,14 +194,14 @@ namespace PHPSRePS
             string queiry;
 
             if ( (input != "") && (input != "Search product name here"))
-                queiry = "SELECT ProductID, ProductName, Categories.CategoryName, UnitPrice, UnitsInStock, Discontinued " +
-                    "FROM Product " +
-                    "INNER JOIN Categories ON Product.CategoryID = Categories.CategoryID " +
+                queiry = "SELECT ProductID, ProductName, categories.CategoryName, UnitPrice, UnitsInStock, Discontinued " +
+                    "FROM product " +
+                    "INNER JOIN categories ON product.CategoryID = categories.CategoryID " +
                     "WHERE ProductName LIKE '" + input + "%';"; 
             else
-                queiry = "SELECT ProductID, ProductName, Categories.CategoryName, UnitPrice, UnitsInStock, Discontinued " +
-                    "FROM Product " +
-                    "INNER JOIN Categories ON Product.CategoryID = Categories.CategoryID;";
+                queiry = "SELECT ProductID, ProductName, categories.CategoryName, UnitPrice, UnitsInStock, Discontinued " +
+                    "FROM product " +
+                    "INNER JOIN categories ON product.CategoryID = categories.CategoryID;";
 
             BindingSource bSource = null;
 
@@ -226,33 +231,33 @@ namespace PHPSRePS
             string startDateString = startDate.Year + "-" + startDate.Month + "-" + startDate.Day + " " + startDate.Hour + ":" + startDate.Minute + ":" + startDate.Second;
             string endDateString = endDate.Year + "-" + endDate.Month + "-" + endDate.Day + " " + 23+ ":" + 59 + ":" + 59;
             string quadrupleJoin =
-                "Sales INNER JOIN ItemSales ON Sales.SalesID = ItemSales.SalesID "
-                + "INNER JOIN Employee ON Sales.EmployeeID = Employee.EmployeeID "
-                + "INNER JOIN Product ON Product.ProductID = ItemSales.ProductID "
-                + "INNER JOIN Categories ON Product.CategoryID = Categories.CategoryID ";
+                "sales INNER JOIN itemsales ON sales.SalesID = itemsales.SalesID "
+                + "INNER JOIN employee ON sales.EmployeeID = employee.EmployeeID "
+                + "INNER JOIN product ON product.ProductID = itemsales.ProductID "
+                + "INNER JOIN categories ON product.CategoryID = categories.CategoryID ";
 
-            string timeFrameLimit = String.Format("WHERE Sales.SalesDate >= '{0}' AND Sales.SalesDate <= '{1}'", startDateString, endDateString);
+            string timeFrameLimit = String.Format("WHERE sales.SalesDate >= '{0}' AND sales.SalesDate <= '{1}'", startDateString, endDateString);
 
             switch (groupBy)
             {
                 case "product":
                     return
-                        "SELECT Product.ProductName AS Product, Categories.CategoryName AS Category, Product.UnitPrice AS 'Unit Price', COUNT(Sales.SalesID) AS 'Quantity Sold', COUNT(Sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM "
+                        "SELECT product.ProductName AS 'Product', categories.CategoryName AS 'Category', product.UnitPrice AS 'Unit Price', COUNT(sales.SalesID) AS 'Quantity Sold', COUNT(sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM "
                         + quadrupleJoin
                         + timeFrameLimit
-                        + "GROUP BY ProductName ORDER BY COUNT(Sales.SalesID)*Product.UnitPrice DESC; ";
+                        + " GROUP BY ProductName ORDER BY COUNT(sales.salesID)*product.UnitPrice DESC; ";
                 case "employee":
                     return
-                        "SELECT Employee.FirstName AS Employee, COUNT(Sales.SalesID) AS 'No. of Sales', COUNT(Sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM "
+                        "SELECT Employee.FirstName AS employee, COUNT(sales.SalesID) AS 'No. of Sales', COUNT(sales.SalesID)*product.UnitPrice AS 'Total Revenue' FROM "
                         + quadrupleJoin
                         + timeFrameLimit
-                        + "GROUP BY Employee.FirstName ORDER BY COUNT(Sales.SalesID)*Product.UnitPrice DESC;";
+                        + " GROUP BY employee.FirstName ORDER BY COUNT(sales.SalesID)*product.UnitPrice DESC;";
                 case "category":
                     return
-                        "SELECT Categories.CategoryName as 'Category', COUNT(Sales.SalesID) AS 'No. of Sales', COUNT(Sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM "
+                        "SELECT categories.CategoryName as 'Category', COUNT(sales.SalesID) AS 'No. of Sales', COUNT(sales.SalesID)*product.UnitPrice AS 'Total Revenue' FROM "
                         + quadrupleJoin
                         + timeFrameLimit
-                        + "GROUP BY Categories.CategoryName ORDER BY COUNT(Sales.SalesID)*Product.UnitPrice DESC;";
+                        + " GROUP BY categories.CategoryName ORDER BY COUNT(sales.SalesID)*product.UnitPrice DESC;";
                 default:
                     return "";
             }
@@ -260,19 +265,24 @@ namespace PHPSRePS
 
         public string generateSalesHistoryQuery(string itemName, string groupBy)
         {
-            string condition
-                = (groupBy == "product")
-                ? " WHERE Product.ProductName=" + itemName + " "
-                : " WHERE Categories.CategoryName=" + itemName + " ";
+            string condition;
+            //  = (groupBy == "product")
+
+            if (groupBy == "product")
+                condition = " WHERE product.ProductName='" + itemName + "' ";
+            else
+                condition = " WHERE categories.CategoryName='" + itemName + "' ";
+               // ? " WHERE Product.ProductName='" + itemName + "' "
+                //: " WHERE Categories.CategoryName='" + itemName + "' ";
 
             return
-                "SELECT Sales.SaleDate AS Date,SUM(ItemSales.Quantity) AS Quantity FROM Sales"
-                + " INNER JOIN ItemSales ON Sales.SaleID = ItemSales.SaleID"
-                + " INNER JOIN Product ON Product.ProductID = ItemSales.ProductID"
-                + " INNER JOIN Categories ON Product.CategoryID = Categories.CategoryID"
+                "SELECT sales.SalesDate AS Date,SUM(itemsales.Quantity) AS Quantity FROM sales"
+                + " INNER JOIN itemsales ON sales.SalesID = itemsales.SalesID"
+                + " INNER JOIN product ON product.ProductID = itemsales.ProductID"
+                + " INNER JOIN categories ON product.CategoryID = categories.CategoryID"
                 + condition
-                + " GROUP BY Sales.SalesDate"
-                + " ORDER BY Sales.SalesDate ASC";
+                + " GROUP BY DAY(sales.SalesDate)"
+                + " ORDER BY sales.SalesDate ASC";
         }
 
         //used for reading from the database
@@ -298,7 +308,7 @@ namespace PHPSRePS
 
         public string TestConnection()
         {
-            string key = "SELECT * FROM Categories";
+            string key = "SELECT * FROM categories";
             OpenConnection();
 
             MySqlCommand cmd = new MySqlCommand(key, connection);
@@ -356,13 +366,13 @@ namespace PHPSRePS
                 case "All Employee":
                     return "SELECT * FROM employee";
 
-                case "All Item Sales":
+                case "All Item sales":
                     return "SELECT * FROM item sales";
 
                 case "All Products":
                     return "SELECT * FROM product";
 
-                case "All Sales":
+                case "All sales":
                     return "SELECT * FROM sales";
 
                 case "":

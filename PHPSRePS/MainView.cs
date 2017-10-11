@@ -850,34 +850,41 @@ namespace PHPSRePS {
 
         private void GenerateLineChart()
         {
-            reportChart.Series.Clear();
-            reportChart.Titles.Clear();
+            forecastChart.Series.Clear();
+            forecastChart.Titles.Clear();
             List<SalesForecast> data = null;
-            reportChart.Titles.Add("Sales Forecast");
+            forecastChart.Titles.Add("Sales Forecast");
 
-            reportChart.Name = "LineChartArea";
+            //forecastChart.Name = "LineChartArea";
 
             data = forecast.SalesForecastReport;
+         
 
 
             Series series = new Series
             {
-                Name = "series1",
+                Name = "series",
                 IsVisibleInLegend = true,
-                Color = System.Drawing.Color.Green,
-                ChartType = SeriesChartType.Line
+                Color = System.Drawing.Color.DarkBlue,
+                ChartType = SeriesChartType.Spline
             };
+
             int i = 0;
             foreach (SalesForecast item in data)
             {
-                series.Points.Add(item.quantity);
-                var temp = series.Points[i];
-                temp.AxisLabel = item.quantity.ToString();
-                temp.LegendText = item.date.ToString();
+                series.Points.AddXY(0, item.quantity);
+
+               // series.Points.Add(item.quantity);
+               // var temp = series.Points[i];
+                //temp.AxisLabel = item.quantity.ToString();
+                //temp.LegendText = item.date;
                 i++;
             }
 
-            reportChart.Series.Add(series);
+            forecastChart.Series.Add(series);
+            forecastChart.ChartAreas[0].AxisX.IsReversed = true;
+
+            forecastChart.Series[0].XValueType = ChartValueType.DateTime;
 
         }
 
@@ -903,21 +910,31 @@ namespace PHPSRePS {
 
             if (groupBy == "products")
             {
-                forecastDropDown.DataSource = database.GetProducts();
+                if (forecastDropdownTitle.Text != "Please Choose A Product")
+                    forecastDropDown.DataSource = database.GetProducts();
+                else if (forecastDropDown.SelectedValue == null)
+                    forecastDropDown.DataSource = database.GetProducts();
+
                 forecastDropdownTitle.Text = "Please Choose A Product";
-                group = "Product";
+                group = "product";
             }
             else if (groupBy == "categories")
             {
-                forecastDropDown.DataSource = database.GetCategoires();
+                if (forecastDropdownTitle.Text != "Please Choose A Category")
+                    forecastDropDown.DataSource = database.GetCategoires();
+                else if (forecastDropDown.SelectedValue == null)
+                    forecastDropDown.DataSource = database.GetCategoires();
+
+
                 forecastDropdownTitle.Text = "Please Choose A Category";
-                group = "Categories";
+                group = "categories";
             }
 
             itemName = forecastDropDown.SelectedValue.ToString();
 
             if ((group != "" ) && (itemName != ""))
                 forecast.LoadReport(itemName, group);
+                GenerateLineChart();
 
         }
 
