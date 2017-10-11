@@ -7,7 +7,7 @@ namespace  PHPSRePS
 
     public partial class sentmail : sentmail
     {
-        public Form1()
+        public sentmail()
         {
             InitializeComponent();
         }
