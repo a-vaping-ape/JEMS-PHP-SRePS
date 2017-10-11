@@ -32,12 +32,12 @@ namespace PHPSRePS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.sidebar = new System.Windows.Forms.Panel();
             this.forecastTab = new System.Windows.Forms.Button();
             this.homeTab = new System.Windows.Forms.Button();
@@ -166,6 +166,12 @@ namespace PHPSRePS
             this.forecastEndDate2 = new System.Windows.Forms.DateTimePicker();
             this.forecastStartDate = new System.Windows.Forms.DateTimePicker();
             this.forecastStartTitle = new System.Windows.Forms.Label();
+            this.salesTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.salesOldOrder = new System.Windows.Forms.Button();
+            this.salesOldOrderPanel = new System.Windows.Forms.Panel();
+            this.salesOldOrderTitle = new System.Windows.Forms.Label();
+            this.salesCancel = new System.Windows.Forms.Button();
+            this.salesOldPay = new System.Windows.Forms.Button();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -195,6 +201,7 @@ namespace PHPSRePS
             ((System.ComponentModel.ISupportInitialize)(this.forecastChart)).BeginInit();
             this.forcastMenuPanel.SuspendLayout();
             this.forcasrSettingPanel.SuspendLayout();
+            this.salesOldOrderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar
@@ -362,6 +369,8 @@ namespace PHPSRePS
             // 
             // salesPage
             // 
+            this.salesPage.Controls.Add(this.salesOldOrderPanel);
+            this.salesPage.Controls.Add(this.salesOldOrder);
             this.salesPage.Controls.Add(this.salesTranList);
             this.salesPage.Controls.Add(this.salesAddBtn);
             this.salesPage.Controls.Add(this.salesPayButton);
@@ -1300,7 +1309,7 @@ namespace PHPSRePS
             // inventSearchBtn
             // 
             this.inventSearchBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.inventSearchBtn.BackgroundImage = global::PHPSRePS.Properties.Resources.Search_Icon;
+            this.inventSearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("inventSearchBtn.BackgroundImage")));
             this.inventSearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.inventSearchBtn.FlatAppearance.BorderSize = 0;
             this.inventSearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1622,16 +1631,16 @@ namespace PHPSRePS
             // 
             // reportChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.reportChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.reportChart.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.reportChart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.reportChart.Legends.Add(legend5);
             this.reportChart.Location = new System.Drawing.Point(306, 212);
             this.reportChart.Name = "reportChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.reportChart.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.reportChart.Series.Add(series5);
             this.reportChart.Size = new System.Drawing.Size(1073, 400);
             this.reportChart.TabIndex = 19;
             this.reportChart.Text = "chart1";
@@ -1891,16 +1900,16 @@ namespace PHPSRePS
             // 
             // forecastChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.forecastChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.forecastChart.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.forecastChart.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.forecastChart.Legends.Add(legend6);
             this.forecastChart.Location = new System.Drawing.Point(392, 436);
             this.forecastChart.Name = "forecastChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.forecastChart.Series.Add(series2);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.forecastChart.Series.Add(series6);
             this.forecastChart.Size = new System.Drawing.Size(897, 400);
             this.forecastChart.TabIndex = 20;
             this.forecastChart.Text = "chart1";
@@ -2019,6 +2028,90 @@ namespace PHPSRePS
             this.forecastStartTitle.TabIndex = 26;
             this.forecastStartTitle.Text = "Start Date";
             // 
+            // salesTimePicker
+            // 
+            this.salesTimePicker.Location = new System.Drawing.Point(305, 153);
+            this.salesTimePicker.Name = "salesTimePicker";
+            this.salesTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.salesTimePicker.TabIndex = 40;
+            // 
+            // salesOldOrder
+            // 
+            this.salesOldOrder.BackColor = System.Drawing.Color.LimeGreen;
+            this.salesOldOrder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.salesOldOrder.FlatAppearance.BorderSize = 0;
+            this.salesOldOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.salesOldOrder.Font = new System.Drawing.Font("Segoe UI Symbol", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesOldOrder.ForeColor = System.Drawing.Color.Black;
+            this.salesOldOrder.Location = new System.Drawing.Point(1371, 981);
+            this.salesOldOrder.Margin = new System.Windows.Forms.Padding(0);
+            this.salesOldOrder.Name = "salesOldOrder";
+            this.salesOldOrder.Size = new System.Drawing.Size(191, 55);
+            this.salesOldOrder.TabIndex = 41;
+            this.salesOldOrder.Text = "Old Order";
+            this.salesOldOrder.UseCompatibleTextRendering = true;
+            this.salesOldOrder.UseVisualStyleBackColor = false;
+            this.salesOldOrder.Click += new System.EventHandler(this.salesOldOrder_Click);
+            // 
+            // salesOldOrderPanel
+            // 
+            this.salesOldOrderPanel.Controls.Add(this.salesOldPay);
+            this.salesOldOrderPanel.Controls.Add(this.salesCancel);
+            this.salesOldOrderPanel.Controls.Add(this.salesOldOrderTitle);
+            this.salesOldOrderPanel.Controls.Add(this.salesTimePicker);
+            this.salesOldOrderPanel.Location = new System.Drawing.Point(443, 166);
+            this.salesOldOrderPanel.Name = "salesOldOrderPanel";
+            this.salesOldOrderPanel.Size = new System.Drawing.Size(808, 355);
+            this.salesOldOrderPanel.TabIndex = 42;
+            this.salesOldOrderPanel.Visible = false;
+            // 
+            // salesOldOrderTitle
+            // 
+            this.salesOldOrderTitle.AutoSize = true;
+            this.salesOldOrderTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
+            this.salesOldOrderTitle.ForeColor = System.Drawing.Color.Black;
+            this.salesOldOrderTitle.Location = new System.Drawing.Point(57, 38);
+            this.salesOldOrderTitle.Name = "salesOldOrderTitle";
+            this.salesOldOrderTitle.Size = new System.Drawing.Size(705, 54);
+            this.salesOldOrderTitle.TabIndex = 41;
+            this.salesOldOrderTitle.Text = "Please Choose A Date And Time";
+            // 
+            // salesCancel
+            // 
+            this.salesCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.salesCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.salesCancel.FlatAppearance.BorderSize = 0;
+            this.salesCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.salesCancel.Font = new System.Drawing.Font("Segoe UI Symbol", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesCancel.ForeColor = System.Drawing.Color.Black;
+            this.salesCancel.Location = new System.Drawing.Point(227, 260);
+            this.salesCancel.Margin = new System.Windows.Forms.Padding(0);
+            this.salesCancel.Name = "salesCancel";
+            this.salesCancel.Size = new System.Drawing.Size(133, 55);
+            this.salesCancel.TabIndex = 43;
+            this.salesCancel.Text = "Cancel";
+            this.salesCancel.UseCompatibleTextRendering = true;
+            this.salesCancel.UseVisualStyleBackColor = false;
+            this.salesCancel.Click += new System.EventHandler(this.salesCancel_Click);
+            // 
+            // salesOldPay
+            // 
+            this.salesOldPay.BackColor = System.Drawing.Color.LimeGreen;
+            this.salesOldPay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.salesOldPay.FlatAppearance.BorderSize = 0;
+            this.salesOldPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.salesOldPay.Font = new System.Drawing.Font("Segoe UI Symbol", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesOldPay.ForeColor = System.Drawing.Color.Black;
+            this.salesOldPay.Location = new System.Drawing.Point(461, 260);
+            this.salesOldPay.Margin = new System.Windows.Forms.Padding(0);
+            this.salesOldPay.Name = "salesOldPay";
+            this.salesOldPay.Size = new System.Drawing.Size(135, 55);
+            this.salesOldPay.TabIndex = 43;
+            this.salesOldPay.Text = "Pay";
+            this.salesOldPay.UseCompatibleTextRendering = true;
+            this.salesOldPay.UseVisualStyleBackColor = false;
+            this.salesOldPay.Click += new System.EventHandler(this.salesOldPay_Click);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2070,6 +2163,8 @@ namespace PHPSRePS
             this.forcastMenuPanel.ResumeLayout(false);
             this.forcasrSettingPanel.ResumeLayout(false);
             this.forcasrSettingPanel.PerformLayout();
+            this.salesOldOrderPanel.ResumeLayout(false);
+            this.salesOldOrderPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2207,6 +2302,12 @@ namespace PHPSRePS
         private TextBox inventNameTxtbox;
         private NumericUpDown inventDescPriceTextbox;
         private Button inventAddCancelBtn;
+        private Panel salesOldOrderPanel;
+        private Button salesOldPay;
+        private Button salesCancel;
+        private Label salesOldOrderTitle;
+        private DateTimePicker salesTimePicker;
+        private Button salesOldOrder;
     }
 }
 

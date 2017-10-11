@@ -185,12 +185,18 @@ namespace PHPSRePS {
             salesTranList.DataSource = null;
             salesTranList.Rows.Clear();
             salesTranList.Refresh();
+            salesTotalNum.Text = "$0.00";
+            productList.Clear();
         }
 
         //creates a new items sales record on the DB
         private void payBtn_Click(object sender, EventArgs e)
         {
-            if (currentEmployee != null)
+            if (productList.Count < 1)
+            {
+                MessageBox.Show("Please add an item to the transatiom");
+            }
+            else if ((currentEmployee != null))
             {
                 database.CreateSaleItems(productList, currentEmployee.EmployeeID);
                 salesTranList.DataSource = null;
@@ -198,6 +204,7 @@ namespace PHPSRePS {
                 salesTranList.Refresh();
                 MessageBox.Show("Your Transation Has Been Saved");
                 salesTotalNum.Text = "$0.00";
+                productList.Clear();
             }
             else
             {
@@ -737,7 +744,14 @@ namespace PHPSRePS {
 
         private void salesTab_Click(object sender, EventArgs e)
         {
-
+            if (( currentEmployee == null) || (!currentEmployee.IsManager))
+            {
+                salesOldOrder.Visible = false;
+            }
+            else
+            {
+                salesOldOrder.Visible = true;
+            }
         }
 
         private void salesAddBtn_Click(object sender, EventArgs e)
@@ -1069,6 +1083,50 @@ namespace PHPSRePS {
             LoadForcast("categories");
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void salesOldPay_Click(object sender, EventArgs e)
+        {
+            if (productList.Count < 1)
+            {
+                MessageBox.Show("Please add an item to the transatiom");
+            }
+            else if ( (currentEmployee != null) && productList.Count > 0)
+            {
+                DateTime date = salesTimePicker.Value;
+                database.CreateSaleItems(productList, currentEmployee.EmployeeID, date);
+                salesTranList.DataSource = null;
+                salesTranList.Rows.Clear();
+                salesTranList.Refresh();
+                MessageBox.Show("Your Transation Has Been Saved");
+                salesTotalNum.Text = "$0.00";
+            }
+            else
+            {
+                MessageBox.Show("Please Login To Process A Order");
+            }
+
+           // getAllProducts(salesSearchBox.Text.ToString());
+            salesOldOrderPanel.Visible = false;
+  
+        }
+
+        private void salesOldOrder_Click(object sender, EventArgs e)
+        {
+            salesOldOrderPanel.Visible = true;
+        }
+
+        private void salesCancel_Click(object sender, EventArgs e)
+        {
+            salesOldOrderPanel.Visible = false;
+        }
     }
 }

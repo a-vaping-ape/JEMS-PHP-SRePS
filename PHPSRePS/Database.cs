@@ -77,7 +77,6 @@ namespace PHPSRePS
 
         public int  GetCategoires(string name)
         {
-            //List<String> result = new List<String>();
             int result = 0;
 
             OpenConnection();
@@ -145,6 +144,68 @@ namespace PHPSRePS
 
             return foundEmp;
         }
+
+        public void CreateSaleItems(List<Product> productList, int EmpID, DateTime date)
+        {
+            List<Product> checkedProducts = new List<Product>();
+            List<ItemSale> Items = new List<ItemSale>();
+            Sale sale = new Sale();
+
+            sale.Date = date.ToString("yyyy-MM-dd HH:mm:ss");
+
+            sale.EmployeeID = EmpID;
+
+            bool duplicate;
+
+            //add sales and get the latest ID number
+            RunVoidQuery(sale.GetINSERT());
+            int ID = ReadOneValue(sale.SelectThisObject(), "SalesID");
+            sale.ID = ID;
+            sale.EmployeeID = EmpID;
+
+            //works out the quantity for each product
+
+            foreach (Product tempPro in productList)
+            {
+                duplicate = false;
+
+                foreach (Product p in checkedProducts)
+                {
+                    if (tempPro.ID == p.ID)
+                    {
+                        duplicate = true;
+                        break;
+                    }
+                }
+
+                if (duplicate)
+                    continue;
+
+                //Product tempPro = productList[i];
+                int qty = 0;
+
+                foreach (Product pro in productList)
+                {
+                    if (tempPro.ID == pro.ID)
+                        qty++;
+                }
+
+                int remainingStock = tempPro.Stock - qty;
+
+                RunVoidQuery(tempPro.GetUPDATE("product", "UnitsInStock", remainingStock.ToString(), "ProductID", tempPro.ID.ToString()));
+
+                ItemSale Item = new ItemSale(sale.ID, tempPro.ID, qty);
+                Items.Add(Item);
+
+                checkedProducts.Add(tempPro);
+            }
+
+            //Insert all item sales
+            foreach (ItemSale i in Items)
+                RunVoidQuery(i.GetINSERT());
+
+        }
+
 
         public void CreateSaleItems(List<Product> productList, int EmpID)
         {
