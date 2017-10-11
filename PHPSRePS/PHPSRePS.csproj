@@ -131,5 +131,8 @@
   <ItemGroup>
     <None Include="Properties\GUI Resources\Home View\Search Icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GUI Resources\Sidebar\Forecast.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

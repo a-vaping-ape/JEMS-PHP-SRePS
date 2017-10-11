@@ -692,8 +692,7 @@ namespace PHPSRePS {
             }
             Product selectedProduct = new Product();
             try
-            {
-                
+            {   
                 selectedProduct.ID = (int)inventDataList.Rows[selectedRow].Cells[0].Value;
                 selectedProduct.Name = (string)inventDataList.Rows[selectedRow].Cells[1].Value;
                 selectedProduct.Category = (string)inventDataList.Rows[selectedRow].Cells[2].Value;
@@ -794,38 +793,7 @@ namespace PHPSRePS {
 
         }
 
-        private void GenerateLineChart()
-        {
-            reportChart.Series.Clear();
-            reportChart.Titles.Clear();
-            List<SalesForecast> data = null;
-            reportChart.Titles.Add("Sales Forecast");
-
-            reportChart.Name = "LineChartArea";
-
-            data = forecast.SalesForecastReport;
-
-
-            Series series = new Series
-            {
-                Name = "series1",
-                IsVisibleInLegend = true,
-                Color = System.Drawing.Color.Green,
-                ChartType = SeriesChartType.Line
-            };
-            int i = 0;
-            foreach (SalesForecast item in data)
-            {
-                series.Points.Add(item.quantity);
-                var temp = series.Points[i];
-                temp.AxisLabel = item.quantity.ToString();
-                temp.LegendText = item.date.ToString();
-                i++;
-            }
-
-            reportChart.Series.Add(series);
-
-        }
+        
 
             private void GeneratePieChart(string groupBy)
         {
@@ -877,22 +845,12 @@ namespace PHPSRePS {
             DateTime startDate = reportStartDate.Value.Date;
             DateTime endDate = reportEndDate.Value.Date;
 
-            forecast = new ForecastReport(startDate, endDate);
             report = new SalesReport(startDate, endDate);
 
-          //  forecast.LoadReport( .LoadReport(startDate, endDate);
             report.LoadReport(startDate, endDate);
 
             reportsGrid.DataSource = report.GetSource(input);
-   
             reportsGrid.ForeColor = Color.Black;
-
-            
-            
-
-            
-
-
         }
 
         private void reportsProducts_Click(object sender, EventArgs e)
@@ -917,6 +875,99 @@ namespace PHPSRePS {
         {
             PopulateReportTable("category");
             GeneratePieChart("category");
+        }
+
+        private void reportsTab_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GenerateLineChart()
+        {
+            reportChart.Series.Clear();
+            reportChart.Titles.Clear();
+            List<SalesForecast> data = null;
+            reportChart.Titles.Add("Sales Forecast");
+
+            reportChart.Name = "LineChartArea";
+
+            data = forecast.SalesForecastReport;
+
+
+            Series series = new Series
+            {
+                Name = "series1",
+                IsVisibleInLegend = true,
+                Color = System.Drawing.Color.Green,
+                ChartType = SeriesChartType.Line
+            };
+            int i = 0;
+            foreach (SalesForecast item in data)
+            {
+                series.Points.Add(item.quantity);
+                var temp = series.Points[i];
+                temp.AxisLabel = item.quantity.ToString();
+                temp.LegendText = item.date.ToString();
+                i++;
+            }
+
+            reportChart.Series.Add(series);
+
+        }
+
+        private void forecastTab_Click(object sender, EventArgs e)
+        {
+            tabView.SelectTab("forecastPage");
+            LoadForcast("products");
+
+            
+        }
+
+        private void LoadForcast(string groupBy)
+        {
+            DateTime startDate = forecastStartDate.Value.Date;
+            DateTime endDate = forecastEndDate2.Value.Date;
+
+            forecast = new ForecastReport(startDate, endDate);
+
+            string itemName = "";
+            string group = "";
+
+            //report.LoadReport(startDate, endDate);
+
+            if (groupBy == "products")
+            {
+                forecastDropDown.DataSource = database.GetProducts();
+                forecastDropdownTitle.Text = "Please Choose A Product";
+                group = "Product";
+            }
+            else if (groupBy == "categories")
+            {
+                forecastDropDown.DataSource = database.GetCategoires();
+                forecastDropdownTitle.Text = "Please Choose A Category";
+                group = "Categories";
+            }
+
+            itemName = forecastDropDown.SelectedValue.ToString();
+
+            if ((group != "" ) && (itemName != ""))
+                forecast.LoadReport(itemName, group);
+
+        }
+
+        private void homePage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void forecastProductBtn_Click(object sender, EventArgs e)
+        {
+            LoadForcast("products");
+        }
+
+        private void forecastCategoriesBtn_Click(object sender, EventArgs e)
+        {
+            LoadForcast("categories");
         }
     }
 }

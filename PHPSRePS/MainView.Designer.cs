@@ -32,12 +32,16 @@ namespace PHPSRePS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.sidebar = new System.Windows.Forms.Panel();
+            this.forecastTab = new System.Windows.Forms.Button();
             this.homeTab = new System.Windows.Forms.Button();
             this.reportsTab = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -57,7 +61,6 @@ namespace PHPSRePS
             this.salesLine = new System.Windows.Forms.Label();
             this.salesTransList = new System.Windows.Forms.ListView();
             this.salesTransLabel = new System.Windows.Forms.Label();
-            this.salesSearchButton = new System.Windows.Forms.Button();
             this.searchZBtn = new System.Windows.Forms.Button();
             this.searchYBtn = new System.Windows.Forms.Button();
             this.searchXBtn = new System.Windows.Forms.Button();
@@ -87,6 +90,7 @@ namespace PHPSRePS
             this.horizontalLine = new System.Windows.Forms.Label();
             this.salesDataList = new System.Windows.Forms.DataGridView();
             this.salesSearchBox = new System.Windows.Forms.TextBox();
+            this.salesSearchButton = new System.Windows.Forms.Button();
             this.inventPage = new System.Windows.Forms.TabPage();
             this.inventAddForm = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -100,13 +104,13 @@ namespace PHPSRePS
             this.inventNameTxtbox = new System.Windows.Forms.TextBox();
             this.inventCancelBtn = new System.Windows.Forms.Button();
             this.inventEditBtn = new System.Windows.Forms.Button();
-            this.inventSearchBtn = new System.Windows.Forms.Button();
             this.inventDescriptList = new System.Windows.Forms.DataGridView();
             this.descriptText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventAddNew = new System.Windows.Forms.Button();
             this.InventDescription = new System.Windows.Forms.Label();
             this.inventDataList = new System.Windows.Forms.DataGridView();
             this.inventSearchBar = new System.Windows.Forms.TextBox();
+            this.inventSearchBtn = new System.Windows.Forms.Button();
             this.reportsPage = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.reportEndDate = new System.Windows.Forms.DateTimePicker();
@@ -133,6 +137,18 @@ namespace PHPSRePS
             this.profileName = new System.Windows.Forms.Label();
             this.profileLogout = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.forecastPage = new System.Windows.Forms.TabPage();
+            this.forecastProductBtn = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.forecastCategoriesBtn = new System.Windows.Forms.Button();
+            this.forecastDropDown = new System.Windows.Forms.ComboBox();
+            this.forecastDropdownTitle = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.forecastEndDate = new System.Windows.Forms.Label();
+            this.forecastEndDate2 = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.forecastStartDate = new System.Windows.Forms.DateTimePicker();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -151,11 +167,16 @@ namespace PHPSRePS
             this.panel2.SuspendLayout();
             this.profilePage.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.forecastPage.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar
             // 
             this.sidebar.BackColor = System.Drawing.Color.SteelBlue;
+            this.sidebar.Controls.Add(this.forecastTab);
             this.sidebar.Controls.Add(this.homeTab);
             this.sidebar.Controls.Add(this.reportsTab);
             this.sidebar.Controls.Add(this.panel1);
@@ -166,9 +187,25 @@ namespace PHPSRePS
             this.sidebar.Size = new System.Drawing.Size(115, 1080);
             this.sidebar.TabIndex = 0;
             // 
+            // forecastTab
+            // 
+            this.forecastTab.BackColor = System.Drawing.Color.SteelBlue;
+            this.forecastTab.BackgroundImage = global::PHPSRePS.Properties.Resources.Forecast;
+            this.forecastTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.forecastTab.FlatAppearance.BorderSize = 0;
+            this.forecastTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.forecastTab.ForeColor = System.Drawing.Color.Transparent;
+            this.forecastTab.Location = new System.Drawing.Point(-3, 345);
+            this.forecastTab.Margin = new System.Windows.Forms.Padding(0);
+            this.forecastTab.Name = "forecastTab";
+            this.forecastTab.Size = new System.Drawing.Size(115, 115);
+            this.forecastTab.TabIndex = 4;
+            this.forecastTab.UseVisualStyleBackColor = false;
+            this.forecastTab.Click += new System.EventHandler(this.forecastTab_Click);
+            // 
             // homeTab
             // 
-            this.homeTab.BackgroundImage = global::PHPSRePS.Properties.Resources.Home;
+            this.homeTab.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("homeTab.BackgroundImage")));
             this.homeTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.homeTab.FlatAppearance.BorderSize = 0;
             this.homeTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -183,7 +220,7 @@ namespace PHPSRePS
             // reportsTab
             // 
             this.reportsTab.BackColor = System.Drawing.Color.SteelBlue;
-            this.reportsTab.BackgroundImage = global::PHPSRePS.Properties.Resources.Reports;
+            this.reportsTab.BackgroundImage = global::PHPSRePS.Properties.Resources.Reports1;
             this.reportsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.reportsTab.FlatAppearance.BorderSize = 0;
             this.reportsTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -194,6 +231,7 @@ namespace PHPSRePS
             this.reportsTab.Size = new System.Drawing.Size(115, 115);
             this.reportsTab.TabIndex = 2;
             this.reportsTab.UseVisualStyleBackColor = false;
+            this.reportsTab.Click += new System.EventHandler(this.reportsTab_Click);
             // 
             // panel1
             // 
@@ -204,7 +242,7 @@ namespace PHPSRePS
             // 
             // inventTab
             // 
-            this.inventTab.BackgroundImage = global::PHPSRePS.Properties.Resources.Inventory;
+            this.inventTab.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("inventTab.BackgroundImage")));
             this.inventTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.inventTab.FlatAppearance.BorderSize = 0;
             this.inventTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -219,7 +257,7 @@ namespace PHPSRePS
             // salesTab
             // 
             this.salesTab.BackColor = System.Drawing.Color.SteelBlue;
-            this.salesTab.BackgroundImage = global::PHPSRePS.Properties.Resources.Sales;
+            this.salesTab.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("salesTab.BackgroundImage")));
             this.salesTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.salesTab.FlatAppearance.BorderSize = 0;
             this.salesTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -241,6 +279,7 @@ namespace PHPSRePS
             this.tabView.Controls.Add(this.reportsPage);
             this.tabView.Controls.Add(this.userPage);
             this.tabView.Controls.Add(this.profilePage);
+            this.tabView.Controls.Add(this.forecastPage);
             this.tabView.ItemSize = new System.Drawing.Size(0, 1);
             this.tabView.Location = new System.Drawing.Point(115, 1);
             this.tabView.Margin = new System.Windows.Forms.Padding(0);
@@ -259,11 +298,12 @@ namespace PHPSRePS
             this.homePage.Size = new System.Drawing.Size(1797, 1070);
             this.homePage.TabIndex = 3;
             this.homePage.Text = "Home";
+            this.homePage.Click += new System.EventHandler(this.homePage_Click);
             // 
             // powerButton
             // 
             this.powerButton.BackColor = System.Drawing.Color.Transparent;
-            this.powerButton.BackgroundImage = global::PHPSRePS.Properties.Resources.Power_Icon;
+            this.powerButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("powerButton.BackgroundImage")));
             this.powerButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.powerButton.FlatAppearance.BorderSize = 0;
             this.powerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -307,7 +347,6 @@ namespace PHPSRePS
             this.salesPage.Controls.Add(this.salesLine);
             this.salesPage.Controls.Add(this.salesTransList);
             this.salesPage.Controls.Add(this.salesTransLabel);
-            this.salesPage.Controls.Add(this.salesSearchButton);
             this.salesPage.Controls.Add(this.searchZBtn);
             this.salesPage.Controls.Add(this.searchYBtn);
             this.salesPage.Controls.Add(this.searchXBtn);
@@ -337,6 +376,7 @@ namespace PHPSRePS
             this.salesPage.Controls.Add(this.horizontalLine);
             this.salesPage.Controls.Add(this.salesDataList);
             this.salesPage.Controls.Add(this.salesSearchBox);
+            this.salesPage.Controls.Add(this.salesSearchButton);
             this.salesPage.Location = new System.Drawing.Point(4, 5);
             this.salesPage.Margin = new System.Windows.Forms.Padding(0);
             this.salesPage.Name = "salesPage";
@@ -462,23 +502,6 @@ namespace PHPSRePS
             this.salesTransLabel.Size = new System.Drawing.Size(298, 42);
             this.salesTransLabel.TabIndex = 31;
             this.salesTransLabel.Text = "Transaction List";
-            // 
-            // salesSearchButton
-            // 
-            this.salesSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.salesSearchButton.BackgroundImage = global::PHPSRePS.Properties.Resources.Search_Icon;
-            this.salesSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.salesSearchButton.FlatAppearance.BorderSize = 0;
-            this.salesSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.salesSearchButton.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesSearchButton.ForeColor = System.Drawing.Color.Transparent;
-            this.salesSearchButton.Location = new System.Drawing.Point(963, 24);
-            this.salesSearchButton.Margin = new System.Windows.Forms.Padding(0);
-            this.salesSearchButton.Name = "salesSearchButton";
-            this.salesSearchButton.Size = new System.Drawing.Size(38, 38);
-            this.salesSearchButton.TabIndex = 30;
-            this.salesSearchButton.UseCompatibleTextRendering = true;
-            this.salesSearchButton.UseVisualStyleBackColor = false;
             // 
             // searchZBtn
             // 
@@ -981,17 +1004,34 @@ namespace PHPSRePS
             this.salesSearchBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.salesSearchBox_MouseClick);
             this.salesSearchBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salesSearchBox_KeyPress);
             // 
+            // salesSearchButton
+            // 
+            this.salesSearchButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.salesSearchButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("salesSearchButton.BackgroundImage")));
+            this.salesSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.salesSearchButton.FlatAppearance.BorderSize = 0;
+            this.salesSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.salesSearchButton.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesSearchButton.ForeColor = System.Drawing.Color.Transparent;
+            this.salesSearchButton.Location = new System.Drawing.Point(963, 24);
+            this.salesSearchButton.Margin = new System.Windows.Forms.Padding(0);
+            this.salesSearchButton.Name = "salesSearchButton";
+            this.salesSearchButton.Size = new System.Drawing.Size(38, 38);
+            this.salesSearchButton.TabIndex = 30;
+            this.salesSearchButton.UseCompatibleTextRendering = true;
+            this.salesSearchButton.UseVisualStyleBackColor = false;
+            // 
             // inventPage
             // 
             this.inventPage.Controls.Add(this.inventAddForm);
             this.inventPage.Controls.Add(this.inventCancelBtn);
             this.inventPage.Controls.Add(this.inventEditBtn);
-            this.inventPage.Controls.Add(this.inventSearchBtn);
             this.inventPage.Controls.Add(this.inventDescriptList);
             this.inventPage.Controls.Add(this.inventAddNew);
             this.inventPage.Controls.Add(this.InventDescription);
             this.inventPage.Controls.Add(this.inventDataList);
             this.inventPage.Controls.Add(this.inventSearchBar);
+            this.inventPage.Controls.Add(this.inventSearchBtn);
             this.inventPage.Location = new System.Drawing.Point(4, 5);
             this.inventPage.Name = "inventPage";
             this.inventPage.Padding = new System.Windows.Forms.Padding(3);
@@ -1152,28 +1192,10 @@ namespace PHPSRePS
             this.inventEditBtn.UseVisualStyleBackColor = false;
             this.inventEditBtn.Click += new System.EventHandler(this.inventEditBtn_Click);
             // 
-            // inventSearchBtn
-            // 
-            this.inventSearchBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.inventSearchBtn.BackgroundImage = global::PHPSRePS.Properties.Resources.Search_Icon;
-            this.inventSearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.inventSearchBtn.FlatAppearance.BorderSize = 0;
-            this.inventSearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventSearchBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventSearchBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.inventSearchBtn.Location = new System.Drawing.Point(989, 17);
-            this.inventSearchBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.inventSearchBtn.Name = "inventSearchBtn";
-            this.inventSearchBtn.Size = new System.Drawing.Size(39, 38);
-            this.inventSearchBtn.TabIndex = 37;
-            this.inventSearchBtn.UseCompatibleTextRendering = true;
-            this.inventSearchBtn.UseVisualStyleBackColor = false;
-            this.inventSearchBtn.Click += new System.EventHandler(this.inventSearchBtn_Click);
-            // 
             // inventDescriptList
             // 
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.inventDescriptList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.inventDescriptList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.inventDescriptList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.inventDescriptList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inventDescriptList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1182,14 +1204,14 @@ namespace PHPSRePS
             this.inventDescriptList.Margin = new System.Windows.Forms.Padding(2);
             this.inventDescriptList.Name = "inventDescriptList";
             this.inventDescriptList.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventDescriptList.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventDescriptList.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.inventDescriptList.RowHeadersWidth = 200;
             this.inventDescriptList.Size = new System.Drawing.Size(489, 864);
             this.inventDescriptList.TabIndex = 36;
@@ -1252,6 +1274,24 @@ namespace PHPSRePS
             this.inventSearchBar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.inventSearchBar_Click);
             this.inventSearchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inventSearchBar_KeyPress);
             // 
+            // inventSearchBtn
+            // 
+            this.inventSearchBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.inventSearchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("inventSearchBtn.BackgroundImage")));
+            this.inventSearchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.inventSearchBtn.FlatAppearance.BorderSize = 0;
+            this.inventSearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventSearchBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventSearchBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventSearchBtn.Location = new System.Drawing.Point(989, 17);
+            this.inventSearchBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.inventSearchBtn.Name = "inventSearchBtn";
+            this.inventSearchBtn.Size = new System.Drawing.Size(39, 38);
+            this.inventSearchBtn.TabIndex = 37;
+            this.inventSearchBtn.UseCompatibleTextRendering = true;
+            this.inventSearchBtn.UseVisualStyleBackColor = false;
+            this.inventSearchBtn.Click += new System.EventHandler(this.inventSearchBtn_Click);
+            // 
             // reportsPage
             // 
             this.reportsPage.Controls.Add(this.label5);
@@ -1311,16 +1351,16 @@ namespace PHPSRePS
             // 
             // reportChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.reportChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.reportChart.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.reportChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.reportChart.Legends.Add(legend4);
             this.reportChart.Location = new System.Drawing.Point(306, 212);
             this.reportChart.Name = "reportChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.reportChart.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.reportChart.Series.Add(series4);
             this.reportChart.Size = new System.Drawing.Size(1073, 400);
             this.reportChart.TabIndex = 19;
             this.reportChart.Text = "chart1";
@@ -1565,6 +1605,149 @@ namespace PHPSRePS
             this.label6.Text = "User Profile";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // forecastPage
+            // 
+            this.forecastPage.Controls.Add(this.chart1);
+            this.forecastPage.Controls.Add(this.forecastDropDown);
+            this.forecastPage.Controls.Add(this.panel5);
+            this.forecastPage.Controls.Add(this.panel6);
+            this.forecastPage.Location = new System.Drawing.Point(4, 5);
+            this.forecastPage.Name = "forecastPage";
+            this.forecastPage.Size = new System.Drawing.Size(1797, 1070);
+            this.forecastPage.TabIndex = 6;
+            this.forecastPage.Text = "forecastPage";
+            this.forecastPage.UseVisualStyleBackColor = true;
+            // 
+            // forecastProductBtn
+            // 
+            this.forecastProductBtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.forecastProductBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.forecastProductBtn.FlatAppearance.BorderSize = 0;
+            this.forecastProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.forecastProductBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forecastProductBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.forecastProductBtn.Location = new System.Drawing.Point(124, 20);
+            this.forecastProductBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.forecastProductBtn.Name = "forecastProductBtn";
+            this.forecastProductBtn.Size = new System.Drawing.Size(208, 73);
+            this.forecastProductBtn.TabIndex = 4;
+            this.forecastProductBtn.Text = "Products";
+            this.forecastProductBtn.UseVisualStyleBackColor = false;
+            this.forecastProductBtn.Click += new System.EventHandler(this.forecastProductBtn_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel5.Controls.Add(this.forecastCategoriesBtn);
+            this.panel5.Controls.Add(this.forecastProductBtn);
+            this.panel5.Location = new System.Drawing.Point(392, 6);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(897, 118);
+            this.panel5.TabIndex = 18;
+            // 
+            // forecastCategoriesBtn
+            // 
+            this.forecastCategoriesBtn.BackColor = System.Drawing.Color.SteelBlue;
+            this.forecastCategoriesBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.forecastCategoriesBtn.FlatAppearance.BorderSize = 0;
+            this.forecastCategoriesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.forecastCategoriesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forecastCategoriesBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.forecastCategoriesBtn.Location = new System.Drawing.Point(556, 20);
+            this.forecastCategoriesBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.forecastCategoriesBtn.Name = "forecastCategoriesBtn";
+            this.forecastCategoriesBtn.Size = new System.Drawing.Size(208, 73);
+            this.forecastCategoriesBtn.TabIndex = 6;
+            this.forecastCategoriesBtn.Text = "Categories";
+            this.forecastCategoriesBtn.UseVisualStyleBackColor = false;
+            this.forecastCategoriesBtn.Click += new System.EventHandler(this.forecastCategoriesBtn_Click);
+            // 
+            // forecastDropDown
+            // 
+            this.forecastDropDown.FormattingEnabled = true;
+            this.forecastDropDown.Location = new System.Drawing.Point(604, 203);
+            this.forecastDropDown.Name = "forecastDropDown";
+            this.forecastDropDown.Size = new System.Drawing.Size(434, 21);
+            this.forecastDropDown.TabIndex = 19;
+            // 
+            // forecastDropdownTitle
+            // 
+            this.forecastDropdownTitle.AutoSize = true;
+            this.forecastDropdownTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forecastDropdownTitle.ForeColor = System.Drawing.Color.Black;
+            this.forecastDropdownTitle.Location = new System.Drawing.Point(206, 50);
+            this.forecastDropdownTitle.Name = "forecastDropdownTitle";
+            this.forecastDropdownTitle.Size = new System.Drawing.Size(216, 31);
+            this.forecastDropdownTitle.TabIndex = 20;
+            this.forecastDropdownTitle.Text = "Select A Product";
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel6.Controls.Add(this.forecastEndDate);
+            this.panel6.Controls.Add(this.forecastDropdownTitle);
+            this.panel6.Controls.Add(this.forecastEndDate2);
+            this.panel6.Controls.Add(this.forecastStartDate);
+            this.panel6.Controls.Add(this.label9);
+            this.panel6.Location = new System.Drawing.Point(392, 119);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(897, 253);
+            this.panel6.TabIndex = 19;
+            // 
+            // forecastEndDate
+            // 
+            this.forecastEndDate.AutoSize = true;
+            this.forecastEndDate.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.forecastEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forecastEndDate.ForeColor = System.Drawing.Color.Black;
+            this.forecastEndDate.Location = new System.Drawing.Point(450, 152);
+            this.forecastEndDate.Name = "forecastEndDate";
+            this.forecastEndDate.Size = new System.Drawing.Size(101, 25);
+            this.forecastEndDate.TabIndex = 28;
+            this.forecastEndDate.Text = "End Date";
+            // 
+            // forecastEndDate2
+            // 
+            this.forecastEndDate2.Location = new System.Drawing.Point(455, 180);
+            this.forecastEndDate2.Name = "forecastEndDate2";
+            this.forecastEndDate2.Size = new System.Drawing.Size(191, 20);
+            this.forecastEndDate2.TabIndex = 27;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(207, 152);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 25);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "Start Date";
+            // 
+            // forecastStartDate
+            // 
+            this.forecastStartDate.Location = new System.Drawing.Point(212, 180);
+            this.forecastStartDate.Name = "forecastStartDate";
+            this.forecastStartDate.Size = new System.Drawing.Size(191, 20);
+            this.forecastStartDate.TabIndex = 25;
+            // 
+            // chart1
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
+            this.chart1.Location = new System.Drawing.Point(392, 436);
+            this.chart1.Name = "chart1";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
+            this.chart1.Size = new System.Drawing.Size(897, 400);
+            this.chart1.TabIndex = 20;
+            this.chart1.Text = "chart1";
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1601,6 +1784,11 @@ namespace PHPSRePS
             this.profilePage.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.forecastPage.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1707,6 +1895,19 @@ namespace PHPSRePS
         private DateTimePicker reportStartDate;
         private Label label5;
         private DateTimePicker reportEndDate;
+        private Button forecastTab;
+        private TabPage forecastPage;
+        private Label forecastDropdownTitle;
+        private ComboBox forecastDropDown;
+        private Panel panel5;
+        private Button forecastCategoriesBtn;
+        private Button forecastProductBtn;
+        private Panel panel6;
+        private Label forecastEndDate;
+        private DateTimePicker forecastEndDate2;
+        private DateTimePicker forecastStartDate;
+        private Label label9;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 

@@ -60,7 +60,7 @@ namespace PHPSRePS
         // load data from the database into local lists
         public void LoadReport(string itemName, string groupBy)
         {
-            // PopulateSalesHistoryList(itemName, groupBy);
+            PopulateSalesHistoryList(itemName, groupBy);
             GenerateForecastData();
         }
 

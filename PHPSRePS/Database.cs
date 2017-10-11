@@ -52,6 +52,25 @@ namespace PHPSRePS
             return result;
         }
 
+        public List<String> GetProducts()
+        {
+            List<String> result = new List<String>();
+
+            OpenConnection();
+
+            MySqlCommand cmd = new MySqlCommand("SELECT ProductName FROM Product", connection);
+            var reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                result.Add((string)reader["ProductName"]);
+            }
+            connection.Close();
+
+            return result;
+        }
+
+
         public List<String> GetCategoires()
         {
             List<String> result = new List<String>();
@@ -243,17 +262,17 @@ namespace PHPSRePS
         {
             string condition
                 = (groupBy == "product")
-                ? "WHERE products.ProductName=" + itemName + " "
-                : "WHERE categories.CategoryName=" + itemName + " ";
+                ? " WHERE Product.ProductName=" + itemName + " "
+                : " WHERE Categories.CategoryName=" + itemName + " ";
 
             return
-                "select Sales.SaleDate AS Date,SUM(ItemSales.Quantity) AS Quantity FROM Sales"
-                + "INNER JOIN ItemSales ON Sales.SaleID = ItemSales.SaleID"
-                + "INNER JOIN Products ON Products.ProductID = ItemSales.ProductID"
-                + "INNER JOIN categories ON products.CategoryID = categories.CategoryID"
+                "SELECT Sales.SaleDate AS Date,SUM(ItemSales.Quantity) AS Quantity FROM Sales"
+                + " INNER JOIN ItemSales ON Sales.SaleID = ItemSales.SaleID"
+                + " INNER JOIN Product ON Product.ProductID = ItemSales.ProductID"
+                + " INNER JOIN Categories ON Product.CategoryID = Categories.CategoryID"
                 + condition
-                + "GROUP BY Sales.SaleDate"
-                + "ORDER BY Sales.SaleDate ASC";
+                + " GROUP BY Sales.SalesDate"
+                + " ORDER BY Sales.SalesDate ASC";
         }
 
         //used for reading from the database
