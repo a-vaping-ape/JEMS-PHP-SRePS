@@ -918,5 +918,11 @@ namespace PHPSRePS {
             PopulateReportTable("category");
             GeneratePieChart("category");
         }
+        
+        private void reportSendReportBtn_Click(object sender, EventArgs e)
+        {
+                
+        
+        }
     }
 }
