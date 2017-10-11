@@ -15,23 +15,24 @@ namespace sentmail
         {
             try
             {
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                mail.From = new MailAddress("your_email_address@gmail.com");
-                mail.To.Add("to_address");
-                mail.Subject = " report ";
-                mail.Body = " Report mail ";
-
-                System.Net.Mail.Attachment attachment;
-                attachment = new System.Net.Mail.Attachment("report.scv");
-                mail.Attachments.Add(attachment);
-
-                SmtpServer.Port = 32;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("username", "password");
-                SmtpServer.EnableSsl = true;
-
-                SmtpServer.Send(mail);
-                MessageBox.Show("mail Send");
+                System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
+                client.Host =("smtp.gmail.com");
+                client.UseDefaultCredentials = true; 
+                client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network; 
+                client.Credentials = new System.Net.NetworkCredential("id", "pwd");
+                System.Net.Mail.MailMessage Message = new System.Net.Mail.MailMessage();
+                Message.From = new System.Net.Mail.MailAddress("@gmail.com");
+                
+                Message.To.Add("manager@gmail.com");
+                
+                Message.Subject = "Report";
+                Message.Body = "Report" ;
+                Message.attachment = "C:\report.scv";
+                Message.SubjectEncoding = System.Text.Encoding.UTF8;
+                Message.BodyEncoding = System.Text.Encoding.UTF8;
+                Message.Priority = System.Net.Mail.MailPriority.High;
+                Message.IsBodyHtml = true;
+                client.Send(Message);
             }
             catch (Exception ex)
             {
