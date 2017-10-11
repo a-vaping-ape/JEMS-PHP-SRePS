@@ -32,19 +32,17 @@ namespace PHPSRePS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.sidebar = new System.Windows.Forms.Panel();
             this.forecastTab = new System.Windows.Forms.Button();
             this.homeTab = new System.Windows.Forms.Button();
             this.reportsTab = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.reportPanel = new System.Windows.Forms.Panel();
             this.inventTab = new System.Windows.Forms.Button();
             this.salesTab = new System.Windows.Forms.Button();
             this.tabView = new System.Windows.Forms.TabControl();
@@ -92,63 +90,51 @@ namespace PHPSRePS
             this.salesSearchBox = new System.Windows.Forms.TextBox();
             this.salesSearchButton = new System.Windows.Forms.Button();
             this.inventPage = new System.Windows.Forms.TabPage();
-            this.inventAddForm = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.inventPriceLabel = new System.Windows.Forms.Label();
-            this.inventPriceTxtbox = new System.Windows.Forms.TextBox();
-            this.inventQtyLabel = new System.Windows.Forms.Label();
-            this.inventQtyTxtbox = new System.Windows.Forms.TextBox();
-            this.inventCateLabel = new System.Windows.Forms.Label();
-            this.inventNameLabel = new System.Windows.Forms.Label();
-            this.inventFormLabel = new System.Windows.Forms.Label();
-            this.inventNameTxtbox = new System.Windows.Forms.TextBox();
             this.inventCancelBtn = new System.Windows.Forms.Button();
             this.inventEditBtn = new System.Windows.Forms.Button();
-            this.inventDescriptList = new System.Windows.Forms.DataGridView();
-            this.descriptText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventAddNew = new System.Windows.Forms.Button();
             this.InventDescription = new System.Windows.Forms.Label();
             this.inventDataList = new System.Windows.Forms.DataGridView();
             this.inventSearchBar = new System.Windows.Forms.TextBox();
             this.inventSearchBtn = new System.Windows.Forms.Button();
             this.reportsPage = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
+            this.reportEndTitle = new System.Windows.Forms.Label();
             this.reportEndDate = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
+            this.reportStartTitle = new System.Windows.Forms.Label();
             this.reportStartDate = new System.Windows.Forms.DateTimePicker();
             this.reportChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.reportsGrid = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.reportMenuPanel = new System.Windows.Forms.Panel();
             this.reportCategories = new System.Windows.Forms.Button();
             this.reportsProducts = new System.Windows.Forms.Button();
             this.reportEmployee = new System.Windows.Forms.Button();
             this.userPage = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
+            this.loginPasswordTitle = new System.Windows.Forms.Label();
             this.userPassField = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.loginUserTitle = new System.Windows.Forms.Label();
+            this.loginTitle = new System.Windows.Forms.Label();
             this.userUsrField = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.loginPanel = new System.Windows.Forms.Panel();
             this.userLoginBtn = new System.Windows.Forms.Button();
             this.profilePage = new System.Windows.Forms.TabPage();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.profilePanel = new System.Windows.Forms.Panel();
             this.profileHireDate = new System.Windows.Forms.Label();
             this.profileID = new System.Windows.Forms.Label();
             this.profileName = new System.Windows.Forms.Label();
             this.profileLogout = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.profileTitle = new System.Windows.Forms.Label();
             this.forecastPage = new System.Windows.Forms.TabPage();
             this.forecastProductBtn = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.forcastMenuPanel = new System.Windows.Forms.Panel();
             this.forecastCategoriesBtn = new System.Windows.Forms.Button();
             this.forecastDropDown = new System.Windows.Forms.ComboBox();
             this.forecastDropdownTitle = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.forcasrSettingPanel = new System.Windows.Forms.Panel();
             this.forecastEndDate = new System.Windows.Forms.Label();
             this.forecastEndDate2 = new System.Windows.Forms.DateTimePicker();
-            this.label9 = new System.Windows.Forms.Label();
+            this.forecastStartTitle = new System.Windows.Forms.Label();
             this.forecastStartDate = new System.Windows.Forms.DateTimePicker();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.forecastChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -156,21 +142,19 @@ namespace PHPSRePS
             ((System.ComponentModel.ISupportInitialize)(this.salesTranList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesDataList)).BeginInit();
             this.inventPage.SuspendLayout();
-            this.inventAddForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inventDescriptList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).BeginInit();
             this.reportsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportsGrid)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.reportMenuPanel.SuspendLayout();
             this.userPage.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.loginPanel.SuspendLayout();
             this.profilePage.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.profilePanel.SuspendLayout();
             this.forecastPage.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.forcastMenuPanel.SuspendLayout();
+            this.forcasrSettingPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.forecastChart)).BeginInit();
             this.SuspendLayout();
             // 
             // sidebar
@@ -179,7 +163,7 @@ namespace PHPSRePS
             this.sidebar.Controls.Add(this.forecastTab);
             this.sidebar.Controls.Add(this.homeTab);
             this.sidebar.Controls.Add(this.reportsTab);
-            this.sidebar.Controls.Add(this.panel1);
+            this.sidebar.Controls.Add(this.reportPanel);
             this.sidebar.Controls.Add(this.inventTab);
             this.sidebar.Controls.Add(this.salesTab);
             this.sidebar.Location = new System.Drawing.Point(0, 0);
@@ -233,12 +217,12 @@ namespace PHPSRePS
             this.reportsTab.UseVisualStyleBackColor = false;
             this.reportsTab.Click += new System.EventHandler(this.reportsTab_Click);
             // 
-            // panel1
+            // reportPanel
             // 
-            this.panel1.Location = new System.Drawing.Point(115, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1805, 1080);
-            this.panel1.TabIndex = 1;
+            this.reportPanel.Location = new System.Drawing.Point(115, 0);
+            this.reportPanel.Name = "reportPanel";
+            this.reportPanel.Size = new System.Drawing.Size(1805, 1080);
+            this.reportPanel.TabIndex = 1;
             // 
             // inventTab
             // 
@@ -1023,10 +1007,8 @@ namespace PHPSRePS
             // 
             // inventPage
             // 
-            this.inventPage.Controls.Add(this.inventAddForm);
             this.inventPage.Controls.Add(this.inventCancelBtn);
             this.inventPage.Controls.Add(this.inventEditBtn);
-            this.inventPage.Controls.Add(this.inventDescriptList);
             this.inventPage.Controls.Add(this.inventAddNew);
             this.inventPage.Controls.Add(this.InventDescription);
             this.inventPage.Controls.Add(this.inventDataList);
@@ -1039,120 +1021,6 @@ namespace PHPSRePS
             this.inventPage.TabIndex = 1;
             this.inventPage.Text = "Inventory";
             this.inventPage.UseVisualStyleBackColor = true;
-            // 
-            // inventAddForm
-            // 
-            this.inventAddForm.BackColor = System.Drawing.Color.HotPink;
-            this.inventAddForm.Controls.Add(this.comboBox1);
-            this.inventAddForm.Controls.Add(this.inventPriceLabel);
-            this.inventAddForm.Controls.Add(this.inventPriceTxtbox);
-            this.inventAddForm.Controls.Add(this.inventQtyLabel);
-            this.inventAddForm.Controls.Add(this.inventQtyTxtbox);
-            this.inventAddForm.Controls.Add(this.inventCateLabel);
-            this.inventAddForm.Controls.Add(this.inventNameLabel);
-            this.inventAddForm.Controls.Add(this.inventFormLabel);
-            this.inventAddForm.Controls.Add(this.inventNameTxtbox);
-            this.inventAddForm.Enabled = false;
-            this.inventAddForm.Location = new System.Drawing.Point(33, 69);
-            this.inventAddForm.Name = "inventAddForm";
-            this.inventAddForm.Size = new System.Drawing.Size(1183, 966);
-            this.inventAddForm.TabIndex = 40;
-            this.inventAddForm.Visible = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "AntiSeptics",
-            "Supplements",
-            "Laxatives",
-            "Painkillers",
-            "Entheogen",
-            "Other"});
-            this.comboBox1.Location = new System.Drawing.Point(287, 203);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(602, 21);
-            this.comboBox1.TabIndex = 9;
-            // 
-            // inventPriceLabel
-            // 
-            this.inventPriceLabel.AutoSize = true;
-            this.inventPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventPriceLabel.ForeColor = System.Drawing.Color.Black;
-            this.inventPriceLabel.Location = new System.Drawing.Point(60, 289);
-            this.inventPriceLabel.Name = "inventPriceLabel";
-            this.inventPriceLabel.Size = new System.Drawing.Size(257, 29);
-            this.inventPriceLabel.TabIndex = 8;
-            this.inventPriceLabel.Text = "Sales Price per Item:";
-            // 
-            // inventPriceTxtbox
-            // 
-            this.inventPriceTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventPriceTxtbox.Location = new System.Drawing.Point(323, 292);
-            this.inventPriceTxtbox.Name = "inventPriceTxtbox";
-            this.inventPriceTxtbox.Size = new System.Drawing.Size(609, 26);
-            this.inventPriceTxtbox.TabIndex = 7;
-            // 
-            // inventQtyLabel
-            // 
-            this.inventQtyLabel.AutoSize = true;
-            this.inventQtyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventQtyLabel.ForeColor = System.Drawing.Color.Black;
-            this.inventQtyLabel.Location = new System.Drawing.Point(60, 240);
-            this.inventQtyLabel.Name = "inventQtyLabel";
-            this.inventQtyLabel.Size = new System.Drawing.Size(215, 29);
-            this.inventQtyLabel.TabIndex = 6;
-            this.inventQtyLabel.Text = "Quantity In Stock:";
-            // 
-            // inventQtyTxtbox
-            // 
-            this.inventQtyTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventQtyTxtbox.Location = new System.Drawing.Point(281, 243);
-            this.inventQtyTxtbox.Name = "inventQtyTxtbox";
-            this.inventQtyTxtbox.Size = new System.Drawing.Size(609, 26);
-            this.inventQtyTxtbox.TabIndex = 5;
-            // 
-            // inventCateLabel
-            // 
-            this.inventCateLabel.AutoSize = true;
-            this.inventCateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventCateLabel.ForeColor = System.Drawing.Color.Black;
-            this.inventCateLabel.Location = new System.Drawing.Point(60, 194);
-            this.inventCateLabel.Name = "inventCateLabel";
-            this.inventCateLabel.Size = new System.Drawing.Size(222, 29);
-            this.inventCateLabel.TabIndex = 4;
-            this.inventCateLabel.Text = "Product Category:";
-            // 
-            // inventNameLabel
-            // 
-            this.inventNameLabel.AutoSize = true;
-            this.inventNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.inventNameLabel.Location = new System.Drawing.Point(60, 151);
-            this.inventNameLabel.Name = "inventNameLabel";
-            this.inventNameLabel.Size = new System.Drawing.Size(186, 29);
-            this.inventNameLabel.TabIndex = 2;
-            this.inventNameLabel.Text = "Product Name:";
-            // 
-            // inventFormLabel
-            // 
-            this.inventFormLabel.AutoSize = true;
-            this.inventFormLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventFormLabel.ForeColor = System.Drawing.Color.Black;
-            this.inventFormLabel.Location = new System.Drawing.Point(46, 40);
-            this.inventFormLabel.Name = "inventFormLabel";
-            this.inventFormLabel.Size = new System.Drawing.Size(302, 37);
-            this.inventFormLabel.TabIndex = 1;
-            this.inventFormLabel.Text = "New Product Form";
-            // 
-            // inventNameTxtbox
-            // 
-            this.inventNameTxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventNameTxtbox.Location = new System.Drawing.Point(281, 154);
-            this.inventNameTxtbox.Name = "inventNameTxtbox";
-            this.inventNameTxtbox.Size = new System.Drawing.Size(609, 26);
-            this.inventNameTxtbox.TabIndex = 0;
             // 
             // inventCancelBtn
             // 
@@ -1191,36 +1059,6 @@ namespace PHPSRePS
             this.inventEditBtn.UseCompatibleTextRendering = true;
             this.inventEditBtn.UseVisualStyleBackColor = false;
             this.inventEditBtn.Click += new System.EventHandler(this.inventEditBtn_Click);
-            // 
-            // inventDescriptList
-            // 
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.inventDescriptList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.inventDescriptList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.inventDescriptList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.inventDescriptList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.descriptText});
-            this.inventDescriptList.Location = new System.Drawing.Point(1260, 69);
-            this.inventDescriptList.Margin = new System.Windows.Forms.Padding(2);
-            this.inventDescriptList.Name = "inventDescriptList";
-            this.inventDescriptList.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.inventDescriptList.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.inventDescriptList.RowHeadersWidth = 200;
-            this.inventDescriptList.Size = new System.Drawing.Size(489, 864);
-            this.inventDescriptList.TabIndex = 36;
-            // 
-            // descriptText
-            // 
-            this.descriptText.HeaderText = "";
-            this.descriptText.Name = "descriptText";
-            this.descriptText.ReadOnly = true;
             // 
             // inventAddNew
             // 
@@ -1294,13 +1132,13 @@ namespace PHPSRePS
             // 
             // reportsPage
             // 
-            this.reportsPage.Controls.Add(this.label5);
+            this.reportsPage.Controls.Add(this.reportEndTitle);
             this.reportsPage.Controls.Add(this.reportEndDate);
-            this.reportsPage.Controls.Add(this.label4);
+            this.reportsPage.Controls.Add(this.reportStartTitle);
             this.reportsPage.Controls.Add(this.reportStartDate);
             this.reportsPage.Controls.Add(this.reportChart);
             this.reportsPage.Controls.Add(this.reportsGrid);
-            this.reportsPage.Controls.Add(this.panel4);
+            this.reportsPage.Controls.Add(this.reportMenuPanel);
             this.reportsPage.Location = new System.Drawing.Point(4, 5);
             this.reportsPage.Name = "reportsPage";
             this.reportsPage.Size = new System.Drawing.Size(1797, 1070);
@@ -1309,18 +1147,18 @@ namespace PHPSRePS
             this.reportsPage.UseVisualStyleBackColor = true;
             this.reportsPage.Click += new System.EventHandler(this.reportsPage_Click);
             // 
-            // label5
+            // reportEndTitle
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(972, 136);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 25);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "End Date";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.reportEndTitle.AutoSize = true;
+            this.reportEndTitle.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.reportEndTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportEndTitle.ForeColor = System.Drawing.Color.Black;
+            this.reportEndTitle.Location = new System.Drawing.Point(972, 136);
+            this.reportEndTitle.Name = "reportEndTitle";
+            this.reportEndTitle.Size = new System.Drawing.Size(101, 25);
+            this.reportEndTitle.TabIndex = 24;
+            this.reportEndTitle.Text = "End Date";
+            this.reportEndTitle.Click += new System.EventHandler(this.label5_Click);
             // 
             // reportEndDate
             // 
@@ -1329,18 +1167,18 @@ namespace PHPSRePS
             this.reportEndDate.Size = new System.Drawing.Size(191, 20);
             this.reportEndDate.TabIndex = 23;
             // 
-            // label4
+            // reportStartTitle
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(559, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 25);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Start Date";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.reportStartTitle.AutoSize = true;
+            this.reportStartTitle.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.reportStartTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportStartTitle.ForeColor = System.Drawing.Color.Black;
+            this.reportStartTitle.Location = new System.Drawing.Point(559, 136);
+            this.reportStartTitle.Name = "reportStartTitle";
+            this.reportStartTitle.Size = new System.Drawing.Size(108, 25);
+            this.reportStartTitle.TabIndex = 22;
+            this.reportStartTitle.Text = "Start Date";
+            this.reportStartTitle.Click += new System.EventHandler(this.label4_Click);
             // 
             // reportStartDate
             // 
@@ -1351,16 +1189,16 @@ namespace PHPSRePS
             // 
             // reportChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.reportChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.reportChart.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.reportChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.reportChart.Legends.Add(legend1);
             this.reportChart.Location = new System.Drawing.Point(306, 212);
             this.reportChart.Name = "reportChart";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.reportChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.reportChart.Series.Add(series1);
             this.reportChart.Size = new System.Drawing.Size(1073, 400);
             this.reportChart.TabIndex = 19;
             this.reportChart.Text = "chart1";
@@ -1377,16 +1215,16 @@ namespace PHPSRePS
             this.reportsGrid.Size = new System.Drawing.Size(1073, 418);
             this.reportsGrid.TabIndex = 18;
             // 
-            // panel4
+            // reportMenuPanel
             // 
-            this.panel4.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel4.Controls.Add(this.reportCategories);
-            this.panel4.Controls.Add(this.reportsProducts);
-            this.panel4.Controls.Add(this.reportEmployee);
-            this.panel4.Location = new System.Drawing.Point(306, 6);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1073, 118);
-            this.panel4.TabIndex = 17;
+            this.reportMenuPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.reportMenuPanel.Controls.Add(this.reportCategories);
+            this.reportMenuPanel.Controls.Add(this.reportsProducts);
+            this.reportMenuPanel.Controls.Add(this.reportEmployee);
+            this.reportMenuPanel.Location = new System.Drawing.Point(306, 6);
+            this.reportMenuPanel.Name = "reportMenuPanel";
+            this.reportMenuPanel.Size = new System.Drawing.Size(1073, 118);
+            this.reportMenuPanel.TabIndex = 17;
             // 
             // reportCategories
             // 
@@ -1441,12 +1279,12 @@ namespace PHPSRePS
             // 
             // userPage
             // 
-            this.userPage.Controls.Add(this.label3);
+            this.userPage.Controls.Add(this.loginPasswordTitle);
             this.userPage.Controls.Add(this.userPassField);
-            this.userPage.Controls.Add(this.label2);
-            this.userPage.Controls.Add(this.label1);
+            this.userPage.Controls.Add(this.loginUserTitle);
+            this.userPage.Controls.Add(this.loginTitle);
             this.userPage.Controls.Add(this.userUsrField);
-            this.userPage.Controls.Add(this.panel2);
+            this.userPage.Controls.Add(this.loginPanel);
             this.userPage.Location = new System.Drawing.Point(4, 5);
             this.userPage.Name = "userPage";
             this.userPage.Padding = new System.Windows.Forms.Padding(3);
@@ -1455,17 +1293,17 @@ namespace PHPSRePS
             this.userPage.Text = "userPage";
             this.userPage.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // loginPasswordTitle
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(620, 385);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 31);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Password";
+            this.loginPasswordTitle.AutoSize = true;
+            this.loginPasswordTitle.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.loginPasswordTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginPasswordTitle.ForeColor = System.Drawing.Color.Black;
+            this.loginPasswordTitle.Location = new System.Drawing.Point(620, 385);
+            this.loginPasswordTitle.Name = "loginPasswordTitle";
+            this.loginPasswordTitle.Size = new System.Drawing.Size(134, 31);
+            this.loginPasswordTitle.TabIndex = 4;
+            this.loginPasswordTitle.Text = "Password";
             // 
             // userPassField
             // 
@@ -1474,29 +1312,29 @@ namespace PHPSRePS
             this.userPassField.Size = new System.Drawing.Size(327, 20);
             this.userPassField.TabIndex = 3;
             // 
-            // label2
+            // loginUserTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(620, 286);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 31);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "User Name";
+            this.loginUserTitle.AutoSize = true;
+            this.loginUserTitle.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.loginUserTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginUserTitle.ForeColor = System.Drawing.Color.Black;
+            this.loginUserTitle.Location = new System.Drawing.Point(620, 286);
+            this.loginUserTitle.Name = "loginUserTitle";
+            this.loginUserTitle.Size = new System.Drawing.Size(151, 31);
+            this.loginUserTitle.TabIndex = 2;
+            this.loginUserTitle.Text = "User Name";
             // 
-            // label1
+            // loginTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(451, 131);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(664, 63);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Please Enter Login Details";
+            this.loginTitle.AutoSize = true;
+            this.loginTitle.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.loginTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginTitle.ForeColor = System.Drawing.Color.Black;
+            this.loginTitle.Location = new System.Drawing.Point(451, 131);
+            this.loginTitle.Name = "loginTitle";
+            this.loginTitle.Size = new System.Drawing.Size(664, 63);
+            this.loginTitle.TabIndex = 1;
+            this.loginTitle.Text = "Please Enter Login Details";
             // 
             // userUsrField
             // 
@@ -1505,15 +1343,15 @@ namespace PHPSRePS
             this.userUsrField.Size = new System.Drawing.Size(327, 20);
             this.userUsrField.TabIndex = 0;
             // 
-            // panel2
+            // loginPanel
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Controls.Add(this.userLoginBtn);
-            this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(440, 131);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(685, 630);
-            this.panel2.TabIndex = 6;
+            this.loginPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.loginPanel.Controls.Add(this.userLoginBtn);
+            this.loginPanel.ForeColor = System.Drawing.Color.White;
+            this.loginPanel.Location = new System.Drawing.Point(440, 131);
+            this.loginPanel.Name = "loginPanel";
+            this.loginPanel.Size = new System.Drawing.Size(685, 630);
+            this.loginPanel.TabIndex = 6;
             // 
             // userLoginBtn
             // 
@@ -1528,7 +1366,7 @@ namespace PHPSRePS
             // 
             // profilePage
             // 
-            this.profilePage.Controls.Add(this.panel3);
+            this.profilePage.Controls.Add(this.profilePanel);
             this.profilePage.Location = new System.Drawing.Point(4, 5);
             this.profilePage.Name = "profilePage";
             this.profilePage.Size = new System.Drawing.Size(1797, 1070);
@@ -1536,19 +1374,19 @@ namespace PHPSRePS
             this.profilePage.Text = "profileName";
             this.profilePage.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // profilePanel
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel3.Controls.Add(this.profileHireDate);
-            this.panel3.Controls.Add(this.profileID);
-            this.panel3.Controls.Add(this.profileName);
-            this.panel3.Controls.Add(this.profileLogout);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.ForeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(556, 220);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(685, 630);
-            this.panel3.TabIndex = 12;
+            this.profilePanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.profilePanel.Controls.Add(this.profileHireDate);
+            this.profilePanel.Controls.Add(this.profileID);
+            this.profilePanel.Controls.Add(this.profileName);
+            this.profilePanel.Controls.Add(this.profileLogout);
+            this.profilePanel.Controls.Add(this.profileTitle);
+            this.profilePanel.ForeColor = System.Drawing.Color.White;
+            this.profilePanel.Location = new System.Drawing.Point(556, 220);
+            this.profilePanel.Name = "profilePanel";
+            this.profilePanel.Size = new System.Drawing.Size(685, 630);
+            this.profilePanel.TabIndex = 12;
             // 
             // profileHireDate
             // 
@@ -1592,25 +1430,25 @@ namespace PHPSRePS
             this.profileLogout.UseVisualStyleBackColor = false;
             this.profileLogout.Click += new System.EventHandler(this.profileLogout_Click);
             // 
-            // label6
+            // profileTitle
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(200, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(310, 63);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "User Profile";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.profileTitle.AutoSize = true;
+            this.profileTitle.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.profileTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.profileTitle.ForeColor = System.Drawing.Color.Black;
+            this.profileTitle.Location = new System.Drawing.Point(200, 4);
+            this.profileTitle.Name = "profileTitle";
+            this.profileTitle.Size = new System.Drawing.Size(310, 63);
+            this.profileTitle.TabIndex = 8;
+            this.profileTitle.Text = "User Profile";
+            this.profileTitle.Click += new System.EventHandler(this.label6_Click);
             // 
             // forecastPage
             // 
-            this.forecastPage.Controls.Add(this.chart1);
+            this.forecastPage.Controls.Add(this.forecastChart);
             this.forecastPage.Controls.Add(this.forecastDropDown);
-            this.forecastPage.Controls.Add(this.panel5);
-            this.forecastPage.Controls.Add(this.panel6);
+            this.forecastPage.Controls.Add(this.forcastMenuPanel);
+            this.forecastPage.Controls.Add(this.forcasrSettingPanel);
             this.forecastPage.Location = new System.Drawing.Point(4, 5);
             this.forecastPage.Name = "forecastPage";
             this.forecastPage.Size = new System.Drawing.Size(1797, 1070);
@@ -1635,15 +1473,15 @@ namespace PHPSRePS
             this.forecastProductBtn.UseVisualStyleBackColor = false;
             this.forecastProductBtn.Click += new System.EventHandler(this.forecastProductBtn_Click);
             // 
-            // panel5
+            // forcastMenuPanel
             // 
-            this.panel5.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel5.Controls.Add(this.forecastCategoriesBtn);
-            this.panel5.Controls.Add(this.forecastProductBtn);
-            this.panel5.Location = new System.Drawing.Point(392, 6);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(897, 118);
-            this.panel5.TabIndex = 18;
+            this.forcastMenuPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.forcastMenuPanel.Controls.Add(this.forecastCategoriesBtn);
+            this.forcastMenuPanel.Controls.Add(this.forecastProductBtn);
+            this.forcastMenuPanel.Location = new System.Drawing.Point(392, 6);
+            this.forcastMenuPanel.Name = "forcastMenuPanel";
+            this.forcastMenuPanel.Size = new System.Drawing.Size(897, 118);
+            this.forcastMenuPanel.TabIndex = 18;
             // 
             // forecastCategoriesBtn
             // 
@@ -1681,18 +1519,18 @@ namespace PHPSRePS
             this.forecastDropdownTitle.TabIndex = 20;
             this.forecastDropdownTitle.Text = "Select A Product";
             // 
-            // panel6
+            // forcasrSettingPanel
             // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel6.Controls.Add(this.forecastEndDate);
-            this.panel6.Controls.Add(this.forecastDropdownTitle);
-            this.panel6.Controls.Add(this.forecastEndDate2);
-            this.panel6.Controls.Add(this.forecastStartDate);
-            this.panel6.Controls.Add(this.label9);
-            this.panel6.Location = new System.Drawing.Point(392, 119);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(897, 253);
-            this.panel6.TabIndex = 19;
+            this.forcasrSettingPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.forcasrSettingPanel.Controls.Add(this.forecastEndDate);
+            this.forcasrSettingPanel.Controls.Add(this.forecastDropdownTitle);
+            this.forcasrSettingPanel.Controls.Add(this.forecastEndDate2);
+            this.forcasrSettingPanel.Controls.Add(this.forecastStartDate);
+            this.forcasrSettingPanel.Controls.Add(this.forecastStartTitle);
+            this.forcasrSettingPanel.Location = new System.Drawing.Point(392, 119);
+            this.forcasrSettingPanel.Name = "forcasrSettingPanel";
+            this.forcasrSettingPanel.Size = new System.Drawing.Size(897, 253);
+            this.forcasrSettingPanel.TabIndex = 19;
             // 
             // forecastEndDate
             // 
@@ -1713,17 +1551,17 @@ namespace PHPSRePS
             this.forecastEndDate2.Size = new System.Drawing.Size(191, 20);
             this.forecastEndDate2.TabIndex = 27;
             // 
-            // label9
+            // forecastStartTitle
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(207, 152);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(108, 25);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Start Date";
+            this.forecastStartTitle.AutoSize = true;
+            this.forecastStartTitle.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.forecastStartTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forecastStartTitle.ForeColor = System.Drawing.Color.Black;
+            this.forecastStartTitle.Location = new System.Drawing.Point(207, 152);
+            this.forecastStartTitle.Name = "forecastStartTitle";
+            this.forecastStartTitle.Size = new System.Drawing.Size(108, 25);
+            this.forecastStartTitle.TabIndex = 26;
+            this.forecastStartTitle.Text = "Start Date";
             // 
             // forecastStartDate
             // 
@@ -1732,21 +1570,21 @@ namespace PHPSRePS
             this.forecastStartDate.Size = new System.Drawing.Size(191, 20);
             this.forecastStartDate.TabIndex = 25;
             // 
-            // chart1
+            // forecastChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(392, 436);
-            this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(897, 400);
-            this.chart1.TabIndex = 20;
-            this.chart1.Text = "chart1";
+            chartArea2.Name = "ChartArea1";
+            this.forecastChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.forecastChart.Legends.Add(legend2);
+            this.forecastChart.Location = new System.Drawing.Point(392, 436);
+            this.forecastChart.Name = "forecastChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.forecastChart.Series.Add(series2);
+            this.forecastChart.Size = new System.Drawing.Size(897, 400);
+            this.forecastChart.TabIndex = 20;
+            this.forecastChart.Text = "chart1";
             // 
             // MainView
             // 
@@ -1769,26 +1607,23 @@ namespace PHPSRePS
             ((System.ComponentModel.ISupportInitialize)(this.salesDataList)).EndInit();
             this.inventPage.ResumeLayout(false);
             this.inventPage.PerformLayout();
-            this.inventAddForm.ResumeLayout(false);
-            this.inventAddForm.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.inventDescriptList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventDataList)).EndInit();
             this.reportsPage.ResumeLayout(false);
             this.reportsPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reportsGrid)).EndInit();
-            this.panel4.ResumeLayout(false);
+            this.reportMenuPanel.ResumeLayout(false);
             this.userPage.ResumeLayout(false);
             this.userPage.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.loginPanel.ResumeLayout(false);
             this.profilePage.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.profilePanel.ResumeLayout(false);
+            this.profilePanel.PerformLayout();
             this.forecastPage.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.forcastMenuPanel.ResumeLayout(false);
+            this.forcasrSettingPanel.ResumeLayout(false);
+            this.forcasrSettingPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.forecastChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1798,7 +1633,7 @@ namespace PHPSRePS
         #endregion
 
         private System.Windows.Forms.Panel sidebar;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel reportPanel;
         private System.Windows.Forms.Button inventTab;
         private System.Windows.Forms.Button salesTab;
         private System.Windows.Forms.Button homeTab;
@@ -1854,60 +1689,47 @@ namespace PHPSRePS
 
         private System.Windows.Forms.DataGridView salesTranList;
         private System.Windows.Forms.ListView salesTransList;
-
-        private System.Windows.Forms.DataGridView inventDescriptList;
         private Button inventSearchBtn;
         private Button inventEditBtn;
-        private DataGridViewTextBoxColumn descriptText;
         private TabPage userPage;
-        private Label label1;
+        private Label loginTitle;
         private TextBox userUsrField;
-        private Label label2;
-        private Label label3;
+        private Label loginUserTitle;
+        private Label loginPasswordTitle;
         private TextBox userPassField;
         private Button userLoginBtn;
-        private Panel panel2;
+        private Panel loginPanel;
         private TabPage profilePage;
-        private Label label6;
-        private Panel panel3;
+        private Label profileTitle;
+        private Panel profilePanel;
         private Button profileLogout;
         private Label profileHireDate;
         private Label profileID;
         private Label profileName;
         private Button inventCancelBtn;
-        private Panel inventAddForm;
-        private Label inventFormLabel;
-        private TextBox inventNameTxtbox;
-        private Label inventNameLabel;
-        private Label inventPriceLabel;
-        private TextBox inventPriceTxtbox;
-        private Label inventQtyLabel;
-        private TextBox inventQtyTxtbox;
-        private Label inventCateLabel;
-        private ComboBox comboBox1;
         private Button reportsProducts;
         private Button reportCategories;
         private Button reportEmployee;
-        private Panel panel4;
+        private Panel reportMenuPanel;
         private System.Windows.Forms.DataVisualization.Charting.Chart reportChart;
         private DataGridView reportsGrid;
-        private Label label4;
+        private Label reportStartTitle;
         private DateTimePicker reportStartDate;
-        private Label label5;
+        private Label reportEndTitle;
         private DateTimePicker reportEndDate;
         private Button forecastTab;
         private TabPage forecastPage;
         private Label forecastDropdownTitle;
         private ComboBox forecastDropDown;
-        private Panel panel5;
+        private Panel forcastMenuPanel;
         private Button forecastCategoriesBtn;
         private Button forecastProductBtn;
-        private Panel panel6;
+        private Panel forcasrSettingPanel;
         private Label forecastEndDate;
         private DateTimePicker forecastEndDate2;
         private DateTimePicker forecastStartDate;
-        private Label label9;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private Label forecastStartTitle;
+        private System.Windows.Forms.DataVisualization.Charting.Chart forecastChart;
     }
 }
 

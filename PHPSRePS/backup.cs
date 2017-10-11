@@ -1,64 +1,75 @@
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using System.IO;
+using System.Diagnostics;
+using System.Configuration;
 
-        private void btnBak_Click(object sender, EventArgs e) //backup
+using MDRClient.DataAccess;
+
+public static class SQLBackup
+    {
+
+        public static void StartCmd(String workingDirectory, String command)
         {
-            string saveAway = this.tbxBakLoad.Text.ToString().Trim();
-            string cmdText = @"backup database " + System.Configuration.ConfigurationSettings.AppSettings["dbName"] + " to disk='" + saveAway + "'";
-            BakReductSql(cmdText,true);            
+　　　　　　　　using (Process p = new Process())
+            　　　　　　　　{
+                　　　　　　　　　　p.StartInfo.FileName = "cmd.exe";
+                　　　　　　　　　　p.StartInfo.WorkingDirectory = workingDirectory;
+                　　　　　　　　　　p.StartInfo.UseShellExecute = false;
+                　　　　　　　　　　p.StartInfo.RedirectStandardInput = true;
+                　　　　　　　　　　p.StartInfo.RedirectStandardOutput = true;
+                　　　　　　　　　　p.StartInfo.RedirectStandardError = true;
+                　　　　　　　　　　p.StartInfo.CreateNoWindow = true;
+                　　　　　　　　　　//p.EnableRaisingEvents = true;
+                　　　　　　　　　　p.Start();
+                　　　　　　　　　　p.StandardInput.WriteLine(command);
+                　　　　　　　　　　p.StandardInput.WriteLine("exit");
+                　　　　　　　　　　//p.StandardInput.Flush();
+                　　　　　　　　　　string error = p.StandardError.ReadToEnd();
+                　　　　　　　　　　p.WaitForExit();
+                　　　　　　　　　　if (!string.IsNullOrEmpty(error) && (error.ToLower().Contains("error")))
+                    　　　　　　　　　　　　throw new System.Data.DataException(error);
+            　　　　　　　　　}
         }
-        private void btnReduct_Click(object sender, EventArgs e)  //recover
+        /// backup
+
+
+        public static void Backup(string ip, string port, string dbName, string userName, string userPsw, string filepath, string characterset = "utf8")
         {
-            string openAway = this.tbxReductLoad.Text.ToString().Trim();//read the path
-            string cmdText = @"restore database " + System.Configuration.ConfigurationSettings.AppSettings["dbName"] + " from disk='" + openAway + "'";            
-            BakReductSql(cmdText,false);
-        }
-        /// <summary>
-        /// backup and recover database via sql
-        /// </summary>
-        /// <param name="cmdText">backup or recover</param>
-        /// <param name="isBak">it is for backup，true or false</param>
-        private void BakReductSql(string cmdText,bool isBak)
-        {
-            SqlCommand cmdBakRst = new SqlCommand();
-            SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=master;uid=sa;pwd=;");
             try
             {
-                conn.Open();
-                cmdBakRst.Connection = conn;
-                cmdBakRst.CommandType = CommandType.Text;
-                if (!isBak)     //recover
-                {
-                    string setOffline = "Alter database GroupMessage Set Offline With rollback immediate ";
-                    string setOnline = " Alter database GroupMessage Set Online With Rollback immediate";
-                    cmdBakRst.CommandText = setOffline + cmdText + setOnline;
-                }
-                else
-                {
-                    cmdBakRst.CommandText = cmdText;
-                }
-                cmdBakRst.ExecuteNonQuery();
-                if (!isBak)
-                {
-                    MessageBox.Show("the data is recovered", "System message");
-                }
-                else
-                {
-                    MessageBox.Show("You have backup the data", "System message");
-                }
-            }
-            catch (SqlException sexc)
-            {
-                MessageBox.Show("fail" + sexc, "error");
+         
+                string command = string.Format("mysqldump --quick --host=" + ip + " --default-character-set=" + characterset + " --lock-tables --verbose  --force --port=" + port + " --user=" + userName + " --password=" + userPsw + " " + dbName + " -r \"{0}\"", filepath);
+
+                String appDirecroty = System.Windows.Forms.Application.StartupPath + "\\";
+                StartCmd(appDirecroty, command);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("fail：" + ex, "error");
-            }
-            finally
-            {
-                cmdBakRst.Dispose();
-                conn.Close();
-                conn.Dispose();
+                throw new Exception("backuo fail！\r\n" + ex.ToString());
             }
         }
+        /// recover
 
+        public static void Restore(string ip, string port, string dbName, string userName, string userPsw, string filepath, string characterset = "utf8")
+        {
+            try
+            {
+                string command = string.Format("mysql --host=" + ip + " --default-character-set=" + characterset + " --port=" + port + " --user=" + userName + " --password=" + userPsw + " " + dbName + "<\"{0}\"", filepath);
+
+                //require distory
+                String appDirecroty = System.Windows.Forms.Application.StartupPath + "\\";
+                StartCmd(appDirecroty, command);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("fail！\r\n" + ex.ToString());
+            }
+
+        }
+    }
