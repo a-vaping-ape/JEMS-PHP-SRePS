@@ -898,8 +898,8 @@ namespace PHPSRePS {
         private void reportsProducts_Click(object sender, EventArgs e)
         {
             PopulateReportTable("products");
-            //GeneratePieChart("products");
-            GenerateLineChart();
+            GeneratePieChart("products");
+           
         }
 
         private void reportsPage_Click(object sender, EventArgs e)
