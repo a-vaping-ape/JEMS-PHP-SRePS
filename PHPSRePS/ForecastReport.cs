@@ -31,7 +31,6 @@ namespace PHPSRePS
             public int quantity;
         }
 
-
         // y = mx + c where m = gradient, c = yInt
         struct Line
         {
@@ -43,7 +42,6 @@ namespace PHPSRePS
 
         private List<SalesHistory> _salesHistoryList = new List<SalesHistory>();
         private List<SalesForecast> _salesForecastList = new List<SalesForecast>();
-
         private List<SalesHistory> SalesHistoryReport { get => _salesHistoryList; set => _salesHistoryList = value; }
         
         // OUTPUT DATA SET
@@ -60,10 +58,18 @@ namespace PHPSRePS
 
         // CALL THIS ONLY
         // load data from the database into local lists
-        public void LoadReport(string itemName, string groupBy, DateTime startDate, DateTime endDate)
+        public void LoadReport(string itemName, string groupBy)
         {
-            PopulateSalesHistoryList(itemName, groupBy);
-            GenerateForecastData(startDate, endDate);
+            // PopulateSalesHistoryList(itemName, groupBy);
+            GenerateForecastData();
+        }
+
+        public void AddSale(DateTime date, int quantity)
+        {
+            SalesHistory toAdd;
+            toAdd.date = date;
+            toAdd.quantity = quantity;
+            SalesHistoryReport.Add(toAdd);
         }
 
         // get all sales data from the database for working with later
@@ -90,13 +96,15 @@ namespace PHPSRePS
             database.CloseConnection();
         }
 
-        private void GenerateForecastData(DateTime startDate, DateTime endDate)
+        private void GenerateForecastData()
         {
             List<SalesPerDay> salesData = new List<SalesPerDay>();
             List<SalesPerDay> forecastData = new List<SalesPerDay>();
             Line regressionLine;
-            int totalDays = (endDate - startDate).Days;
             int dayCounter = 0;
+            int forecastStartDay = (StartDate - SalesHistoryReport.First().date).Days;
+            int totalDays = (EndDate - StartDate).Days;
+            int forecastEndDay = forecastStartDay + totalDays;
 
             // populate sales list using day count instead of date (yyyy/mm/dd)
             for (int i = 0; i < SalesHistoryReport.Count; i++)
@@ -119,10 +127,10 @@ namespace PHPSRePS
 
             regressionLine = GetRegressionLine(salesData);
 
-            for (int i = 0; i < totalDays; i++)
+            for (int i = forecastStartDay; i < forecastEndDay; i++)
             {
                 SalesForecast dailyForecast;
-                dailyForecast.date = startDate.AddDays(i);
+                dailyForecast.date = StartDate.AddDays(i);
                 dailyForecast.quantity = Convert.ToInt32(Math.Round(regressionLine.gradient * i + regressionLine.yInt, MidpointRounding.AwayFromZero));
                 SalesForecastReport.Add(dailyForecast);
             }
@@ -148,13 +156,13 @@ namespace PHPSRePS
             double ssY = 0;
             double sumCodeviates = 0;
             double sCo = 0;
-            double count = salesData.Last().day - salesData.First().day;
+            double count = salesData.Count;
 
             // we matlab now bois
-            for (int i = 1; i < count; i++)
+            foreach (SalesPerDay sale in salesData)
             {
-                double x = salesData[i].day;
-                double y = salesData[i].quantity;
+                double x = sale.day;
+                double y = sale.quantity;
                 sumCodeviates += x * y;
                 sumX += x;
                 sumY += y;

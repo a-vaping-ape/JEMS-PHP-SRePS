@@ -51,13 +51,13 @@ namespace PHPSRePS_Test
 
             string query = product1.GetUPDATE();
 
-           // NUnit.Framework.Assert.AreEqual("UPDATE Products SET ProductName ='test', UnitPrice = '9.8', U" +
-             //   "nitsInStock = '10',IsDiscontinued = '0' WHERE Product='1';", query);
+            // NUnit.Framework.Assert.AreEqual("UPDATE Products SET ProductName ='test', UnitPrice = '9.8', U" +
+            //   "nitsInStock = '10',IsDiscontinued = '0' WHERE Product='1';", query);
 
 
             db.RunVoidQuery(query);
 
-            
+
 
 
 
@@ -70,7 +70,7 @@ namespace PHPSRePS_Test
             sale1 = new Sale();
 
             bool pass = db.RunVoidQuery(sale1.GetINSERT());
-            
+
             NUnit.Framework.Assert.AreEqual(true, pass);
         }
 
@@ -78,15 +78,32 @@ namespace PHPSRePS_Test
         public void CategoryNames()
         {
             db = new Database();
-   
+
 
             List<String> result = db.GetCategoires();
 
             NUnit.Framework.Assert.AreEqual(6, result.Count);
 
-           // bool pass = db.RunVoidQuery(sale1.GetINSERT());
+            // bool pass = db.RunVoidQuery(sale1.GetINSERT());
 
             //NUnit.Framework.Assert.AreEqual(true, pass);
+        }
+
+        [TestMethod]
+        public void DateCountTest()
+        {
+            ForecastReport forecast = new ForecastReport(new DateTime(2017, 11, 20), new DateTime(2017, 12, 8));
+
+            forecast.AddSale(new DateTime(2017, 10, 5), 10);
+            forecast.AddSale(new DateTime(2017, 10, 8), 14);
+            forecast.AddSale(new DateTime(2017, 10, 11), 9);
+            forecast.AddSale(new DateTime(2017, 10, 15), 19);
+            forecast.AddSale(new DateTime(2017, 10, 22), 18);
+            forecast.AddSale(new DateTime(2017, 10, 26), 23);
+
+            forecast.LoadReport("", "");
+
+            NUnit.Framework.Assert.IsTrue(true);
         }
     }
 }
