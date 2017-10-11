@@ -2,15 +2,11 @@ using System;
 using System.Windows.Forms;
 using System.Net.Mail;
 
-namespace  PHPSRePS 
+namespace PHPSRePS 
 {
 
-    public partial class sentmail : form
+    public  class sentmail
     {
-        public sentmail()
-        {
-            InitializeComponent();
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
