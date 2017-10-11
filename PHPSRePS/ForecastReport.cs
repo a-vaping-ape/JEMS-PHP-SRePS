@@ -192,13 +192,20 @@ namespace PHPSRePS
             return regressionLine;
         }
 
-        // export data to csv file
         public override void ExportToCSV()
         {
             StringBuilder forecastCSVData = new StringBuilder();
 
-            String forecastCSVPath = AppDomain.CurrentDomain.BaseDirectory + "\\reports\\forecast_report" + StartDate.ToShortDateString() + "-" + EndDate.ToShortDateString() + ".csv";
+            //create reports
+            String forecastDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\reports\\forecast_sales_report";
 
+            string dates = StartDate.Year.ToString() + "_" + StartDate.Month.ToString() + "_" + StartDate.Day.ToString() + "_" +
+                                  EndDate.Year.ToString() + "_" + EndDate.Month.ToString() + "_" + EndDate.Day.ToString() + ".csv";
+
+            string file = "Forecast_Report " + dates;
+
+            string path  = System.IO.Path.Combine(forecastDirectory, file);
+          
             forecastCSVData.AppendLine("'Date', 'Quantity'");
             foreach (SalesForecast salesForecast in SalesForecastReport)
             {
@@ -206,8 +213,10 @@ namespace PHPSRePS
                 forecastCSVData.AppendLine();
             }
 
-            File.AppendAllText(forecastCSVPath, forecastCSVData.ToString());
+            using (StreamWriter sw = new StreamWriter(path, false))
+            {
+                sw.WriteLine(forecastCSVData.ToString());
+            }
         }
-
     }
 }

@@ -1154,12 +1154,21 @@ namespace PHPSRePS {
 
         private void reportCSVBtn_Click(object sender, EventArgs e)
         {
-            report.ExportToCSV();
+            if (report != null)
+                report.ExportToCSV();
+            MessageBox.Show("Export Done");
         }
 
         private void forecastCSVBtn_Click(object sender, EventArgs e)
         {
-            forecast.ExportToCSV();
+            if (forecast != null)
+                forecast.ExportToCSV();
+            MessageBox.Show("Export Done");
+        }
+
+        private void forcastEmailSCV_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

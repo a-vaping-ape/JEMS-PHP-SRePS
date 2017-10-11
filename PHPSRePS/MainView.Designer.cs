@@ -32,12 +32,12 @@ namespace PHPSRePS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.sidebar = new System.Windows.Forms.Panel();
             this.forecastTab = new System.Windows.Forms.Button();
             this.homeTab = new System.Windows.Forms.Button();
@@ -174,6 +174,7 @@ namespace PHPSRePS
             this.forecastEndDate2 = new System.Windows.Forms.DateTimePicker();
             this.forecastStartDate = new System.Windows.Forms.DateTimePicker();
             this.forecastStartTitle = new System.Windows.Forms.Label();
+            this.forcastEmailSCV = new System.Windows.Forms.Button();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -1735,16 +1736,16 @@ namespace PHPSRePS
             // 
             // reportChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.reportChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.reportChart.Legends.Add(legend4);
+            chartArea1.Name = "ChartArea1";
+            this.reportChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.reportChart.Legends.Add(legend1);
             this.reportChart.Location = new System.Drawing.Point(306, 212);
             this.reportChart.Name = "reportChart";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.reportChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.reportChart.Series.Add(series1);
             this.reportChart.Size = new System.Drawing.Size(1073, 400);
             this.reportChart.TabIndex = 19;
             this.reportChart.Text = "chart1";
@@ -1991,6 +1992,7 @@ namespace PHPSRePS
             // 
             // forecastPage
             // 
+            this.forecastPage.Controls.Add(this.forcastEmailSCV);
             this.forecastPage.Controls.Add(this.forecastCSVBtn);
             this.forecastPage.Controls.Add(this.forecastChart);
             this.forecastPage.Controls.Add(this.forecastDropDown);
@@ -2022,16 +2024,16 @@ namespace PHPSRePS
             // 
             // forecastChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.forecastChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.forecastChart.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.forecastChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.forecastChart.Legends.Add(legend2);
             this.forecastChart.Location = new System.Drawing.Point(392, 436);
             this.forecastChart.Name = "forecastChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.forecastChart.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.forecastChart.Series.Add(series2);
             this.forecastChart.Size = new System.Drawing.Size(897, 400);
             this.forecastChart.TabIndex = 20;
             this.forecastChart.Text = "chart1";
@@ -2149,6 +2151,23 @@ namespace PHPSRePS
             this.forecastStartTitle.Size = new System.Drawing.Size(108, 25);
             this.forecastStartTitle.TabIndex = 26;
             this.forecastStartTitle.Text = "Start Date";
+            // 
+            // forcastEmailSCV
+            // 
+            this.forcastEmailSCV.BackColor = System.Drawing.Color.SteelBlue;
+            this.forcastEmailSCV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.forcastEmailSCV.FlatAppearance.BorderSize = 0;
+            this.forcastEmailSCV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.forcastEmailSCV.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forcastEmailSCV.ForeColor = System.Drawing.Color.Transparent;
+            this.forcastEmailSCV.Location = new System.Drawing.Point(1313, 675);
+            this.forcastEmailSCV.Margin = new System.Windows.Forms.Padding(0);
+            this.forcastEmailSCV.Name = "forcastEmailSCV";
+            this.forcastEmailSCV.Size = new System.Drawing.Size(208, 73);
+            this.forcastEmailSCV.TabIndex = 22;
+            this.forcastEmailSCV.Text = "Emal CSV";
+            this.forcastEmailSCV.UseVisualStyleBackColor = false;
+            this.forcastEmailSCV.Click += new System.EventHandler(this.forcastEmailSCV_Click);
             // 
             // MainView
             // 
@@ -2348,6 +2367,7 @@ namespace PHPSRePS
         private Button salesOldOrder;
         private Button reportCSVBtn;
         private Button forecastCSVBtn;
+        private Button forcastEmailSCV;
     }
 }
 

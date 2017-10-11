@@ -228,6 +228,14 @@ namespace PHPSRePS
             database.CloseConnection();
         }
 
+        private void WriteToFile(string path, string data)
+        {
+            using (StreamWriter sw = new StreamWriter(path, false)) 
+            {
+                sw.WriteLine(data);
+            }
+        }
+
         // export data to 3 separate csv files for product sales, employee sales and category sales
         public override void ExportToCSV()
         {
@@ -237,11 +245,21 @@ namespace PHPSRePS
 
             //create reports
 
-            String productSalesCSVPath = AppDomain.CurrentDomain.BaseDirectory + "\\reports\\product_sales_report" + StartDate.ToShortDateString() + "-" + EndDate.ToShortDateString() + ".csv";
-            String employeeSalesCSVPath = AppDomain.CurrentDomain.BaseDirectory + "\\reports\\employee_sales_report" + StartDate.ToShortDateString() + "-" + EndDate.ToShortDateString() + ".csv";
-            String categorySalesCSVPath = AppDomain.CurrentDomain.BaseDirectory + "\\reports\\category_sales_report" + StartDate.ToShortDateString() + "-" + EndDate.ToShortDateString() + ".csv";
+            String productSalesCSVDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\reports\\product_sales_report";
+            String employeeSalesCSVDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\reports\\employee_sales_report";
+            String categorySalesCSVDirectory = AppDomain.CurrentDomain.BaseDirectory + "\\reports\\category_sales_report";
 
-            System.IO.Directory.CreateDirectory(productSalesCSVPath);
+           
+            string dates = StartDate.Year.ToString() + "_" + StartDate.Month.ToString() + "_" + StartDate.Day.ToString() + "_" +
+                                  EndDate.Year.ToString() + "_" + EndDate.Month.ToString() + "_" + EndDate.Day.ToString() + ".csv";
+
+            string productFile = "Product_Report " + dates;
+            string employeeFile = "Employee_Report " + dates;
+            string categoryFile = "Category_Report " + dates;
+
+            string productPath = System.IO.Path.Combine(productSalesCSVDirectory, productFile);
+            string employeePath = System.IO.Path.Combine(employeeSalesCSVDirectory, employeeFile);
+            string categoryPath = System.IO.Path.Combine(categorySalesCSVDirectory, categoryFile);
 
 
             productSalesCSVData.AppendLine("'Product', 'Category', 'Unit Price', 'Quantity Sold', 'Total Revenue'");
@@ -264,10 +282,12 @@ namespace PHPSRePS
                 categorySalesCSVData.AppendFormat("'{0}', '{1}', '{2}'", categoryReport.categoryName, categoryReport.salesCount, categoryReport.totalRevenue);
                 categorySalesCSVData.AppendLine();
             }
-
-            File.AppendAllText(productSalesCSVPath, productSalesCSVData.ToString());
-            File.AppendAllText(employeeSalesCSVPath, employeeSalesCSVData.ToString());
-            File.AppendAllText(categorySalesCSVPath, categorySalesCSVData.ToString());
+            
+            WriteToFile(productPath, categorySalesCSVData.ToString());
+            WriteToFile(employeePath, categorySalesCSVData.ToString());
+            WriteToFile(categoryPath, categorySalesCSVData.ToString());
+           
+            
         }
     }
 }
