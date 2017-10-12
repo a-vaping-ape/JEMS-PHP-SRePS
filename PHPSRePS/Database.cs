@@ -18,6 +18,15 @@ namespace PHPSRePS
 
         public MySqlConnection Connection { get => connection; set => connection = value; }
 
+        public bool CheckConnection()
+        {
+            if (connection != null && connection.State == ConnectionState.Open)
+            {
+                return true;
+            }
+            return false;
+        }
+
         //add this to anymehtods working with the database
         public void OpenConnection()
         {
