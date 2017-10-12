@@ -120,6 +120,7 @@ namespace PHPSRePS {
                 salesTab.BackColor = Color.CornflowerBlue;
                 inventTab.BackColor = Color.SteelBlue;
                 reportsTab.BackColor = Color.SteelBlue;
+                forecastTab.BackColor = Color.SteelBlue;
                 homeTab.BackColor = Color.SteelBlue;
             }
             if (tabName == inventPage.Name)
@@ -127,6 +128,7 @@ namespace PHPSRePS {
                 salesTab.BackColor = Color.SteelBlue;
                 inventTab.BackColor = Color.CornflowerBlue;
                 reportsTab.BackColor = Color.SteelBlue;
+                forecastTab.BackColor = Color.SteelBlue;
                 homeTab.BackColor = Color.SteelBlue;
             }
             if (tabName == reportsPage.Name)
@@ -134,6 +136,7 @@ namespace PHPSRePS {
                 salesTab.BackColor = Color.SteelBlue;
                 inventTab.BackColor = Color.SteelBlue;
                 reportsTab.BackColor = Color.CornflowerBlue;
+                forecastTab.BackColor = Color.SteelBlue;
                 homeTab.BackColor = Color.SteelBlue;
             }
             if (tabName == forecastPage.Name)
