@@ -32,12 +32,18 @@ namespace PHPSRePS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.sidebar = new System.Windows.Forms.Panel();
             this.forecastTab = new System.Windows.Forms.Button();
             this.homeTab = new System.Windows.Forms.Button();
@@ -62,6 +68,8 @@ namespace PHPSRePS
             this.profileLogout = new System.Windows.Forms.Button();
             this.profileTitle = new System.Windows.Forms.Label();
             this.salesPage = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.searchAllBtn = new System.Windows.Forms.Button();
             this.salesQTYLabel = new System.Windows.Forms.Label();
             this.inventButtonLabel = new System.Windows.Forms.Label();
             this.salesOldOrderPanel = new System.Windows.Forms.Panel();
@@ -500,6 +508,8 @@ namespace PHPSRePS
             // 
             // salesPage
             // 
+            this.salesPage.Controls.Add(this.label1);
+            this.salesPage.Controls.Add(this.searchAllBtn);
             this.salesPage.Controls.Add(this.salesQTYLabel);
             this.salesPage.Controls.Add(this.inventButtonLabel);
             this.salesPage.Controls.Add(this.salesOldOrderPanel);
@@ -542,6 +552,7 @@ namespace PHPSRePS
             this.salesPage.Controls.Add(this.salesDataList);
             this.salesPage.Controls.Add(this.salesSearchBox);
             this.salesPage.Controls.Add(this.salesSearchButton);
+            this.salesPage.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesPage.Location = new System.Drawing.Point(4, 5);
             this.salesPage.Margin = new System.Windows.Forms.Padding(0);
             this.salesPage.Name = "salesPage";
@@ -550,17 +561,48 @@ namespace PHPSRePS
             this.salesPage.Text = "tabPage1";
             this.salesPage.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(1142, 757);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(263, 37);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Number of Items:";
+            // 
+            // searchAllBtn
+            // 
+            this.searchAllBtn.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.searchAllBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.searchAllBtn.FlatAppearance.BorderSize = 0;
+            this.searchAllBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchAllBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchAllBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.searchAllBtn.Location = new System.Drawing.Point(758, 975);
+            this.searchAllBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.searchAllBtn.Name = "searchAllBtn";
+            this.searchAllBtn.Size = new System.Drawing.Size(70, 70);
+            this.searchAllBtn.TabIndex = 45;
+            this.searchAllBtn.Text = "ALL";
+            this.searchAllBtn.UseCompatibleTextRendering = true;
+            this.searchAllBtn.UseVisualStyleBackColor = false;
+            this.searchAllBtn.Click += new System.EventHandler(this.searchAllBtn_Click);
+            // 
             // salesQTYLabel
             // 
             this.salesQTYLabel.AutoSize = true;
             this.salesQTYLabel.BackColor = System.Drawing.Color.Transparent;
             this.salesQTYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesQTYLabel.ForeColor = System.Drawing.Color.Black;
-            this.salesQTYLabel.Location = new System.Drawing.Point(1727, 834);
+            this.salesQTYLabel.Location = new System.Drawing.Point(1727, 757);
             this.salesQTYLabel.Name = "salesQTYLabel";
             this.salesQTYLabel.Size = new System.Drawing.Size(35, 37);
             this.salesQTYLabel.TabIndex = 44;
             this.salesQTYLabel.Text = "0";
+            this.salesQTYLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // inventButtonLabel
             // 
@@ -593,7 +635,7 @@ namespace PHPSRePS
             this.salesOldPay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.salesOldPay.FlatAppearance.BorderSize = 0;
             this.salesOldPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.salesOldPay.Font = new System.Drawing.Font("Segoe UI Symbol", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesOldPay.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesOldPay.ForeColor = System.Drawing.Color.Black;
             this.salesOldPay.Location = new System.Drawing.Point(428, 202);
             this.salesOldPay.Margin = new System.Windows.Forms.Padding(0);
@@ -611,7 +653,7 @@ namespace PHPSRePS
             this.salesCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.salesCancel.FlatAppearance.BorderSize = 0;
             this.salesCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.salesCancel.Font = new System.Drawing.Font("Segoe UI Symbol", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesCancel.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesCancel.ForeColor = System.Drawing.Color.Black;
             this.salesCancel.Location = new System.Drawing.Point(68, 202);
             this.salesCancel.Margin = new System.Windows.Forms.Padding(0);
@@ -648,7 +690,7 @@ namespace PHPSRePS
             this.salesOldOrder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.salesOldOrder.FlatAppearance.BorderSize = 0;
             this.salesOldOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.salesOldOrder.Font = new System.Drawing.Font("Segoe UI Symbol", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesOldOrder.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesOldOrder.ForeColor = System.Drawing.Color.Black;
             this.salesOldOrder.Location = new System.Drawing.Point(1371, 981);
             this.salesOldOrder.Margin = new System.Windows.Forms.Padding(0);
@@ -663,9 +705,26 @@ namespace PHPSRePS
             // salesTranList
             // 
             this.salesTranList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.salesTranList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.salesTranList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.salesTranList.DefaultCellStyle = dataGridViewCellStyle14;
             this.salesTranList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.salesTranList.Location = new System.Drawing.Point(1149, 88);
+            this.salesTranList.MultiSelect = false;
             this.salesTranList.Name = "salesTranList";
             this.salesTranList.ReadOnly = true;
             this.salesTranList.Size = new System.Drawing.Size(613, 649);
@@ -678,12 +737,12 @@ namespace PHPSRePS
             this.salesAddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.salesAddBtn.FlatAppearance.BorderSize = 0;
             this.salesAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.salesAddBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesAddBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.salesAddBtn.Location = new System.Drawing.Point(963, 813);
+            this.salesAddBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesAddBtn.ForeColor = System.Drawing.Color.Black;
+            this.salesAddBtn.Location = new System.Drawing.Point(922, 813);
             this.salesAddBtn.Margin = new System.Windows.Forms.Padding(0);
             this.salesAddBtn.Name = "salesAddBtn";
-            this.salesAddBtn.Size = new System.Drawing.Size(124, 87);
+            this.salesAddBtn.Size = new System.Drawing.Size(165, 87);
             this.salesAddBtn.TabIndex = 38;
             this.salesAddBtn.Text = "Add item to Transaction";
             this.salesAddBtn.UseCompatibleTextRendering = true;
@@ -696,7 +755,7 @@ namespace PHPSRePS
             this.salesPayButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.salesPayButton.FlatAppearance.BorderSize = 0;
             this.salesPayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.salesPayButton.Font = new System.Drawing.Font("Segoe UI Symbol", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesPayButton.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesPayButton.ForeColor = System.Drawing.Color.Black;
             this.salesPayButton.Location = new System.Drawing.Point(1629, 979);
             this.salesPayButton.Margin = new System.Windows.Forms.Padding(0);
@@ -714,7 +773,7 @@ namespace PHPSRePS
             this.cancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.cancelButton.FlatAppearance.BorderSize = 0;
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Segoe UI Symbol", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Font = new System.Drawing.Font("Segoe UI Symbol", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.Black;
             this.cancelButton.Location = new System.Drawing.Point(1158, 981);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(0);
@@ -730,13 +789,14 @@ namespace PHPSRePS
             // 
             this.salesTotalNum.AutoSize = true;
             this.salesTotalNum.BackColor = System.Drawing.Color.Transparent;
-            this.salesTotalNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesTotalNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesTotalNum.ForeColor = System.Drawing.Color.Black;
-            this.salesTotalNum.Location = new System.Drawing.Point(1628, 774);
+            this.salesTotalNum.Location = new System.Drawing.Point(1621, 813);
             this.salesTotalNum.Name = "salesTotalNum";
-            this.salesTotalNum.Size = new System.Drawing.Size(134, 37);
+            this.salesTotalNum.Size = new System.Drawing.Size(141, 37);
             this.salesTotalNum.TabIndex = 35;
             this.salesTotalNum.Text = "$000.00";
+            this.salesTotalNum.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // salesTotal
             // 
@@ -744,7 +804,7 @@ namespace PHPSRePS
             this.salesTotal.BackColor = System.Drawing.Color.Transparent;
             this.salesTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesTotal.ForeColor = System.Drawing.Color.Black;
-            this.salesTotal.Location = new System.Drawing.Point(1151, 774);
+            this.salesTotal.Location = new System.Drawing.Point(1142, 813);
             this.salesTotal.Name = "salesTotal";
             this.salesTotal.Size = new System.Drawing.Size(276, 37);
             this.salesTotal.TabIndex = 34;
@@ -1249,9 +1309,26 @@ namespace PHPSRePS
             // salesDataList
             // 
             this.salesDataList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.salesDataList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.salesDataList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.salesDataList.DefaultCellStyle = dataGridViewCellStyle16;
             this.salesDataList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.salesDataList.Location = new System.Drawing.Point(37, 89);
+            this.salesDataList.MultiSelect = false;
             this.salesDataList.Name = "salesDataList";
             this.salesDataList.ReadOnly = true;
             this.salesDataList.Size = new System.Drawing.Size(1038, 649);
@@ -1263,7 +1340,7 @@ namespace PHPSRePS
             // 
             this.salesSearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesSearchBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.salesSearchBox.Location = new System.Drawing.Point(120, 27);
+            this.salesSearchBox.Location = new System.Drawing.Point(120, 21);
             this.salesSearchBox.Name = "salesSearchBox";
             this.salesSearchBox.Size = new System.Drawing.Size(840, 38);
             this.salesSearchBox.TabIndex = 0;
@@ -1280,7 +1357,7 @@ namespace PHPSRePS
             this.salesSearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.salesSearchButton.Font = new System.Drawing.Font("Segoe UI Symbol", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesSearchButton.ForeColor = System.Drawing.Color.Transparent;
-            this.salesSearchButton.Location = new System.Drawing.Point(963, 24);
+            this.salesSearchButton.Location = new System.Drawing.Point(963, 21);
             this.salesSearchButton.Margin = new System.Windows.Forms.Padding(0);
             this.salesSearchButton.Name = "salesSearchButton";
             this.salesSearchButton.Size = new System.Drawing.Size(38, 38);
@@ -1336,8 +1413,8 @@ namespace PHPSRePS
             this.inventAddCancelBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.inventAddCancelBtn.FlatAppearance.BorderSize = 0;
             this.inventAddCancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventAddCancelBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventAddCancelBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventAddCancelBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventAddCancelBtn.ForeColor = System.Drawing.Color.Black;
             this.inventAddCancelBtn.Location = new System.Drawing.Point(48, 483);
             this.inventAddCancelBtn.Margin = new System.Windows.Forms.Padding(0);
             this.inventAddCancelBtn.Name = "inventAddCancelBtn";
@@ -1366,8 +1443,8 @@ namespace PHPSRePS
             this.inventAddContinBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.inventAddContinBtn.FlatAppearance.BorderSize = 0;
             this.inventAddContinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventAddContinBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventAddContinBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventAddContinBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventAddContinBtn.ForeColor = System.Drawing.Color.Black;
             this.inventAddContinBtn.Location = new System.Drawing.Point(111, 105);
             this.inventAddContinBtn.Margin = new System.Windows.Forms.Padding(0);
             this.inventAddContinBtn.Name = "inventAddContinBtn";
@@ -1417,8 +1494,8 @@ namespace PHPSRePS
             this.inventAddAddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.inventAddAddBtn.FlatAppearance.BorderSize = 0;
             this.inventAddAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventAddAddBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventAddAddBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventAddAddBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventAddAddBtn.ForeColor = System.Drawing.Color.Black;
             this.inventAddAddBtn.Location = new System.Drawing.Point(405, 483);
             this.inventAddAddBtn.Margin = new System.Windows.Forms.Padding(0);
             this.inventAddAddBtn.Name = "inventAddAddBtn";
@@ -1509,8 +1586,8 @@ namespace PHPSRePS
             this.inventCancelBtn.Enabled = false;
             this.inventCancelBtn.FlatAppearance.BorderSize = 0;
             this.inventCancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventCancelBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventCancelBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventCancelBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventCancelBtn.ForeColor = System.Drawing.Color.Black;
             this.inventCancelBtn.Location = new System.Drawing.Point(1260, 959);
             this.inventCancelBtn.Margin = new System.Windows.Forms.Padding(0);
             this.inventCancelBtn.Name = "inventCancelBtn";
@@ -1528,8 +1605,8 @@ namespace PHPSRePS
             this.inventEditBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.inventEditBtn.FlatAppearance.BorderSize = 0;
             this.inventEditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventEditBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventEditBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventEditBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventEditBtn.ForeColor = System.Drawing.Color.Black;
             this.inventEditBtn.Location = new System.Drawing.Point(1440, 959);
             this.inventEditBtn.Margin = new System.Windows.Forms.Padding(0);
             this.inventEditBtn.Name = "inventEditBtn";
@@ -1564,8 +1641,8 @@ namespace PHPSRePS
             this.inventAddNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.inventAddNew.FlatAppearance.BorderSize = 0;
             this.inventAddNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventAddNew.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventAddNew.ForeColor = System.Drawing.Color.Transparent;
+            this.inventAddNew.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventAddNew.ForeColor = System.Drawing.Color.Black;
             this.inventAddNew.Location = new System.Drawing.Point(33, 959);
             this.inventAddNew.Margin = new System.Windows.Forms.Padding(0);
             this.inventAddNew.Name = "inventAddNew";
@@ -1591,7 +1668,25 @@ namespace PHPSRePS
             // inventDataList
             // 
             this.inventDataList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.inventDataList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.inventDataList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.inventDataList.DefaultCellStyle = dataGridViewCellStyle18;
             this.inventDataList.Location = new System.Drawing.Point(36, 72);
+            this.inventDataList.MultiSelect = false;
             this.inventDataList.Name = "inventDataList";
             this.inventDataList.ReadOnly = true;
             this.inventDataList.Size = new System.Drawing.Size(1183, 864);
@@ -1651,8 +1746,8 @@ namespace PHPSRePS
             this.inventDescConfirmBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.inventDescConfirmBtn.FlatAppearance.BorderSize = 0;
             this.inventDescConfirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.inventDescConfirmBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventDescConfirmBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.inventDescConfirmBtn.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventDescConfirmBtn.ForeColor = System.Drawing.Color.Black;
             this.inventDescConfirmBtn.Location = new System.Drawing.Point(111, 105);
             this.inventDescConfirmBtn.Margin = new System.Windows.Forms.Padding(0);
             this.inventDescConfirmBtn.Name = "inventDescConfirmBtn";
@@ -1883,16 +1978,16 @@ namespace PHPSRePS
             // 
             // reportChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.reportChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.reportChart.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.reportChart.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.reportChart.Legends.Add(legend5);
             this.reportChart.Location = new System.Drawing.Point(306, 212);
             this.reportChart.Name = "reportChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.reportChart.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.reportChart.Series.Add(series5);
             this.reportChart.Size = new System.Drawing.Size(1073, 400);
             this.reportChart.TabIndex = 19;
             this.reportChart.Text = "chart1";
@@ -2023,16 +2118,16 @@ namespace PHPSRePS
             // 
             // forecastChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.forecastChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.forecastChart.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.forecastChart.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.forecastChart.Legends.Add(legend6);
             this.forecastChart.Location = new System.Drawing.Point(392, 436);
             this.forecastChart.Name = "forecastChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.forecastChart.Series.Add(series2);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.forecastChart.Series.Add(series6);
             this.forecastChart.Size = new System.Drawing.Size(897, 400);
             this.forecastChart.TabIndex = 20;
             this.forecastChart.Text = "chart1";
@@ -2416,6 +2511,8 @@ namespace PHPSRePS
         private Label HomeTitleLabel;
         private Label inventButtonLabel;
         private Label salesQTYLabel;
+        private Button searchAllBtn;
+        private Label label1;
     }
 }
 

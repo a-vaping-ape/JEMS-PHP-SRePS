@@ -219,6 +219,7 @@ namespace PHPSRePS {
             salesTranList.Refresh();
             salesTotalNum.Text = "$0.00";
             productList.Clear();
+            salesQTYLabel.Text = "0";
         }
 
         //creates a new items sales record on the DB
@@ -238,6 +239,7 @@ namespace PHPSRePS {
                     salesTranList.Refresh();
                     MessageBox.Show("Your Transation Has Been Saved");
                     salesTotalNum.Text = "$0.00";
+                    salesQTYLabel.Text = "0";
                     productList.Clear();
                     
                 }
@@ -600,8 +602,14 @@ namespace PHPSRePS {
 
 
 
-       #region Button event handlers
+        #region Button event handlers
         //On screen keyboard events
+
+        private void searchAllBtn_Click(object sender, EventArgs e)
+        {
+            getAllProducts();
+        }
+
         private void searchABtn_Click(object sender, EventArgs e)
         {
             getAllProducts("A");
@@ -825,7 +833,7 @@ namespace PHPSRePS {
                         foreach (DataGridViewColumn c in salesDataList.Columns)
                         {
                             salesTranList.Columns.Add(c.Clone() as DataGridViewColumn);
-                            salesQTYLabel.Text += 1;
+                            
                         }
                         salesTranList.ForeColor = Color.Black;
                     }
@@ -851,11 +859,13 @@ namespace PHPSRePS {
 
                         productList.Add(addedProduct);
                         salesTranList.Rows.Add(addedProduct.GetDataGridRow(salesTranList));
-
+                        
                         //update total cost field
                         total = 0;
                         foreach (Product product in productList)
                             total += product.Price;
+                        //update Quantity
+                        salesQTYLabel.Text = (salesTranList.Rows.Count - 1).ToString();
 
                         if (total.ToString().Contains('.'))
                             salesTotalNum.Text = "$" + total.ToString();
@@ -1180,6 +1190,8 @@ namespace PHPSRePS {
                 salesTranList.Refresh();
                 MessageBox.Show("Your Transation Has Been Saved");
                 salesTotalNum.Text = "$0.00";
+                salesQTYLabel.Text = "0";
+                
             }
             else
             {
@@ -1187,7 +1199,7 @@ namespace PHPSRePS {
             }
 
             // getAllProducts(salesSearchBox.Text.ToString());
-            salesOldOrderPanel.Visible = false;
+            salesReturnToMain();
             
         }
 
@@ -1195,9 +1207,21 @@ namespace PHPSRePS {
         {
             salesOldOrderPanel.Visible = true;
             salesPayButton.Enabled = false;
-            salesCancel.Enabled = false;
             salesAddBtn.Enabled = false;
             sidebar.Enabled = false;
+        }
+        private void salesReturnToMain()
+        {
+            salesAddBtn.Enabled = true;
+            salesPayButton.Enabled = true;
+            salesOldOrder.Enabled = true;
+            cancelButton.Enabled = true;
+            sidebar.Enabled = true;
+            salesSearchBox.Enabled = true;
+            salesSearchButton.Enabled = true;
+            salesDataList.Enabled = true;
+            salesTranList.Enabled = true;
+            salesOldOrderPanel.Visible = false;
         }
 
         private void disableSalesAlphaButtons()
@@ -1207,7 +1231,7 @@ namespace PHPSRePS {
 
         private void salesCancel_Click(object sender, EventArgs e)
         {
-            salesOldOrderPanel.Visible = false;
+            salesReturnToMain();
         }
 
         private void reportCSVBtn_Click(object sender, EventArgs e)
@@ -1229,6 +1253,6 @@ namespace PHPSRePS {
 
         }
 
-
+        
     }
 }
