@@ -21,15 +21,15 @@ namespace PHPSRePS
         //add this to anymehtods working with the database
         public void OpenConnection()
         {
-          //  string server = "sql12.freemysqlhosting.net";
-            //string databaseName = "sql12196182";    
-            //string username = "sql12196182";
-            //string password = "nZdkdnzrck";
-
-            string server = "localhost";
+            /*string server = "localhost";
             string databaseName = "php_hawthorn";
             string username = "root";
-            string password = "";
+            string password = "";*/
+
+            string server = "sql12.freemysqlhosting.net";
+            string databaseName = "sql12196182";
+            string username = "sql12196182";
+            string password = "nZdkdnzrck";
 
             string dbConnectionString = string.Format("server={0};uid={1};pwd={2};database={3};", server, username, password, databaseName);
             connection = new MySqlConnection(dbConnectionString);
@@ -130,7 +130,7 @@ namespace PHPSRePS
             OpenConnection();
 
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM `employee` WHERE Username = '" + usr +"' AND Password = '" + pwd + "'", connection);
-
+            
             var reader = cmd.ExecuteReader();
 
             //waiting for the GUI implementation
@@ -305,7 +305,7 @@ namespace PHPSRePS
             }
             catch
             {
-                Console.WriteLine("Smoething ducked up");
+                Console.WriteLine("Something ducked up");
             }
             finally
             {

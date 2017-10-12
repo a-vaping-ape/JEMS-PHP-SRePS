@@ -45,20 +45,16 @@ namespace PHPSRePS {
 
         public MainView() {
             InitializeComponent();
-            #region inventory description lsit rows
 
-            #endregion
             salesTab.FlatAppearance.BorderSize = 0;
             inventTab.FlatAppearance.BorderSize = 0;
             reportsTab.FlatAppearance.BorderSize = 0;
             homeTab.FlatAppearance.BorderSize = 0;
             updateTabButtons();
             
-
             salesTab.Click += new EventHandler(this.OpenSales);
             inventTab.Click += new EventHandler(this.OpenInventory);
             reportsTab.Click += new EventHandler(this.OpenReports);
-            homeTab.Click += new EventHandler(this.OpenHome);
             powerButton.Click += new EventHandler(this.CloseApp);
         }
 
@@ -75,19 +71,12 @@ namespace PHPSRePS {
             tabView.SelectTab("inventPage");
             updateTabButtons();
             ClearData();
-            
-            //LoadProducts();
-            //DisplayProducts();
         }
         private void OpenSales(object sender, EventArgs e) {
             getAllProducts("");
             tabView.SelectTab("salesPage");
             updateTabButtons();
-                
-            ClearData();
-            //LoadSales();
-            //DisplaySales();
-                
+            ClearData();  
         }
         private void OpenReports(object sender, EventArgs e) {
             tabView.SelectTab("reportsPage");
@@ -95,16 +84,37 @@ namespace PHPSRePS {
 
             ClearData();
         }
-        private void OpenHome(object sender, EventArgs e)
+        private void forecastTab_Click(object sender, EventArgs e)
+        {
+            tabView.SelectTab("forecastPage");
+            LoadForcast("products");
+            updateTabButtons();
+
+        }
+        private void homeTab_Click(object sender, EventArgs e)
         {
             tabView.SelectTab("homePage");
             updateTabButtons();
         }
+
         
         //Updates the tab colours
         private void updateTabButtons()
         {
             string tabName = tabView.SelectedTab.Name;
+
+            //Reports and Forcasting page only accessible to managers
+            reportsTab.Visible = false;
+            forecastTab.Visible = false;
+            if (currentEmployee != null)
+            {
+                if (currentEmployee.IsManager)
+                {
+                    reportsTab.Visible = true;
+                    forecastTab.Visible = true;
+                }
+            } 
+
             if (tabName == salesPage.Name)
             {
                 salesTab.BackColor = Color.CornflowerBlue;
@@ -126,12 +136,34 @@ namespace PHPSRePS {
                 reportsTab.BackColor = Color.CornflowerBlue;
                 homeTab.BackColor = Color.SteelBlue;
             }
+            if (tabName == forecastPage.Name)
+            {
+                salesTab.BackColor = Color.SteelBlue;
+                inventTab.BackColor = Color.SteelBlue;
+                reportsTab.BackColor = Color.SteelBlue;
+                forecastTab.BackColor = Color.CornflowerBlue;
+                homeTab.BackColor = Color.SteelBlue;
+            }
             if (tabName == homePage.Name)
             {
                 salesTab.BackColor = Color.SteelBlue;
                 inventTab.BackColor = Color.SteelBlue;
                 reportsTab.BackColor = Color.SteelBlue;
+                forecastTab.BackColor = Color.SteelBlue;
                 homeTab.BackColor = Color.CornflowerBlue;
+                updateUserIcon();
+            }
+        }
+
+        private void updateUserIcon()
+        {
+            if (currentEmployee != null)
+            {
+                userButton.Text = currentEmployee.FirstName;
+            }
+            else
+            {
+                userButton.Text = "Not Signed in";
             }
         }
 
@@ -192,25 +224,28 @@ namespace PHPSRePS {
         //creates a new items sales record on the DB
         private void payBtn_Click(object sender, EventArgs e)
         {
-            if (productList.Count < 1)
+            if ((currentEmployee != null))
             {
-                MessageBox.Show("Please add an item to the transatiom");
-            }
-            else if ((currentEmployee != null))
-            {
-                database.CreateSaleItems(productList, currentEmployee.EmployeeID);
-                salesTranList.DataSource = null;
-                salesTranList.Rows.Clear();
-                salesTranList.Refresh();
-                MessageBox.Show("Your Transation Has Been Saved");
-                salesTotalNum.Text = "$0.00";
-                productList.Clear();
+                if (productList.Count < 1)
+                {
+                    MessageBox.Show("Please add an item to the transaction");
+                }
+                else
+                {
+                    database.CreateSaleItems(productList, currentEmployee.EmployeeID);
+                    salesTranList.DataSource = null;
+                    salesTranList.Rows.Clear();
+                    salesTranList.Refresh();
+                    MessageBox.Show("Your Transation Has Been Saved");
+                    salesTotalNum.Text = "$0.00";
+                    productList.Clear();
+                    
+                }
             }
             else
             {
                 MessageBox.Show("Please Login To Process A Order");
             }
-
             getAllProducts(salesSearchBox.Text.ToString());
         }
 
@@ -270,9 +305,8 @@ namespace PHPSRePS {
             {
                 inventDataList.DataSource = source;
                 inventDataList.ForeColor = Color.Black;
-            }
-
-            inventUpdateDropboxes();
+                inventUpdateDropboxes();
+            } 
         }
 
         private void inventGetAllProducts()
@@ -314,14 +348,22 @@ namespace PHPSRePS {
         {
             if (!inventDescPanel.Enabled)
             {
-                inventDescPanel.Enabled = true;
-                inventEditBtn.BackColor = Color.MediumSpringGreen;
-                inventPage.BackColor = Color.Coral;
-                inventEditBtn.Text = "SAVE CHANGES";
-                InventDescription.Text = "EDITING MODE";
-                inventCancelBtn.Enabled = true;
-                inventCancelBtn.Visible = true;
-                inventEditBtn.Location = new Point(1629, 959);
+                if(currentEmployee != null && currentEmployee.IsManager)
+                {
+                    inventDescPanel.Enabled = true;
+                    inventEditBtn.BackColor = Color.MediumSpringGreen;
+                    inventPage.BackColor = Color.Coral;
+                    inventEditBtn.Text = "SAVE CHANGES";
+                    InventDescription.Text = "EDITING MODE";
+                    inventCancelBtn.Enabled = true;
+                    inventCancelBtn.Visible = true;
+                    inventEditBtn.Location = new Point(1629, 959);
+                }
+                else
+                {
+                    MessageBox.Show("Please Login to Edit a Product.");
+                    
+                }
             }
             else
             {
@@ -423,12 +465,19 @@ namespace PHPSRePS {
 
         private void inventAddNew_Click(object sender, EventArgs e)
         {
-            //Disables all buttons in the background
-            sidebar.Enabled = false;
-            inventDataList.Enabled = false;
-            inventDescPriceTextbox.Enabled = false;
-            inventAddForm.Visible = true;
-            inventAddForm.Enabled = true;
+            if (currentEmployee != null)
+            {
+                //Disables all buttons in the background
+                sidebar.Enabled = false;
+                inventDataList.Enabled = false;
+                inventDescPriceTextbox.Enabled = false;
+                inventAddForm.Visible = true;
+                inventAddForm.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Please Login to Add a new product.");
+            }
         }
 
         private void inventAddAddBtn_Click(object sender, EventArgs e)
@@ -776,6 +825,7 @@ namespace PHPSRePS {
                         foreach (DataGridViewColumn c in salesDataList.Columns)
                         {
                             salesTranList.Columns.Add(c.Clone() as DataGridViewColumn);
+                            salesQTYLabel.Text += 1;
                         }
                         salesTranList.ForeColor = Color.Black;
                     }
@@ -843,21 +893,28 @@ namespace PHPSRePS {
         {
             string userName = userUsrField.Text;
             string password = userPassField.Text;
-
-            currentEmployee = database.attemptUserLogin(userName, password);
-
-            if (currentEmployee != null)
+            try
             {
-                MessageBox.Show("Welcome "+userName);
-                tabView.SelectTab("homePage");
-                userUsrField.Text = "";
-                userPassField.Text = "";
-                updateTabButtons();
+                currentEmployee = database.attemptUserLogin(userName, password);
+                if (currentEmployee != null)
+                {
+                    MessageBox.Show("Welcome " + userName);
+                    tabView.SelectTab("homePage");
+                    userUsrField.Text = "";
+                    userPassField.Text = "";
+                    updateTabButtons();
+                }
+                else
+                {
+                    MessageBox.Show("Login Failed Please Try Again");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Login Failed Please Try Again");
+                MessageBox.Show("The program cannot connect to the database. Please try again later.");
             }
+
+            
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -1041,13 +1098,7 @@ namespace PHPSRePS {
 
         }
 
-        private void forecastTab_Click(object sender, EventArgs e)
-        {
-            tabView.SelectTab("forecastPage");
-            LoadForcast("products");
-
-            
-        }
+        
 
         private void LoadForcast(string groupBy)
         {
@@ -1091,11 +1142,6 @@ namespace PHPSRePS {
 
         }
 
-        private void homePage_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void forecastProductBtn_Click(object sender, EventArgs e)
         {
             LoadForcast("products");
@@ -1118,12 +1164,12 @@ namespace PHPSRePS {
 
         private void salesOldPay_Click(object sender, EventArgs e)
         {
-            if (productList.Count < 1)
+            if ( (currentEmployee != null) && productList.Count > 0)
             {
-                MessageBox.Show("Please add an item to the transatiom");
-            }
-            else if ( (currentEmployee != null) && productList.Count > 0)
-            {
+                if (productList.Count < 1)
+                {
+                    MessageBox.Show("Please add an item to the transaction");
+                }
                 DateTime date = salesTimePicker.Value;
                 database.CreateSaleItems(productList, currentEmployee.EmployeeID, date);
                 salesTranList.DataSource = null;
@@ -1137,14 +1183,23 @@ namespace PHPSRePS {
                 MessageBox.Show("Please Login To Process A Order");
             }
 
-           // getAllProducts(salesSearchBox.Text.ToString());
+            // getAllProducts(salesSearchBox.Text.ToString());
             salesOldOrderPanel.Visible = false;
-  
+            
         }
 
         private void salesOldOrder_Click(object sender, EventArgs e)
         {
             salesOldOrderPanel.Visible = true;
+            salesPayButton.Enabled = false;
+            salesCancel.Enabled = false;
+            salesAddBtn.Enabled = false;
+            sidebar.Enabled = false;
+        }
+
+        private void disableSalesAlphaButtons()
+        {
+            searchABtn.Enabled = false;
         }
 
         private void salesCancel_Click(object sender, EventArgs e)
@@ -1170,5 +1225,7 @@ namespace PHPSRePS {
         {
 
         }
+
+
     }
 }
