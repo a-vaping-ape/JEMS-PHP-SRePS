@@ -853,6 +853,17 @@ namespace PHPSRePS {
                 userUsrField.Text = "";
                 userPassField.Text = "";
                 updateTabButtons();
+
+                if (currentEmployee.IsManager)
+                {
+                    reportsTab.Visible = true;
+                    forecastTab.Visible = true;
+                }
+                else
+                {
+                    reportsTab.Visible = false;
+                    forecastTab.Visible = false;
+                }
             }
             else
             {
@@ -868,6 +879,9 @@ namespace PHPSRePS {
         //log out button
         private void profileLogout_Click(object sender, EventArgs e)
         {
+            reportsTab.Visible = false;
+            forecastTab.Visible = false;
+
             currentEmployee = null;
             tabView.SelectTab("homePage");
 

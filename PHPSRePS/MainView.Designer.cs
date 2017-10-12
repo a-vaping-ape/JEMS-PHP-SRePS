@@ -162,6 +162,7 @@ namespace PHPSRePS
             this.profileLogout = new System.Windows.Forms.Button();
             this.profileTitle = new System.Windows.Forms.Label();
             this.forecastPage = new System.Windows.Forms.TabPage();
+            this.forcastEmailSCV = new System.Windows.Forms.Button();
             this.forecastCSVBtn = new System.Windows.Forms.Button();
             this.forecastChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.forecastDropDown = new System.Windows.Forms.ComboBox();
@@ -174,7 +175,6 @@ namespace PHPSRePS
             this.forecastEndDate2 = new System.Windows.Forms.DateTimePicker();
             this.forecastStartDate = new System.Windows.Forms.DateTimePicker();
             this.forecastStartTitle = new System.Windows.Forms.Label();
-            this.forcastEmailSCV = new System.Windows.Forms.Button();
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.homePage.SuspendLayout();
@@ -235,6 +235,7 @@ namespace PHPSRePS
             this.forecastTab.Size = new System.Drawing.Size(115, 115);
             this.forecastTab.TabIndex = 4;
             this.forecastTab.UseVisualStyleBackColor = false;
+            this.forecastTab.Visible = false;
             this.forecastTab.Click += new System.EventHandler(this.forecastTab_Click);
             // 
             // homeTab
@@ -265,6 +266,7 @@ namespace PHPSRePS
             this.reportsTab.Size = new System.Drawing.Size(115, 115);
             this.reportsTab.TabIndex = 2;
             this.reportsTab.UseVisualStyleBackColor = false;
+            this.reportsTab.Visible = false;
             this.reportsTab.Click += new System.EventHandler(this.reportsTab_Click);
             // 
             // reportPanel
@@ -2005,6 +2007,23 @@ namespace PHPSRePS
             this.forecastPage.Text = "forecastPage";
             this.forecastPage.UseVisualStyleBackColor = true;
             // 
+            // forcastEmailSCV
+            // 
+            this.forcastEmailSCV.BackColor = System.Drawing.Color.SteelBlue;
+            this.forcastEmailSCV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.forcastEmailSCV.FlatAppearance.BorderSize = 0;
+            this.forcastEmailSCV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.forcastEmailSCV.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forcastEmailSCV.ForeColor = System.Drawing.Color.Transparent;
+            this.forcastEmailSCV.Location = new System.Drawing.Point(1313, 675);
+            this.forcastEmailSCV.Margin = new System.Windows.Forms.Padding(0);
+            this.forcastEmailSCV.Name = "forcastEmailSCV";
+            this.forcastEmailSCV.Size = new System.Drawing.Size(208, 73);
+            this.forcastEmailSCV.TabIndex = 22;
+            this.forcastEmailSCV.Text = "Emal CSV";
+            this.forcastEmailSCV.UseVisualStyleBackColor = false;
+            this.forcastEmailSCV.Click += new System.EventHandler(this.forcastEmailSCV_Click);
+            // 
             // forecastCSVBtn
             // 
             this.forecastCSVBtn.BackColor = System.Drawing.Color.SteelBlue;
@@ -2151,23 +2170,6 @@ namespace PHPSRePS
             this.forecastStartTitle.Size = new System.Drawing.Size(108, 25);
             this.forecastStartTitle.TabIndex = 26;
             this.forecastStartTitle.Text = "Start Date";
-            // 
-            // forcastEmailSCV
-            // 
-            this.forcastEmailSCV.BackColor = System.Drawing.Color.SteelBlue;
-            this.forcastEmailSCV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.forcastEmailSCV.FlatAppearance.BorderSize = 0;
-            this.forcastEmailSCV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.forcastEmailSCV.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forcastEmailSCV.ForeColor = System.Drawing.Color.Transparent;
-            this.forcastEmailSCV.Location = new System.Drawing.Point(1313, 675);
-            this.forcastEmailSCV.Margin = new System.Windows.Forms.Padding(0);
-            this.forcastEmailSCV.Name = "forcastEmailSCV";
-            this.forcastEmailSCV.Size = new System.Drawing.Size(208, 73);
-            this.forcastEmailSCV.TabIndex = 22;
-            this.forcastEmailSCV.Text = "Emal CSV";
-            this.forcastEmailSCV.UseVisualStyleBackColor = false;
-            this.forcastEmailSCV.Click += new System.EventHandler(this.forcastEmailSCV_Click);
             // 
             // MainView
             // 
