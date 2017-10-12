@@ -16,11 +16,11 @@ namespace PHPSRePS
                 client.Host =("smtp.gmail.com");
                 client.UseDefaultCredentials = true; 
                 client.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network; 
-                client.Credentials = new System.Net.NetworkCredential("id", "pwd");
+                client.Credentials = new System.Net.NetworkCredential("Yoho2333", "yoho114477");
                 System.Net.Mail.MailMessage Message = new System.Net.Mail.MailMessage();
-                Message.From = new System.Net.Mail.MailAddress("@gmail.com");
+                Message.From = new System.Net.Mail.MailAddress("yoho2333@gmail.com");
                 
-                Message.To.Add("manager@gmail.com");
+                Message.To.Add("ethenchenglong@gmail.com");
                 
                 Message.Subject = "Report";
                 Message.Body = "Report" ;
