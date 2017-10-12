@@ -24,7 +24,7 @@ namespace PHPSRePS
                 
                 Message.Subject = "Report";
                 Message.Body = "Report" ;
-              //  Message.Attachments.Add( = "C:\report.scv";
+                Message.Attachments.Add(new Attachment("C:\report.scv"));
                 Message.SubjectEncoding = System.Text.Encoding.UTF8;
                 Message.BodyEncoding = System.Text.Encoding.UTF8;
                 Message.Priority = System.Net.Mail.MailPriority.High;
