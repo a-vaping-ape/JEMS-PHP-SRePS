@@ -177,6 +177,7 @@ namespace PHPSRePS
             this.userButton = new System.Windows.Forms.Button();
             this.inventButtonLabel = new System.Windows.Forms.Label();
             this.salesQTYLabel = new System.Windows.Forms.Label();
+
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.userPage.SuspendLayout();
@@ -237,6 +238,7 @@ namespace PHPSRePS
             this.forecastTab.Size = new System.Drawing.Size(115, 115);
             this.forecastTab.TabIndex = 4;
             this.forecastTab.UseVisualStyleBackColor = false;
+            this.forecastTab.Visible = false;
             this.forecastTab.Click += new System.EventHandler(this.forecastTab_Click);
             // 
             // homeTab
@@ -268,6 +270,7 @@ namespace PHPSRePS
             this.reportsTab.Size = new System.Drawing.Size(115, 115);
             this.reportsTab.TabIndex = 2;
             this.reportsTab.UseVisualStyleBackColor = false;
+            this.reportsTab.Visible = false;
             this.reportsTab.Click += new System.EventHandler(this.reportsTab_Click);
             // 
             // reportPanel

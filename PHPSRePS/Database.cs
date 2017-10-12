@@ -18,18 +18,30 @@ namespace PHPSRePS
 
         public MySqlConnection Connection { get => connection; set => connection = value; }
 
+        public bool CheckConnection()
+        {
+            if (connection != null && connection.State == ConnectionState.Open)
+            {
+                return true;
+            }
+            return false;
+        }
+
         //add this to anymehtods working with the database
         public void OpenConnection()
         {
+
+            string server = "sql12.freemysqlhosting.net";
+            string databaseName = "sql12196182";    
+            string username = "sql12196182";
+            string password = "nZdkdnzrck";
+
+
             /*string server = "localhost";
             string databaseName = "php_hawthorn";
             string username = "root";
             string password = "";*/
 
-            string server = "sql12.freemysqlhosting.net";
-            string databaseName = "sql12196182";
-            string username = "sql12196182";
-            string password = "nZdkdnzrck";
 
             string dbConnectionString = string.Format("server={0};uid={1};pwd={2};database={3};", server, username, password, databaseName);
             connection = new MySqlConnection(dbConnectionString);
@@ -330,13 +342,13 @@ namespace PHPSRePS
             {
                 case "product":
                     return
-                        "SELECT product.ProductName AS 'Product', categories.CategoryName AS 'Category', product.UnitPrice AS 'Unit Price', COUNT(sales.SalesID) AS 'Quantity Sold', COUNT(sales.SalesID)*Product.UnitPrice AS 'Total Revenue' FROM "
+                        "SELECT product.ProductName AS 'Product', categories.CategoryName AS 'Category', product.UnitPrice AS 'Unit Price', COUNT(sales.SalesID) AS 'Quantity Sold', COUNT(sales.SalesID)*product.UnitPrice AS 'Total Revenue' FROM "
                         + quadrupleJoin
                         + timeFrameLimit
                         + " GROUP BY ProductName ORDER BY COUNT(sales.salesID)*product.UnitPrice DESC; ";
                 case "employee":
                     return
-                        "SELECT Employee.FirstName AS employee, COUNT(sales.SalesID) AS 'No. of Sales', COUNT(sales.SalesID)*product.UnitPrice AS 'Total Revenue' FROM "
+                        "SELECT employee.FirstName AS employee, COUNT(sales.SalesID) AS 'No. of Sales', COUNT(sales.SalesID)*product.UnitPrice AS 'Total Revenue' FROM "
                         + quadrupleJoin
                         + timeFrameLimit
                         + " GROUP BY employee.FirstName ORDER BY COUNT(sales.SalesID)*product.UnitPrice DESC;";

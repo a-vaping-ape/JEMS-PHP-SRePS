@@ -925,6 +925,9 @@ namespace PHPSRePS {
         //log out button
         private void profileLogout_Click(object sender, EventArgs e)
         {
+            reportsTab.Visible = false;
+            forecastTab.Visible = false;
+
             currentEmployee = null;
             tabView.SelectTab("homePage");
 

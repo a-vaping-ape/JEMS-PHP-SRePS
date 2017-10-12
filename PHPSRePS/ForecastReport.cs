@@ -101,7 +101,7 @@ namespace PHPSRePS
             List<SalesPerDay> forecastData = new List<SalesPerDay>();
             Line regressionLine;
 
-            if (_salesHistoryList.Count > 1)
+            if (_salesHistoryList.Count > 2)
             {
                 int dayCounter = 0;
                 int forecastStartDay = Math.Abs((StartDate - SalesHistoryReport.First().date).Days);
