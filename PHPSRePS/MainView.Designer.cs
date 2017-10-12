@@ -32,12 +32,12 @@ namespace PHPSRePS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.sidebar = new System.Windows.Forms.Panel();
             this.forecastTab = new System.Windows.Forms.Button();
             this.homeTab = new System.Windows.Forms.Button();
@@ -62,6 +62,8 @@ namespace PHPSRePS
             this.profileLogout = new System.Windows.Forms.Button();
             this.profileTitle = new System.Windows.Forms.Label();
             this.salesPage = new System.Windows.Forms.TabPage();
+            this.salesQTYLabel = new System.Windows.Forms.Label();
+            this.inventButtonLabel = new System.Windows.Forms.Label();
             this.salesOldOrderPanel = new System.Windows.Forms.Panel();
             this.salesOldPay = new System.Windows.Forms.Button();
             this.salesCancel = new System.Windows.Forms.Button();
@@ -175,9 +177,6 @@ namespace PHPSRePS
             this.HomeTitleLabel = new System.Windows.Forms.Label();
             this.powerButton = new System.Windows.Forms.Button();
             this.userButton = new System.Windows.Forms.Button();
-            this.inventButtonLabel = new System.Windows.Forms.Label();
-            this.salesQTYLabel = new System.Windows.Forms.Label();
-
             this.sidebar.SuspendLayout();
             this.tabView.SuspendLayout();
             this.userPage.SuspendLayout();
@@ -550,6 +549,30 @@ namespace PHPSRePS
             this.salesPage.TabIndex = 0;
             this.salesPage.Text = "tabPage1";
             this.salesPage.UseVisualStyleBackColor = true;
+            // 
+            // salesQTYLabel
+            // 
+            this.salesQTYLabel.AutoSize = true;
+            this.salesQTYLabel.BackColor = System.Drawing.Color.Transparent;
+            this.salesQTYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesQTYLabel.ForeColor = System.Drawing.Color.Black;
+            this.salesQTYLabel.Location = new System.Drawing.Point(1727, 834);
+            this.salesQTYLabel.Name = "salesQTYLabel";
+            this.salesQTYLabel.Size = new System.Drawing.Size(35, 37);
+            this.salesQTYLabel.TabIndex = 44;
+            this.salesQTYLabel.Text = "0";
+            // 
+            // inventButtonLabel
+            // 
+            this.inventButtonLabel.AutoSize = true;
+            this.inventButtonLabel.BackColor = System.Drawing.Color.Transparent;
+            this.inventButtonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inventButtonLabel.ForeColor = System.Drawing.Color.Black;
+            this.inventButtonLabel.Location = new System.Drawing.Point(346, 757);
+            this.inventButtonLabel.Name = "inventButtonLabel";
+            this.inventButtonLabel.Size = new System.Drawing.Size(241, 37);
+            this.inventButtonLabel.TabIndex = 43;
+            this.inventButtonLabel.Text = "Select by Name";
             // 
             // salesOldOrderPanel
             // 
@@ -1860,16 +1883,16 @@ namespace PHPSRePS
             // 
             // reportChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.reportChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.reportChart.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.reportChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.reportChart.Legends.Add(legend1);
             this.reportChart.Location = new System.Drawing.Point(306, 212);
             this.reportChart.Name = "reportChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.reportChart.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.reportChart.Series.Add(series1);
             this.reportChart.Size = new System.Drawing.Size(1073, 400);
             this.reportChart.TabIndex = 19;
             this.reportChart.Text = "chart1";
@@ -1878,6 +1901,7 @@ namespace PHPSRePS
             // 
             this.reportsGrid.AllowUserToAddRows = false;
             this.reportsGrid.AllowUserToDeleteRows = false;
+            this.reportsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.reportsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.reportsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reportsGrid.Location = new System.Drawing.Point(306, 644);
@@ -1999,16 +2023,16 @@ namespace PHPSRePS
             // 
             // forecastChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.forecastChart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.forecastChart.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.forecastChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.forecastChart.Legends.Add(legend2);
             this.forecastChart.Location = new System.Drawing.Point(392, 436);
             this.forecastChart.Name = "forecastChart";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.forecastChart.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.forecastChart.Series.Add(series2);
             this.forecastChart.Size = new System.Drawing.Size(897, 400);
             this.forecastChart.TabIndex = 20;
             this.forecastChart.Text = "chart1";
@@ -2188,30 +2212,6 @@ namespace PHPSRePS
             this.userButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.userButton.UseVisualStyleBackColor = false;
             this.userButton.Click += new System.EventHandler(this.userButton_Click);
-            // 
-            // inventButtonLabel
-            // 
-            this.inventButtonLabel.AutoSize = true;
-            this.inventButtonLabel.BackColor = System.Drawing.Color.Transparent;
-            this.inventButtonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inventButtonLabel.ForeColor = System.Drawing.Color.Black;
-            this.inventButtonLabel.Location = new System.Drawing.Point(346, 757);
-            this.inventButtonLabel.Name = "inventButtonLabel";
-            this.inventButtonLabel.Size = new System.Drawing.Size(241, 37);
-            this.inventButtonLabel.TabIndex = 43;
-            this.inventButtonLabel.Text = "Select by Name";
-            // 
-            // salesQTYLabel
-            // 
-            this.salesQTYLabel.AutoSize = true;
-            this.salesQTYLabel.BackColor = System.Drawing.Color.Transparent;
-            this.salesQTYLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesQTYLabel.ForeColor = System.Drawing.Color.Black;
-            this.salesQTYLabel.Location = new System.Drawing.Point(1727, 834);
-            this.salesQTYLabel.Name = "salesQTYLabel";
-            this.salesQTYLabel.Size = new System.Drawing.Size(35, 37);
-            this.salesQTYLabel.TabIndex = 44;
-            this.salesQTYLabel.Text = "0";
             // 
             // MainView
             // 
